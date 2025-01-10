@@ -83,6 +83,33 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+.home-page {
+  background: #141518;
+  height: 100%;
+  margin: 0;
+}
+
+.home-page .main-title {
+  position: relative;
+}
+
+.home-page .main-title h1 {
+  font-size: 1em;
+  font-family: "Cabin", serif;
+  color: white;
+  text-align: center;
+  margin: 50vh auto 0;
+  transform: translateY(-50%);
+}
+
+@media screen and (min-width: 700px) {
+  .home-page .main-title h1 {
+    font-size: 5em;
+  }
+}
+
+
+
 
 /* ==========================================================================
    Helper classes
