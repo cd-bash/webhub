@@ -1,8 +1,8 @@
-﻿function BuildView() {
+﻿export function BuildView() {
   const view = document.createElement("main");
   const mainVisuals = DrawVisuals();
   const mainTitle = BuildMainTitle("bonjour, hi");
-  const infoBlurb = BuildInfoBlurb("img/common/cd_icon_green.png", "Creative Dev", "CD-BASH");
+  const infoBlurb = BuildInfoBlurb("../public/img/common/cd_icon_green.png", "Creative Dev", "CD-BASH");
 
   for (let i = 0; i < mainVisuals.length; i++) {
     view.appendChild(mainVisuals[i]);
@@ -10,6 +10,9 @@
 
   view.appendChild(mainTitle);
   view.appendChild(infoBlurb);
+
+
+  return view
 }
 
 
@@ -51,6 +54,8 @@ function BuildInfoBlurb(imgPath: string, positionText: string, nameText: string)
 
   blurb.appendChild(positionTitle);
   blurb.appendChild(name);
+
+  box.appendChild(icon);
   box.appendChild(blurb);
 
   return box;
