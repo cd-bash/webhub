@@ -1,6 +1,6 @@
-import '../public/styles/style.css'
-import { BuildView } from "./views/home.ts";
-import { VerticalNav } from "./views/vertical-nav";
+import './styles/style.css'
+import { BuildView } from "./views/home.ts"
+import { VerticalNav } from "./components/vertical-nav"
 
 function init() {
     document.querySelector<HTMLBodyElement>('.home-page')!.appendChild(BuildView());
