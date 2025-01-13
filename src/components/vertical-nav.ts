@@ -6,6 +6,10 @@ import instagramIcon from '../assets/icons/instagram-icon.svg'
 
 
 let menuTitle: string = "CD-BASH";
+
+let githubProfile: string = "https://github.com/CD-BASH"
+let linkedinProfile: string = "https://www.linkedin.com/in/charlesdouc/"
+let instagramProfile: string = "https://www.instagram.com/charlesdouc/"
 let footerCopyrights: string = "© 2025 Charles Doucet - All Rights Reserved";
 
 
@@ -19,7 +23,7 @@ export function VerticalNav() {
     return menuBox;
 }
 
-// -------------------------------------------------------------------
+// ----------------------------------------------------------------------
 
 const navHeader = `
     <div class="header">
@@ -34,9 +38,9 @@ const navHeader = `
 const navFooter = `
     <div class="nav-footer">
         <ul class="socials">
-            <li><object data="${githubIcon}" type="image/svg+xml"></object></li>
-            <li><svg src="${linkedIcon}"/></li>
-            <li><svg src="${instagramIcon}"/></li>
+            <li><a href="${githubProfile}" target="_blank"><img src="${githubIcon}"/></a></li>
+            <li><a href="${linkedinProfile}" target="_blank"><img src="${linkedIcon}"/></a></li>
+            <li><a href="${instagramProfile}" target="_blank"><img src="${instagramIcon}"/></a></li>
         </ul>
         <p class="copyrights">${footerCopyrights}</p>
     </div>

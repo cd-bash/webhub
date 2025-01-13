@@ -43,9 +43,26 @@
         font-family: "Cabin", sans-serif;
     }
 
+    .socials  {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
 
-    .socials {
-        visibility: hidden;
+    .socials li {
+        display: inline-block;
+        width: 17px;
+        margin: 0 5px;
+    }
+
+    .socials li:hover {
+        opacity: 0.5;
+    }
+
+    .socials img {
+        color: white;
+        z-index: 500;
+
     }
 
     .copyrights {

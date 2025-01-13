@@ -1,19 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="15px" height="15px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>linkedin [#161]</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-
-</defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Dribbble-Light-Preview" transform="translate(-180.000000, -7479.000000)" fill="#000000">
-            <g id="icons" transform="translate(56.000000, 160.000000)">
-                <path d="M144,7339 L140,7339 L140,7332.001 C140,7330.081 139.153,7329.01 137.634,7329.01 C135.981,7329.01 135,7330.126 135,7332.001 L135,7339 L131,7339 L131,7326 L135,7326 L135,7327.462 C135,7327.462 136.255,7325.26 139.083,7325.26 C141.912,7325.26 144,7326.986 144,7330.558 L144,7339 L144,7339 Z M126.442,7323.921 C125.093,7323.921 124,7322.819 124,7321.46 C124,7320.102 125.093,7319 126.442,7319 C127.79,7319 128.883,7320.102 128.883,7321.46 C128.884,7322.819 127.79,7323.921 126.442,7323.921 L126.442,7323.921 Z M124,7339 L129,7339 L129,7326 L124,7326 L124,7339 Z" id="linkedin-[#161]">
-
-</path>
-            </g>
-        </g>
+<svg width="100%" height="100%" viewBox="0 0 150 150" fill="white" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1.78571,0,0,1.78571,-14.2857,-14.2857)">
+        <path d="M82,8L18,8C12.48,8 8,12.48 8,18L8,82C8,87.52 12.48,92 18,92L82,92C87.52,92 92,87.52 92,82L92,18C92,12.48 87.52,8 82,8ZM34,40L34,78L22,78L22,40L34,40ZM22,28.94C22,26.14 24.4,24 28,24C31.6,24 33.86,26.14 34,28.94C34,31.74 31.76,34 28,34C24.4,34 22,31.74 22,28.94ZM78,78L66,78L66,58C66,54 64,50 59,49.92L58.84,49.92C54,49.92 52,54.04 52,58L52,78L40,78L40,40L52,40L52,45.12C52,45.12 55.86,40 63.62,40C71.56,40 78,45.46 78,56.52L78,78Z"
+              style="fill-rule:nonzero;"/>
     </g>
 </svg>
