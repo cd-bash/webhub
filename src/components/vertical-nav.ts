@@ -18,6 +18,7 @@ export function VerticalNav() {
     menuBox.id = "vertical-nav";
 
     menuBox.innerHTML += navHeader;
+    menuBox.appendChild(testButtons());
     menuBox.innerHTML += navFooter;
 
     return menuBox;
@@ -34,6 +35,24 @@ const navHeader = `
         </div>
     </div>
 `
+
+function testButtons() {
+    const buttonContainer = document.createElement("div");
+    buttonContainer.className = "button-container";
+
+    const buttonA  = document.createElement("button");
+    const buttonB = document.createElement("button");
+
+    buttonA.className = "button";
+    buttonA.textContent = "Button A";
+    buttonB.className = "button";
+    buttonB.textContent = "Button B";
+
+    buttonContainer.appendChild(buttonA);
+    buttonContainer.appendChild(buttonB);
+
+    return buttonContainer;
+}
 
 const navFooter = `
     <div class="nav-footer">
