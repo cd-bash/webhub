@@ -1,4 +1,4 @@
-﻿import '../styles/utils.css'
+﻿import './utils.css'
 
 export function createContentPage() {
     const page = document.createElement('div');
@@ -10,6 +10,8 @@ export function createContentPage() {
     return [page, wrapper];
 }
 
+
+// region TextBuilders
 export function writeTitle(importance: string,text: string) {
     const title = document.createElement(importance);
     title.textContent = text;
@@ -23,7 +25,10 @@ export function writeParagraph(text: string) {
 
     return paragraph;
 }
+// endregion
 
+
+// region VisualBuilders
 export function createVideoShowcase(assetLinks: string[]) {
     const video = document.createElement("video");
     video.className = "video-showcase";
@@ -50,3 +55,4 @@ export function createContentGallery(assetLinks: string[]) {
 
     return gallery;
 }
+// endregion

@@ -2,7 +2,7 @@
 type EventKey<T extends EventMap> = keyof T;
 type EventHandler<T> = (value: T) => void;
 
-class EventBus<T extends EventMap> {
+export class EventBus<T extends EventMap> {
     private subscribers: Partial<Record<keyof T, EventHandler<any>[]>> = {};
 
     subscribe<E extends EventKey<T>>(event: E, handler: EventHandler<T[E]>): void {

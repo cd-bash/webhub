@@ -1,16 +1,16 @@
-import '../styles/vertical-nav.css'
+import './vertical-nav.css'
 import cdIcon from "/img/common/cd_icon_green.png"
-import githubIcon from '../assets/icons/github-icon.svg'
-import linkedIcon from '../assets/icons/linkedin-icon.svg'
-import instagramIcon from '../assets/icons/instagram-icon.svg'
+import githubIcon from './assets/github-icon.svg'
+import linkedIcon from './assets/linkedin-icon.svg'
+import instagramIcon from './assets/instagram-icon.svg'
 
 
-let menuTitle: string = "CD-BASH";
+const menuTitle: string = "CD-BASH";
 
-let githubProfile: string = "https://github.com/CD-BASH"
-let linkedinProfile: string = "https://www.linkedin.com/in/charlesdouc/"
-let instagramProfile: string = "https://www.instagram.com/charlesdouc/"
-let footerCopyrights: string = "© 2025 Charles Doucet - All Rights Reserved";
+const githubProfile: string = "https://github.com/CD-BASH"
+const linkedinProfile: string = "https://www.linkedin.com/in/charlesdouc/"
+const instagramProfile: string = "https://www.instagram.com/charlesdouc/"
+const footerCopyrights: string = "© 2025 Charles Doucet - All Rights Reserved";
 
 
 export function VerticalNav() {
