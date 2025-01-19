@@ -12,10 +12,9 @@ export type ProjectContent = {
     readonly tagline: string;
     readonly path: string;
 
-    readonly paragraphs: string[];
-
-    readonly heroVideo: string[];
-    readonly imageGallery: string[];
+    readonly paragraphs: ReadonlyArray<string>;
+    readonly heroVideo: ReadonlyArray<string>;
+    readonly imageGallery: ReadonlyArray<string>;
 }
 
 

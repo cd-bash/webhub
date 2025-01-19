@@ -1,4 +1,4 @@
-import './vertical-nav.css'
+import './styles.css'
 import cdIcon from "/img/common/cd_icon_green.png"
 import githubIcon from './assets/github-icon.svg'
 import linkedIcon from './assets/linkedin-icon.svg'

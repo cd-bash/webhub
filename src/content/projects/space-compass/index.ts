@@ -1,8 +1,8 @@
 ﻿import {renderProjectPage} from "../../../views/project-view";
 import {ProjectContent} from "../../../views/project-view/project-view";
 
-import MP4_VIDEO from "./assets/spaceCompass-showcase.mp4";
 import WEBM_VIDEO from "./assets/spaceCompass-showcase.webm";
+import MP4_VIDEO from "./assets/spaceCompass-showcase.mp4";
 
 import SCREENSHOT_1 from "./assets/spaceCompass-screenshot-1.jpg"
 import SCREENSHOT_2 from "./assets/spaceCompass-screenshot-2.jpg"

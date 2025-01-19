@@ -1,5 +1,5 @@
-import './styles/style.css'
-import { ProjectPage } from "./content/projects/space-compass";
+import './views/home-view/styles.css'
+import { ProjectPage } from "./content/projects/tank";
 import { VerticalNav } from "./components/vertical-nav/vertical-nav";
 
 function init() {
