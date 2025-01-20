@@ -1,34 +1,9 @@
-﻿import './styles.css'
+﻿/*
+ VISUAL-UTILITIES
+ Are functions used to create visual elements like pictures and videos.
+ They are mainly used in content templates.
+ */
 
-export function createContentPage() {
-    const page = document.createElement('div');
-    const wrapper = document.createElement('div');
-    page.id = 'content-page';
-    wrapper.id = 'wrapper';
-
-    page.appendChild(wrapper);
-    return [page, wrapper];
-}
-
-
-// region TextBuilders
-export function writeTitle(importance: string,text: string) {
-    const title = document.createElement(importance);
-    title.textContent = text;
-
-    return title;
-}
-
-export function writeParagraph(text: string) {
-    const paragraph = document.createElement("p");
-    paragraph.textContent = text;
-
-    return paragraph;
-}
-// endregion
-
-
-// region VisualBuilders
 export function createVideoShowcase(assetLinks: ReadonlyArray<string>) {
     const video = document.createElement("video");
     video.className = "video-showcase";
@@ -55,4 +30,3 @@ export function createContentGallery(assetLinks: ReadonlyArray<string>) {
 
     return gallery;
 }
-// endregion

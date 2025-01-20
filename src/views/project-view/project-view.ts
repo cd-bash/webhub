@@ -4,7 +4,7 @@
     createVideoShowcase,
     writeParagraph,
     createContentGallery
-} from "../utils/utils"
+} from "../utils"
 
 
 export type ProjectContent = {
