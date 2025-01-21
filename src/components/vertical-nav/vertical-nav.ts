@@ -18,21 +18,32 @@ const footerCopyrights: string = "© 2025 Charles Doucet - All Rights Reserved";
 const EVENT_BUS = new EventBus<Events>();
 EVENT_BUS.subscribe('button_test', handlers.button_test);
 
+type SocialLink = [
+    socialName: string,
+    path: string,
+    image: string,
+]
+
+const FOO_SOCIALS = [
+    ["Github", githubProfile, githubIcon],
+    ["LinkedIn", linkedinProfile, linkedIcon],
+    ["Instagram", instagramProfile, instagramIcon]
+]
 
 export function VerticalNav() {
     const menuBox = document.createElement("div");
     menuBox.id = "vertical-nav";
 
-    menuBox.appendChild(navHeaderBlock());
+    menuBox.appendChild(navHeader());
     menuBox.appendChild(testButtons());
-    //menuBox.innerHTML += navFooter;
+    menuBox.appendChild(navFooter());
 
     return menuBox;
 }
 
 // ----------------------------------------------------------------------
 
-function navHeaderBlock() {
+function navHeader() {
     const headerContainer = document.createElement("div");
     const topTriangle = document.createElement("div");
     const info = document.createElement("div");
@@ -82,16 +93,36 @@ function testButtons() {
 }
 
 
-const navFooter = `
-    <div class="nav-footer">
-        <ul class="socials">
-            <li><a href="${githubProfile}" target="_blank"><img src="${githubIcon}"/></a></li>
-            <li><a href="${linkedinProfile}" target="_blank"><img src="${linkedIcon}"/></a></li>
-            <li><a href="${instagramProfile}" target="_blank"><img src="${instagramIcon}"/></a></li>
-        </ul>
-        <p class="copyrights">${footerCopyrights}</p>
-    </div>
-`
+function navFooter() {
+    const footerContainer = document.createElement("div");
+    const socials = document.createElement("ul");
+    const copyrights = document.createElement("p");
 
+    footerContainer.className = "nav-footer";
+    socials.className = "socials";
+    copyrights.className = "copyrights";
+    copyrights.textContent = footerCopyrights;
+
+    footerContainer.appendChild(socials);
+    footerContainer.appendChild(copyrights);
+
+    FOO_SOCIALS.forEach(social => {
+        const [name, path, image] = social;
+        const socialLink = document.createElement("li");
+        const link = document.createElement("a");
+        const icon = document.createElement("img");
+
+        link.href = path;
+        link.target = "_blank";
+        icon.src = image;
+
+        socials.appendChild(socialLink);
+        socialLink.appendChild(link);
+        link.appendChild(icon);
+    })
+
+    return footerContainer;
+
+}
 
 
