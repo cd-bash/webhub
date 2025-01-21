@@ -1,6 +1,5 @@
 ﻿export type Events = {
-    readonly nav_event: {
+    readonly button_test: {
         readonly path: string;
-        readonly name: number
     };
 };
