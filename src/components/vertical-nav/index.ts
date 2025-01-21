@@ -1,1 +1,2 @@
-﻿export * from "./vertical-nav"
+﻿import './styles.css';
+export * from "./vertical-nav";

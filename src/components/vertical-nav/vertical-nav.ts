@@ -1,34 +1,14 @@
 import './styles.css'
 import cdIcon from "/img/common/cd_icon_green.png"
-import githubIcon from './assets/github-icon.svg'
-import linkedIcon from './assets/linkedin-icon.svg'
-import instagramIcon from './assets/instagram-icon.svg'
+
 import {EventBus} from "../../event-bus";
 import {Events} from "../../consts/events";
 import {handlers} from "../../consts/handlers";
 
-const menuTitle: string = "CD-BASH";
-
-const githubProfile: string = "https://github.com/CD-BASH"
-const linkedinProfile: string = "https://www.linkedin.com/in/charlesdouc/"
-const instagramProfile: string = "https://www.instagram.com/charlesdouc/"
-const footerCopyrights: string = "© 2025 Charles Doucet - All Rights Reserved";
-
-
 const EVENT_BUS = new EventBus<Events>();
 EVENT_BUS.subscribe('button_test', handlers.button_test);
 
-type SocialLink = [
-    socialName: string,
-    path: string,
-    image: string,
-]
 
-const FOO_SOCIALS = [
-    ["Github", githubProfile, githubIcon],
-    ["LinkedIn", linkedinProfile, linkedIcon],
-    ["Instagram", instagramProfile, instagramIcon]
-]
 
 export function VerticalNav() {
     const menuBox = document.createElement("div");
@@ -90,39 +70,6 @@ function testButtons() {
     buttonContainer.appendChild(buttonB);
 
     return buttonContainer;
-}
-
-
-function navFooter() {
-    const footerContainer = document.createElement("div");
-    const socials = document.createElement("ul");
-    const copyrights = document.createElement("p");
-
-    footerContainer.className = "nav-footer";
-    socials.className = "socials";
-    copyrights.className = "copyrights";
-    copyrights.textContent = footerCopyrights;
-
-    footerContainer.appendChild(socials);
-    footerContainer.appendChild(copyrights);
-
-    FOO_SOCIALS.forEach(social => {
-        const [name, path, image] = social;
-        const socialLink = document.createElement("li");
-        const link = document.createElement("a");
-        const icon = document.createElement("img");
-
-        link.href = path;
-        link.target = "_blank";
-        icon.src = image;
-
-        socials.appendChild(socialLink);
-        socialLink.appendChild(link);
-        link.appendChild(icon);
-    })
-
-    return footerContainer;
-
 }
 
 
