@@ -13,3 +13,13 @@ export function createContentPage() {
     page.appendChild(wrapper);
     return [page, wrapper];
 }
+
+function clearWrapper() {
+    const cleanWrapper = document.getElementById('wrapper');
+    cleanWrapper?.childNodes.forEach((childNode) => {
+        cleanWrapper.removeChild(childNode);
+    });
+
+    return cleanWrapper;
+}
+
