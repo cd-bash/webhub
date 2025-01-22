@@ -2,25 +2,23 @@
 import linkedIcon from "./assets/linkedin-icon.svg";
 import instagramIcon from "./assets/instagram-icon.svg";
 
-const menuTitle: string = "CD-BASH";
-
 const githubProfile: string = "https://github.com/CD-BASH"
 const linkedinProfile: string = "https://www.linkedin.com/in/charlesdouc/"
 const instagramProfile: string = "https://www.instagram.com/charlesdouc/"
 const footerCopyrights: string = "© 2025 Charles Doucet - All Rights Reserved";
 
 type SocialLink = [
-    socialName: string,
     path: string,
     image: string,
 ]
 
-const FOO_SOCIALS = [
-    ["Github", githubProfile, githubIcon],
-    ["LinkedIn", linkedinProfile, linkedIcon],
-    ["Instagram", instagramProfile, instagramIcon]
+const FOO_SOCIALS: SocialLink[] = [
+    [githubProfile, githubIcon],
+    [linkedinProfile, linkedIcon],
+    [instagramProfile, instagramIcon]
 ]
 
+//-----------------------------------------------------------------------
 
 export function footerNav() {
     const footerContainer = document.createElement("div");
@@ -36,7 +34,7 @@ export function footerNav() {
     footerContainer.appendChild(copyrights);
 
     FOO_SOCIALS.forEach(social => {
-        const [name, path, image] = social;
+        const [path, image] = social;
         const socialLink = document.createElement("li");
         const link = document.createElement("a");
         const icon = document.createElement("img");

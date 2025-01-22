@@ -7,6 +7,11 @@
     background-color: #080808;
     box-shadow: 0px 0px 0px 16px rgba(8,8,8,0.5), 0px 0px 0px 8px rgba(8,8,8,0.5);
 
+    .nav-wrapper {
+        width: 230px;
+        margin: 0 auto;
+    }
+
     .top-triangle {
         position: relative;
         width: 100%;
@@ -78,6 +83,55 @@
         width: 100%;
         height: 50px;
         color: black;
+    }
+
+    .breadcrumbs-nav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .breadcrumbs-nav h3 {
+        font-family: "Cabin", sans-serif;
+        color: #a1a1a1;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 15px 0 5px 0;
+        padding: 0;
+    }
+
+    .breadcrumbs-nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .breadcrumbs-nav li {
+        display: inline-block;
+        margin: 0 5px;
+        line-height: 210%;
+        color: white;
+        font-family: "handjet", serif;
+    }
+
+    .breadcrumbs-nav li a {
+        font-family: "handjet", serif;
+        font-weight: 700;
+        text-decoration: none;
+        color: black;
+        padding: 4px 6px;
+        margin-right: 5px;
+
+    }
+
+    .breadcrumbs-nav li:last-child {
+        a {
+            color: white;
+        }
+        span {
+            display: none;
+        }
+
     }
 
 }
