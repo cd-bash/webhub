@@ -4,15 +4,22 @@
  They are mostly used when building templates.
  */
 
-export function createContentPage() {
+export function createContentBase() {
     const page = document.createElement('div');
     const wrapper = document.createElement('div');
     page.id = 'content-page';
     wrapper.id = 'wrapper';
 
     page.appendChild(wrapper);
-    return [page, wrapper];
 }
+
+export function renderContent(contentFn: Function) {
+    const wrapper = clearWrapper();
+    const content = contentFn();
+
+    wrapper?.appendChild(content);
+}
+
 
 function clearWrapper() {
     const cleanWrapper = document.getElementById('wrapper');

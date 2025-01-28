@@ -1,5 +1,4 @@
 ﻿import {
-    createContentPage,
     writeTitle,
     createVideoShowcase,
     writeParagraph,
@@ -19,22 +18,22 @@ export type ProjectContent = {
 
 
 export function renderProjectPage(content: ProjectContent) {
-    const projectPage = createContentPage()
+    const wrapper = document.getElementById('wrapper');
     const projectTitle = writeTitle("h1", content.name);
     const projectShowcase = createVideoShowcase(content.heroVideo);
     const projectSubtitle = writeTitle("h2", content.tagline)
 
-    projectPage[1].appendChild(projectTitle);
-    projectPage[1].appendChild(projectShowcase);
-    projectPage[1].appendChild(projectSubtitle);
+    wrapper?.appendChild(projectTitle);
+    wrapper?.appendChild(projectShowcase);
+    wrapper?.appendChild(projectSubtitle);
 
     content.paragraphs.forEach(paragraph => {
         const text = writeParagraph(paragraph);
-        projectPage[1].appendChild(text);
+        wrapper?.appendChild(text);
     })
 
     const projectGallery = createContentGallery(content.imageGallery);
-    projectPage[1].appendChild(projectGallery);
+    wrapper?.appendChild(projectGallery);
 
-    return projectPage[0];
+    return wrapper;
 }
