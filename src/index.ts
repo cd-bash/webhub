@@ -1,16 +1,15 @@
 import './views/home-view/styles.css';
 import { ProjectPage } from "./content/projects/tank";
-import { VerticalNav } from "./components/vertical-nav";
+import { verticalNav } from "./components/vertical-nav";
 import {createContentBase, renderContent} from "./views/utils";
 
 
 function init() {
-    createContentBase();
+    const body = document.getElementsByTagName("body")[0];
+    const contentPage = createContentBase();
 
-    const contentPage = document.getElementById('content-page')
-    const verticalNav = VerticalNav();
-
-    contentPage?.appendChild(verticalNav);
+    body.appendChild(contentPage);
+    contentPage.appendChild(verticalNav());
 
     renderContent(ProjectPage);
 }

@@ -11,6 +11,7 @@ export function createContentBase() {
     wrapper.id = 'wrapper';
 
     page.appendChild(wrapper);
+    return page;
 }
 
 export function renderContent(contentFn: Function) {

@@ -2,13 +2,14 @@
 import {headerNav} from "./header-nav.ts";
 import {footerNav} from "./footer-nav.ts";
 import {trackBreadcrumbs} from "./breadcrumbs-nav.ts";
+import {renderInfo} from "./info-nav.ts";
 export * from "./header-nav.ts";
 export * from "./breadcrumbs-nav.ts";
 export * from "./footer-nav.ts";
 
 //-----------------------------------------------------------------------
 
-export function VerticalNav() {
+export function verticalNav() {
     const navBox = document.createElement("div");
     const navWrapper = document.createElement("div");
 
@@ -19,6 +20,7 @@ export function VerticalNav() {
     navBox.appendChild(headerNav());
     navBox.appendChild(navWrapper);
     navWrapper.appendChild(trackBreadcrumbs());
+    navWrapper.appendChild(renderInfo());
     navBox.appendChild(footerNav());
 
     return navBox;
