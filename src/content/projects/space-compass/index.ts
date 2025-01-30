@@ -1,5 +1,6 @@
 ﻿import {projectView} from "../../../views/project-view";
 import {ProjectContent} from "../../../views/project-view";
+import {AboutProject, projectInfo, RelatedLinks} from "../../../components/vertical-nav/project-nav.ts";
 
 import WEBM_VIDEO from "./assets/spaceCompass-showcase.webm";
 import MP4_VIDEO from "./assets/spaceCompass-showcase.mp4";
@@ -9,10 +10,11 @@ import SCREENSHOT_2 from "./assets/spaceCompass-screenshot-2.jpg"
 import SCREENSHOT_3 from "./assets/spaceCompass-screenshot-3.jpg"
 import SCREENSHOT_4 from "./assets/spaceCompass-screenshot-4.jpg"
 
+
 const content: ProjectContent = {
     name: "Space Compass",
     tagline: "A 360 Odyssey",
-    path: "www.charlesdouce.com/interactives/",
+    path: "www.charlesdoucet.com/interactive/",
 
     paragraphs: [
         "The core goal in the making of Space Compass was to end up with a playable game in short delays. A bit like a personal game jam! The game is a space shooter, where players’ movement is limited around a circle’s circumference. Player needs to dodge or destroy several asteroids, as well as some structures in the way.",
@@ -32,6 +34,23 @@ const content: ProjectContent = {
     ]
 }
 
-export function ProjectPage() {
+const aboutInfo: AboutProject = {
+    release: "March 20, 2020",
+    platforms: "Web, Windows, Mac",
+    developer: "Charles Doucet"
+}
+
+const relatedLinksInfo: RelatedLinks[] = [
+    ["Process Journal", "https://github.com/charlesDouc/CART-415/wiki"],
+    ["GitHub Project", "https://github.com/charlesDouc/CART-415/wiki"]
+]
+
+//-----------------------------------------------------------------------
+
+export function SpaceCompassView() {
     return projectView(content);
+}
+
+export function SpaceCompassInfo() {
+    return projectInfo(aboutInfo, relatedLinksInfo);
 }
