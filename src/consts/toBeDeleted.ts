@@ -1,8 +1,8 @@
-import './styles.css'
+import '../components/vertical-nav/styles.css'
 
-import {EventBus} from "../../event-bus";
-import {Events} from "../../consts/events";
-import {handlers} from "../../consts/handlers";
+import {EventBus} from "../event-bus";
+import {Events} from "./events";
+import {handlers} from "./handlers";
 
 const EVENT_BUS = new EventBus<Events>();
 EVENT_BUS.subscribe('button_test', handlers.button_test);

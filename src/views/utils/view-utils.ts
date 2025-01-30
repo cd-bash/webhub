@@ -4,30 +4,32 @@
  They are mostly used when building templates.
  */
 
-export function createContentBase() {
-    const page = document.createElement('div');
-    const wrapper = document.createElement('div');
-    page.id = 'content-page';
-    wrapper.id = 'wrapper';
+export function buildViewBase() {
+    const viewBox = document.createElement('div');
+    const viewWrapper = document.createElement('div');
+    viewBox.id = 'view-box';
+    viewWrapper.id = 'view-wrapper';
 
-    page.appendChild(wrapper);
-    return page;
+    viewBox.appendChild(viewWrapper);
+    return viewBox;
 }
 
-export function renderContent(contentFn: Function) {
-    const wrapper = clearWrapper();
-    const content = contentFn();
+export function renderView(viewFn: Function) {
+    const viewWrapper = clearView();
+    const view = viewFn();
 
-    wrapper?.appendChild(content);
+    console.log(typeof view);
+
+    viewWrapper.appendChild(view);
 }
 
 
-function clearWrapper() {
-    const cleanWrapper = document.getElementById('wrapper');
-    cleanWrapper?.childNodes.forEach((childNode) => {
-        cleanWrapper.removeChild(childNode);
+function clearView() {
+    const cleanViewWrapper = document.getElementById('view-wrapper')!;
+    cleanViewWrapper?.childNodes.forEach((childNode) => {
+        cleanViewWrapper.removeChild(childNode);
     });
 
-    return cleanWrapper;
+    return cleanViewWrapper;
 }
 

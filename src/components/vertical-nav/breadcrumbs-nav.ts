@@ -1,6 +1,6 @@
 ﻿enum LinkCategory {
     HOME = "#3BFFC5",
-    INTERACTIVES = "#3B62FF",
+    INTERACTIVE = "#3B62FF",
     PROJECT = "#1E1E1E",
 }
 
@@ -12,7 +12,7 @@ type BreadcrumbLink = [
 
 const CURRENT_TRACK: BreadcrumbLink[] = [
     ["home", "/", LinkCategory.HOME],
-    ["interactives", "/interactives", LinkCategory.INTERACTIVES],
+    ["interactive", "/interactive", LinkCategory.INTERACTIVE],
     ["space compass", "/space-compass", LinkCategory.PROJECT],
 ]
 

@@ -1,4 +1,4 @@
-﻿import {renderProjectPage} from "../../../views/project-view";
+﻿import {projectView} from "../../../views/project-view";
 import {ProjectContent} from "../../../views/project-view";
 
 import WEBM_VIDEO from "./assets/spaceCompass-showcase.webm";
@@ -33,5 +33,5 @@ const content: ProjectContent = {
 }
 
 export function ProjectPage() {
-    return renderProjectPage(content);
+    return projectView(content);
 }

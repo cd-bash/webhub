@@ -1,17 +1,20 @@
 import './views/home-view/styles.css';
-import { ProjectPage } from "./content/projects/tank";
-import { verticalNav } from "./components/vertical-nav";
-import {createContentBase, renderContent} from "./views/utils";
+import {TankInfo, TankView} from "./content/projects/tank";
+import {buildVerticalNav, renderNavInfo} from "./components/vertical-nav";
+import {buildViewBase, renderView} from "./views/utils";
 
 
 function init() {
     const body = document.getElementsByTagName("body")[0];
-    const contentPage = createContentBase();
+    const contentPage = buildViewBase();
+    const verticalNav = buildVerticalNav();
 
     body.appendChild(contentPage);
-    contentPage.appendChild(verticalNav());
+    contentPage.appendChild(verticalNav);
 
-    renderContent(ProjectPage);
+
+    renderView(TankView);
+    renderNavInfo(TankInfo);
 }
 
 init();

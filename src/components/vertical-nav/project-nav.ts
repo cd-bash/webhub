@@ -1,30 +1,34 @@
-﻿export type AboutProject = [
-    release: string,
-    platforms: string,
-    developer: string
-]
+﻿export type AboutProject = {
+    readonly release: string;
+    readonly platforms: string;
+    readonly developer: string;
+}
 
 export type RelatedLinks = [
     name: string,
     path: string,
 ]
 
-export function projectInfo(about: AboutProject, links: RelatedLinks[]) {
-    const info = document.createElement("div");
+//-----------------------------------------------------------------------
 
-    if (about != null) {
-        info.appendChild(sectionAboutTheGame(about));
+export function projectInfo(about: AboutProject, links: RelatedLinks[]) {
+    const navWrapper = document.getElementById('nav-wrapper');
+
+    if (about != null && navWrapper != null) {
+        navWrapper?.appendChild(sectionAboutTheGame(about));
+
     }
 
     if (links != null) {
-        info.appendChild(sectionRelatedLinks(links));
+        navWrapper?.appendChild(sectionRelatedLinks(links));
     }
+
+    return navWrapper;
 }
 
+//-----------------------------------------------------------------------
 
 function sectionAboutTheGame(about: AboutProject) {
-    const [release, platforms, developer] = about;
-
     const detailSection = document.createElement('div');
     const detailTitle = document.createElement("h4");
     const releaseDate = document.createElement("p");
@@ -33,9 +37,9 @@ function sectionAboutTheGame(about: AboutProject) {
 
     detailSection.className = "detail-section";
     detailTitle.textContent = "About the Project"
-    releaseDate.textContent = "<b>Release date: </b>" + release;
-    platformAvailable.textContent = "<b>Platforms: </b" + platforms;
-    developerNames.textContent = "<b>Developer: </b>" + developer;
+    releaseDate.textContent = "<b>Release date: </b>" + about.release;
+    platformAvailable.textContent = "<b>Platforms: </b" + about.platforms;
+    developerNames.textContent = "<b>Developer: </b>" + about.developer;
 
     detailSection.appendChild(detailTitle);
     detailSection.appendChild(releaseDate);
