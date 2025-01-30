@@ -13,17 +13,19 @@ export type RelatedLinks = [
 
 export function projectInfo(about: AboutProject, links: RelatedLinks[]) {
     const navWrapper = document.getElementById('nav-wrapper');
+    const section = document.createElement('section');
 
-    if (about != null && navWrapper != null) {
-        navWrapper?.appendChild(sectionAboutTheGame(about));
+    navWrapper?.appendChild(section);
 
+    if (typeof about === "object" && typeof links === "object") {
+        section.appendChild(sectionAboutTheGame(about));
+        section.appendChild(sectionRelatedLinks(links));
+    }
+    else {
+        throw new Error("Infos are not well formatted")
     }
 
-    if (links != null) {
-        navWrapper?.appendChild(sectionRelatedLinks(links));
-    }
-
-    return navWrapper;
+    return section;
 }
 
 //-----------------------------------------------------------------------
@@ -37,9 +39,9 @@ function sectionAboutTheGame(about: AboutProject) {
 
     detailSection.className = "detail-section";
     detailTitle.textContent = "About the Project"
-    releaseDate.textContent = "<b>Release date: </b>" + about.release;
-    platformAvailable.textContent = "<b>Platforms: </b" + about.platforms;
-    developerNames.textContent = "<b>Developer: </b>" + about.developer;
+    releaseDate.innerHTML = "<b>Release date: </b>" + about.release;
+    platformAvailable.innerHTML = "<b>Platforms: </b" + about.platforms;
+    developerNames.innerHTML = "<b>Developer: </b>" + about.developer;
 
     detailSection.appendChild(detailTitle);
     detailSection.appendChild(releaseDate);
@@ -52,9 +54,13 @@ function sectionAboutTheGame(about: AboutProject) {
 
 function sectionRelatedLinks(relatedLinks: RelatedLinks[]) {
     const detailSection = document.createElement('div');
+    const detailTitle = document.createElement("h4");
     const linkList = document.createElement('ul');
 
     detailSection.className = "detail-section";
+    detailTitle.textContent = "Related Links";
+
+    detailSection.appendChild(detailTitle);
     detailSection.appendChild(linkList);
 
     relatedLinks.forEach(relatedLink => {

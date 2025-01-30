@@ -18,8 +18,6 @@ export function renderView(viewFn: Function) {
     const viewWrapper = clearView();
     const view = viewFn();
 
-    console.log(typeof view);
-
     viewWrapper.appendChild(view);
 }
 
