@@ -9,6 +9,8 @@ import SCREENSHOT_1 from "./assets/spaceCompass-screenshot-1.jpg"
 import SCREENSHOT_2 from "./assets/spaceCompass-screenshot-2.jpg"
 import SCREENSHOT_3 from "./assets/spaceCompass-screenshot-3.jpg"
 import SCREENSHOT_4 from "./assets/spaceCompass-screenshot-4.jpg"
+import {renderNavInfo} from "../../../components/vertical-nav";
+import {renderView} from "../../../views/utils";
 
 
 const content: ProjectContent = {
@@ -48,9 +50,11 @@ const relatedLinksInfo: RelatedLinks[] = [
 //-----------------------------------------------------------------------
 
 export function SpaceCompassView() {
-    return projectView(content);
+    const viewContent = projectView(content);
+    return renderView(viewContent);
 }
 
 export function SpaceCompassInfo() {
-    return projectInfo(aboutInfo, relatedLinksInfo);
+    const navInfo = projectInfo(aboutInfo, relatedLinksInfo);
+    return renderNavInfo(navInfo);
 }

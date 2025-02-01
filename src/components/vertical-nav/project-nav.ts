@@ -40,7 +40,7 @@ function sectionAboutTheGame(about: AboutProject) {
     detailSection.className = "detail-section";
     detailTitle.textContent = "About the Project"
     releaseDate.innerHTML = "<b>Release date: </b>" + about.release;
-    platformAvailable.innerHTML = "<b>Platforms: </b" + about.platforms;
+    platformAvailable.innerHTML = "<b>Platforms: </b>" + about.platforms;
     developerNames.innerHTML = "<b>Developer: </b>" + about.developer;
 
     detailSection.appendChild(detailTitle);

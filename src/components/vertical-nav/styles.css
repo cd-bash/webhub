@@ -134,5 +134,39 @@
 
     }
 
+    .detail-section {
+        padding: 15px 0;
+    }
+
+    .detail-section h4 {
+        font-family: "Cabin", sans-serif;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1em;
+    }
+
+    .detail-section ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .detail-section ul li {
+        font-family: "Cabin", sans-serif;
+        font-size: 0.9em;
+    }
+
+    .detail-section ul li a {
+        color: #a1a1a1;
+    }
+
+    .detail-section p  {
+        font-family: "Cabin", sans-serif;
+        color: #a1a1a1;
+        font-size: 0.9em;
+        line-height: 45%;
+    }
+
 }
 

@@ -1,7 +1,7 @@
 import './views/home-view/styles.css';
 import {TankInfo, TankView} from "./content/projects/tank";
-import {buildVerticalNav, renderNavInfo} from "./components/vertical-nav";
-import {buildViewBase, renderView} from "./views/utils";
+import {buildVerticalNav} from "./components/vertical-nav";
+import {buildViewBase} from "./views/utils";
 
 
 function init() {
@@ -13,8 +13,8 @@ function init() {
     contentPage.appendChild(verticalNav);
 
 
-    renderView(TankView);
-    renderNavInfo(TankInfo);
+    TankView();
+    TankInfo();
 }
 
 init();

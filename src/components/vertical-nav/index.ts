@@ -51,10 +51,8 @@ export function buildVerticalNav() {
     return navBox;
 }
 
-export function renderNavInfo(infoFn: Function) {
+export function renderNavInfo(info: HTMLElement) {
     const navWrapper = clearInfo();
-    const info = infoFn();
-
     navWrapper?.appendChild(info);
 }
 
@@ -121,10 +119,7 @@ function clearInfo() {
     const cleanInfo = document.getElementById('nav-wrapper');
     cleanInfo?.childNodes.forEach((childNode) => {
         cleanInfo.removeChild(childNode);
-        console.log("hi");
     });
-
-    console.log(cleanInfo);
 
     return cleanInfo;
 }

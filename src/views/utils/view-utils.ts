@@ -1,6 +1,6 @@
 ﻿/*
- VIEW-UTILITIES
- Are functions used to build the skeleton of content pages.
+ VIEW-UTILITIESed to
+ Are functions usbuild the skeleton of content pages.
  They are mostly used when building templates.
  */
 
@@ -14,10 +14,8 @@ export function buildViewBase() {
     return viewBox;
 }
 
-export function renderView(viewFn: Function) {
+export function renderView(view: HTMLElement) {
     const viewWrapper = clearView();
-    const view = viewFn();
-
     viewWrapper.appendChild(view);
 }
 

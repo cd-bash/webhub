@@ -9,12 +9,14 @@ import SCREENSHOT_1 from "./assets/tank-screenshot-1.jpg"
 import SCREENSHOT_2 from "./assets/tank-screenshot-2.jpg"
 import SCREENSHOT_3 from "./assets/tank-screenshot-3.jpg"
 import SCREENSHOT_4 from "./assets/tank-screenshot-4.jpg"
+import {renderNavInfo} from "../../../components/vertical-nav";
+import {renderView} from "../../../views/utils";
 
 
 const content: ProjectContent = {
     name: "TANK",
     tagline: "A collection of three unique iterations",
-    path: "www.charlesdoucet.com/interactives/",
+    path: "www.charlesdoucet.com/interactive/",
 
     paragraphs: [
         "TANK assemble three different games, each based on the original TANKS! game made by Unity Technologies. It’s an exploration of mechanics and the discovery of new environment. The game is experimental and has the goal to dig the player’s curiosity. Prepare yourself as you step into unknown territory, revealing the ruins of a lost civilization.",
@@ -49,9 +51,12 @@ const relatedLinksInfo: RelatedLinks[] = [
 //-----------------------------------------------------------------------
 
 export function TankView() {
-    return projectView(content);
+    const viewContent = projectView(content);
+    return renderView(viewContent);
 }
 
 export function TankInfo() {
-    return projectInfo(aboutInfo, relatedLinksInfo);
+    const navInfo = projectInfo(aboutInfo, relatedLinksInfo);
+    return renderNavInfo(navInfo);
+
 }
