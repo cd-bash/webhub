@@ -1,4 +1,6 @@
-﻿export type AboutProject = {
+﻿import {renderer} from "./project-data-cube.ts";
+
+export type AboutProject = {
     readonly release: string;
     readonly platforms: string;
     readonly developer: string;
@@ -16,6 +18,7 @@ export function projectInfo(about: AboutProject, links: RelatedLinks[]) {
     const section = document.createElement('section');
 
     navWrapper?.appendChild(section);
+    section.appendChild(renderer.domElement);
 
     if (typeof about === "object" && typeof links === "object") {
         section.appendChild(sectionAboutTheGame(about));
