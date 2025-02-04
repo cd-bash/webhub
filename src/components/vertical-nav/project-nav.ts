@@ -18,7 +18,8 @@ export function projectInfo(about: AboutProject, links: RelatedLinks[]) {
     const section = document.createElement('section');
 
     navWrapper?.appendChild(section);
-    section.appendChild(renderer.domElement);
+
+    section.appendChild(sectionData());
 
     if (typeof about === "object" && typeof links === "object") {
         section.appendChild(sectionAboutTheGame(about));
@@ -32,6 +33,19 @@ export function projectInfo(about: AboutProject, links: RelatedLinks[]) {
 }
 
 //-----------------------------------------------------------------------
+
+function sectionData() {
+    const detailSection = document.createElement("div");
+    const detailTitle = document.createElement("h4");
+
+    detailSection.className = "detail-section";
+    detailTitle.textContent = "Tech Distribution";
+
+    detailSection.appendChild(detailTitle);
+    detailSection.appendChild(renderer.domElement);
+
+    return detailSection;
+}
 
 function sectionAboutTheGame(about: AboutProject) {
     const detailSection = document.createElement('div');
