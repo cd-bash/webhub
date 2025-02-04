@@ -1,4 +1,6 @@
-﻿export type AboutProject = {
+﻿import {renderer} from "./project-data-cube.ts";
+
+export type AboutProject = {
     readonly release: string;
     readonly platforms: string;
     readonly developer: string;
@@ -17,6 +19,8 @@ export function projectInfo(about: AboutProject, links: RelatedLinks[]) {
 
     navWrapper?.appendChild(section);
 
+    section.appendChild(sectionData());
+
     if (typeof about === "object" && typeof links === "object") {
         section.appendChild(sectionAboutTheGame(about));
         section.appendChild(sectionRelatedLinks(links));
@@ -29,6 +33,19 @@ export function projectInfo(about: AboutProject, links: RelatedLinks[]) {
 }
 
 //-----------------------------------------------------------------------
+
+function sectionData() {
+    const detailSection = document.createElement("div");
+    const detailTitle = document.createElement("h4");
+
+    detailSection.className = "detail-section";
+    detailTitle.textContent = "Tech Distribution";
+
+    detailSection.appendChild(detailTitle);
+    detailSection.appendChild(renderer.domElement);
+
+    return detailSection;
+}
 
 function sectionAboutTheGame(about: AboutProject) {
     const detailSection = document.createElement('div');
