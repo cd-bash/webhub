@@ -1,6 +1,5 @@
-﻿import {projectView} from "../../../views/project-view";
-import {ProjectContent} from "../../../views/project-view";
-import {AboutProject, projectInfo, RelatedLinks} from "../../../components/vertical-nav/project-nav.ts";
+﻿import {ProjectContent} from "../../../views/project-view";
+import {AboutProject, RelatedLinks} from "../../../components/vertical-nav/project-nav.ts";
 
 import WEBM_VIDEO from "./assets/spaceCompass-showcase.webm";
 import MP4_VIDEO from "./assets/spaceCompass-showcase.mp4";
@@ -9,11 +8,9 @@ import SCREENSHOT_1 from "./assets/spaceCompass-screenshot-1.jpg"
 import SCREENSHOT_2 from "./assets/spaceCompass-screenshot-2.jpg"
 import SCREENSHOT_3 from "./assets/spaceCompass-screenshot-3.jpg"
 import SCREENSHOT_4 from "./assets/spaceCompass-screenshot-4.jpg"
-import {renderNavInfo} from "../../../components/vertical-nav";
-import {renderView} from "../../../views/utils";
 
 
-const content: ProjectContent = {
+export const content: ProjectContent = {
     name: "Space Compass",
     tagline: "A 360 Odyssey",
     path: "www.charlesdoucet.com/interactive/",
@@ -36,25 +33,13 @@ const content: ProjectContent = {
     ]
 }
 
-const aboutInfo: AboutProject = {
+export const aboutInfo: AboutProject = {
     release: "March 20, 2020",
     platforms: "Web, Windows, Mac",
     developer: "Charles Doucet"
 }
 
-const relatedLinksInfo: RelatedLinks[] = [
+export const relatedLinksInfo: RelatedLinks[] = [
     ["Process Journal", "https://github.com/charlesDouc/CART-415/wiki"],
     ["GitHub Project", "https://github.com/charlesDouc/CART-415/wiki"]
 ]
-
-//-----------------------------------------------------------------------
-
-export function SpaceCompassView() {
-    const viewContent = projectView(content);
-    return renderView(viewContent);
-}
-
-export function SpaceCompassInfo() {
-    const navInfo = projectInfo(aboutInfo, relatedLinksInfo);
-    return renderNavInfo(navInfo);
-}

@@ -8,8 +8,6 @@ import cdIcon from "/img/common/cd_icon_green.png";
 import githubIcon from "./assets/github-icon.svg";
 import linkedIcon from "./assets/linkedin-icon.svg";
 import instagramIcon from "./assets/instagram-icon.svg";
-import {TankInfo, TankView} from "../../content/projects/tank";
-import {SpaceCompassInfo, SpaceCompassView} from "../../content/projects/space-compass";
 
 const EVENT_BUS = new EventBus<Events>();
 EVENT_BUS.subscribe('breadcrumb_button', handlers.breadcrumb_button);
@@ -141,8 +139,8 @@ function testButtons() {
     buttonB.textContent = "Button B";
 
 
-    buttonA.addEventListener('click', () => EVENT_BUS.dispatch('breadcrumb_button', {path: "Button A", projectName: "TANK", projectView: TankView, projectInfo: TankInfo}));
-    buttonB.addEventListener('click', () => EVENT_BUS.dispatch('breadcrumb_button', {path: "Button B", projectName: "Space Compass", projectView: SpaceCompassView, projectInfo: SpaceCompassInfo}));
+/*    buttonA.addEventListener('click', () => EVENT_BUS.dispatch('breadcrumb_button', {path: "Button A", projectName: "TANK", projectView: TankView, projectInfo: TankInfo}));
+    buttonB.addEventListener('click', () => EVENT_BUS.dispatch('breadcrumb_button', {path: "Button B", projectName: "Space Compass", projectView: SpaceCompassView, projectInfo: SpaceCompassInfo}));*/
 
     buttonContainer.appendChild(buttonA);
     buttonContainer.appendChild(buttonB);

@@ -12,8 +12,6 @@ export const handlers = {
             console.log("indeed this is tank");
         }
 
-        value.projectView();
-        value.projectInfo();
 
         if (value.projectName == "Space Compass") {
             console.log("this one is space compass");
