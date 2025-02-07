@@ -10,7 +10,7 @@ import linkedIcon from "./assets/linkedin-icon.svg";
 import instagramIcon from "./assets/instagram-icon.svg";
 
 const EVENT_BUS = new EventBus<Events>();
-EVENT_BUS.subscribe('breadcrumb_button', handlers.breadcrumb_button);
+EVENT_BUS.subscribe('page_navigation', handlers.page_navigation);
 
 const navTitle = "CD-BASH";
 const githubProfile: string = "https://github.com/CD-BASH"
@@ -139,8 +139,8 @@ function testButtons() {
     buttonB.textContent = "Button B";
 
 
-/*    buttonA.addEventListener('click', () => EVENT_BUS.dispatch('breadcrumb_button', {path: "Button A", projectName: "TANK", projectView: TankView, projectInfo: TankInfo}));
-    buttonB.addEventListener('click', () => EVENT_BUS.dispatch('breadcrumb_button', {path: "Button B", projectName: "Space Compass", projectView: SpaceCompassView, projectInfo: SpaceCompassInfo}));*/
+    buttonA.addEventListener('click', () => EVENT_BUS.dispatch('page_navigation', {path: "Button A", pageReference: "tank"}));
+    buttonB.addEventListener('click', () => EVENT_BUS.dispatch('page_navigation', {path: "Button B", pageReference: "space-compass"}));
 
     buttonContainer.appendChild(buttonA);
     buttonContainer.appendChild(buttonB);

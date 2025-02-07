@@ -3,10 +3,8 @@
         readonly path: string;
     };
 
-    readonly breadcrumb_button: {
+    readonly page_navigation: {
         readonly path: string;
-        readonly projectName: string;
-        readonly projectView: Function;
-        readonly projectInfo: Function;
+        readonly pageReference: string;
     }
 };

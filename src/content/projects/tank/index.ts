@@ -9,7 +9,6 @@ import SCREENSHOT_2 from "./assets/tank-screenshot-2.jpg"
 import SCREENSHOT_3 from "./assets/tank-screenshot-3.jpg"
 import SCREENSHOT_4 from "./assets/tank-screenshot-4.jpg"
 
-
 export const content: ProjectContent = {
     name: "TANK",
     tagline: "A collection of three unique iterations",
