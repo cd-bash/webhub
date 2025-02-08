@@ -13,7 +13,7 @@ function init() {
     contentPage.appendChild(verticalNav);
 
 
-    buildProjectPage("space-compass");
+    buildProjectPage("next-ux");
 }
 
 init();
