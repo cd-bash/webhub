@@ -139,7 +139,7 @@ function testButtons() {
     buttonB.textContent = "Button B";
 
 
-    buttonA.addEventListener('click', () => EVENT_BUS.dispatch('page_navigation', {path: "Button A", pageReference: "tank"}));
+    buttonA.addEventListener('click', () => EVENT_BUS.dispatch('page_navigation', {path: "Button A", pageReference: "next-ux"}));
     buttonB.addEventListener('click', () => EVENT_BUS.dispatch('page_navigation', {path: "Button B", pageReference: "space-compass"}));
 
     buttonContainer.appendChild(buttonA);

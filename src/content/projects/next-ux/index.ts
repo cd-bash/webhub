@@ -2,7 +2,7 @@
 import {AboutProject, RelatedLinks} from "../../../components/vertical-nav/project-nav.ts";
 
 import WEBM_VIDEO from "./assets/nextUX-showcase.webm";
-import MP4_VIDEO from "./assets/nextUX-showcase.webm";
+import MP4_VIDEO from "./assets/nextUX-showcase.mp4";
 
 import SCREENSHOT_1 from "./assets/nextUX-screenshot-1.jpg"
 import SCREENSHOT_2 from "./assets/nextUX-screenshot-2.jpg"
