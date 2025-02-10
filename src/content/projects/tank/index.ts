@@ -1,5 +1,6 @@
 ﻿import {ProjectContent} from "../../../views/project-view/";
 import {AboutProject, RelatedLinks} from "../../../components/vertical-nav/project-nav.ts";
+import {thumbnailContent} from "../../../components/thumbnail";
 
 import WEBM_VIDEO from "./assets/tank-showcase.webm";
 import MP4_VIDEO from "./assets/tank-showcase.mp4";
@@ -8,6 +9,8 @@ import SCREENSHOT_1 from "./assets/tank-screenshot-1.jpg"
 import SCREENSHOT_2 from "./assets/tank-screenshot-2.jpg"
 import SCREENSHOT_3 from "./assets/tank-screenshot-3.jpg"
 import SCREENSHOT_4 from "./assets/tank-screenshot-4.jpg"
+
+import THUMBNAIL from "./assets/tank-thumbnail.jpg";
 
 export const content: ProjectContent = {
     name: "TANK",
@@ -43,3 +46,10 @@ export const relatedLinksInfo: RelatedLinks[] = [
     ["GitHub Project", "https://github.com/charlesDouc/CART-415/wiki"],
     ["TANKS!", "https://github.com/charlesDouc/CART-415/wiki"]
 ]
+
+export const thumbnail: thumbnailContent = {
+    thumbnail: THUMBNAIL,
+    title: content.name,
+    description: "A collection of three different games. Each showcasing a lonely tank on its explorations of mysterious environments.",
+    tags: ["Unity", "Game Design"]
+}

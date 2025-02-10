@@ -1,5 +1,6 @@
 ﻿import {ProjectContent} from "../../../views/project-view";
 import {AboutProject, RelatedLinks} from "../../../components/vertical-nav/project-nav.ts";
+import {thumbnailContent} from "../../../components/thumbnail";
 
 import WEBM_VIDEO from "./assets/spaceCompass-showcase.webm";
 import MP4_VIDEO from "./assets/spaceCompass-showcase.mp4";
@@ -8,6 +9,8 @@ import SCREENSHOT_1 from "./assets/spaceCompass-screenshot-1.jpg"
 import SCREENSHOT_2 from "./assets/spaceCompass-screenshot-2.jpg"
 import SCREENSHOT_3 from "./assets/spaceCompass-screenshot-3.jpg"
 import SCREENSHOT_4 from "./assets/spaceCompass-screenshot-4.jpg"
+
+import THUMBNAIL from "./assets/spaceCompass-thumbnail.jpg";
 
 
 export const content: ProjectContent = {
@@ -43,3 +46,10 @@ export const relatedLinksInfo: RelatedLinks[] = [
     ["Process Journal", "https://github.com/charlesDouc/CART-415/wiki"],
     ["GitHub Project", "https://github.com/charlesDouc/CART-415/wiki"]
 ]
+
+export const thumbnail: thumbnailContent = {
+    thumbnail: THUMBNAIL,
+    title: content.name,
+    description: "A space shooter where the player has to dodge and destroy asteroids to get the highest score.",
+    tags: ["Unity", "Game Design"]
+}

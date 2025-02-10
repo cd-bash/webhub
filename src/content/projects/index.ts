@@ -6,17 +6,19 @@ import {renderNavInfo} from "../../components/vertical-nav";
 import * as nextUx from "./next-ux";
 import * as tank from "./tank";
 import * as spaceCompass from "./space-compass";
+import {createThumbnailItem} from "../../components/thumbnail";
 
 const pageReferences: { [key: string]: any } = {
     "next-ux": nextUx,
+    "space-compass": spaceCompass,
     "tank": tank,
-    "space-compass": spaceCompass
+
 };
 
 //-----------------------------------------------------------------------
 
 export function buildProjectPage(pageReference: string) {
-    const page = getPageReference(pageReference);
+    const page = pageReferences[pageReference];
     if (!page) {
         console.error(`Project page reference "${pageReference}" not found.`);
         return;
@@ -28,8 +30,18 @@ export function buildProjectPage(pageReference: string) {
     renderView(viewContent);
 }
 
+export function buildThumbnailList() {
+    const list = document.createElement('ul');
+
+    Object.values(pageReferences).forEach((page: any) => {
+        const item = createThumbnailItem(page.thumbnail, false);
+        list.appendChild(item);
+    });
+
+    return list;
+}
+
 //-----------------------------------------------------------------------
 
-function getPageReference(ref: string) {
-    return pageReferences[ref];
-}
+
+
