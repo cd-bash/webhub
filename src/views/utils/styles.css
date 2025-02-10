@@ -9,50 +9,65 @@
         width: 720px;
         margin: 0 auto;
         padding-top: 100px;
-    }
 
-    .showcase {
-        margin: 50px 0;
-        width: 100%;
-        border: #080808 solid 3px;
-    }
 
-    .video-showcase {
-        margin: 50px 0;
-        border: #080808 solid 3px;
-    }
+        .showcase {
+            margin: 50px 0;
+            width: 100%;
+            border: #080808 solid 3px;
+        }
 
-    .gallery {
-        margin: 40px 0;
-        padding-top: 30px;
-        border-top: #3BFFC5 solid 3px;
-    }
+        .video-showcase {
+            margin: 50px 0;
+            width: 100%;
+            border: #080808 solid 3px;
+        }
 
-    .gallery img {
-        width: 100%;
-        margin: 20px 0;
-    }
+        .gallery {
+            margin: 40px 0;
+            padding-top: 30px;
+            border-top: #3BFFC5 solid 3px;
+        }
 
-    h1 {
-        margin: 0;
-        max-width: 75%;
-        font-size: 6em;
-        line-height: 75%;
-        color: white;
-        text-transform: lowercase;
-    }
+        .gallery img {
+            width: 100%;
+            margin: 20px 0;
+        }
 
-    h2 {
-        margin: 0;
-        font-size: 2.8em;
-        color: #828282;
-    }
+        h1 {
+            margin: 0;
+            max-width: 75%;
+            font-size: 6em;
+            line-height: 75%;
+            color: white;
+            text-transform: lowercase;
+        }
 
-    p {
-        font-size: 1.2em;
-        color: #828282;
-        line-height: 115%;
-        margin: 15px 0;
+        h2 {
+            margin: 0;
+            font-size: 2.8em;
+            color: #828282;
+        }
+
+        h3 {
+            font-family: "Handjet", serif;
+            font-size: 2.8em;
+            font-weight: 600;
+            color: #828282;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #828282;
+            line-height: 115%;
+            margin: 15px 0;
+        }
+
+        p.description {
+            font-family: "Cabin", sans-serif;
+            color: #A1A1A1;
+            font-size: 0.9em;
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 import './views/home-view/styles.css';
 import {buildVerticalNav} from "./components/vertical-nav";
 import {buildViewBase} from "./views/utils";
-import {buildProjectPage} from "./content/projects";
+import {interactiveView} from "./views/interactive-view";
 
 
 function init() {
@@ -13,7 +13,7 @@ function init() {
     contentPage.appendChild(verticalNav);
 
 
-    buildProjectPage("space-compass");
+    interactiveView();
 }
 
 init();

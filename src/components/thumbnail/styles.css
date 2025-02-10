@@ -1,0 +1,43 @@
+﻿ul {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.item-box {
+    width: 100%;
+    color: white;
+    border-bottom: 1px solid #1D1D1D;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+
+    img {
+        border-radius: 5px;
+        border: 2px solid #141414;
+        float: left;
+        width: 25%;
+    }
+
+    .item-texts {
+        float: left;
+        width: 65%;
+        padding-left: 5%;
+    }
+
+    h5 {
+        font-family: "Handjet", serif;
+        font-size: 2em;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .description {
+
+    }
+
+    .clearfix {
+        clear: both;
+    }
+}
+
