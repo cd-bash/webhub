@@ -51,5 +51,6 @@ export const thumbnail: thumbnailContent = {
     thumbnail: THUMBNAIL,
     title: content.name,
     description: "A complete revamp of the user interfaces for a better experience.",
-    tags: ["UX Design", "React"]
+    tags: ["UX Design", "React"],
+    path: "next-ux"
 }

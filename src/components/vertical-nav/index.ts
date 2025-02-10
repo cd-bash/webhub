@@ -1,16 +1,10 @@
 ﻿import './styles.css';
 import {trackBreadcrumbs} from "./breadcrumbs-nav.ts";
-import {EventBus} from "../../event-bus";
-import {Events} from "../../consts/events";
-import {handlers} from "../../consts/handlers";
 
 import cdIcon from "/img/common/cd_icon_green.png";
 import githubIcon from "./assets/github-icon.svg";
 import linkedIcon from "./assets/linkedin-icon.svg";
 import instagramIcon from "./assets/instagram-icon.svg";
-
-const EVENT_BUS = new EventBus<Events>();
-EVENT_BUS.subscribe('page_navigation', handlers.page_navigation);
 
 const navTitle = "CD-BASH";
 const githubProfile: string = "https://github.com/CD-BASH"
@@ -43,7 +37,6 @@ export function buildVerticalNav() {
     navBox.appendChild(header());
     navBox.appendChild(navWrapper);
     navWrapper.appendChild(trackBreadcrumbs());
-    navBox.appendChild(testButtons());
     navBox.appendChild(footer());
 
     return navBox;
@@ -120,30 +113,4 @@ function clearInfo() {
     });
 
     return cleanInfo;
-}
-
-
-
-function testButtons() {
-    const buttonContainer = document.createElement("div");
-    const buttonA  = document.createElement("button");
-    const buttonB = document.createElement("button");
-
-    buttonContainer.className = "button-container";
-
-    buttonA.id = "button-a";
-    buttonA.className = "button";
-    buttonA.textContent = "Button A";
-    buttonB.id = "button-b";
-    buttonB.className = "button";
-    buttonB.textContent = "Button B";
-
-
-    buttonA.addEventListener('click', () => EVENT_BUS.dispatch('page_navigation', {path: "Button A", pageReference: "next-ux"}));
-    buttonB.addEventListener('click', () => EVENT_BUS.dispatch('page_navigation', {path: "Button B", pageReference: "space-compass"}));
-
-    buttonContainer.appendChild(buttonA);
-    buttonContainer.appendChild(buttonB);
-
-    return buttonContainer;
 }

@@ -51,5 +51,6 @@ export const thumbnail: thumbnailContent = {
     thumbnail: THUMBNAIL,
     title: content.name,
     description: "A collection of three different games. Each showcasing a lonely tank on its explorations of mysterious environments.",
-    tags: ["Unity", "Game Design"]
+    tags: ["Unity", "Game Design"],
+    path: "tank"
 }

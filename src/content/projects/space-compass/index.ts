@@ -51,5 +51,6 @@ export const thumbnail: thumbnailContent = {
     thumbnail: THUMBNAIL,
     title: content.name,
     description: "A space shooter where the player has to dodge and destroy asteroids to get the highest score.",
-    tags: ["Unity", "Game Design"]
+    tags: ["Unity", "Game Design"],
+    path: "space-compass"
 }

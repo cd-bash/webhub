@@ -4,13 +4,14 @@ import {Events} from "../../consts/events";
 import {handlers} from "../../consts/handlers";
 
 const EVENT_BUS = new EventBus<Events>();
-EVENT_BUS.subscribe('page_navigation_TEST', handlers.page_navigation_TEST);
+EVENT_BUS.subscribe('page_navigation', handlers.page_navigation);
 
 export type thumbnailContent = {
     readonly thumbnail: string;
     readonly title: string;
     readonly description: string;
     readonly tags: string[];
+    readonly path: string;
 }
 
 //-----------------------------------------------------------------------
@@ -44,7 +45,7 @@ export function createThumbnailItem(content: thumbnailContent, showcase: boolean
     itemTexts.appendChild(itemCategory);
     itemBox.appendChild(clearFix);
 
-    //itemThumbnail.addEventListener('click', () => EVENT_BUS.dispatch('page_navigation_TEST', {path: "Button A", pageReference: "next-ux"}));
+    itemThumbnail.addEventListener('click', () => EVENT_BUS.dispatch('page_navigation', {path: "Button A", pageReference: content.path}));
 
     return itemBox;
 }
