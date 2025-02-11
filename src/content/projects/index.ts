@@ -2,11 +2,12 @@
 import {projectInfo} from "../../components/vertical-nav/project-nav.ts";
 import {renderView} from "../../views/utils";
 import {renderNavInfo} from "../../components/vertical-nav";
+import {createThumbnail} from "../../components/thumbnail";
 
 import * as nextUx from "./next-ux";
 import * as tank from "./tank";
 import * as spaceCompass from "./space-compass";
-import {createThumbnailItem} from "../../components/thumbnail";
+
 
 const pageReferences: { [key: string]: any } = {
     "next-ux": nextUx,
@@ -34,7 +35,7 @@ export function buildThumbnailList() {
     const list = document.createElement('ul');
 
     Object.values(pageReferences).forEach((page: any) => {
-        const item = createThumbnailItem(page.thumbnail, false);
+        const item = createThumbnail(page.thumbnail, false);
         list.appendChild(item);
     });
 

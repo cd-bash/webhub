@@ -16,7 +16,7 @@ export type thumbnailContent = {
 
 //-----------------------------------------------------------------------
 
-export function createThumbnailItem(content: thumbnailContent, showcase: boolean) {
+export function createThumbnail(content: thumbnailContent, showcase: boolean) {
     const itemBox = document.createElement('li');
     const itemThumbnail = document.createElement('img');
     const itemTexts = document.createElement('div');
