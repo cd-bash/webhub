@@ -17,21 +17,46 @@
             border: #080808 solid 3px;
         }
 
-        .video-showcase {
-            margin: 50px 0;
+        .video-showcase::before, .video-showcase::after {
+            content: "";
+            display: block;
             width: 100%;
-            border: #080808 solid 3px;
+            padding-top: 65px;
+            z-index: -2;
+            background-image: url("./assets/video-showcase-decoration.png");
+            background-blend-mode: multiply;
+            background-repeat: repeat-x;
+            filter: invert(100%) sepia(100%) hue-rotate(240deg) saturate(100%);
         }
 
-        .gallery {
-            margin: 40px 0;
-            padding-top: 30px;
-            border-top: #3BFFC5 solid 3px;
+        .video-showcase::before {
+            margin-bottom: -15px;
         }
 
-        .gallery img {
+        .video-showcase::after {
+            margin-top: -15px;
+            transform: scaleY(-1);
+        }
+
+        .video-showcase video {
             width: 100%;
-            margin: 20px 0;
+            border-radius: 15px;
+            z-index: 5;
+            position: relative;
+        }
+
+        .gallery-content {
+            padding-top: 20px;
+        }
+
+        .gallery-content img {
+            object-fit: cover;
+            width: 45%;
+            aspect-ratio:1/1;
+            margin: 10px 0;
+            margin-right: 4%;
+            border: 2px solid #505050;
+            border-radius: 10px;
         }
 
         h1 {
@@ -44,9 +69,10 @@
         }
 
         h2 {
-            margin: 0;
-            font-size: 2.8em;
-            color: #828282;
+            margin: 0 0 20px 0;
+            font-size: 1.2em;
+            color: white;
+            text-transform: uppercase;
         }
 
         h3 {
@@ -56,11 +82,19 @@
             color: #828282;
         }
 
-        p {
-            font-size: 1.2em;
+        h5 {
+            font-family: "Handjet", serif;
+            font-size: 1.5em;
+            font-weight: 600;
             color: #828282;
-            line-height: 115%;
-            margin: 15px 0;
+        }
+
+        p {
+            font-size: 2em;
+            font-weight: normal;
+            color: #828282;
+            line-height: 150%;
+            margin: 0;
         }
 
         p.description {
