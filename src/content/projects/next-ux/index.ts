@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/nextUX-thumbnail.jpg";
 
 
 export const content: ProjectContent = {
-    name: "Next UX",
+    title: "Next UX",
     tagline: "Not just a visual revamp",
     path: "www.charlesdoucet.com/interactive/",
 
@@ -49,7 +49,7 @@ export const relatedLinksInfo: RelatedLinks[] = [
 
 export const thumbnail: thumbnailContent = {
     thumbnail: THUMBNAIL,
-    title: content.name,
+    title: content.title,
     description: "A complete revamp of the user interfaces for a better experience.",
     tags: ["UX Design", "React"],
     path: "next-ux"

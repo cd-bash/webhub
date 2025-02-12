@@ -17,10 +17,33 @@
             border: #080808 solid 3px;
         }
 
-        .video-showcase {
-            margin: 50px 0;
+        .video-showcase::before {
+            content: "";
+            display: block;
             width: 100%;
-            border: #080808 solid 3px;
+            padding-top: 50px;
+            background-image: url("./assets/video-showcase-decoration.png");
+            background-color: rgba(200,100,0,.5);
+            background-blend-mode: multiply;
+            background-repeat: repeat-x;
+        }
+
+        .video-showcase::after {
+            content: "";
+            display: block;
+            width: 100%;
+            padding-top: 50px;
+            background-image: url("./assets/video-showcase-decoration.png");
+            background-repeat: repeat-x;
+            background-color: rgba(200,100,0,.5);
+            background-blend-mode: multiply;
+            transform: scaleY(-1);
+            backdrop-filter: ;
+        }
+
+        .video-showcase video {
+            width: 100%;
+            corner-radius: 5px;
         }
 
         .gallery {

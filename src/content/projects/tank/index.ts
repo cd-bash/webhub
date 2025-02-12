@@ -13,7 +13,7 @@ import SCREENSHOT_4 from "./assets/tank-screenshot-4.jpg"
 import THUMBNAIL from "./assets/tank-thumbnail.jpg";
 
 export const content: ProjectContent = {
-    name: "TANK",
+    title: "TANK",
     tagline: "A collection of three unique iterations",
     path: "www.charlesdoucet.com/interactive/",
 
@@ -49,7 +49,7 @@ export const relatedLinksInfo: RelatedLinks[] = [
 
 export const thumbnail: thumbnailContent = {
     thumbnail: THUMBNAIL,
-    title: content.name,
+    title: content.title,
     description: "A collection of three different games. Each showcasing a lonely tank on its explorations of mysterious environments.",
     tags: ["Unity", "Game Design"],
     path: "tank"

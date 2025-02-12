@@ -13,7 +13,7 @@ import SCREENSHOT_4 from "./assets/voxco-proposal-screenshot-4.jpg"
 import THUMBNAIL from "./assets/voxco-proposal-thumbnail.jpg";
 
 export const content: ProjectContent = {
-    name: "INSERT",
+    title: "INSERT",
     tagline: "INSERT",
     path: "INSERT",
 
@@ -49,7 +49,7 @@ export const relatedLinksInfo: RelatedLinks[] = [
 
 export const thumbnail: thumbnailContent = {
     thumbnail: THUMBNAIL,
-    title: content.name,
+    title: content.title,
     description: "INSERT",
     tags: ["INSERT", "INSERT"],
     path: "voxco-proposal"

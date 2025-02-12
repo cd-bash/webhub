@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/spaceCompass-thumbnail.jpg";
 
 
 export const content: ProjectContent = {
-    name: "Space Compass",
+    title: "Space Compass",
     tagline: "A 360 Odyssey",
     path: "www.charlesdoucet.com/interactive/",
 
@@ -49,7 +49,7 @@ export const relatedLinksInfo: RelatedLinks[] = [
 
 export const thumbnail: thumbnailContent = {
     thumbnail: THUMBNAIL,
-    title: content.name,
+    title: content.title,
     description: "A space shooter where the player has to dodge and destroy asteroids to get the highest score.",
     tags: ["Unity", "Game Design"],
     path: "space-compass"
