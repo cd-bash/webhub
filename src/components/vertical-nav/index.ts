@@ -1,5 +1,4 @@
 ﻿import './styles.css';
-import {trackBreadcrumbs} from "./breadcrumbs-nav.ts";
 
 import cdIcon from "/img/common/cd_icon_green.png";
 import githubIcon from "./assets/github-icon.svg";
@@ -30,21 +29,31 @@ const FOO_SOCIALS: SocialLink[] = [
 export function buildVerticalNav() {
     const navBox = document.createElement("div");
     const navWrapper = document.createElement("div");
+    const navBreadcrumbs = document.createElement("div");
+    const navInfo = document.createElement("div");
 
     navBox.id = "vertical-nav";
     navWrapper.id = "nav-wrapper";
+    navBreadcrumbs.id = "nav-breadcrumbs";
+    navInfo.id = "nav-info";
 
     navBox.appendChild(header());
     navBox.appendChild(navWrapper);
-    navWrapper.appendChild(trackBreadcrumbs());
+    navWrapper.appendChild(navBreadcrumbs);
+    navWrapper.appendChild(navInfo);
     navBox.appendChild(footer());
 
     return navBox;
 }
 
+export function renderBreadcrumbs(breadcrumbs: HTMLElement) {
+    const navBreadcrumbs = clearBreadcrumbs();
+    navBreadcrumbs?.appendChild(breadcrumbs);
+}
+
 export function renderNavInfo(info: HTMLElement) {
-    const navWrapper = clearInfo();
-    navWrapper?.appendChild(info);
+    const navInfo = clearInfo();
+    navInfo?.appendChild(info);
 }
 
 //-----------------------------------------------------------------------
@@ -105,9 +114,17 @@ function footer() {
     return container;
 }
 
+function clearBreadcrumbs() {
+    const cleanBreadcrumbs = document.getElementById('nav-breadcrumbs');
+    cleanBreadcrumbs?.childNodes.forEach((childNode) => {
+        cleanBreadcrumbs.removeChild(childNode);
+    });
+
+    return cleanBreadcrumbs;
+}
 
 function clearInfo() {
-    const cleanInfo = document.getElementById('nav-wrapper');
+    const cleanInfo = document.getElementById('nav-info');
     cleanInfo?.childNodes.forEach((childNode) => {
         cleanInfo.removeChild(childNode);
     });

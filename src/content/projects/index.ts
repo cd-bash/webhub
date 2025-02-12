@@ -1,15 +1,19 @@
 ﻿import {projectView} from "../../views/project-view";
 import {projectInfo} from "../../components/vertical-nav/info-project.ts";
 import {renderView} from "../../views/utils";
-import {renderNavInfo} from "../../components/vertical-nav";
+import {renderBreadcrumbs, renderNavInfo} from "../../components/vertical-nav";
 import {createThumbnail} from "../../components/thumbnail";
 
 import * as spaceCompass from "./space-compass";
+import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components/breadcrumbs";
 
 
 const pageReferences: { [key: string]: any } = {
     "space-compass": spaceCompass,
 };
+
+
+
 
 //-----------------------------------------------------------------------
 
@@ -22,6 +26,7 @@ export function buildProjectPage(pageReference: string) {
     const viewContent = projectView(page!.content);
     const navInfo = projectInfo(page!.linkSections, page!.buttons);
 
+    renderBreadcrumbs(breadcrumbs(trackBreadcrumbs(page!.content.title)));
     renderNavInfo(navInfo);
     renderView(viewContent);
 }
@@ -38,6 +43,16 @@ export function buildThumbnailList() {
 }
 
 //-----------------------------------------------------------------------
+
+function trackBreadcrumbs(currentTrack: string) {
+    const projectBreadcrumbs: BreadcrumbsLink[] = [
+        ["home", "/", BreadcrumbCategory.HOME],
+        ['interactive', '/interactive', BreadcrumbCategory.INTERACTIVE],
+        [currentTrack, '/' + currentTrack, BreadcrumbCategory.PROJECT]
+    ]
+
+    return projectBreadcrumbs;
+}
 
 
 
