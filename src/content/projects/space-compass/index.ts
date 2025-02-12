@@ -1,5 +1,5 @@
 ﻿import {ProjectContent} from "../../../views/project-view";
-import {AboutProject, RelatedLinks} from "../../../components/vertical-nav/project-nav.ts";
+import {LinkButton, LinkCollection, OutsideLink} from "../../../components/vertical-nav/info-project.ts";
 import {thumbnailContent} from "../../../components/thumbnail";
 
 import WEBM_VIDEO from "./assets/spaceCompass-showcase.webm";
@@ -15,12 +15,11 @@ import THUMBNAIL from "./assets/spaceCompass-thumbnail.jpg";
 
 export const content: ProjectContent = {
     title: "Space Compass",
-    tagline: "A 360 Odyssey",
-    path: "www.charlesdoucet.com/interactive/",
+    subtitle: "game prototype - winter 2020",
 
+    tagline: "Radial Navigation",
     paragraphs: [
-        "The core goal in the making of Space Compass was to end up with a playable game in short delays. A bit like a personal game jam! The game is a space shooter, where players’ movement is limited around a circle’s circumference. Player needs to dodge or destroy several asteroids, as well as some structures in the way.",
-        "I’ve put a lot of effort in the UI elements like the main menu and the in-game interfaces. I wanted those interfaces to be dynamic and attractive while being in a minimal environment."
+        "This space-themed shooter features circular movement constraints, requiring players to evade or eliminate various asteroids and structures."
     ],
 
     heroVideo: [
@@ -36,21 +35,28 @@ export const content: ProjectContent = {
     ]
 }
 
-export const aboutInfo: AboutProject = {
-    release: "March 20, 2020",
-    platforms: "Web, Windows, Mac",
-    developer: "Charles Doucet"
-}
-
-export const relatedLinksInfo: RelatedLinks[] = [
+const relatedLinksInfo: OutsideLink[] = [
     ["Process Journal", "https://github.com/charlesDouc/CART-415/wiki"],
     ["GitHub Project", "https://github.com/charlesDouc/CART-415/wiki"]
+]
+
+const creditLinks: OutsideLink[] = [
+    ["Process Journal", "https://github.com/charlesDouc/CART-415/wiki"],
+]
+
+export const linkSections: LinkCollection[] = [
+    ["Related Links", relatedLinksInfo],
+    ["Credits", creditLinks]
+]
+
+export const buttons: LinkButton[] = [
+    ["Try It Online"]
 ]
 
 export const thumbnail: thumbnailContent = {
     thumbnail: THUMBNAIL,
     title: content.title,
-    description: "A space shooter where the player has to dodge and destroy asteroids to get the highest score.",
+    description: "A space shooter where players must dodge and destroy asteroids for high scores.",
     tags: ["Unity", "Game Design"],
     path: "space-compass"
 }

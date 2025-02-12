@@ -9,7 +9,6 @@
 export function createVideoShowcase(assetLinks: ReadonlyArray<string>) {
     const videoContainer = document.createElement("div");
     const video = document.createElement("video");
-    const videoDecorationUp = document.createElement("div");
 
     videoContainer.className = "video-showcase";
     videoContainer.appendChild(video);
@@ -28,7 +27,7 @@ export function createVideoShowcase(assetLinks: ReadonlyArray<string>) {
 
 export function createContentGallery(assetLinks: ReadonlyArray<string>) {
     const gallery = document.createElement("div");
-    gallery.className = "gallery";
+    gallery.className = "gallery-content";
 
     assetLinks.forEach(link => {
         const screenshot = document.createElement("img");
