@@ -12,7 +12,7 @@ renderer.setSize( 230, 230 );
 renderer.setAnimationLoop( animate );
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const material = new THREE.MeshBasicMaterial( { color: 0x111111 } );
 const cube = new THREE.Mesh( geometry, material );
 
 const controls = new OrbitControls( camera, renderer.domElement );
