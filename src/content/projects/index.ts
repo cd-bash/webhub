@@ -3,9 +3,10 @@ import {projectInfo} from "../../components/vertical-nav/info-project.ts";
 import {renderView} from "../../views/utils";
 import {renderBreadcrumbs, renderNavInfo} from "../../components/vertical-nav";
 import {createThumbnail} from "../../components/thumbnail";
+import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components/breadcrumbs";
 
 import * as spaceCompass from "./space-compass";
-import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components/breadcrumbs";
+
 
 
 const pageReferences: { [key: string]: any } = {
