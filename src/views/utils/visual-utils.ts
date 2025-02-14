@@ -38,6 +38,3 @@ export function createContentGallery(assetLinks: ReadonlyArray<string>) {
 }
 
 
-export function createBackground() {
-
-}

@@ -102,6 +102,39 @@
             font-size: 0.9em;
         }
     }
+
+    .backgrounds {
+        position: fixed;
+        background-color: #141518;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -15;
+
+        .layer-a {
+            position: fixed;
+            background-image: url("./assets/background-test.png");
+            width: 100%;
+            height: 100%;
+        }
+
+        .layer-b {
+            position: fixed;
+            background-image: url("./assets/background-test-2.png");
+            transform: scaleX(-1);
+            width: 30%;
+            height: 100%;
+        }
+
+        .layer-c {
+            position: fixed;
+            background-image: url("./assets/background-test-2.png");
+            right: 0;
+            width: 20%;
+            height: 100%;
+        }
+    }
 }
 
 

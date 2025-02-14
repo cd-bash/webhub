@@ -3,7 +3,7 @@ import {
     writeTitle,
     createVideoShowcase,
     writeParagraph,
-    createContentGallery
+    createContentGallery, createBackground
 } from "../utils"
 
 
@@ -20,6 +20,7 @@ export type ProjectContent = {
 
 export function projectView(content: ProjectContent) {
     const article = document.createElement('article');
+    createBackground();
 
     article.appendChild(header(content.title, content.subtitle));
     article.appendChild(videoShowcase(content.heroVideo));

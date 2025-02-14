@@ -1,7 +1,5 @@
 body {
-  background: #141518;
-  background-image: url("./background-test.png");
-  background-attachment: fixed;
+  background: #000;
   height: 100%;
   margin: 0;
 }
