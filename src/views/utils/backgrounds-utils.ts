@@ -7,6 +7,7 @@ export function createBackground() {
     const layerB = document.createElement('div');
     const layerC = document.createElement('div');
 
+
     backgrounds.className = 'backgrounds';
     layerA.className = 'layer-a';
     layerB.className = 'layer-b';
