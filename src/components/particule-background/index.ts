@@ -1,11 +1,11 @@
 ﻿import * as THREE from 'three';
-import {Vector3} from "three";
 
-export let renderer;
+export let renderer: THREE.WebGLRenderer;
 
-let scene,
+let scene: THREE.Scene,
     camera: THREE.PerspectiveCamera,
-    cameraTarget: Vector3,
+    cameraLookAt = new THREE.Vector3(0, 0, 0),
+    cameraTarget = new THREE.Vector3(0, 0 ,800),
     canvasWidth: number,
     canvasHeight: number,
     canvasHalfWidth: number,
@@ -49,7 +49,7 @@ const initCamera = () => {
 }
 
 
-const onWindowResize = () => {
+const onWindowResize = (): void => {
     setWindowSize();
 
     camera.aspect = canvasWidth / canvasHeight;
@@ -57,14 +57,16 @@ const onWindowResize = () => {
     renderer.setSize(canvasWidth, canvasHeight);
 }
 
-const onMouseMove = (event) => {
+const onMouseMove = (event: MouseEvent) => {
     mouseX = (event.clientX - canvasHalfWidth);
     mouseY = (event.clientY - canvasHalfHeight);
     cameraTarget.x = (mouseX * -1) / 2;
     cameraTarget.y = mouseY / 2;
+
+    console.log("HELLO MOUSE");
 }
 
-const setWindowSize = () => {
+const setWindowSize = (): void => {
     canvasWidth = window.innerWidth;
     canvasHeight = window.innerHeight;
     canvasHalfWidth = canvasWidth / 2;
@@ -74,11 +76,11 @@ const setWindowSize = () => {
 
 const initBgObjects = () => {
     for (let i = 0; i < 40; i++) {
-        createBgObject(i);
+        createBgObject();
     }
 }
 
-const createBgObject = (i) => {
+const createBgObject = () => {
     const geometry = new THREE.BoxGeometry( 10, 6, 6 );
     const material = new THREE.MeshBasicMaterial( {color: 0xdddddd} );
     const sphere = new THREE.Mesh( geometry, material );
@@ -89,6 +91,12 @@ const createBgObject = (i) => {
     sphere.position.set(x, y, z);
 }
 
+const animate = () => {
+    requestAnimationFrame(animate);
+    camera.position.lerp(cameraTarget, 0.2);
+    camera.lookAt(cameraLookAt);
+}
+
 
 //-----------------------------------------------------------------------
 
@@ -97,6 +105,7 @@ export function animatedBackground() {
     initScene();
     initCamera();
     initBgObjects();
+    animate()
 
     renderer.render(scene, camera);
 
