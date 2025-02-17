@@ -5,7 +5,6 @@
  */
 
 
-
 export function createVideoShowcase(assetLinks: ReadonlyArray<string>) {
     const videoContainer = document.createElement("div");
     const video = document.createElement("video");
@@ -37,3 +36,5 @@ export function createContentGallery(assetLinks: ReadonlyArray<string>) {
 
     return gallery;
 }
+
+
