@@ -1,11 +1,15 @@
 ﻿import * as THREE from "three";
 import {scene, windowHeight, windowWidth} from "./scene.ts";
 
+//-----------------------------------------------------------------------
+
 export const initBgObjects = () => {
     for (let i = 0; i < 40; i++) {
         createBgObject();
     }
 }
+
+//-----------------------------------------------------------------------
 
 const createBgObject = () => {
     const geometry = new THREE.SphereGeometry( 10, 6, 6 );

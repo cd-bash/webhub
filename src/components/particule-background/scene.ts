@@ -5,15 +5,16 @@ export let renderer: THREE.WebGLRenderer,
     camera: THREE.PerspectiveCamera,
     cameraTarget = new THREE.Vector3(0, 0 ,800),
     windowWidth: number,
-    windowHeight: number,
-    windowHalfWidth: number,
-    windowHalfHeight: number;
+    windowHeight: number;
 
 let graphicCanvas,
     canvasWidth = 240,
     canvasHeight = 240,
     mouseX = 0,
-    mouseY = 0;
+    mouseY = 0,
+    windowHalfWidth: number,
+    windowHalfHeight: number,
+    cameraLookAt = new THREE.Vector3(0, 0, 0);
 
 //-----------------------------------------------------------------------
 
@@ -33,8 +34,7 @@ export const initScene = () => {
     });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(windowWidth, windowHeight);
-
-    scene.background = new THREE.Color(0xFFFFFF);
+    renderer.setClearColor(0x000000, 0);
 }
 
 export const initCamera = () => {
@@ -63,6 +63,13 @@ export const setWindowSize = () => {
     windowHalfHeight = windowHeight / 2;
 }
 
+export const animate = () => {
+    requestAnimationFrame(animate);
+    camera.position.lerp(cameraTarget, 0.2);
+    camera.lookAt(cameraLookAt);
+    render();
+}
+
 //-----------------------------------------------------------------------
 
 const onMouseMove = (event: MouseEvent) => {
@@ -78,4 +85,8 @@ const onWindowResize = () => {
     camera.aspect = windowWidth / windowHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(windowWidth, windowHeight);
+}
+
+const render = () => {
+    renderer.render(scene, camera);
 }

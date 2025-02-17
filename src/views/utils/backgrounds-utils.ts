@@ -1,4 +1,5 @@
-﻿
+﻿import {animatedBackground} from "../../components/particule-background";
+
 
 export function createBackground() {
     const viewBox = document.getElementById('view-box')!;
@@ -14,6 +15,7 @@ export function createBackground() {
     layerC.className = 'layer-c';
 
     backgrounds.appendChild(layerA);
+    layerB.appendChild(animatedBackground());
     backgrounds.appendChild(layerB);
     backgrounds.appendChild(layerC);
 
