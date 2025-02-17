@@ -27,6 +27,8 @@ export const initStage = () => {
 
 export const initScene = () => {
     scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x000000, 1, 3000);
+
 
     renderer = new THREE.WebGLRenderer({
         alpha: true,
@@ -41,7 +43,7 @@ export const initCamera = () => {
     const fieldOfView = 75;
     const aspectRatio = windowWidth / windowHeight;
     const nearPlane = 1;
-    const farPlane = 3000;
+    const farPlane = 30000;
     camera = new THREE.PerspectiveCamera(
         fieldOfView,
         aspectRatio,
