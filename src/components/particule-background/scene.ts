@@ -1,5 +1,6 @@
 ﻿import * as THREE from 'three';
 
+
 export let renderer: THREE.WebGLRenderer,
     scene: THREE.Scene,
     camera: THREE.PerspectiveCamera,
@@ -16,6 +17,9 @@ let graphicCanvas,
     windowHalfHeight: number,
     cameraLookAt = new THREE.Vector3(0, 0, 0);
 
+const mouseSensitivity = 0.1;
+const cameraTilt = 35;
+
 //-----------------------------------------------------------------------
 
 export const initStage = () => {
@@ -27,6 +31,8 @@ export const initStage = () => {
 
 export const initScene = () => {
     scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x010102, 1, 3000);
+
 
     renderer = new THREE.WebGLRenderer({
         alpha: true,
@@ -41,7 +47,7 @@ export const initCamera = () => {
     const fieldOfView = 75;
     const aspectRatio = windowWidth / windowHeight;
     const nearPlane = 1;
-    const farPlane = 3000;
+    const farPlane = 30000;
     camera = new THREE.PerspectiveCamera(
         fieldOfView,
         aspectRatio,
@@ -67,6 +73,7 @@ export const animate = () => {
     requestAnimationFrame(animate);
     camera.position.lerp(cameraTarget, 0.2);
     camera.lookAt(cameraLookAt);
+
     render();
 }
 
@@ -75,8 +82,13 @@ export const animate = () => {
 const onMouseMove = (event: MouseEvent) => {
     mouseX = (event.clientX - windowHalfWidth);
     mouseY = (event.clientY - windowHalfHeight);
-    cameraTarget.x = (mouseX * -1) / 2;
-    cameraTarget.y = mouseY / 2;
+    cameraTarget.x = (mouseX * -1) * mouseSensitivity;
+    cameraTarget.y = mouseY * mouseSensitivity;
+
+    cameraTarget.clamp(
+        new THREE.Vector3(-cameraTilt, -cameraTilt, 800),
+        new THREE.Vector3(cameraTilt, cameraTilt, 800)
+    );
 }
 
 const onWindowResize = () => {
@@ -86,6 +98,7 @@ const onWindowResize = () => {
     camera.updateProjectionMatrix();
     renderer.setSize(windowWidth, windowHeight);
 }
+
 
 const render = () => {
     renderer.render(scene, camera);
