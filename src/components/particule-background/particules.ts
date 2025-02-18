@@ -1,6 +1,7 @@
 ﻿import * as THREE from "three";
 import {scene, windowHeight, windowWidth} from "./scene.ts";
 
+
 //-----------------------------------------------------------------------
 
 export const initBgObjects = () => {
@@ -10,6 +11,7 @@ export const initBgObjects = () => {
 
     createCurvedPlane();
 }
+
 
 //-----------------------------------------------------------------------
 
@@ -22,14 +24,20 @@ const createBgObject = () => {
     } );
     const sphere = new THREE.Mesh( geometry, material );
     scene.add( sphere );
-    const x = safeSpace();
+    const x = pointInMargins();
     const y = Math.random() * windowHeight * 15 - windowHeight * 7.5;
     const z = Math.random() * -2000 - 200;
+
+    sphere.userData.rotationSpeed = {
+        x: Math.random() * 0.02 - 0.01,
+        y: Math.random() * 0.02 - 0.01
+    };
+
     sphere.position.set(x, y, z);
 }
 
 
-const safeSpace = () => {
+const pointInMargins = () => {
     const wrapper = 720;
     let point: number;
 
@@ -52,3 +60,5 @@ const createCurvedPlane = () => {
     scene.add(plane);
     plane.position.set(windowWidth, 0, -2000); // Position the plane in the far distance
 };
+
+
