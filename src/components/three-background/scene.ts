@@ -1,12 +1,12 @@
 ﻿import * as THREE from 'three';
-
+import {resizeComposer} from "./post-process.ts";
 
 export let renderer: THREE.WebGLRenderer,
     scene: THREE.Scene,
     camera: THREE.PerspectiveCamera,
     cameraTarget = new THREE.Vector3(0, 0 ,800),
-    windowWidth: number,
-    windowHeight: number;
+    windowWidth = window.innerWidth,
+    windowHeight = window.innerHeight;
 
 let graphicCanvas,
     canvasWidth = 240,
@@ -14,8 +14,7 @@ let graphicCanvas,
     mouseX = 0,
     mouseY = 0,
     windowHalfWidth: number,
-    windowHalfHeight: number,
-    cameraLookAt = new THREE.Vector3(0, 0, 0);
+    windowHalfHeight: number;
 
 const mouseSensitivity = 0.1;
 const cameraTilt = 35;
@@ -32,6 +31,7 @@ export const initStage = () => {
 export const initScene = () => {
     scene = new THREE.Scene();
     scene.fog = new THREE.Fog(0x010102, 1, 3000);
+    scene.add( new THREE.AmbientLight( 0xcccccc ) );
 
 
     renderer = new THREE.WebGLRenderer({
@@ -62,22 +62,14 @@ export const initCanvas = () => {
     graphicCanvas.height = canvasHeight;
 }
 
-export const setWindowSize = () => {
+//-----------------------------------------------------------------------
+
+const setWindowSize = () => {
     windowWidth = window.innerWidth;
     windowHeight = window.innerHeight;
     windowHalfWidth = windowWidth / 2;
     windowHalfHeight = windowHeight / 2;
 }
-
-export const animate = () => {
-    requestAnimationFrame(animate);
-    camera.position.lerp(cameraTarget, 0.2);
-    camera.lookAt(cameraLookAt);
-
-    render();
-}
-
-//-----------------------------------------------------------------------
 
 const onMouseMove = (event: MouseEvent) => {
     mouseX = (event.clientX - windowHalfWidth);
@@ -93,13 +85,11 @@ const onMouseMove = (event: MouseEvent) => {
 
 const onWindowResize = () => {
     setWindowSize();
+    resizeComposer();
 
     camera.aspect = windowWidth / windowHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(windowWidth, windowHeight);
+    renderer.toneMapping = THREE.ReinhardToneMapping;
 }
 
-
-const render = () => {
-    renderer.render(scene, camera);
-}

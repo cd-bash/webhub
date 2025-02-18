@@ -1,4 +1,4 @@
-﻿import {animatedBackground} from "../../components/particule-background";
+﻿import {animatedBackground} from "../../components/three-background";
 
 
 export function createBackground() {
