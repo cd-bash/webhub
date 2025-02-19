@@ -1,18 +1,61 @@
 #vertical-nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 300px;
-    height: 100%;
-    background-color: #080808;
-    box-shadow: 0 0 0 16px rgba(8,8,8,0.5), 0 0 0 8px rgba(8,8,8,0.5);
+    top: 60px;
+    left: 30px;
+    width: 215px;
 
-    #nav-wrapper {
-        width: 230px;
-        margin: 0 auto;
+    .header {
+        background-color: #101010;
+        border-radius: 15px;
+        padding: 0 0 5px 0;
+        box-shadow: #030303 0px 0px 56px 0px;
+
+
+        .top-triangle {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+            background-color: #3BFFC5;
+            z-index: 1;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .info {
+            text-align: center;
+            margin-top: -85px;
+        }
+
+        .icon {
+            position: relative;
+            width: 96px;
+            image-rendering: pixelated;
+            z-index: 2;
+        }
+
+        h5 {
+            font-family: "Handjet", serif;
+            color: white;
+            margin: 0;
+            font-weight: 300;
+            font-size: 3em;
+        }
+    }
+
+    #nav-info {
+        margin-top: 20px;
+        width: 100%;
+        background-color: #101010;
+        box-shadow: #030303 0px 0px 56px 0px;
+        border-radius: 15px;
+
+        .project-info {
+            padding: 20px 15px;
+        }
+
 
         section {
-            padding: 0 0 30px 0;
+            padding: 10px 0;
 
             h4 {
                 font-family: "Cabin", sans-serif;
@@ -24,197 +67,66 @@
                 padding: 0;
             }
 
-            ul {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-                list-style-position: inside;
-            }
 
-            li {
-                display: block;
-                line-height: 150%;
-                font-family: "handjet", serif;
-                font-size: 1.1em;
-                font-weight: 500;
-                color: white;
-            }
-
-            a {
-                color: #a1a1a1;
-                text-decoration-color: #3BFFC5;
-            }
 
             button {
                 width: 100%;
                 color: white;
                 font-family: "Handjet", serif;
-                font-size: 1.5em;
+                font-size: 1.2em;
                 font-weight: bold;
                 text-transform: uppercase;
                 padding: 10px 0;
-                background-color: #FF523B;
                 border-radius: 5px;
                 border: none;
+                background-color: #252525;
+                margin: 5px 0;
+            }
+
+            button.highlight {
+                background-color: #FF523B;
             }
         }
     }
 
-    .top-triangle {
-        position: relative;
-        width: 100%;
-        height: 100px;
-        clip-path: polygon(0 0, 100% 0, 0 100%);
-        background-color: #3BFFC5;
-        z-index: -1;
-    }
-
-    .info {
-        text-align: center;
-        margin-top: -85px;
-    }
-
-    .icon {
-        width: 96px;
-        image-rendering: pixelated;
-    }
-
-    h5 {
-        font-family: "Handjet", serif;
-        color: white;
-        margin: 0;
-        font-weight: 300;
-        font-size: 3em;
-    }
 
     .nav-footer {
-        position: absolute;
-        bottom: 10px;
+        margin-top: 20px;
         width: 100%;
         text-align: center;
         color: white;
         font-family: "Cabin", sans-serif;
-    }
 
-    .socials  {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
+        .socials  {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
 
-    .socials li {
-        display: inline-block;
-        width: 17px;
-        margin: 0 5px;
-    }
+        .socials li {
+            display: inline-block;
+            width: 17px;
+            margin: 0 5px;
+        }
 
-    .socials li:hover {
-        opacity: 0.5;
-    }
+        .socials li:hover {
+            opacity: 0.5;
+        }
 
-    .socials img {
-        color: white;
-        z-index: 500;
-
-    }
-
-    .copyrights {
-        font-size: 0.6em;
-        color: #a1a1a1;
-    }
-
-    .button-container {
-        width: 100%;
-    }
-
-    .button {
-        width: 100%;
-        height: 50px;
-        color: black;
-    }
-
-    .breadcrumbs-nav {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .breadcrumbs-nav h3 {
-        font-family: "Cabin", sans-serif;
-        color: #a1a1a1;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 15px 0 5px 0;
-        padding: 0;
-    }
-
-    .breadcrumbs-nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .breadcrumbs-nav li {
-        display: inline-block;
-        margin: 0 5px;
-        line-height: 210%;
-        color: white;
-        font-family: "handjet", serif;
-    }
-
-    .breadcrumbs-nav li a {
-        font-family: "handjet", serif;
-        font-weight: 700;
-        text-decoration: none;
-        color: black;
-        padding: 4px 6px;
-        margin-right: 5px;
-
-    }
-
-    .breadcrumbs-nav li:last-child {
-        a {
+        .socials img {
             color: white;
+            z-index: 500;
+
         }
-        span {
-            display: none;
+
+        .copyrights {
+            font-size: 0.6em;
+            color: #a1a1a1;
         }
 
+        .button-container {
+            width: 100%;
+        }
     }
-
-    .detail-section {
-        padding: 15px 0;
-    }
-
-    .detail-section h4 {
-        font-family: "Cabin", sans-serif;
-        color: white;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 1em;
-    }
-
-    .detail-section ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .detail-section ul li {
-        font-family: "Cabin", sans-serif;
-        font-size: 0.9em;
-    }
-
-    .detail-section ul li a {
-        color: #a1a1a1;
-    }
-
-    .detail-section p  {
-        font-family: "Cabin", sans-serif;
-        color: #a1a1a1;
-        font-size: 0.9em;
-        line-height: 45%;
-    }
-
 }
 

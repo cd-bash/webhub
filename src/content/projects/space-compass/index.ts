@@ -1,5 +1,5 @@
 ﻿import {ProjectContent} from "../../../views/project-view";
-import {LinkButton, LinkCollection, OutsideLink} from "../../../components/vertical-nav/info-project.ts";
+import {ButtonLink} from "../../../components/vertical-nav/info-project.ts";
 import {thumbnailContent} from "../../../components/thumbnail";
 
 import WEBM_VIDEO from "./assets/spaceCompass-showcase.webm";
@@ -35,22 +35,9 @@ export const content: ProjectContent = {
     ]
 }
 
-const relatedLinksInfo: OutsideLink[] = [
-    ["Process Journal", "https://github.com/charlesDouc/CART-415/wiki"],
-    ["GitHub Project", "https://github.com/charlesDouc/CART-415/wiki"]
-]
-
-const creditLinks: OutsideLink[] = [
-    ["Process Journal", "https://github.com/charlesDouc/CART-415/wiki"],
-]
-
-export const linkSections: LinkCollection[] = [
-    ["Related Links", relatedLinksInfo],
-    ["Credits", creditLinks]
-]
-
-export const buttons: LinkButton[] = [
-    ["Try It Online"]
+export const buttons: ButtonLink[] = [
+    ["Try It Online", true],
+    ["Access the Repo", false]
 ]
 
 export const thumbnail: thumbnailContent = {

@@ -25,7 +25,7 @@ export function buildProjectPage(pageReference: string) {
         return;
     }
     const viewContent = projectView(page!.content);
-    const navInfo = projectInfo(page!.linkSections, page!.buttons);
+    const navInfo = projectInfo(page!.buttons);
 
     renderBreadcrumbs(breadcrumbs(trackBreadcrumbs(page!.content.title)));
     renderNavInfo(navInfo);
