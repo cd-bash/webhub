@@ -1,18 +1,9 @@
 ﻿import './styles.css';
-import {trackBreadcrumbs} from "./breadcrumbs-nav.ts";
-import {EventBus} from "../../event-bus";
-import {Events} from "../../consts/events";
-import {handlers} from "../../consts/handlers";
 
 import cdIcon from "/img/common/cd_icon_green.png";
 import githubIcon from "./assets/github-icon.svg";
 import linkedIcon from "./assets/linkedin-icon.svg";
 import instagramIcon from "./assets/instagram-icon.svg";
-import {TankInfo, TankView} from "../../content/projects/tank";
-import {SpaceCompassInfo, SpaceCompassView} from "../../content/projects/space-compass";
-
-const EVENT_BUS = new EventBus<Events>();
-EVENT_BUS.subscribe('breadcrumb_button', handlers.breadcrumb_button);
 
 const navTitle = "CD-BASH";
 const githubProfile: string = "https://github.com/CD-BASH"
@@ -38,22 +29,31 @@ const FOO_SOCIALS: SocialLink[] = [
 export function buildVerticalNav() {
     const navBox = document.createElement("div");
     const navWrapper = document.createElement("div");
+    const navBreadcrumbs = document.createElement("div");
+    const navInfo = document.createElement("div");
 
     navBox.id = "vertical-nav";
     navWrapper.id = "nav-wrapper";
+    navBreadcrumbs.id = "nav-breadcrumbs";
+    navInfo.id = "nav-info";
 
     navBox.appendChild(header());
     navBox.appendChild(navWrapper);
-    navWrapper.appendChild(trackBreadcrumbs());
-    navBox.appendChild(testButtons());
+    navWrapper.appendChild(navBreadcrumbs);
+    navWrapper.appendChild(navInfo);
     navBox.appendChild(footer());
 
     return navBox;
 }
 
+export function renderBreadcrumbs(breadcrumbs: HTMLElement) {
+    const navBreadcrumbs = clearBreadcrumbs();
+    navBreadcrumbs?.appendChild(breadcrumbs);
+}
+
 export function renderNavInfo(info: HTMLElement) {
-    const navWrapper = clearInfo();
-    navWrapper?.appendChild(info);
+    const navInfo = clearInfo();
+    navInfo?.appendChild(info);
 }
 
 //-----------------------------------------------------------------------
@@ -114,38 +114,20 @@ function footer() {
     return container;
 }
 
+function clearBreadcrumbs() {
+    const cleanBreadcrumbs = document.getElementById('nav-breadcrumbs');
+    cleanBreadcrumbs?.childNodes.forEach((childNode) => {
+        cleanBreadcrumbs.removeChild(childNode);
+    });
+
+    return cleanBreadcrumbs;
+}
 
 function clearInfo() {
-    const cleanInfo = document.getElementById('nav-wrapper');
+    const cleanInfo = document.getElementById('nav-info');
     cleanInfo?.childNodes.forEach((childNode) => {
         cleanInfo.removeChild(childNode);
     });
 
     return cleanInfo;
-}
-
-
-
-function testButtons() {
-    const buttonContainer = document.createElement("div");
-    const buttonA  = document.createElement("button");
-    const buttonB = document.createElement("button");
-
-    buttonContainer.className = "button-container";
-
-    buttonA.id = "button-a";
-    buttonA.className = "button";
-    buttonA.textContent = "Button A";
-    buttonB.id = "button-b";
-    buttonB.className = "button";
-    buttonB.textContent = "Button B";
-
-
-    buttonA.addEventListener('click', () => EVENT_BUS.dispatch('breadcrumb_button', {path: "Button A", projectName: "TANK", projectView: TankView, projectInfo: TankInfo}));
-    buttonB.addEventListener('click', () => EVENT_BUS.dispatch('breadcrumb_button', {path: "Button B", projectName: "Space Compass", projectView: SpaceCompassView, projectInfo: SpaceCompassInfo}));
-
-    buttonContainer.appendChild(buttonA);
-    buttonContainer.appendChild(buttonB);
-
-    return buttonContainer;
 }

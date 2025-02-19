@@ -1,7 +1,7 @@
 import './views/home-view/styles.css';
-import {TankInfo, TankView} from "./content/projects/tank";
 import {buildVerticalNav} from "./components/vertical-nav";
 import {buildViewBase} from "./views/utils";
+import {buildProjectPage} from "./content/projects";
 
 
 function init() {
@@ -12,9 +12,7 @@ function init() {
     body.appendChild(contentPage);
     contentPage.appendChild(verticalNav);
 
-
-    TankView();
-    TankInfo();
+    buildProjectPage("space-compass");
 }
 
 init();

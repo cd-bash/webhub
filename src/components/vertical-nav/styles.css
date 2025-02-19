@@ -5,11 +5,59 @@
     width: 300px;
     height: 100%;
     background-color: #080808;
-    box-shadow: 0px 0px 0px 16px rgba(8,8,8,0.5), 0px 0px 0px 8px rgba(8,8,8,0.5);
+    box-shadow: 0 0 0 16px rgba(8,8,8,0.5), 0 0 0 8px rgba(8,8,8,0.5);
 
     #nav-wrapper {
         width: 230px;
         margin: 0 auto;
+
+        section {
+            padding: 0 0 30px 0;
+
+            h4 {
+                font-family: "Cabin", sans-serif;
+                color: white;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 1em;
+                margin: 0 0 15px 0;
+                padding: 0;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                list-style-position: inside;
+            }
+
+            li {
+                display: block;
+                line-height: 150%;
+                font-family: "handjet", serif;
+                font-size: 1.1em;
+                font-weight: 500;
+                color: white;
+            }
+
+            a {
+                color: #a1a1a1;
+                text-decoration-color: #3BFFC5;
+            }
+
+            button {
+                width: 100%;
+                color: white;
+                font-family: "Handjet", serif;
+                font-size: 1.5em;
+                font-weight: bold;
+                text-transform: uppercase;
+                padding: 10px 0;
+                background-color: #FF523B;
+                border-radius: 5px;
+                border: none;
+            }
+        }
     }
 
     .top-triangle {

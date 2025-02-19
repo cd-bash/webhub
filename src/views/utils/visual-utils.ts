@@ -4,10 +4,16 @@
  They are mainly used in content templates.
  */
 
+
 export function createVideoShowcase(assetLinks: ReadonlyArray<string>) {
+    const videoContainer = document.createElement("div");
     const video = document.createElement("video");
-    video.className = "video-showcase";
+
+    videoContainer.className = "video-showcase";
+    videoContainer.appendChild(video);
+
     video.autoplay = true;
+    video.loop = true;
 
     assetLinks.forEach(link => {
         const source = document.createElement("source");
@@ -15,12 +21,12 @@ export function createVideoShowcase(assetLinks: ReadonlyArray<string>) {
         video.appendChild(source);
     });
 
-    return video;
+    return videoContainer;
 }
 
 export function createContentGallery(assetLinks: ReadonlyArray<string>) {
     const gallery = document.createElement("div");
-    gallery.className = "gallery";
+    gallery.className = "gallery-content";
 
     assetLinks.forEach(link => {
         const screenshot = document.createElement("img");
@@ -30,3 +36,5 @@ export function createContentGallery(assetLinks: ReadonlyArray<string>) {
 
     return gallery;
 }
+
+

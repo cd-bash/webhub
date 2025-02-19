@@ -1,43 +1,76 @@
-﻿import {
+﻿import "./styles.css";
+import {
     writeTitle,
     createVideoShowcase,
     writeParagraph,
-    createContentGallery
+    createContentGallery, createBackground
 } from "../utils"
 
 
 export type ProjectContent = {
-    readonly name: string;
-    readonly tagline: string;
-    readonly path: string;
-
-    readonly paragraphs: ReadonlyArray<string>;
+    readonly title: string;
+    readonly subtitle: string;
     readonly heroVideo: ReadonlyArray<string>;
+    readonly tagline: string;
+    readonly paragraphs: ReadonlyArray<string>;
     readonly imageGallery: ReadonlyArray<string>;
 }
 
 //-----------------------------------------------------------------------
 
 export function projectView(content: ProjectContent) {
-    const viewWrapper = document.getElementById('view-wrapper')!;
     const article = document.createElement('article');
+    createBackground();
 
-    const projectTitle = writeTitle("h1", content.name);
-    const projectShowcase = createVideoShowcase(content.heroVideo);
-    const projectSubtitle = writeTitle("h2", content.tagline)
-
-    viewWrapper.appendChild(article);
-    article.appendChild(projectTitle);
-    article.appendChild(projectShowcase);
-    article.appendChild(projectSubtitle);
-
-    content.paragraphs.forEach(paragraph => {
-        const text = writeParagraph(paragraph);
-        article.appendChild(text);
-    })
-
-    const projectGallery = createContentGallery(content.imageGallery);
-    article.appendChild(projectGallery);
+    article.appendChild(header(content.title, content.subtitle));
+    article.appendChild(videoShowcase(content.heroVideo));
+    article.appendChild(description(content.tagline, content.paragraphs));
+    article.appendChild(gallery(content.imageGallery));
 
     return article;
+}
+
+//-----------------------------------------------------------------------
+
+function header(title: string, subtitle: string) {
+    const header = document.createElement('header');
+
+    header.appendChild(writeTitle("h1", title));
+    header.appendChild(writeTitle("h5", subtitle));
+
+    return header;
+}
+
+
+function videoShowcase(videoRefs: ReadonlyArray<string>) {
+    const videoShowcase = document.createElement('section');
+    videoShowcase.appendChild(createVideoShowcase(videoRefs));
+
+    return videoShowcase;
+}
+
+
+function description(tagline: string, paragraphs: ReadonlyArray<string>) {
+    const description = document.createElement('section');
+    description.className = "description";
+
+    description.appendChild(writeTitle("h2", tagline));
+    paragraphs.forEach(paragraph => {
+        const text = writeParagraph(paragraph);
+        description.appendChild(text);
+    });
+
+    return description;
+}
+
+
+function gallery(imageRefs: ReadonlyArray<string>) {
+    const gallery = document.createElement('section');
+    gallery.className = "gallery";
+
+    gallery.appendChild(writeTitle("h2", "Media Gallery"));
+    const projectGallery = createContentGallery(imageRefs);
+    gallery.appendChild(projectGallery);
+
+    return gallery;
 }
