@@ -6,11 +6,13 @@ import {createThumbnail} from "../../components/thumbnail";
 import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components/breadcrumbs";
 
 import * as spaceCompass from "./space-compass";
+import * as nextUx from "./next-ux";
 
 
 
 const pageReferences: { [key: string]: any } = {
     "space-compass": spaceCompass,
+    "next-ux": nextUx,
 };
 
 
