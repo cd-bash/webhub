@@ -1,9 +1,9 @@
 ﻿import {renderer} from "./project-data-cube.ts";
 
 
-
 export type ButtonLink = [
     label: string,
+    path: string,
     highlight: boolean,
 ]
 
@@ -11,15 +11,15 @@ export type ButtonLink = [
 
 export function projectInfo(buttons: ButtonLink[]) {
     const container = document.createElement('div');
-    const buttonSection = document.createElement('section');
+    const buttonList = document.createElement('ul');
 
     container.className = "project-info";
+    buttonList.className = "button-list";
     container.appendChild(dataSection());
-    container.appendChild(buttonSection);
+    container.appendChild(buttonList);
 
     buttons.forEach(button => {
-        const [label, highlight] = button;
-        buttonSection.appendChild(createButton(label, highlight));
+        buttonList.appendChild(createButton(button));
     })
 
     return container;
@@ -28,17 +28,22 @@ export function projectInfo(buttons: ButtonLink[]) {
 //-----------------------------------------------------------------------
 
 
-function createButton(label: string, highlight: boolean) {
-    const buttonLine = document.createElement('button');
+function createButton(newButton: ButtonLink) {
+    const btn = document.createElement('li');
+    const btnLine = document.createElement('a');
+    const [label, path, highlight] = newButton;
 
     if (highlight) {
-        buttonLine.className = "highlight";
+        btn.className = "btn-highlight";
     }
 
-    buttonLine.type = "button";
-    buttonLine.textContent = label;
+    btnLine.type = "button";
+    btnLine.textContent = label;
+    btnLine.href = path;
+    btnLine.target = "_blank";
 
-    return buttonLine;
+    btn.appendChild(btnLine);
+    return btn;
 }
 
 function dataSection() {

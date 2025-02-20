@@ -66,24 +66,34 @@
                 margin: 0 0 15px 0;
                 padding: 0;
             }
+        }
 
+        .button-list {
+            list-style-type: none;
+            padding: 0;
 
+            li {
+                margin: 5px 0;
 
-            button {
+            }
+
+            a {
+                display: block;
                 width: 100%;
-                color: white;
                 font-family: "Handjet", serif;
                 font-size: 1.2em;
-                font-weight: bold;
-                text-transform: uppercase;
                 padding: 10px 0;
                 border-radius: 5px;
                 border: none;
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-align: center;
                 background-color: #252525;
-                margin: 5px 0;
             }
 
-            button.highlight {
+            .btn-highlight a {
                 background-color: #FF523B;
             }
         }
@@ -129,4 +139,3 @@
         }
     }
 }
-

@@ -11,7 +11,6 @@ const linkedinProfile: string = "https://www.linkedin.com/in/charlesdouc/"
 const instagramProfile: string = "https://www.instagram.com/charlesdouc/"
 const footerCopyrights: string = "© 2025 Charles Doucet - All Rights Reserved";
 
-
 type SocialLink = [
     path: string,
     image: string,
@@ -23,7 +22,6 @@ const FOO_SOCIALS: SocialLink[] = [
     [instagramProfile, instagramIcon]
 ]
 
-
 //-----------------------------------------------------------------------
 
 export function buildVerticalNav() {
@@ -31,6 +29,7 @@ export function buildVerticalNav() {
     const navHeader = header();
     const navBreadcrumbs = document.createElement("div");
     const navInfo = document.createElement("div");
+    const navFooter = footer();
 
     navBox.id = "vertical-nav";
     navBreadcrumbs.id = "nav-breadcrumbs";
@@ -39,7 +38,7 @@ export function buildVerticalNav() {
     navBox.appendChild(navHeader);
     navHeader.appendChild(navBreadcrumbs);
     navBox.appendChild(navInfo);
-    navBox.appendChild(footer());
+    navBox.appendChild(navFooter);
 
     return navBox;
 }
@@ -81,7 +80,7 @@ const header = () => {
 }
 
 
-function footer() {
+const footer = () => {
     const container = document.createElement("div");
     const socials = document.createElement("ul");
     const copyrights = document.createElement("p");

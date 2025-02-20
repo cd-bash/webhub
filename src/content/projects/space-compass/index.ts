@@ -36,8 +36,16 @@ export const content: ProjectContent = {
 }
 
 export const buttons: ButtonLink[] = [
-    ["Try It Online", true],
-    ["Access the Repo", false]
+    [
+        "Try It Online",
+        "https://play.unity.com/mg/other/space-compass",
+        true
+    ],
+    [
+        "Access the Repo",
+        "https://github.com/cd-bash",
+        false
+    ]
 ]
 
 export const thumbnail: thumbnailContent = {
