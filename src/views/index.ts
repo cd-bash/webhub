@@ -1,8 +1,10 @@
-﻿/*
- VIEW-UTILITIESed to
- Are functions usbuild the skeleton of content pages.
- They are mostly used when building templates.
- */
+﻿import "./styles.css";
+
+export * from "./home";
+export * from "./interactive.ts";
+export * from "./project.ts";
+
+// --------------------------------------------------------------------------------
 
 export function buildViewBase() {
     const viewBox = document.createElement('div');
@@ -19,6 +21,7 @@ export function renderView(view: HTMLElement) {
     viewWrapper.appendChild(view);
 }
 
+// --------------------------------------------------------------------------------
 
 function clearView() {
     const cleanViewWrapper = document.getElementById('view-wrapper')!;
@@ -28,4 +31,3 @@ function clearView() {
 
     return cleanViewWrapper;
 }
-

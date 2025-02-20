@@ -1,14 +1,12 @@
-import './views/home-view/styles.css';
 import { router } from "./core/router";
 import {buildVerticalNav} from "./components/vertical-nav";
-import {buildViewBase} from "./views/utils";
 import {buildInteractivePage, buildProjectPage} from "./content/projects";
-import {BuildView} from "./views/home-view/home-view.ts";
-
+import {homeView} from "./views/home.ts";
+import {buildViewBase} from "./views";
 
 
 const routes = [
-    { path: '/', handler: BuildView },
+    { path: '/', handler: homeView },
     { path: '/interactive', handler: buildInteractivePage },
     { path: '/interactive/:id', handler: (params) => buildProjectPage(params?.id) }
 ];

@@ -1,7 +1,7 @@
 ﻿import cdIcon from "/img/common/cd_icon_green.png";
 
 
-export function BuildView() {
+export function homeView() {
   const view = document.createElement("main");
   const mainVisuals = DrawVisuals();
   const mainTitle = BuildMainTitle("bonjour, hi");

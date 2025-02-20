@@ -1,5 +1,5 @@
-﻿import {writeTitle} from "../utils";
-import {buildThumbnailList} from "../../content/projects";
+﻿import {writeTitle} from "./utils";
+import {buildThumbnailList} from "../content/projects";
 
 
 //-----------------------------------------------------------------------

@@ -1,10 +1,9 @@
-﻿import "./styles.css";
-import {
+﻿import {
     writeTitle,
     createVideoShowcase,
     writeParagraph,
     createContentGallery, createBackground
-} from "../utils"
+} from "./utils"
 
 
 export type ProjectContent = {

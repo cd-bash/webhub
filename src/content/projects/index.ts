@@ -1,13 +1,12 @@
-﻿import {projectView} from "../../views/project-view";
+﻿import {projectView, renderView} from "../../views";
 import {projectInfo} from "../../components/vertical-nav/info-project.ts";
-import {renderView} from "../../views/utils";
 import {renderBreadcrumbs, renderNavInfo} from "../../components/vertical-nav";
 import {createThumbnail} from "../../components/thumbnail";
 import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components/breadcrumbs";
 
 import * as spaceCompass from "./space-compass";
 import * as nextUx from "./next-ux";
-import {interactiveView} from "../../views/interactive-view";
+import {interactiveView} from "../../views/interactive.ts";
 
 
 
