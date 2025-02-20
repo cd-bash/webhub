@@ -1,4 +1,4 @@
-﻿import {renderer} from "./../three-data-viewer";
+﻿import {threeDataViewer} from "./../three-data-viewer";
 
 
 export type ButtonLink = [
@@ -52,7 +52,7 @@ function dataSection() {
     detailTitle.textContent = "Made with";
 
     detailSection.appendChild(detailTitle);
-    detailSection.appendChild(renderer.domElement);
+    detailSection.appendChild(threeDataViewer());
 
     return detailSection;
 }
