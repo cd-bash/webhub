@@ -42,7 +42,7 @@ export function createThumbnail(content: thumbnailContent, showcase: boolean) {
     itemBox.appendChild(clearFix);
 
     itemThumbnail.addEventListener('click', () => {
-        EVENT_BUS.dispatch('page_navigation', {pageReference: content.path});
+        EVENT_BUS.dispatch('page_navigation', { pageReference: 'interactive/' + content.path });
     });
 
     return itemBox;

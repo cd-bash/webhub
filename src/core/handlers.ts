@@ -1,9 +1,10 @@
 ﻿import {Events} from "./events";
 import {buildProjectPage} from "../content/projects";
+import {router} from "./router.ts";
 
 
 export const handlers = {
     page_navigation: (value: Events['page_navigation']): void => {
-        buildProjectPage(value.pageReference);
+        router.handleRoute(value.pageReference);
     },
 };
