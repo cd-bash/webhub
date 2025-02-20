@@ -5,7 +5,6 @@ import {buildThumbnailList} from "../../content/projects";
 //-----------------------------------------------------------------------
 
 export function interactiveView() {
-    const viewWrapper = document.getElementById('view-wrapper')!;
     const article = document.createElement('article');
     const latestProject = document.createElement('div');
     const listProject = document.createElement('div');
@@ -16,7 +15,6 @@ export function interactiveView() {
     latestProject.className = 'latest-project';
     listProject.className = 'list-project';
 
-    viewWrapper.appendChild(article);
     article.appendChild(viewTitle);
     article.appendChild(latestProject);
     article.appendChild(listProject);

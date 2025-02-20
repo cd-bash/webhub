@@ -2,26 +2,18 @@ import './views/home-view/styles.css';
 import { router } from "./core/router";
 import {buildVerticalNav} from "./components/vertical-nav";
 import {buildViewBase} from "./views/utils";
-import {interactiveView} from "./views/interactive-view";
-import {buildProjectPage} from "./content/projects";
+import {buildInteractivePage, buildProjectPage} from "./content/projects";
 import {BuildView} from "./views/home-view/home-view.ts";
 
 
 
-router.registerRoute('/', () => {
-    BuildView();
-});
+const routes = [
+    { path: '/', handler: BuildView },
+    { path: '/interactive', handler: buildInteractivePage },
+    { path: '/interactive/:id', handler: (params) => buildProjectPage(params?.id) }
+];
 
-router.registerRoute('/interactive', () => {
-    interactiveView();
-});
-
-
-router.registerRoute('/interactive/:id', (params) => {
-    buildProjectPage(params?.id);
-});
-
-
+routes.forEach(route => router.registerRoute(route.path, route.handler));
 
 
 function init() {

@@ -1,5 +1,4 @@
 ﻿import {Events} from "./events";
-import {buildProjectPage} from "../content/projects";
 import {router} from "./router.ts";
 
 

@@ -6,13 +6,8 @@ class Router {
     private routes: Map<string, RouteHandler> = new Map();
 
     constructor() {
-        window.addEventListener('popstate', () => {
-            this.handleRoute(window.location.pathname);
-        });
-
-        EVENT_BUS.subscribe('page_navigation', (data: { pageReference: string }) => {
-            this.navigate(data.pageReference);
-        });
+        window.addEventListener('popstate', () => this.handleRoute(window.location.pathname));
+        EVENT_BUS.subscribe('page_navigation', (data: { pageReference: string }) => this.navigate(data.pageReference));
     }
 
     public registerRoute(path: string, handler: RouteHandler) {

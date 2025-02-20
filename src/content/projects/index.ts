@@ -7,6 +7,7 @@ import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components
 
 import * as spaceCompass from "./space-compass";
 import * as nextUx from "./next-ux";
+import {interactiveView} from "../../views/interactive-view";
 
 
 
@@ -32,6 +33,13 @@ export function buildProjectPage(pageReference: string) {
     renderBreadcrumbs(breadcrumbs(trackBreadcrumbs(page!.content.title)));
     renderNavInfo(navInfo);
     renderView(viewContent);
+}
+
+export function buildInteractivePage() {
+    const viewContent = interactiveView();
+
+    renderView(viewContent);
+
 }
 
 export function buildThumbnailList() {
