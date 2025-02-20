@@ -1,10 +1,7 @@
 ﻿import './styles.css';
-import {EventBus} from "../../event-bus";
-import {Events} from "../../consts/events";
-import {handlers} from "../../consts/handlers";
+import {EVENT_BUS} from "../../event-bus";
+import {Events} from "../../event-bus";
 
-const EVENT_BUS = new EventBus<Events>();
-EVENT_BUS.subscribe('page_navigation', handlers.page_navigation);
 
 export type thumbnailContent = {
     readonly thumbnail: string;
@@ -45,7 +42,10 @@ export function createThumbnail(content: thumbnailContent, showcase: boolean) {
     itemTexts.appendChild(itemCategory);
     itemBox.appendChild(clearFix);
 
-    itemThumbnail.addEventListener('click', () => EVENT_BUS.dispatch('page_navigation', {path: "Button A", pageReference: content.path}));
+    itemThumbnail.addEventListener('click', () => {
+        const currentPath = window.location.pathname;
+        EVENT_BUS.dispatch('page_navigation', {path: currentPath, pageReference: content.path});
+    });
 
     return itemBox;
 }

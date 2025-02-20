@@ -2,7 +2,6 @@
 import {buildThumbnailList} from "../../content/projects";
 
 
-
 //-----------------------------------------------------------------------
 
 export function interactiveView() {
