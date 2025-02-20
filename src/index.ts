@@ -17,6 +17,7 @@ function init() {
     interactiveView();
     //buildProjectPage("next-ux");
 
+    // Handle initial page load
     const initialPath = window.location.pathname;
     EVENT_BUS.dispatch('page_navigation', { path: initialPath, pageReference: initialPath });
 }
@@ -24,7 +25,7 @@ function init() {
 init();
 
 
-window.addEventListener('popstate', (event) => {
+window.addEventListener('popstate', () => {
     const path = window.location.pathname;
-    EVENT_BUS.dispatch('page_navigation', {path: path, pageReference: path});
+    EVENT_BUS.dispatch('page_navigation', { path: path, pageReference: path });
 });
