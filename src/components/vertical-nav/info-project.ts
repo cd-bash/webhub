@@ -1,4 +1,4 @@
-﻿import {renderer} from "./project-data-cube.ts";
+﻿import {renderer} from "./../three-data-viewer";
 
 
 export type ButtonLink = [

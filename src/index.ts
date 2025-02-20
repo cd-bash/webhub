@@ -13,6 +13,7 @@ const routes = [
 
 routes.forEach(route => router.registerRoute(route.path, route.handler));
 
+//-----------------------------------------------------------------------
 
 function init() {
     const body = document.getElementsByTagName("body")[0];
