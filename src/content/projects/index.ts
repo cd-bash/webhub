@@ -1,16 +1,18 @@
-﻿import {projectView} from "../../views/project-view";
+﻿import {projectView, renderView} from "../../views";
 import {projectInfo} from "../../components/vertical-nav/info-project.ts";
-import {renderView} from "../../views/utils";
 import {renderBreadcrumbs, renderNavInfo} from "../../components/vertical-nav";
 import {createThumbnail} from "../../components/thumbnail";
 import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components/breadcrumbs";
 
 import * as spaceCompass from "./space-compass";
+import * as nextUx from "./next-ux";
+import {interactiveView} from "../../views/interactive.ts";
 
 
 
 const pageReferences: { [key: string]: any } = {
     "space-compass": spaceCompass,
+    "next-ux": nextUx,
 };
 
 
@@ -30,6 +32,13 @@ export function buildProjectPage(pageReference: string) {
     renderBreadcrumbs(breadcrumbs(trackBreadcrumbs(page!.content.title)));
     renderNavInfo(navInfo);
     renderView(viewContent);
+}
+
+export function buildInteractivePage() {
+    const viewContent = interactiveView();
+
+    renderView(viewContent);
+
 }
 
 export function buildThumbnailList() {

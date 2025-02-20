@@ -1,4 +1,4 @@
-﻿import {ProjectContent} from "../../../views/project-view";
+﻿import {ProjectContent} from "../../../views/project.ts";
 import {ButtonLink} from "../../../components/vertical-nav/info-project.ts";
 import {thumbnailContent} from "../../../components/thumbnail";
 
