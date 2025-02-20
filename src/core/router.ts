@@ -1,4 +1,5 @@
 ﻿import { EVENT_BUS } from "./";
+import {buildErrorPage} from "../views/error404.ts";
 
 type RouteHandler = (params?: Record<string, string>) => void;
 
@@ -27,6 +28,7 @@ class Router {
                 return;
             }
         }
+        buildErrorPage();
         console.error(`No handler found for path: ${path}`);
     }
 
