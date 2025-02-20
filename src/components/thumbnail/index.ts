@@ -1,6 +1,5 @@
 ﻿import './styles.css';
 import {EVENT_BUS} from "../../event-bus";
-import {Events} from "../../event-bus";
 
 
 export type thumbnailContent = {
@@ -43,8 +42,7 @@ export function createThumbnail(content: thumbnailContent, showcase: boolean) {
     itemBox.appendChild(clearFix);
 
     itemThumbnail.addEventListener('click', () => {
-        const currentPath = window.location.pathname;
-        EVENT_BUS.dispatch('page_navigation', {path: currentPath, pageReference: content.path});
+        EVENT_BUS.dispatch('page_navigation', {pageReference: "interactive/" + content.path});
     });
 
     return itemBox;
