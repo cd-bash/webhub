@@ -1,34 +1,25 @@
 ﻿import {renderer} from "./project-data-cube.ts";
 
-export type OutsideLink = [
-    name: string,
-    path: string,
-]
 
-export type LinkCollection = [
-    title: string,
-    links: OutsideLink[],
-]
-
-export type LinkButton = [
+export type ButtonLink = [
     label: string,
+    path: string,
+    highlight: boolean,
 ]
 
 //-----------------------------------------------------------------------
 
-export function projectInfo(collections: LinkCollection[], buttons: LinkButton[]) {
+export function projectInfo(buttons: ButtonLink[]) {
     const container = document.createElement('div');
-    container.className = "project-info";
-    container.appendChild(dataSection());
+    const buttonList = document.createElement('ul');
 
-    collections.forEach(collection => {
-        const [title, links] = collection;
-        container.appendChild(linkSection(title, links));
-    })
+    container.className = "project-info";
+    buttonList.className = "button-list";
+    container.appendChild(dataSection());
+    container.appendChild(buttonList);
 
     buttons.forEach(button => {
-        const [label] = button;
-        container.appendChild(buttonSection(label));
+        buttonList.appendChild(createButton(button));
     })
 
     return container;
@@ -36,48 +27,29 @@ export function projectInfo(collections: LinkCollection[], buttons: LinkButton[]
 
 //-----------------------------------------------------------------------
 
-function linkSection(title: string, links: OutsideLink[]) {
-    const section = document.createElement('section');
-    const sectionTitle = document.createElement("h4");
-    const linkList = document.createElement('ul');
 
-    sectionTitle.textContent = title;
+function createButton(newButton: ButtonLink) {
+    const btn = document.createElement('li');
+    const btnLine = document.createElement('a');
+    const [label, path, highlight] = newButton;
 
-    section.appendChild(sectionTitle);
-    section.appendChild(linkList);
+    if (highlight) {
+        btn.className = "btn-highlight";
+    }
 
-    links.forEach(link => {
-        const [name, path] = link;
-        const linkLine = document.createElement('li');
-        const linkElement = document.createElement("a");
+    btnLine.type = "button";
+    btnLine.textContent = label;
+    btnLine.href = path;
+    btnLine.target = "_blank";
 
-        linkElement.href = path;
-        linkElement.target = "_blank";
-        linkElement.textContent = name;
-
-        linkList.appendChild(linkLine);
-        linkLine.appendChild(linkElement);
-    })
-
-    return section;
-}
-
-function buttonSection(label: string) {
-    const section = document.createElement('section');
-    const buttonLine = document.createElement('button');
-
-    buttonLine.type = "button";
-    buttonLine.textContent = label;
-
-    section.appendChild(buttonLine);
-
-    return section;
+    btn.appendChild(btnLine);
+    return btn;
 }
 
 function dataSection() {
     const detailSection = document.createElement("section");
     const detailTitle = document.createElement("h4");
-    detailTitle.textContent = "Tech Distribution";
+    detailTitle.textContent = "Made with";
 
     detailSection.appendChild(detailTitle);
     detailSection.appendChild(renderer.domElement);

@@ -1,5 +1,5 @@
 ﻿#view-box {
-    padding-left: 300px;
+    padding-left: 280px;
     height: 100%;
     font-family: "Cabin", sans-serif;
 
@@ -7,7 +7,7 @@
     #view-wrapper {
         width: 720px;
         margin: 0 auto;
-        padding-top: 100px;
+        padding-top: 60px;
 
 
         .showcase {
