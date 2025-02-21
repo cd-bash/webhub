@@ -13,16 +13,6 @@ const pointA = new THREE.Vector2( -width, -width );
 const pointB = new THREE.Vector2( 0, width );
 const pointC = new THREE.Vector2( width, -width );
 
-const shape = new THREE.Shape();
-shape.moveTo( pointA.x, pointA.y );
-shape.lineTo( pointB.x, pointB.y );
-shape.lineTo( pointC.x, pointC.y );
-shape.lineTo( pointA.x, pointA.y );
-
-const valueShape = new THREE.Shape();
-valueShape.moveTo( pointA.x + pointAvalue/100, pointA.y + pointAvalue/100 );
-valueShape.lineTo( pointB.x, pointB.y );
-valueShape.lineTo( pointC.x, pointC.y );
 
 const extrudeSettings = {
     steps: 1,
@@ -34,13 +24,21 @@ const extrudeSettings = {
 //-----------------------------------------------------------------------
 
 export const initGeometry = () => {
-    drawMainShape(shape);
+    const shape = drawShape();
+    const mainMesh = buildMesh(shape, 0xffffff);
+    scene.add(mainMesh);
 
     for (let i = 0; i < 4; i++) {
-        drawDepthShape(shape, i);
+        createDepthMesh(shape, i);
     }
 
-    drawValueShape(valueShape);
+    const valueShape = drawShape(
+        {x: pointAvalue/100, y: pointAvalue/100},
+        {x: pointBvalue/100, y: pointBvalue/100},
+        {x: pointCvalue/100, y: pointCvalue/100}
+    );
+    const valueMesh = buildMesh(valueShape, 0x3BFFC5);
+    scene.add(valueMesh);
 
     const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -52,33 +50,23 @@ export const initGeometry = () => {
     controls.panSpeed = 0;
     controls.rotateSpeed = 0.5;
     controls.update();
-
-    backdrop();
 }
 
 //-----------------------------------------------------------------------
 
-
-const drawMainShape = (mainShape: THREE.Shape) => {
-    const geometry = new THREE.ExtrudeGeometry(mainShape, extrudeSettings);
+const buildMesh = (shape: THREE.Shape, shapeColor: THREE.ColorRepresentation) => {
+    const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
     const material = new THREE.MeshBasicMaterial({
-        color: 0xffffff,
+        color: shapeColor,
         wireframe: true
     });
 
     const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
+    return mesh;
 }
 
-
-const drawDepthShape = (depthShape: THREE.Shape, iteration: number) => {
-    const geometry = new THREE.ExtrudeGeometry(depthShape, extrudeSettings);
-    const material = new THREE.MeshBasicMaterial({
-        color: 0x333333,
-        wireframe: true
-    });
-
-    const mesh = new THREE.Mesh(geometry, material);
+const createDepthMesh = (depthShape: THREE.Shape, iteration: number) => {
+    const mesh = buildMesh(depthShape, 0x333333);
     const size = iteration * 0.25;
     const offset = 2.5;
 
@@ -87,28 +75,19 @@ const drawDepthShape = (depthShape: THREE.Shape, iteration: number) => {
     scene.add(mesh);
 }
 
-const drawValueShape = (valueShape: THREE.Shape) => {
-    const geometry = new THREE.ExtrudeGeometry(valueShape, extrudeSettings);
-    const material = new THREE.MeshBasicMaterial({
-        color: 0x3BFFC5,
-        wireframe: true
-    });
+const drawShape = (
+    translationA: {x: number, y: number} = {x: 0, y: 0},
+    translationB: {x: number, y: number} = {x: 0, y: 0},
+    translationC: {x: number, y: number} = {x: 0, y: 0}
+) => {
+    const shape = new THREE.Shape();
 
-    const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
+    shape.moveTo(pointA.x + translationA.x, pointA.y + translationA.y);
+    shape.lineTo(pointB.x, pointB.y - translationB.y);
+    shape.lineTo(pointC.x - translationC.x, pointC.y + translationC.y);
+    shape.lineTo(pointA.x + translationA.x, pointA.y + translationA.y);
+
+    return shape;
 }
 
-const backdrop = () => {
-    const geometry = new THREE.PlaneGeometry(100, 100);
-    const material = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-    });
-    const mesh = new THREE.Mesh(geometry, material);
 
-    const light1 = new THREE.PointLight( 0xffffff, 5 );
-    light1.position.set( 0, -5, -3 );
-    scene.add( light1 );
-
-    mesh.position.z = -16;
-    scene.add(mesh);
-}

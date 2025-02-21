@@ -13,6 +13,7 @@ let graphicCanvas,
 export const initScene = () => {
     scene = new THREE.Scene();
     //scene.fog = new THREE.Fog(0x010102, 1, 10);
+    createBackdrop();
 
     renderer = new THREE.WebGLRenderer({
         antialias: true
@@ -42,4 +43,19 @@ export const initCanvas = () => {
 }
 
 //-----------------------------------------------------------------------
+
+const createBackdrop = () => {
+    const geometry = new THREE.PlaneGeometry(100, 100);
+    const material = new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+    });
+    const mesh = new THREE.Mesh(geometry, material);
+
+    const light1 = new THREE.PointLight( 0xffffff, 5 );
+    light1.position.set( 0, -5, -3 );
+    scene.add( light1 );
+
+    mesh.position.z = -16;
+    scene.add(mesh);
+}
 
