@@ -2,7 +2,9 @@
 import {scene} from "./scene.ts";
 import {Vector2} from "three";
 
-const offset = 1.5
+const offset = 1.5;
+const labelMeshes: THREE.Mesh[] = [];
+
 
 //-----------------------------------------------------------------------
 
@@ -12,6 +14,13 @@ export const label = (label: string, spawnPoint: Vector2) => {
 
     labelMesh.position.set(spawnPoint.x, spawnPoint.y * offset, 0);
     scene.add(labelMesh);
+    labelMeshes.push(labelMesh);
+}
+
+export const updateLabelMeshes = (camera: THREE.Camera) => {
+    labelMeshes.forEach(mesh => {
+        mesh.lookAt(camera.position);
+    });
 }
 
 //-----------------------------------------------------------------------

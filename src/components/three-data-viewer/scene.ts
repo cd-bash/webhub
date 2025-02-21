@@ -12,16 +12,14 @@ let graphicCanvas,
 
 export const initScene = () => {
     scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x010102, 1, 10);
-    scene.add( new THREE.DirectionalLight( 0x00ff00, 10) );
+    //scene.fog = new THREE.Fog(0x010102, 1, 10);
 
     renderer = new THREE.WebGLRenderer({
-        alpha: true,
         antialias: true
     });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(canvasWidth, canvasHeight);
-    renderer.setClearColor(0x333333, 1);
+    renderer.setClearColor(0x000000, 1);
 }
 
 export const initCamera = () => {
