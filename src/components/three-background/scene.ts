@@ -31,7 +31,7 @@ export const initStage = () => {
 export const initScene = () => {
     scene = new THREE.Scene();
     scene.fog = new THREE.Fog(0x010102, 1, 3000);
-    scene.add( new THREE.AmbientLight( 0xcccccc ) );
+    scene.add( new THREE.AmbientLight( 0x000000 ) );
 
 
     renderer = new THREE.WebGLRenderer({
