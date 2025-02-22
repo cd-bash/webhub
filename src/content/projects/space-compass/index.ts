@@ -11,6 +11,7 @@ import SCREENSHOT_3 from "./assets/spaceCompass-screenshot-3.jpg"
 import SCREENSHOT_4 from "./assets/spaceCompass-screenshot-4.jpg"
 
 import THUMBNAIL from "./assets/spaceCompass-thumbnail.jpg";
+import {TechUsage} from "../../../components/three-radar-chart/radar.ts";
 
 
 export const content: ProjectContent = {
@@ -34,6 +35,21 @@ export const content: ProjectContent = {
         SCREENSHOT_4
     ]
 }
+
+export const techs: TechUsage[] = [
+    {
+        technology: "Unity 3D",
+        percentage: 90
+    },
+    {
+        technology: "Blender",
+        percentage: 80
+    },
+    {
+        technology: "Adobe XD",
+        percentage: 25
+    }
+]
 
 export const buttons: ButtonLink[] = [
     [

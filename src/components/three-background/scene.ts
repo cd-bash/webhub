@@ -8,10 +8,7 @@ export let renderer: THREE.WebGLRenderer,
     windowWidth = window.innerWidth,
     windowHeight = window.innerHeight;
 
-let graphicCanvas,
-    canvasWidth = 240,
-    canvasHeight = 240,
-    mouseX = 0,
+let mouseX = 0,
     mouseY = 0,
     windowHalfWidth: number,
     windowHalfHeight: number;
@@ -31,7 +28,7 @@ export const initStage = () => {
 export const initScene = () => {
     scene = new THREE.Scene();
     scene.fog = new THREE.Fog(0x010102, 1, 3000);
-    scene.add( new THREE.AmbientLight( 0xcccccc ) );
+    scene.add( new THREE.AmbientLight( 0x000000 ) );
 
 
     renderer = new THREE.WebGLRenderer({
@@ -56,11 +53,7 @@ export const initCamera = () => {
     camera.position.z = 800;
 }
 
-export const initCanvas = () => {
-    graphicCanvas = document.createElement('canvas');
-    graphicCanvas.width = canvasWidth;
-    graphicCanvas.height = canvasHeight;
-}
+
 
 //-----------------------------------------------------------------------
 
