@@ -59,6 +59,14 @@
             border-radius: 5px;
         }
 
+        canvas:hover {
+            cursor: pointer;
+        }
+
+        canvas:active {
+            cursor: grabbing;
+        }
+
 
         section {
             padding: 10px 0;

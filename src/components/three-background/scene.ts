@@ -8,10 +8,7 @@ export let renderer: THREE.WebGLRenderer,
     windowWidth = window.innerWidth,
     windowHeight = window.innerHeight;
 
-let graphicCanvas,
-    canvasWidth = 240,
-    canvasHeight = 240,
-    mouseX = 0,
+let mouseX = 0,
     mouseY = 0,
     windowHalfWidth: number,
     windowHalfHeight: number;
@@ -56,11 +53,7 @@ export const initCamera = () => {
     camera.position.z = 800;
 }
 
-export const initCanvas = () => {
-    graphicCanvas = document.createElement('canvas');
-    graphicCanvas.width = canvasWidth;
-    graphicCanvas.height = canvasHeight;
-}
+
 
 //-----------------------------------------------------------------------
 
