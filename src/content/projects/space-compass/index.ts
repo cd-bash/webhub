@@ -39,15 +39,15 @@ export const content: ProjectContent = {
 export const techs: TechUsage[] = [
     {
         technology: "Unity 3D",
-        percentage: 85
+        percentage: 90
     },
     {
         technology: "Blender",
-        percentage: 50
+        percentage: 80
     },
     {
         technology: "Adobe XD",
-        percentage: 50
+        percentage: 25
     }
 ]
 

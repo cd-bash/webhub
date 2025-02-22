@@ -1,6 +1,6 @@
-﻿import {camera, scene, renderer} from ".//scene.ts";
+﻿import {renderWithPostProcess} from "./post-process.ts";
 
 export const animate = () => {
     requestAnimationFrame(animate);
-    renderer.render( scene, camera );
+    renderWithPostProcess();
 }

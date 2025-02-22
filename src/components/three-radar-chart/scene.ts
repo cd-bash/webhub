@@ -4,8 +4,9 @@ export let renderer: THREE.WebGLRenderer,
     scene: THREE.Scene,
     camera: THREE.PerspectiveCamera;
 
-let graphicCanvas,
-    canvasWidth = 185,
+let graphicCanvas;
+
+export const canvasWidth = 185,
     canvasHeight = 185;
 
 //-----------------------------------------------------------------------

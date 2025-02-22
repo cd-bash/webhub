@@ -41,7 +41,7 @@ export const initRadar = (techs: TechUsage[]) => {
     }
 
     const valueShape = determineValueShape(techs.map(tech => tech.percentage));
-    const valueMesh = buildMesh(valueShape, 0x00ff00);
+    const valueMesh = buildMesh(valueShape, 0x3BFFC5);
     scene.add(valueMesh);
 }
 
@@ -83,7 +83,7 @@ const drawShape = (points: {x: number, y: number}[]) => {
 
 const determineValueShape = (values: number[]) => {
     let valueShape: {x: number, y: number}[] = [];
-    const score = values.map(value => (100 - value) / 100);
+    const score = values.map(value => ((100 - value) / 100) * graphicSize);
 
     valueShape = [
         {x: triangle[0].x + score[0], y: triangle[0].y + score[0]},
