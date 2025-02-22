@@ -33,7 +33,7 @@ export const initCamera = () => {
         aspectRatio,
         nearPlane,
         farPlane);
-    camera.position.z = 800;
+    camera.position.z = 3.75;
 }
 
 export const initCanvas = () => {

@@ -1,6 +1,5 @@
 ﻿import * as THREE from "three";
 import {scene} from "./scene.ts";
-import {Vector2} from "three";
 
 const offset = 1.5;
 const labelMeshes: THREE.Mesh[] = [];
@@ -8,7 +7,7 @@ const labelMeshes: THREE.Mesh[] = [];
 
 //-----------------------------------------------------------------------
 
-export const label = (label: string, spawnPoint: Vector2) => {
+export const label = (label: string, spawnPoint: {x: number, y: number}) => {
     const texture = createLabelTexture(label);
     const labelMesh = createLabelPlane(texture);
 

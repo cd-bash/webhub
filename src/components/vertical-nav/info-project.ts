@@ -1,4 +1,5 @@
-﻿import {threeDataViewer} from "./../three-data-viewer";
+﻿import {threeDataViewer} from "../three-radar-chart";
+import {TechUsage} from "../three-radar-chart/radar.ts";
 
 
 export type ButtonLink = [
@@ -9,13 +10,13 @@ export type ButtonLink = [
 
 //-----------------------------------------------------------------------
 
-export function projectInfo(buttons: ButtonLink[]) {
+export function projectInfo(buttons: ButtonLink[], techs: TechUsage[]) {
     const container = document.createElement('div');
     const buttonList = document.createElement('ul');
 
     container.className = "project-info";
     buttonList.className = "button-list";
-    container.appendChild(dataSection());
+    container.appendChild(dataSection(techs));
     container.appendChild(buttonList);
 
     buttons.forEach(button => {
@@ -46,13 +47,13 @@ function createButton(newButton: ButtonLink) {
     return btn;
 }
 
-function dataSection() {
+function dataSection(newTechRadar: TechUsage[]) {
     const detailSection = document.createElement("section");
     const detailTitle = document.createElement("h4");
     detailTitle.textContent = "Made with";
 
     detailSection.appendChild(detailTitle);
-    detailSection.appendChild(threeDataViewer());
+    detailSection.appendChild(threeDataViewer(newTechRadar));
 
     return detailSection;
 }
