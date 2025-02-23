@@ -1,73 +1,46 @@
-﻿import {ProjectContent} from "../../../views/project.ts";
-import {ButtonLink} from "../../../components/vertical-nav/info-project.ts";
-import {thumbnailContent} from "../../../components/thumbnail";
+﻿import {createProjectContent} from "../template.ts";
 
-import WEBM_VIDEO from "./assets/spaceCompass-showcase.webm";
-import MP4_VIDEO from "./assets/spaceCompass-showcase.mp4";
+import SHOWCASE_WEBM from "./assets/space-compass-showcase.webm";
+import SHOWCASE_MP4 from "./assets/space-compass-showcase.mp4";
 
-import SCREENSHOT_1 from "./assets/spaceCompass-screenshot-1.jpg"
-import SCREENSHOT_2 from "./assets/spaceCompass-screenshot-2.jpg"
-import SCREENSHOT_3 from "./assets/spaceCompass-screenshot-3.jpg"
-import SCREENSHOT_4 from "./assets/spaceCompass-screenshot-4.jpg"
+import SCREENSHOT_1 from "./assets/space-compass-screenshot-1.jpg";
+import SCREENSHOT_2 from "./assets/space-compass-screenshot-2.jpg";
+import SCREENSHOT_3 from "./assets/space-compass-screenshot-3.jpg";
+import SCREENSHOT_4 from "./assets/space-compass-screenshot-4.jpg";
 
-import THUMBNAIL from "./assets/spaceCompass-thumbnail.jpg";
-import {TechUsage} from "../../../components/three-radar-chart/radar.ts";
+import THUMBNAIL from "./assets/space-compass-thumbnail.jpg";
 
+//-----------------------------------------------------------------------
 
-export const content: ProjectContent = {
-    title: "Space Compass",
-    subtitle: "game prototype - winter 2020",
+export const { content, techs, buttons, thumbnail } = createProjectContent(
+    "Space Compass", // Title
+    "game prototype - winter 2020", // Subtitle
+    "Radial Navigation", // Tagline
 
-    tagline: "Radial Navigation",
-    paragraphs: [
+    // Paragraphs
+    [
         "This space-themed shooter features circular movement constraints, requiring players to evade or eliminate various asteroids and structures."
     ],
 
-    heroVideo: [
-        WEBM_VIDEO,
-        MP4_VIDEO
+    // Medias
+    [ SHOWCASE_WEBM, SHOWCASE_MP4 ],
+    [ SCREENSHOT_1, SCREENSHOT_2, SCREENSHOT_3, SCREENSHOT_4 ],
+
+    // Techs Used
+    [
+        { technology: "Unity 3D", percentage: 90 },
+        { technology: "Blender", percentage: 80 },
+        { technology: "Adobe XD", percentage: 25 }
     ],
 
-    imageGallery: [
-        SCREENSHOT_1,
-        SCREENSHOT_2,
-        SCREENSHOT_3,
-        SCREENSHOT_4
-    ]
-}
-
-export const techs: TechUsage[] = [
-    {
-        technology: "Unity 3D",
-        percentage: 90
-    },
-    {
-        technology: "Blender",
-        percentage: 80
-    },
-    {
-        technology: "Adobe XD",
-        percentage: 25
-    }
-]
-
-export const buttons: ButtonLink[] = [
+    //Buttons
     [
-        "Try It Online",
-        "https://play.unity.com/mg/other/space-compass",
-        true
+        ["Try It Online", "https://play.unity.com/mg/other/space-compass", true],
+        ["Access the Repo", "https://github.com/cd-bash", false]
     ],
-    [
-        "Access the Repo",
-        "https://github.com/cd-bash",
-        false
-    ]
-]
 
-export const thumbnail: thumbnailContent = {
-    thumbnail: THUMBNAIL,
-    title: content.title,
-    description: "A space shooter where players must dodge and destroy asteroids for high scores.",
-    tags: ["Unity", "Game Design"],
-    path: "space-compass"
-}
+    // Thumbnail
+    THUMBNAIL,
+    ["Unity", "Game Design"],
+    "space-compass"
+);

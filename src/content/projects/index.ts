@@ -3,11 +3,10 @@ import {projectInfo} from "../../components/vertical-nav/info-project.ts";
 import {renderBreadcrumbs, renderNavInfo} from "../../components/vertical-nav";
 import {createThumbnail} from "../../components/thumbnail";
 import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components/breadcrumbs";
+import {interactiveView} from "../../views/interactive.ts";
 
 import * as spaceCompass from "./space-compass";
 import * as nextUx from "./next-ux";
-import {interactiveView} from "../../views/interactive.ts";
-
 
 
 const pageReferences: { [key: string]: any } = {
@@ -26,10 +25,11 @@ export function buildProjectPage(pageReference: string) {
         console.error(`Project page reference "${pageReference}" not found.`);
         return;
     }
-    const viewContent = projectView(page!.content);
-    const navInfo = projectInfo(page!.buttons, page!.techs);
+    const { content, techs, buttons } = page;
+    const viewContent = projectView(content);
+    const navInfo = projectInfo(buttons, techs);
 
-    renderBreadcrumbs(breadcrumbs(trackBreadcrumbs(page!.content.title)));
+    renderBreadcrumbs(breadcrumbs(trackBreadcrumbs(content.title)));
     renderNavInfo(navInfo);
     renderView(viewContent);
 }
@@ -45,7 +45,8 @@ export function buildThumbnailList() {
     const list = document.createElement('ul');
 
     Object.values(pageReferences).forEach((page: any) => {
-        const item = createThumbnail(page.thumbnail, false);
+        const { thumbnail } = page;
+        const item = createThumbnail(thumbnail, false);
         list.appendChild(item);
     });
 
