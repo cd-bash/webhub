@@ -8,7 +8,7 @@ import SCREENSHOT_2 from "./assets/next-ux-screenshot-2.jpg"
 import SCREENSHOT_3 from "./assets/next-ux-screenshot-3.jpg"
 import SCREENSHOT_4 from "./assets/next-ux-screenshot-4.jpg"
 
-import THUMBNAIL from "./assets/next-ux-thumbnail.jpg";
+import THUMBNAIL from "./assets/next-ux-thumbnail.png";
 
 //-----------------------------------------------------------------------
 
@@ -41,6 +41,8 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
 
     // Thumbnail
     THUMBNAIL,
-    ["TAG", "TAG"],
+    "UX initiative taken over Voxco’s software.",
+    "Ux / Ui Design",
+    "#0C0A1F",
     "next-ux"
 );

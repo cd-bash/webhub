@@ -1,7 +1,7 @@
 ﻿import {projectView, renderView} from "../../views";
 import {projectInfo} from "../../components/vertical-nav/info-project.ts";
 import {renderBreadcrumbs, renderNavInfo} from "../../components/vertical-nav";
-import {createThumbnail} from "../../components/thumbnail";
+import {projectThumbnail} from "../../components/thumbnail-project";
 import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components/breadcrumbs";
 import {interactiveView} from "../../views/interactive.ts";
 
@@ -46,7 +46,7 @@ export function buildThumbnailList() {
 
     Object.values(pageReferences).forEach((page: any) => {
         const { thumbnail } = page;
-        const item = createThumbnail(thumbnail, false);
+        const item = projectThumbnail(thumbnail, false);
         list.appendChild(item);
     });
 
