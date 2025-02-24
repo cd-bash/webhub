@@ -37,7 +37,7 @@ export function projectThumbnail(content: thumbnailContent, showcase: boolean) {
     itemTitle.textContent = content.title;
     itemTag.textContent = content.tag;
     itemSummary.textContent = content.summary;
-    projectLink.textContent = "Access Project";
+    projectLink.textContent = "View Project";
 
     itemBox.appendChild(itemTitle);
     itemBox.appendChild(itemTag);

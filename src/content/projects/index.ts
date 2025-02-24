@@ -7,11 +7,13 @@ import {interactiveView} from "../../views/interactive.ts";
 
 import * as spaceCompass from "./space-compass";
 import * as nextUx from "./next-ux";
+import * as voxcoIdentity from "./voxco-identity";
 
 
 const pageReferences: { [key: string]: any } = {
-    "space-compass": spaceCompass,
     "next-ux": nextUx,
+    "space-compass": spaceCompass,
+    "voxco-identity": voxcoIdentity
 };
 
 
