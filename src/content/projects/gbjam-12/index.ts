@@ -44,5 +44,12 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
     "Game submission for the Game Boy Jam.",
     "Game Release",
     "#10140C",
-    "gbjam-12"
+    "gbjam-12",
+
+    // Credits
+    [
+        ["Kevin Chiasson", "#"],
+        ["Jean-Philippe Dandeneault", "#"],
+        ["Félix Gagné", "#"],
+    ],
 );

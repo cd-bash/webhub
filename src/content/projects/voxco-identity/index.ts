@@ -43,5 +43,5 @@ export const { content, techs, buttons, thumbnail } = createProjectContent(
     "New visual identity for Voxco’s website.",
     "Graphic Design",
     "#1FA1B9",
-    "voxco-identity"
+    "voxco-identity",
 );

@@ -110,6 +110,17 @@ p.description {
             border-radius: 10px;
         }
 
+        .credits a {
+            font-family: "Handjet", serif;
+            display: inline-block;
+            color: #828282;;
+            font-size: 2.5em;
+            font-weight: normal;
+            padding: 0 30px 15px 0;
+            text-align: center;
+            text-decoration-color: #3BFFC5;
+        }
+
 
     }
 

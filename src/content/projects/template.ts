@@ -1,4 +1,4 @@
-﻿import {ProjectContent} from "../../views/project.ts";
+﻿import {ProjectContent, ProjectCredits} from "../../views/project.ts";
 import {ButtonLink} from "../../components/vertical-nav/info-project.ts";
 import {thumbnailContent} from "../../components/thumbnail-project";
 import {TechUsage} from "../../components/three-radar-chart/radar.ts";
@@ -16,7 +16,8 @@ export function createProjectContent(
     summary: string,
     tag: string,
     thumbnailColor: string,
-    path: string
+    path: string,
+    credits?: ProjectCredits[],
 ): {
     content: ProjectContent,
     techs: TechUsage[],
@@ -29,7 +30,8 @@ export function createProjectContent(
         tagline,
         paragraphs,
         heroVideo,
-        imageGallery
+        imageGallery,
+        credits: credits || []
     };
 
     const thumbnailContent: thumbnailContent = {

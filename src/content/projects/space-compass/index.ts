@@ -44,5 +44,5 @@ export const { content, techs, buttons, thumbnail } = createProjectContent(
     "A spinning space shooter prototype",
     "Game Prototype",
     "#000000",
-    "space-compass"
+    "space-compass",
 );
