@@ -5,12 +5,14 @@ import {projectThumbnail} from "../../components/thumbnail-project";
 import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components/breadcrumbs";
 import {interactiveView} from "../../views/interactive.ts";
 
+import * as gbjam12 from "./gbjam-12";
 import * as spaceCompass from "./space-compass";
 import * as nextUx from "./next-ux";
 import * as voxcoIdentity from "./voxco-identity";
 
 
 const pageReferences: { [key: string]: any } = {
+    "gbjam-12": gbjam12,
     "next-ux": nextUx,
     "space-compass": spaceCompass,
     "voxco-identity": voxcoIdentity
@@ -45,12 +47,14 @@ export function buildInteractivePage() {
 
 export function buildThumbnailList() {
     const list = document.createElement('ul');
+    const pages = Object.values(pageReferences);
 
-    Object.values(pageReferences).forEach((page: any) => {
-        const { thumbnail } = page;
+
+    for (let i = 0; i < pages.length; i++) {
+        const { thumbnail } = pages[i];
         const item = projectThumbnail(thumbnail, false);
         list.appendChild(item);
-    });
+    }
 
     return list;
 }
