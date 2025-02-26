@@ -14,6 +14,7 @@ import * as interval from "./interval";
 import * as kiriko from "./kiriko";
 import * as tank from "./tank";
 import * as youAreTwo from "./you-are-two";
+import * as typograzoo from "./typograzoo";
 
 
 const pageReferences: { [key: string]: any } = {
@@ -25,7 +26,8 @@ const pageReferences: { [key: string]: any } = {
     "interval": interval,
     "kiriko": kiriko,
     "tank": tank,
-    "you-are-two": youAreTwo
+    "you-are-two": youAreTwo,
+    "typograzoo": typograzoo
 };
 
 
