@@ -13,6 +13,7 @@ import * as spaceProgram from "./space-program";
 import * as interval from "./interval";
 import * as kiriko from "./kiriko";
 import * as tank from "./tank";
+import * as youAreTwo from "./you-are-two";
 
 
 const pageReferences: { [key: string]: any } = {
@@ -23,7 +24,8 @@ const pageReferences: { [key: string]: any } = {
     "space-program": spaceProgram,
     "interval": interval,
     "kiriko": kiriko,
-    "tank": tank
+    "tank": tank,
+    "you-are-two": youAreTwo
 };
 
 
