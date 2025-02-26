@@ -42,7 +42,7 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
     // Thumbnail
     THUMBNAIL,
     "SUMMARY",
-    "TAG",
+    "Immersive Experience",
     "#0D0328",
     "kiriko",
 

@@ -12,6 +12,7 @@ import * as voxcoIdentity from "./voxco-identity";
 import * as spaceProgram from "./space-program";
 import * as interval from "./interval";
 import * as kiriko from "./kiriko";
+import * as tank from "./tank";
 
 
 const pageReferences: { [key: string]: any } = {
@@ -21,7 +22,8 @@ const pageReferences: { [key: string]: any } = {
     "voxco-identity": voxcoIdentity,
     "space-program": spaceProgram,
     "interval": interval,
-    "kiriko": kiriko
+    "kiriko": kiriko,
+    "tank": tank
 };
 
 
