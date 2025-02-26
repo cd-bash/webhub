@@ -10,6 +10,8 @@ import * as spaceCompass from "./space-compass";
 import * as nextUx from "./next-ux";
 import * as voxcoIdentity from "./voxco-identity";
 import * as spaceProgram from "./space-program";
+import * as interval from "./interval";
+import * as kiriko from "./kiriko";
 
 
 const pageReferences: { [key: string]: any } = {
@@ -17,7 +19,9 @@ const pageReferences: { [key: string]: any } = {
     "next-ux": nextUx,
     "space-compass": spaceCompass,
     "voxco-identity": voxcoIdentity,
-    "space-program": spaceProgram
+    "space-program": spaceProgram,
+    "interval": interval,
+    "kiriko": kiriko
 };
 
 

@@ -35,8 +35,7 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
 
     //Buttons
     [
-        ["LABEL", "LINK", true],
-        ["LABEL", "LINK", false]
+        ["See it in action", "https://www.youtube.com/watch?v=6FLp1SuoFXA&t=5s&ab_channel=cd-bash", true],
     ],
 
     // Thumbnail
@@ -44,5 +43,13 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
     "Astronauts during a training internship.",
     "Game Prototype",
     "#020C11",
-    "space-program"
+    "space-program",
+
+    // Credits
+    [
+        ["Ali Egseem", "#"],
+        ["Valerie Bourdon", "https://www.instagram.com/valeriebourdon_/"],
+        ["Michaël Petitclerc", "#"],
+        ["Codrin Mihail", "https://codrinmihail.com/"],
+    ],
 );

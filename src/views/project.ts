@@ -96,6 +96,7 @@ function credits(creditsRef: ReadonlyArray<ProjectCredits>) {
         const creditLink = document.createElement('a');
         creditLink.href = credit[1];
         creditLink.textContent = credit[0];
+        creditLink.target = "_blank";
         credits.appendChild(creditLink);
     });
 
