@@ -85,6 +85,7 @@ function gallery(imageRefs: ReadonlyArray<string>) {
     return gallery;
 }
 
+
 function credits(creditsRef: ReadonlyArray<ProjectCredits>) {
     const credits = document.createElement('section');
     credits.className = "credits";

@@ -9,13 +9,15 @@ import * as gbjam12 from "./gbjam-12";
 import * as spaceCompass from "./space-compass";
 import * as nextUx from "./next-ux";
 import * as voxcoIdentity from "./voxco-identity";
+import * as spaceProgram from "./space-program";
 
 
 const pageReferences: { [key: string]: any } = {
     "gbjam-12": gbjam12,
     "next-ux": nextUx,
     "space-compass": spaceCompass,
-    "voxco-identity": voxcoIdentity
+    "voxco-identity": voxcoIdentity,
+    "space-program": spaceProgram
 };
 
 
