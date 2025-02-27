@@ -1,0 +1,154 @@
+﻿body {
+    background-color: black;
+}
+
+h1 {
+    margin: 0;
+    max-width: 75%;
+    font-size: 6em;
+    line-height: 75%;
+    color: white;
+    text-transform: lowercase;
+}
+
+h2 {
+    margin: 0 0 20px 0;
+    font-size: 1.2em;
+    color: white;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: "Handjet", serif;
+    font-size: 2.8em;
+    font-weight: 600;
+    color: #828282;
+}
+
+h5 {
+    font-family: "Handjet", serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #828282;
+}
+
+p {
+    font-size: 2em;
+    font-weight: normal;
+    color: #828282;
+    line-height: 150%;
+    margin: 0;
+}
+
+p.description {
+    font-family: "Cabin", sans-serif;
+    color: #A1A1A1;
+    font-size: 0.9em;
+}
+
+#view-box {
+    padding-left: 280px;
+    height: 100%;
+    font-family: "Cabin", sans-serif;
+
+
+    #view-wrapper {
+        width: 720px;
+        margin: 0 auto;
+        padding-top: 60px;
+
+        section {
+            margin:0;
+            padding: 58px 0;
+        }
+
+        .showcase {
+            margin: 50px 0;
+            width: 100%;
+            border: #080808 solid 3px;
+        }
+
+        .video-showcase::before, .video-showcase::after {
+            content: "";
+            display: block;
+            width: 100%;
+            padding-top: 65px;
+            z-index: -2;
+            background-image: url("utils/assets/video-showcase-decoration.png");
+            background-blend-mode: multiply;
+            background-repeat: repeat-x;
+            filter: invert(100%) sepia(100%) hue-rotate(240deg) saturate(100%);
+        }
+
+        .video-showcase::before {
+            margin-bottom: -15px;
+        }
+
+        .video-showcase::after {
+            margin-top: -15px;
+            transform: scaleY(-1);
+        }
+
+        .video-showcase video {
+            width: 100%;
+            border-radius: 15px;
+            z-index: 5;
+            position: relative;
+        }
+
+        .gallery-content {
+            padding-top: 20px;
+        }
+
+        .gallery-content img {
+            object-fit: cover;
+            width: 45%;
+            aspect-ratio:1/1;
+            margin: 10px 0;
+            margin-right: 4%;
+            border: 2px solid #505050;
+            border-radius: 10px;
+        }
+
+        .credits a {
+            font-family: "Handjet", serif;
+            display: inline-block;
+            color: #828282;;
+            font-size: 2.5em;
+            font-weight: normal;
+            padding: 0 30px 15px 0;
+            text-align: center;
+            text-decoration-color: #3BFFC5;
+        }
+
+
+    }
+
+    .backgrounds {
+        position: fixed;
+        background-color: #141518;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -15;
+
+        .layer-a {
+            position: fixed;
+            background-image: url("utils/assets/background-test.png");
+            width: 100%;
+            height: 100%;
+            z-index: -11;
+        }
+
+        .layer-b {
+            position: relative;
+            z-index: -10;
+        }
+
+    }
+}
+
+
+
+

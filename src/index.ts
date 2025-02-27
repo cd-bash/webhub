@@ -1,8 +1,19 @@
-import './views/home-view/styles.css';
+import { router } from "./core/router";
 import {buildVerticalNav} from "./components/vertical-nav";
-import {buildViewBase} from "./views/utils";
-import {buildProjectPage} from "./content/projects";
+import {buildInteractivePage, buildProjectPage} from "./content/projects";
+import {homeView} from "./views/home.ts";
+import {buildViewBase} from "./views";
 
+
+const routes = [
+    { path: '/', handler: homeView },
+    { path: '/interactive', handler: buildInteractivePage },
+    { path: '/interactive/:id', handler: (params) => buildProjectPage(params?.id) }
+];
+
+routes.forEach(route => router.registerRoute(route.path, route.handler));
+
+//-----------------------------------------------------------------------
 
 function init() {
     const body = document.getElementsByTagName("body")[0];
@@ -12,7 +23,9 @@ function init() {
     body.appendChild(contentPage);
     contentPage.appendChild(verticalNav);
 
-    buildProjectPage("space-compass");
+    router.handleRoute(window.location.pathname);
 }
 
 init();
+
+

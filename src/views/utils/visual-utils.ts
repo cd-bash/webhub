@@ -13,6 +13,7 @@ export function createVideoShowcase(assetLinks: ReadonlyArray<string>) {
     videoContainer.appendChild(video);
 
     video.autoplay = true;
+    video.muted = true;
     video.loop = true;
 
     assetLinks.forEach(link => {

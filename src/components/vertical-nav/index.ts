@@ -11,7 +11,6 @@ const linkedinProfile: string = "https://www.linkedin.com/in/charlesdouc/"
 const instagramProfile: string = "https://www.instagram.com/charlesdouc/"
 const footerCopyrights: string = "© 2025 Charles Doucet - All Rights Reserved";
 
-
 type SocialLink = [
     path: string,
     image: string,
@@ -23,25 +22,23 @@ const FOO_SOCIALS: SocialLink[] = [
     [instagramProfile, instagramIcon]
 ]
 
-
 //-----------------------------------------------------------------------
 
 export function buildVerticalNav() {
     const navBox = document.createElement("div");
-    const navWrapper = document.createElement("div");
+    const navHeader = header();
     const navBreadcrumbs = document.createElement("div");
     const navInfo = document.createElement("div");
+    const navFooter = footer();
 
     navBox.id = "vertical-nav";
-    navWrapper.id = "nav-wrapper";
     navBreadcrumbs.id = "nav-breadcrumbs";
     navInfo.id = "nav-info";
 
-    navBox.appendChild(header());
-    navBox.appendChild(navWrapper);
-    navWrapper.appendChild(navBreadcrumbs);
-    navWrapper.appendChild(navInfo);
-    navBox.appendChild(footer());
+    navBox.appendChild(navHeader);
+    navHeader.appendChild(navBreadcrumbs);
+    navBox.appendChild(navInfo);
+    navBox.appendChild(navFooter);
 
     return navBox;
 }
@@ -58,7 +55,7 @@ export function renderNavInfo(info: HTMLElement) {
 
 //-----------------------------------------------------------------------
 
-function header() {
+const header = () => {
     const container = document.createElement("div");
     const topTriangle = document.createElement("div");
     const logo = document.createElement("div");
@@ -83,7 +80,7 @@ function header() {
 }
 
 
-function footer() {
+const footer = () => {
     const container = document.createElement("div");
     const socials = document.createElement("ul");
     const copyrights = document.createElement("p");
