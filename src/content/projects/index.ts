@@ -12,6 +12,7 @@ import * as voxcoIdentity from "./voxco-identity";
 import * as spaceProgram from "./space-program";
 import * as interval from "./interval";
 import * as kiriko from "./kiriko";
+import * as specter from "./specter";
 import * as tank from "./tank";
 import * as youAreTwo from "./you-are-two";
 import * as typograzoo from "./typograzoo";
@@ -29,6 +30,7 @@ const pageReferences: { [key: string]: any } = {
     "space-program": spaceProgram,
     "interval": interval,
     "kiriko": kiriko,
+    "specter": specter,
     "tank": tank,
     "you-are-two": youAreTwo,
     "typograzoo": typograzoo,
