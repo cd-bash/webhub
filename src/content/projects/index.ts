@@ -16,6 +16,9 @@ import * as tank from "./tank";
 import * as youAreTwo from "./you-are-two";
 import * as typograzoo from "./typograzoo";
 import * as literal from "./literal";
+import * as swanLake from "./swan-lake";
+import * as theFall from "./the-fall";
+import * as switcher from "./switcher";
 
 
 const pageReferences: { [key: string]: any } = {
@@ -30,6 +33,9 @@ const pageReferences: { [key: string]: any } = {
     "you-are-two": youAreTwo,
     "typograzoo": typograzoo,
     "literal": literal,
+    "swan-lake": swanLake,
+    "the-fall": theFall,
+    "switcher": switcher
 };
 
 
