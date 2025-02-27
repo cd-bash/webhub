@@ -2,6 +2,50 @@
     background-color: black;
 }
 
+h1 {
+    margin: 0;
+    max-width: 75%;
+    font-size: 6em;
+    line-height: 75%;
+    color: white;
+    text-transform: lowercase;
+}
+
+h2 {
+    margin: 0 0 20px 0;
+    font-size: 1.2em;
+    color: white;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: "Handjet", serif;
+    font-size: 2.8em;
+    font-weight: 600;
+    color: #828282;
+}
+
+h5 {
+    font-family: "Handjet", serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #828282;
+}
+
+p {
+    font-size: 2em;
+    font-weight: normal;
+    color: #828282;
+    line-height: 150%;
+    margin: 0;
+}
+
+p.description {
+    font-family: "Cabin", sans-serif;
+    color: #A1A1A1;
+    font-size: 0.9em;
+}
+
 #view-box {
     padding-left: 280px;
     height: 100%;
@@ -66,49 +110,18 @@
             border-radius: 10px;
         }
 
-        h1 {
-            margin: 0;
-            max-width: 75%;
-            font-size: 6em;
-            line-height: 75%;
-            color: white;
-            text-transform: lowercase;
-        }
-
-        h2 {
-            margin: 0 0 20px 0;
-            font-size: 1.2em;
-            color: white;
-            text-transform: uppercase;
-        }
-
-        h3 {
+        .credits a {
             font-family: "Handjet", serif;
-            font-size: 2.8em;
-            font-weight: 600;
-            color: #828282;
-        }
-
-        h5 {
-            font-family: "Handjet", serif;
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #828282;
-        }
-
-        p {
-            font-size: 2em;
+            display: inline-block;
+            color: #828282;;
+            font-size: 2.5em;
             font-weight: normal;
-            color: #828282;
-            line-height: 150%;
-            margin: 0;
+            padding: 0 30px 15px 0;
+            text-align: center;
+            text-decoration-color: #3BFFC5;
         }
 
-        p.description {
-            font-family: "Cabin", sans-serif;
-            color: #A1A1A1;
-            font-size: 0.9em;
-        }
+
     }
 
     .backgrounds {

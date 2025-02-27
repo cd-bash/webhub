@@ -13,7 +13,14 @@ export type ProjectContent = {
     readonly tagline: string;
     readonly paragraphs: ReadonlyArray<string>;
     readonly imageGallery: ReadonlyArray<string>;
+    readonly credits: ReadonlyArray<ProjectCredits>;
 }
+
+export type ProjectCredits = [
+    name: string,
+    link: string,
+]
+
 
 //-----------------------------------------------------------------------
 
@@ -25,6 +32,10 @@ export function projectView(content: ProjectContent) {
     article.appendChild(videoShowcase(content.heroVideo));
     article.appendChild(description(content.tagline, content.paragraphs));
     article.appendChild(gallery(content.imageGallery));
+
+    if (content.credits && content.credits.length > 0) {
+        article.appendChild(credits(content.credits));
+    }
 
     return article;
 }
@@ -73,3 +84,22 @@ function gallery(imageRefs: ReadonlyArray<string>) {
 
     return gallery;
 }
+
+
+function credits(creditsRef: ReadonlyArray<ProjectCredits>) {
+    const credits = document.createElement('section');
+    credits.className = "credits";
+
+    credits.appendChild(writeTitle("h2", "With the help of"));
+
+    creditsRef.forEach(credit => {
+        const creditLink = document.createElement('a');
+        creditLink.href = credit[1];
+        creditLink.textContent = credit[0];
+        creditLink.target = "_blank";
+        credits.appendChild(creditLink);
+    });
+
+    return credits;
+}
+

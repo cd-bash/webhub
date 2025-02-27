@@ -8,7 +8,7 @@ import SCREENSHOT_2 from "./assets/space-compass-screenshot-2.jpg";
 import SCREENSHOT_3 from "./assets/space-compass-screenshot-3.jpg";
 import SCREENSHOT_4 from "./assets/space-compass-screenshot-4.jpg";
 
-import THUMBNAIL from "./assets/space-compass-thumbnail.jpg";
+import THUMBNAIL from "./assets/space-compass-thumbnail.png";
 
 //-----------------------------------------------------------------------
 
@@ -41,6 +41,8 @@ export const { content, techs, buttons, thumbnail } = createProjectContent(
 
     // Thumbnail
     THUMBNAIL,
-    ["Unity", "Game Design"],
-    "space-compass"
+    "A spinning space shooter prototype",
+    "Game Prototype",
+    "#000000",
+    "space-compass",
 );
