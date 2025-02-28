@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/gbjam-12-thumbnail.png";
 
 export const {content, techs, buttons, thumbnail} = createProjectContent(
     "GBJAM-12", // Title
-    "Game Release - September 2024", // Subtitle
+    "Game Release", // Subtitle
     "Hide in perspective", // Tagline
 
     // Paragraphs
@@ -35,8 +35,8 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
 
     //Buttons
     [
-        ["Play it online", "https://cd-bash.itch.io/cd-yesterday-at-823-pm-pumpys-spooky-worlds", true],
-        ["Access the Repo", "https://github.com/cd-bash/GBJAM-12", false]
+        ["Play now", "https://cd-bash.itch.io/cd-yesterday-at-823-pm-pumpys-spooky-worlds", true],
+        ["GitHub Repo", "https://github.com/cd-bash/GBJAM-12", false]
     ],
 
     // Thumbnail

@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/the-fall-thumbnail.png";
 
 export const {content, techs, buttons, thumbnail} = createProjectContent(
     "The Fall", // Title
-    "Game prototype - Winter 2017", // Subtitle
+    "Game prototype", // Subtitle
     "A glitchy situation", // Tagline
 
     // Paragraphs

@@ -16,7 +16,7 @@ import THUMBNAIL from "./assets/typograzoo-thumbnail.png";
 
 export const {content, techs, buttons, thumbnail} = createProjectContent(
     "Typograzoo", // Title
-    "Game Prototype - Fall 2017", // Subtitle
+    "Game Prototype", // Subtitle
     "No creatures, just alphabets and symbols", // Tagline
 
     // Paragraphs

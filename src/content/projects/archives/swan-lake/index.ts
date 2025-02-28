@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/swan-lake-thumbnail.png";
 
 export const {content, techs, buttons, thumbnail} = createProjectContent(
     "Swan Lake", // Title
-    "Animation - Fall 2017", // Subtitle
+    "Short Animation", // Subtitle
     "The Letter Company", // Tagline
 
     // Paragraphs
@@ -41,7 +41,7 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
     // Thumbnail
     THUMBNAIL,
     "Animation of the dramatic story.",
-    "Animation",
+    "Short Animation",
     "#5A06A2",
     "swan-lake"
 );

@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/voxco-identity-thumbnail.png";
 
 export const { content, techs, buttons, thumbnail } = createProjectContent(
     "Voxco Identity", // Title
-    "Graphic Design - 2020", // Subtitle
+    "Graphic Design", // Subtitle
     "Trying a new dimension", // Tagline
 
     // Paragraphs

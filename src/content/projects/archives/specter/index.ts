@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/specter-thumbnail.png";
 
 export const {content, techs, buttons, thumbnail} = createProjectContent(
     "Specter", // Title
-    "Game release - Winter 2018", // Subtitle
+    "Game release", // Subtitle
     "Console-Based Puzzle Game", // Tagline
 
     // Paragraphs
@@ -35,8 +35,9 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
 
     //Buttons
     [
-        ["Try it online", "LINK", true],
-        ["Download the game", "LINK", false]
+        ["Play now", "https://cd-bash.itch.io/specter", true],
+        ["Process Journal", "https://github.com/cd-bash/Specter/wiki", false],
+        ["GitHub Repo", "https://github.com/cd-bash/Specter", false]
     ],
 
     // Thumbnail

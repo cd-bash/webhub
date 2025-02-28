@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/switcher-thumbnail.png";
 
 export const {content, techs, buttons, thumbnail} = createProjectContent(
     "Switcher", // Title
-    "Game prototype - Winter 2017", // Subtitle
+    "Game prototype", // Subtitle
     "A geometrical ballet", // Tagline
 
     // Paragraphs
@@ -35,8 +35,8 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
 
     //Buttons
     [
-        ["See the demo", "https://www.youtube.com/watch?v=Z89hsC-cPM0&ab_channel=cd-bash", true],
-        ["Access the repo", "https://github.com/cd-bash/switcher", false]
+        ["Video Demo", "https://www.youtube.com/watch?v=Z89hsC-cPM0&ab_channel=cd-bash", true],
+        ["GitHub Repo", "https://github.com/cd-bash/switcher", false]
     ],
 
     // Thumbnail

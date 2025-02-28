@@ -35,7 +35,7 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
 
     //Buttons
     [
-        ["See it in action", "https://www.youtube.com/watch?v=6FLp1SuoFXA&t=5s&ab_channel=cd-bash", true],
+        ["Video Demo", "https://www.youtube.com/watch?v=6FLp1SuoFXA&t=5s&ab_channel=cd-bash", true],
     ],
 
     // Thumbnail

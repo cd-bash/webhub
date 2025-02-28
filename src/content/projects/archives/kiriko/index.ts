@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/kiriko-thumbnail.png";
 
 export const {content, techs, buttons, thumbnail} = createProjectContent(
     "Kiriko", // Title
-    "Immersive Experience - Fall 2018", // Subtitle
+    "Immersive Experience", // Subtitle
     "A VR Installation", // Tagline
 
     // Paragraphs
@@ -35,13 +35,12 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
 
     //Buttons
     [
-        ["LABEL", "LINK", true],
-        ["LABEL", "LINK", false]
+        ["Video Demo", "https://vimeo.com/491664986", true],
     ],
 
     // Thumbnail
     THUMBNAIL,
-    "SUMMARY",
+    "Two players VR installation.",
     "Immersive Experience",
     "#0D0328",
     "kiriko",
@@ -52,5 +51,6 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
         ["Valerie Bourdon", "https://www.instagram.com/valeriebourdon_/"],
         ["Michaël Petitclerc", "#"],
         ["Codrin Mihail", "https://codrinmihail.com/"],
+        ["Elizabeth Parent", "#"]
     ]
 );

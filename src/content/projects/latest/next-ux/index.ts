@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/next-ux-thumbnail.png";
 
 export const {content, techs, buttons, thumbnail} = createProjectContent(
     "Next Ux", // Title
-    "web app ux & ui - 2021", // Subtitle
+    "Web app UX & UI", // Subtitle
     "Clear Workflows", // Tagline
 
     // Paragraphs
@@ -35,8 +35,6 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
 
     //Buttons
     [
-        ["LABEL", "LINK", true],
-        ["LABEL", "LINK", false]
     ],
 
     // Thumbnail

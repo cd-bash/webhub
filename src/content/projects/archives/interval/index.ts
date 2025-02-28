@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/interval-thumbnail.png";
 
 export const {content, techs, buttons, thumbnail} = createProjectContent(
     "Interval", // Title
-    "Game Prototype - Spring 2019", // Subtitle
+    "Game Prototype", // Subtitle
     "What if you can feel time?", // Tagline
 
     // Paragraphs
@@ -36,7 +36,7 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
     //Buttons
     [
         ["Process Journal", "https://github.com/cd-bash/Independent-Study/wiki", true],
-        ["Access the Repo", "https://github.com/cd-bash/Independent-Study", false]
+        ["GitHub Repo", "https://github.com/cd-bash/Independent-Study", false]
     ],
 
     // Thumbnail

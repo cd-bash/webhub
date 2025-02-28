@@ -16,7 +16,7 @@ import THUMBNAIL from "./assets/you-are-two-thumbnail.png";
 
 export const {content, techs, buttons, thumbnail} = createProjectContent(
     "You are two", // Title
-    "Game prototype - Winter 2018", // Subtitle
+    "Game prototype", // Subtitle
     "Sanity check", // Tagline
 
     // Paragraphs

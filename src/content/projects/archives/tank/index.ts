@@ -16,7 +16,7 @@ import THUMBNAIL from "./assets/tank-thumbnail.png";
 
 export const {content, techs, buttons, thumbnail} = createProjectContent(
     "Tank", // Title
-    "Game Release - Winter 2018", // Subtitle
+    "Game Release", // Subtitle
     "A game collection", // Tagline
 
     // Paragraphs
@@ -37,13 +37,14 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
 
     //Buttons
     [
-        ["Download the game", "https://cd-bash.itch.io/tank", true],
-        ["Process Journal", "https://github.com/cd-bash/TANK/wiki", false]
+        ["Play now", "https://cd-bash.itch.io/tank", true],
+        ["Process Journal", "https://github.com/cd-bash/TANK/wiki", false],
+        ["GitHub Repo", "https://github.com/cd-bash/TANK", false]
     ],
 
     // Thumbnail
     THUMBNAIL,
-    "Lonely tank exploring mysterious environments.",
+    "Solo exploration of mysterious environments.",
     "Game Release",
     "#000000",
     "tank"

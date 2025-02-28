@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/literal-thumbnail.png";
 
 export const {content, techs, buttons, thumbnail} = createProjectContent(
     "Literal", // Title
-    "Game prototype - Fall 2017", // Subtitle
+    "Game prototype", // Subtitle
     "Physics engine for words", // Tagline
 
     // Paragraphs
@@ -35,7 +35,7 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
 
     //Buttons
     [
-        ["Try it online", "LINK", true],
+        ["Play now", "LINK", true],
     ],
 
     // Thumbnail

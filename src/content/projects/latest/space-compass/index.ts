@@ -14,7 +14,7 @@ import THUMBNAIL from "./assets/space-compass-thumbnail.png";
 
 export const { content, techs, buttons, thumbnail } = createProjectContent(
     "Space Compass", // Title
-    "game prototype - winter 2020", // Subtitle
+    "Game prototype", // Subtitle
     "Radial Navigation", // Tagline
 
     // Paragraphs
@@ -35,7 +35,7 @@ export const { content, techs, buttons, thumbnail } = createProjectContent(
 
     //Buttons
     [
-        ["Try It Online", "https://play.unity.com/mg/other/space-compass", true],
+        ["Play now", "https://play.unity.com/mg/other/space-compass", true],
         ["Access the Repo", "https://github.com/cd-bash", false]
     ],
 
