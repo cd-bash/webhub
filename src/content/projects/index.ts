@@ -5,42 +5,15 @@ import {projectThumbnail} from "../../components/thumbnail-project";
 import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components/breadcrumbs";
 import {interactiveView} from "../../views/interactive.ts";
 
-import * as gbjam12 from "./gbjam-12";
-import * as spaceCompass from "./space-compass";
-import * as nextUx from "./next-ux";
-import * as voxcoIdentity from "./voxco-identity";
-import * as spaceProgram from "./space-program";
-import * as interval from "./interval";
-import * as kiriko from "./kiriko";
-import * as specter from "./specter";
-import * as tank from "./tank";
-import * as youAreTwo from "./you-are-two";
-import * as typograzoo from "./typograzoo";
-import * as literal from "./literal";
-import * as swanLake from "./swan-lake";
-import * as theFall from "./the-fall";
-import * as switcher from "./switcher";
+import {archivePageReferences} from "./archives";
+import {latestPageReferences} from "./latest";
 
+export type ProjectCategory = 'latest' | 'archive' | 'thirdCategory';
 
 const pageReferences: { [key: string]: any } = {
-    "gbjam-12": gbjam12,
-    "next-ux": nextUx,
-    "space-compass": spaceCompass,
-    "voxco-identity": voxcoIdentity,
-    "space-program": spaceProgram,
-    "interval": interval,
-    "kiriko": kiriko,
-    "specter": specter,
-    "tank": tank,
-    "you-are-two": youAreTwo,
-    "typograzoo": typograzoo,
-    "literal": literal,
-    "swan-lake": swanLake,
-    "the-fall": theFall,
-    "switcher": switcher
+    ...latestPageReferences,
+    ...archivePageReferences
 };
-
-
 
 
 //-----------------------------------------------------------------------
@@ -67,10 +40,14 @@ export function buildInteractivePage() {
 
 }
 
-export function buildThumbnailList() {
+export function buildThumbnailList(category: ProjectCategory = 'latest') {
     const list = document.createElement('ul');
-    const pages = Object.values(pageReferences);
+    const categoryMap: { [key: string]: { [key: string]: any } } = {
+        'latest': latestPageReferences,
+        'archive': archivePageReferences,
+    };
 
+    const pages = Object.values(categoryMap[category] || latestPageReferences);
 
     for (let i = 0; i < pages.length; i++) {
         const { thumbnail } = pages[i];
