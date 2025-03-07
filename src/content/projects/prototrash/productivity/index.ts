@@ -3,10 +3,10 @@
 import SHOWCASE_WEBM from "./assets/productivity-showcase.webm";
 import SHOWCASE_MP4 from "./assets/productivity-showcase.mp4";
 
-import SCREENSHOT_1 from "./assets/productivity-screenshot-1.jpg"
-import SCREENSHOT_2 from "./assets/productivity-screenshot-2.jpg"
-import SCREENSHOT_3 from "./assets/productivity-screenshot-3.jpg"
-import SCREENSHOT_4 from "./assets/productivity-screenshot-4.jpg"
+import SCREENSHOT_1 from "./assets/productivity-screenshot-1.png"
+import SCREENSHOT_2 from "./assets/productivity-screenshot-2.png"
+import SCREENSHOT_3 from "./assets/productivity-screenshot-3.png"
+import SCREENSHOT_4 from "./assets/productivity-screenshot-4.png"
 
 import THUMBNAIL from "./assets/productivity-thumbnail.png";
 
@@ -43,6 +43,6 @@ export const {content, techs, buttons, thumbnail} = createProjectContent(
     THUMBNAIL,
     "You are the standing desk.",
     "Game prototype",
-    "COLOR",
+    "#F59B51",
     "productivity"
 );
