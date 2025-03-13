@@ -29,6 +29,7 @@ h5 {
     font-family: "Handjet", serif;
     font-size: 1.5em;
     font-weight: 600;
+    text-transform: lowercase;
     color: #828282;
 }
 
@@ -60,6 +61,7 @@ p.description {
         section {
             margin:0;
             padding: 58px 0;
+            clear: both;
         }
 
         .showcase {
