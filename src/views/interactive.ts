@@ -8,10 +8,12 @@ export function interactiveView() {
     const article = document.createElement('article');
     const pageTitle = writeTitle("h1", "project collection");
     const latestEntries = projectList("Latest Entries", "latest");
+    const prototrash = projectList("Prototrash", "prototrash");
     const archives = projectList("Archives", "archive");
 
     article.appendChild(pageTitle);
     article.appendChild(latestEntries);
+    article.appendChild(prototrash);
     article.appendChild(archives);
     
     return article;

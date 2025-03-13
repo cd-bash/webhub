@@ -7,12 +7,14 @@ import {interactiveView} from "../../views/interactive.ts";
 
 import {archivePageReferences} from "./archives";
 import {latestPageReferences} from "./latest";
+import {prototrashPageReferences} from "./prototrash";
 
-export type ProjectCategory = 'latest' | 'archive' | 'thirdCategory';
+export type ProjectCategory = 'latest' | 'archive' | 'prototrash';
 
 const pageReferences: { [key: string]: any } = {
     ...latestPageReferences,
-    ...archivePageReferences
+    ...archivePageReferences,
+    ...prototrashPageReferences
 };
 
 
@@ -44,6 +46,7 @@ export function buildThumbnailList(category: ProjectCategory = 'latest') {
     const list = document.createElement('ul');
     const categoryMap: { [key: string]: { [key: string]: any } } = {
         'latest': latestPageReferences,
+        'prototrash': prototrashPageReferences,
         'archive': archivePageReferences,
     };
 
