@@ -1,7 +1,7 @@
 ﻿import "./styles.css";
 
 export * from "./home";
-export * from "./interactive.ts";
+export * from "./projectCollection.ts";
 export * from "./project.ts";
 
 // --------------------------------------------------------------------------------

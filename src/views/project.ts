@@ -2,7 +2,7 @@
     writeTitle,
     createVideoShowcase,
     writeParagraph,
-    createContentGallery, createBackground
+    createContentGallery, createThreeBackground
 } from "./utils"
 
 
@@ -26,7 +26,7 @@ export type ProjectCredits = [
 
 export function projectView(content: ProjectContent) {
     const article = document.createElement('article');
-    createBackground();
+    createThreeBackground();
 
     article.appendChild(header(content.title, content.subtitle));
     article.appendChild(videoShowcase(content.heroVideo));

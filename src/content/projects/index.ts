@@ -3,7 +3,7 @@ import {projectInfo} from "../../components/vertical-nav/info-project.ts";
 import {renderBreadcrumbs, renderNavInfo} from "../../components/vertical-nav";
 import {projectThumbnail} from "../../components/thumbnail-project";
 import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components/breadcrumbs";
-import {interactiveView} from "../../views/interactive.ts";
+import {interactiveView} from "../../views/projectCollection.ts";
 
 import {archivePageReferences} from "./archives";
 import {latestPageReferences} from "./latest";
@@ -44,6 +44,7 @@ export function buildInteractivePage() {
 
 export function buildThumbnailList(category: ProjectCategory = 'latest') {
     const list = document.createElement('ul');
+    list.className = 'thumbnail-list';
     const categoryMap: { [key: string]: { [key: string]: any } } = {
         'latest': latestPageReferences,
         'prototrash': prototrashPageReferences,

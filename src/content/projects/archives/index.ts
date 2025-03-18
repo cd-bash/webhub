@@ -11,11 +11,11 @@ import * as theFall from "./the-fall";
 import * as switcher from "./switcher";
 
 export const archivePageReferences: { [key: string]: any } = {
-    "space-program": spaceProgram,
-    "interval": interval,
-    "kiriko": kiriko,
     "specter": specter,
     "tank": tank,
+    "space-program": spaceProgram,
+    "kiriko": kiriko,
+    "interval": interval,
     "you-are-two": youAreTwo,
     "typograzoo": typograzoo,
     "literal": literal,

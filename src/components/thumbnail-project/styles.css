@@ -1,16 +1,18 @@
-﻿ul {
+﻿ul.thumbnail-list {
     width: 100%;
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-#item-box {
-    width: 31%;
-    margin-right: 1%;
-    height: 265px;
+#thumbnail-box {
+    width: 32%;
+    margin-bottom: 2%;
+    height: 275px;
     color: white;
-    float: left;
     overflow: hidden;
     position: relative;
     box-sizing: border-box;
@@ -18,7 +20,35 @@
     border-radius: 10px;
 }
 
-#item-box img {
+#thumbnail-box:nth-child(1),
+#thumbnail-box:nth-child(2) {
+    width: 49%;
+    height: 350px;
+
+    h5 {
+        font-size: 3em;
+    }
+
+    .tag {
+        font-size: 1.5em;
+        margin-top: 20px;
+    }
+
+    p {
+        font-size: 2em;
+        line-height: 110%;
+    }
+
+    .hover-box p {
+        padding: 25px 25px;
+    }
+
+    img {
+        bottom: -20%;
+    }
+}
+
+#thumbnail-box img {
     position: absolute;
     bottom: -10%;
     right: 0;
@@ -28,12 +58,12 @@
     transition: filter 0.3s;
 }
 
-#item-box h5, #item-box p, #item-box a {
+#thumbnail-box h5, #thumbnail-box p, #thumbnail-box a {
     position: relative;
     z-index: 2;
 }
 
-#item-box h5 {
+#thumbnail-box h5 {
     font-family: Cabin, sans-serif;
     color: white;
     text-transform: lowercase;
@@ -43,7 +73,7 @@
     margin: 0;
 }
 
-#item-box .tag {
+#thumbnail-box .tag {
     font-family: "Handjet", serif;
     text-transform: lowercase;
     font-size: 1em;
@@ -52,18 +82,18 @@
     margin-top: 10px;
 }
 
-#item-box p {
+#thumbnail-box p {
     color: white;
     font-size: 1em;
 }
 
-#item-box a {
+#thumbnail-box a {
     display: block;
     width: 100%;
     font-family: "Handjet", serif;
     font-size: 1.2em;
     padding: 20px 0;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 10px 10px;
     border: none;
     color: white;
     text-decoration: none;
@@ -73,7 +103,7 @@
     background-color: #FF523B;
 }
 
-#item-box .hover-box {
+#thumbnail-box .hover-box {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -83,7 +113,7 @@
     z-index: 20;
 }
 
-#item-box .hover-box p {
+#thumbnail-box .hover-box p {
     padding: 10px 25px;
 }
 
@@ -91,14 +121,14 @@
     clear: both;
 }
 
-#item-box:hover {
+#thumbnail-box:hover {
     cursor: pointer;
 }
 
-#item-box:hover img {
+#thumbnail-box:hover img {
     filter: blur(25px);
 }
 
-#item-box:hover .hover-box {
+#thumbnail-box:hover .hover-box {
     transform: translateY(0);
 }
