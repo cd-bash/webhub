@@ -41,6 +41,10 @@ p {
     margin: 0;
 }
 
+p.intro-text {
+    margin-bottom: 50px;
+}
+
 p.description {
     font-family: "Cabin", sans-serif;
     color: #A1A1A1;
@@ -122,32 +126,16 @@ p.description {
             text-align: center;
             text-decoration-color: #3BFFC5;
         }
-
-
     }
 
-    .backgrounds {
+    .three-background {
         position: fixed;
-        background-color: #141518;
+        background-color: #000000;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: -15;
-
-        .layer-a {
-            position: fixed;
-            background-image: url("utils/assets/background-test.png");
-            width: 100%;
-            height: 100%;
-            z-index: -11;
-        }
-
-        .layer-b {
-            position: relative;
-            z-index: -10;
-        }
-
     }
 }
 
