@@ -2,7 +2,7 @@
     writeTitle,
     createVideoShowcase,
     writeParagraph,
-    createContentGallery, createThreeBackground
+    createContentGallery, createThreeBackground, scrollTop
 } from "./utils"
 import {updateBackground} from "../components/three-background";
 
@@ -39,6 +39,7 @@ export function projectView(content: ProjectContent) {
         article.appendChild(credits(content.credits));
     }
 
+    scrollTop();
     return article;
 }
 

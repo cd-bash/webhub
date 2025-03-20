@@ -1,4 +1,4 @@
-﻿import {createThreeBackground, writeParagraph, writeTitle} from "./utils";
+﻿import {createThreeBackground, scrollTop, writeParagraph, writeTitle} from "./utils";
 import {buildThumbnailList, ProjectCategory} from "../content/projects";
 import {updateBackground} from "../components/three-background";
 
@@ -21,7 +21,8 @@ export function interactiveView() {
     article.appendChild(latestEntries);
     article.appendChild(prototrash);
     article.appendChild(archives);
-    
+
+    scrollTop();
     return article;
 }
 
