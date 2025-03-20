@@ -4,6 +4,7 @@
     writeParagraph,
     createContentGallery, createThreeBackground
 } from "./utils"
+import {updateBackground} from "../components/three-background";
 
 
 export type ProjectContent = {
@@ -27,6 +28,7 @@ export type ProjectCredits = [
 export function projectView(content: ProjectContent) {
     const article = document.createElement('article');
     createThreeBackground();
+    updateBackground(800);
 
     article.appendChild(header(content.title, content.subtitle));
     article.appendChild(videoShowcase(content.heroVideo));

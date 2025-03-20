@@ -5,6 +5,7 @@ export let renderer: THREE.WebGLRenderer,
     scene: THREE.Scene,
     camera: THREE.PerspectiveCamera,
     cameraTarget = new THREE.Vector3(0, 0 ,800),
+    cameraDepth = 800,
     windowWidth = window.innerWidth,
     windowHeight = window.innerHeight;
 
@@ -50,7 +51,10 @@ export const initCamera = () => {
         aspectRatio,
         nearPlane,
         farPlane);
-    camera.position.z = 800;
+}
+
+export function changeDepth(newDepth: number) {
+    cameraDepth = newDepth;
 }
 
 
@@ -71,8 +75,8 @@ const onMouseMove = (event: MouseEvent) => {
     cameraTarget.y = mouseY * mouseSensitivity;
 
     cameraTarget.clamp(
-        new THREE.Vector3(-cameraTilt, -cameraTilt, 800),
-        new THREE.Vector3(cameraTilt, cameraTilt, 800)
+        new THREE.Vector3(-cameraTilt, -cameraTilt, cameraDepth),
+        new THREE.Vector3(cameraTilt, cameraTilt, cameraDepth)
     );
 }
 

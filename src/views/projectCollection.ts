@@ -1,5 +1,6 @@
 ﻿import {createThreeBackground, writeParagraph, writeTitle} from "./utils";
 import {buildThumbnailList, ProjectCategory} from "../content/projects";
+import {updateBackground} from "../components/three-background";
 
 const prototrashIntro = "Experimental work around peculiar topics to try out various game design concepts.";
 const archivesIntro = "Delve into my design journey by examining the past initiatives that have influenced my current interests.";
@@ -14,6 +15,7 @@ export function interactiveView() {
     const archives = projectList("Archives", "archive", archivesIntro);
 
     createThreeBackground();
+    updateBackground(3200);
 
     article.appendChild(pageTitle);
     article.appendChild(latestEntries);
