@@ -48,7 +48,7 @@ export function projectThumbnail(content: thumbnailContent, showcase: boolean) {
     thumbnailBox.appendChild(clearFix);
 
     thumbnailBox.addEventListener('click', () => {
-        EVENT_BUS.dispatch('page_navigation', { pageReference: 'interactive/' + content.path });
+        EVENT_BUS.dispatch('page_navigation', { pageReference: 'projects/' + content.path });
     });
 
     return thumbnailBox;
