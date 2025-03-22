@@ -1,6 +1,7 @@
 ﻿import {createThreeBackground, scrollTop, writeParagraph, writeTitle} from "./utils";
 import {buildThumbnailList, ProjectCategory} from "../content/projects";
 import {updateBackground} from "../components/three-background";
+import {endOfLine} from "../components/end-of-line";
 
 const prototrashIntro = "Experimental work around peculiar topics to try out various game design concepts.";
 const archivesIntro = "Delve into my design journey by examining the past initiatives that have influenced my current interests.";
@@ -13,6 +14,7 @@ export function interactiveView() {
     const latestEntries = projectList("Latest Entries", "latest");
     const prototrash = projectList("Prototrash", "prototrash", prototrashIntro);
     const archives = projectList("Archives", "archive", archivesIntro);
+    const foo = endOfLine();
 
     createThreeBackground();
     updateBackground(3200);
@@ -21,6 +23,7 @@ export function interactiveView() {
     article.appendChild(latestEntries);
     article.appendChild(prototrash);
     article.appendChild(archives);
+    article.appendChild(foo);
 
     scrollTop();
     return article;

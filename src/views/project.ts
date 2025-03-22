@@ -5,6 +5,7 @@
     createContentGallery, createThreeBackground, scrollTop
 } from "./utils"
 import {updateBackground} from "../components/three-background";
+import {endOfLine} from "../components/end-of-line";
 
 
 export type ProjectContent = {
@@ -27,6 +28,7 @@ export type ProjectCredits = [
 
 export function projectView(content: ProjectContent) {
     const article = document.createElement('article');
+    const foo = endOfLine();
     createThreeBackground();
     updateBackground(800);
 
@@ -39,6 +41,7 @@ export function projectView(content: ProjectContent) {
         article.appendChild(credits(content.credits));
     }
 
+    article.appendChild(foo);
     scrollTop();
     return article;
 }
