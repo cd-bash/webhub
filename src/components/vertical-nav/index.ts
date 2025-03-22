@@ -4,7 +4,7 @@ import cdIcon from "/img/common/cd_icon_green.png";
 import githubIcon from "./assets/github-icon.svg";
 import linkedIcon from "./assets/linkedin-icon.svg";
 import instagramIcon from "./assets/instagram-icon.svg";
-import {nav} from "./nav.ts";
+import {navLinks} from "./nav-links.ts";
 
 const navTitle = "CD-BASH";
 const githubProfile: string = "https://github.com/CD-BASH"
@@ -28,7 +28,7 @@ const FOO_SOCIALS: SocialLink[] = [
 export function buildVerticalNav() {
     const navBox = document.createElement("div");
     const navHeader = header();
-    const navLinks = nav();
+    const navLinksSection = navLinks();
     const navInfo = document.createElement("div");
     const navFooter = footer();
 
@@ -36,7 +36,7 @@ export function buildVerticalNav() {
     navInfo.id = "nav-info";
 
     navBox.appendChild(navHeader);
-    navHeader.appendChild(navLinks);
+    navHeader.appendChild(navLinksSection);
     navBox.appendChild(navInfo);
     navBox.appendChild(navFooter);
 

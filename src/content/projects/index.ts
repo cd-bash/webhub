@@ -2,7 +2,7 @@
 import {projectInfo} from "../../components/vertical-nav/info-project.ts";
 import {renderNavInfo} from "../../components/vertical-nav";
 import {projectThumbnail} from "../../components/thumbnail-project";
-import {interactiveView} from "../../views/projectCollection.ts";
+import {projectCollectionView} from "../../views/projectCollection.ts";
 
 import {archivePageReferences} from "./archives";
 import {latestPageReferences} from "./latest";
@@ -34,7 +34,7 @@ export function buildProjectPage(pageReference: string) {
 }
 
 export function buildInteractivePage() {
-    const viewContent = interactiveView();
+    const viewContent = projectCollectionView();
 
     renderView(viewContent);
 

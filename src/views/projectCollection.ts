@@ -8,7 +8,7 @@ const archivesIntro = "Delve into my design journey by examining the past initia
 
 //-----------------------------------------------------------------------
 
-export function interactiveView() {
+export function projectCollectionView() {
     const article = document.createElement('article');
     const pageTitle = writeTitle("h1", "project collection");
     const latestEntries = projectList("Latest Entries", "latest");

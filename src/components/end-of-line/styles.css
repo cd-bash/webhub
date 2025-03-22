@@ -17,6 +17,7 @@ section.end-of-line:hover {
         animation: glitch 1s infinite;
     }
 }
+
 @keyframes glitch {
     0% {
         text-shadow: 2px 2px #13573F, -2px -2px #3BFFC5;
