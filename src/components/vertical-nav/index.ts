@@ -43,10 +43,6 @@ export function buildVerticalNav() {
     return navBox;
 }
 
-export function renderBreadcrumbs(breadcrumbs: HTMLElement) {
-    const navBreadcrumbs = clearBreadcrumbs();
-    navBreadcrumbs?.appendChild(breadcrumbs);
-}
 
 export function renderNavInfo(info: HTMLElement) {
     const navInfo = clearInfo();
@@ -111,14 +107,6 @@ const footer = () => {
     return container;
 }
 
-function clearBreadcrumbs() {
-    const cleanBreadcrumbs = document.getElementById('nav-breadcrumbs');
-    cleanBreadcrumbs?.childNodes.forEach((childNode) => {
-        cleanBreadcrumbs.removeChild(childNode);
-    });
-
-    return cleanBreadcrumbs;
-}
 
 function clearInfo() {
     const cleanInfo = document.getElementById('nav-info');

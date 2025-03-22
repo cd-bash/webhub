@@ -1,8 +1,7 @@
 ﻿import {projectView, renderView} from "../../views";
 import {projectInfo} from "../../components/vertical-nav/info-project.ts";
-import {renderBreadcrumbs, renderNavInfo} from "../../components/vertical-nav";
+import {renderNavInfo} from "../../components/vertical-nav";
 import {projectThumbnail} from "../../components/thumbnail-project";
-import {BreadcrumbCategory, breadcrumbs, BreadcrumbsLink} from "../../components/breadcrumbs";
 import {interactiveView} from "../../views/projectCollection.ts";
 
 import {archivePageReferences} from "./archives";
@@ -30,7 +29,6 @@ export function buildProjectPage(pageReference: string) {
     const viewContent = projectView(content);
     const navInfo = projectInfo(buttons, techs);
 
-    renderBreadcrumbs(breadcrumbs(trackBreadcrumbs(content.title)));
     renderNavInfo(navInfo);
     renderView(viewContent);
 }
@@ -64,15 +62,7 @@ export function buildThumbnailList(category: ProjectCategory = 'latest') {
 
 //-----------------------------------------------------------------------
 
-function trackBreadcrumbs(currentTrack: string) {
-    const projectBreadcrumbs: BreadcrumbsLink[] = [
-        ["home", "/", BreadcrumbCategory.HOME],
-        ['interactive', '/interactive', BreadcrumbCategory.INTERACTIVE],
-        [currentTrack, '/' + currentTrack, BreadcrumbCategory.PROJECT]
-    ]
 
-    return projectBreadcrumbs;
-}
 
 
 

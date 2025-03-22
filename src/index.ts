@@ -7,8 +7,8 @@ import {buildViewBase} from "./views";
 
 const routes = [
     { path: '/', handler: homeView },
-    { path: '/interactive', handler: buildInteractivePage },
-    { path: '/interactive/:id', handler: (params) => buildProjectPage(params?.id) }
+    { path: '/projects', handler: buildInteractivePage },
+    { path: '/projects/:id', handler: (params) => buildProjectPage(params?.id) }
 ];
 
 routes.forEach(route => router.registerRoute(route.path, route.handler));
