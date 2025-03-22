@@ -1,6 +1,6 @@
 ﻿import {createThreeBackground, scrollTop, writeParagraph, writeTitle} from "./utils";
 import {buildThumbnailList, ProjectCategory} from "../content/projects";
-import {updateBackground} from "../components/three-background";
+import {BackgroundChoice, updateBackground} from "../components/three-background";
 import {endOfLine} from "../components/end-of-line";
 
 const prototrashIntro = "Experimental work around peculiar topics to try out various game design concepts.";
@@ -16,7 +16,7 @@ export function projectCollectionView() {
     const archives = projectList("Archives", "archive", archivesIntro);
     const foo = endOfLine();
 
-    createThreeBackground();
+    createThreeBackground(BackgroundChoice.Project);
     updateBackground(3200);
 
     article.appendChild(pageTitle);

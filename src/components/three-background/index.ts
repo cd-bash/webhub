@@ -4,13 +4,22 @@ import {initBgMeshes} from "./particules.ts";
 import {initPostProcess} from "./post-process.ts";
 import {animate} from "./animation-loop.ts";
 
+export enum BackgroundChoice {
+    Home,
+    Project,
+}
+
 //-----------------------------------------------------------------------
 
-export function animatedBackground() {
+export function threeBackground(choice: BackgroundChoice) {
     initStage();
     initScene();
     initCamera();
-    initBgMeshes();
+
+    if (choice === BackgroundChoice.Project) {
+        initBgMeshes();
+    }
+
     initPostProcess();
     animate();
 

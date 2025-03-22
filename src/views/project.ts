@@ -1,10 +1,12 @@
 ﻿import {
-    writeTitle,
+    createContentGallery,
+    createThreeBackground,
     createVideoShowcase,
+    scrollTop,
     writeParagraph,
-    createContentGallery, createThreeBackground, scrollTop
+    writeTitle
 } from "./utils"
-import {updateBackground} from "../components/three-background";
+import {BackgroundChoice, updateBackground} from "../components/three-background";
 import {endOfLine} from "../components/end-of-line";
 
 
@@ -29,7 +31,7 @@ export type ProjectCredits = [
 export function projectView(content: ProjectContent) {
     const article = document.createElement('article');
     const foo = endOfLine();
-    createThreeBackground();
+    createThreeBackground(BackgroundChoice.Project);
     updateBackground(800);
 
     article.appendChild(header(content.title, content.subtitle));
