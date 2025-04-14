@@ -1,14 +1,14 @@
 import { router } from "./core/router";
 import {buildVerticalNav} from "./components/vertical-nav";
-import {buildInteractivePage, buildProjectPage} from "./content/projects";
-import {homeView} from "./views/home.ts";
-import {buildViewBase, projectCollectionView, renderView} from "./views";
+import {buildProjectPage} from "./content/projects";
+import {homeView, aboutView, buildViewBase, projectCollectionView, renderView} from "./views";
 
 
 const routes = [
     { path: '', handler: () => renderView(homeView()) },
     { path: '/projects', handler: () => renderView(projectCollectionView()) },
-    { path: '/projects/:id', handler: (params) => buildProjectPage(params?.id) }
+    { path: '/projects/:id', handler: (params) => buildProjectPage(params?.id) },
+    { path: '/about', handler: () => renderView(aboutView()) },
 ];
 
 routes.forEach(route => router.registerRoute(route.path, route.handler));
