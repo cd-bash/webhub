@@ -1,6 +1,7 @@
 ﻿import {writeParagraph, writeTitle} from "./utils";
+import {aboutContent} from "../content/about";
 
-export type AboutContent = {
+export type AboutContentStructure = {
     readonly title: string;
     readonly subtitle: string;
     readonly paragraphs: ReadonlyArray<string>;
@@ -16,50 +17,24 @@ export type GridCategoryContent = {
     readonly title: string;
     readonly items: ReadonlyArray<GridItemContent>;
 }
+
 export type GridItemContent = {
     readonly title: string;
     readonly subtitle: string;
     readonly text: string;
 }
 
-
-const testContent: AboutContent = {
-    title: "About CD",
-    subtitle: "A short introduction",
-    paragraphs: [
-        "This is a test paragraph. It is used to test the text utilities.",
-        "This is another test paragraph. It is used to test the text utilities.",
-        "This is a third test paragraph. It is used to test the text utilities."
-    ],
-    sections: [
-        {
-            title: "Test Section",
-            categories: [
-                {
-                    title: "Test Category",
-                    items: [
-                        {
-                            title: "Test Item",
-                            subtitle: "Test Subtitle",
-                            text: "This is a test item. It is used to test the text utilities."
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-}
-
 // --------------------------------------------------------------------------------
 
 export function aboutView() {
     const article = document.createElement('article');
-    const pageTitle = writeTitle("h1", "About CD");
-
+    const pageTitle = writeTitle("h1", aboutContent.title);
+    const pageSubtitle = writeTitle("h5", aboutContent.subtitle);
 
     article.appendChild(pageTitle);
+    article.appendChild(pageSubtitle);
 
-    testContent.sections.forEach(section => {
+    aboutContent.sections.forEach(section => {
         const gridSectionElement = gridSection(section);
         article.appendChild(gridSectionElement);
     })
@@ -85,7 +60,7 @@ function gridSection(section: GridSectionContent) {
 
 function gridCategory(category: GridCategoryContent) {
     const gridCategory = document.createElement('div');
-    const categoryTitle = writeTitle("h3", category.title);
+    const categoryTitle = writeTitle("h6", category.title);
 
     gridCategory.classList.add('grid-category');
 
@@ -102,8 +77,8 @@ function gridCategory(category: GridCategoryContent) {
 
 function gridItem(item: GridItemContent) {
     const gridItem = document.createElement('div');
-    const itemTitle = writeTitle("h4", item.title);
-    const itemSubtitle = writeTitle("h6", item.subtitle);
+    const itemTitle = writeParagraph(item.title);
+    const itemSubtitle = writeParagraph(item.subtitle);
     const itemText = writeParagraph(item.text);
 
     gridItem.classList.add('grid-item');

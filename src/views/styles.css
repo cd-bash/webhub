@@ -33,6 +33,15 @@ h5 {
     color: #828282;
 }
 
+h6 {
+    margin: 0 0 20px 0;
+    font-family: "Handjet", serif;
+    font-size: 2em;
+    font-weight: 600;
+    text-transform: lowercase;
+    color: #3BFFC5;
+}
+
 p {
     font-size: 2em;
     font-weight: normal;
