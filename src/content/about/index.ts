@@ -1,13 +1,10 @@
 ﻿import {AboutContentStructure} from "../../views";
 
 export const aboutContent: AboutContentStructure = {
-    title: "About CD",
+    title: "About",
     subtitle: "Me, myself and I",
-    paragraphs: [
-        "This is a test paragraph. It is used to test the text utilities.",
-        "This is another test paragraph. It is used to test the text utilities.",
-        "This is a third test paragraph. It is used to test the text utilities."
-    ],
+    introTagline: "Lorem Ipsum",
+    introText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     sections: [
         {
             title: "At a Glance",
@@ -18,7 +15,7 @@ export const aboutContent: AboutContentStructure = {
                         {
                             title: "Computation Arts (BAC)",
                             subtitle: "Concordia University",
-                            text: "2016 - 2019, graduated with distinction"
+                            text: "2016 - 2019 / Graduated with Distinction"
                         },
                         {
                             title: "Graphic Design (TEC)",
@@ -37,8 +34,33 @@ export const aboutContent: AboutContentStructure = {
                         },
                         {
                             title: "UX / UI Designer",
-                            subtitle: "Voxco",
+                            subtitle: "Voxco Software",
                             text: "April 2015 - October 2021"
+                        },
+                        {
+                            title: "Game Developer",
+                            subtitle: "Independent",
+                            text: "April 2018 - Present"
+                        }
+                    ]
+                },
+                {
+                    title: "Achievements",
+                    items: [
+                        {
+                            title: "Lead Designer",
+                            subtitle: "Behaviour Interactive",
+                            text: "October 2021 - Present"
+                        },
+                        {
+                            title: "UX / UI Designer",
+                            subtitle: "Voxco Software",
+                            text: "April 2015 - October 2021"
+                        },
+                        {
+                            title: "Game Developer",
+                            subtitle: "Independent",
+                            text: "April 2018 - Present"
                         }
                     ]
                 }
