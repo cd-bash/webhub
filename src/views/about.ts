@@ -7,13 +7,10 @@ export type AboutContentStructure = {
     readonly subtitle: string;
     readonly introTagline: string;
     readonly introText: string;
-    readonly sections: ReadonlyArray<GridSectionContent>;
+    readonly gridCategory: ReadonlyArray<GridCategoryContent>;
+    readonly achievements: ReadonlyArray<AchievementContent>;
 }
 
-export type GridSectionContent = {
-    readonly title: string;
-    readonly categories: ReadonlyArray<GridCategoryContent>;
-}
 
 export type GridCategoryContent = {
     readonly title: string;
@@ -24,6 +21,11 @@ export type GridItemContent = {
     readonly title: string;
     readonly subtitle: string;
     readonly text: string;
+}
+
+export type AchievementContent = {
+    readonly title: string;
+    readonly description: string;
 }
 
 // --------------------------------------------------------------------------------
@@ -41,11 +43,13 @@ export function aboutView() {
     article.appendChild(pageSubtitle);
     article.appendChild(pageIntro);
 
-    aboutContent.sections.forEach(section => {
-        const gridSectionElement = gridSection(section);
-        article.appendChild(gridSectionElement);
-    })
 
+    aboutContent.gridCategory.forEach(category => {
+        const gridCategoryElement = gridCategory(category);
+        article.appendChild(gridCategoryElement);
+    });
+
+    article.appendChild(achievements(aboutContent.achievements));
     article.appendChild(foo);
     return article;
 }
@@ -67,19 +71,6 @@ function intro() {
     return intro;
 }
 
-function gridSection(section: GridSectionContent) {
-    const gridSection = document.createElement('div');
-
-    gridSection.className = 'grid-section';
-
-    section.categories.forEach(category => {
-        const gridCategoryElement = gridCategory(category);
-        gridSection.appendChild(gridCategoryElement);
-    })
-
-    return gridSection;
-}
-
 function gridCategory(category: GridCategoryContent) {
     const gridCategory = document.createElement('div');
     const categoryTitle = writeTitle("h2", category.title);
@@ -95,7 +86,6 @@ function gridCategory(category: GridCategoryContent) {
 
     return gridCategory;
 }
-
 
 function gridItem(item: GridItemContent) {
     const gridItem = document.createElement('div');
@@ -117,4 +107,24 @@ function gridItem(item: GridItemContent) {
     return gridItem;
 }
 
+function achievements(achievement:  ReadonlyArray<AchievementContent>) {
+    const achievements = document.createElement('div');
+    const achievementsTitle = writeTitle("h2", "Achievements");
 
+    achievements.className = 'achievements';
+    achievements.appendChild(achievementsTitle);
+
+    achievement.forEach(item => {
+        const achievementItem = document.createElement('div');
+        const achievementTitle = writeParagraph(item.title);
+        const achievementDescription = writeParagraph(item.description);
+
+        achievementItem.className = 'item';
+        achievementTitle.className = 'title';
+        achievementItem.appendChild(achievementTitle);
+        achievementItem.appendChild(achievementDescription);
+        achievements.appendChild(achievementItem);
+    });
+
+    return achievements;
+}

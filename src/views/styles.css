@@ -144,42 +144,51 @@ p.description {
                 display: block;
             }
 
-            .grid-section {
+            .title {
+                font-family: "Handjet", serif;
+                font-size: 2.5em;
+                font-weight: 600;
+                color: #3BFFC5;
+                text-transform: lowercase;
+            }
 
-                .grid-category {
-                    display: grid;
-                    padding: 50px 0 0 0;
-                    margin: 0 0 25px 0;
-                    border-top: 2px dashed #505050;
-                    grid-template-columns: repeat(6, 1fr);
-                    gap: 2%;
+            .grid-category {
+                display: grid;
+                padding: 50px 0 0 0;
+                margin: 0 0 25px 0;
+                border-top: 2px dashed #505050;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 2%;
 
-                    h2 {
-                        grid-column: span 6;
+                h2 {
+                    grid-column: span 6;
+                }
+
+                .grid-item {
+                    margin: 0 0 50px 0;
+                    grid-column: span 3;
+
+
+                    .subtitle {
+                        color: white;
                     }
 
-                    .grid-item {
-                        margin: 0 0 50px 0;
-                        grid-column: span 3;
-
-                        .title {
-                            font-family: "Handjet", serif;
-                            font-size: 2.5em;
-                            font-weight: 600;
-                            color: #3BFFC5;
-                            text-transform: lowercase;
-                        }
-
-                        .subtitle {
-                            color: white;
-                        }
-
-                        .text {
-                            font-size: 1em;
-                        }
+                    .text {
+                        font-size: 1em;
                     }
                 }
             }
+
+            .achievements {
+                border-top: 2px dashed #505050;
+                padding: 50px 0 0 0;
+                margin: 0 0 25px 0;
+
+                .item {
+                    margin: 0 0 50px 0;
+                }
+            }
+
         }
     }
 
