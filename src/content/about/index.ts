@@ -3,8 +3,8 @@
 export const aboutContent: AboutContentStructure = {
     title: "About",
     subtitle: "Me, myself and I",
-    introTagline: "Lorem Ipsum",
-    introText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    introTagline: "Charles Doucet (cd)",
+    introText: "I’m a Montreal-based designer with a passion for technology and interactive media, driven by my curiosity and thirst for knowledge.",
     gridCategory: [
         {
             title: "Education",
@@ -48,8 +48,18 @@ export const aboutContent: AboutContentStructure = {
             description: "Given by Milieux at Concordia. Became a member of TAG (Technoculture, Art and Games) research centre."
         },
         {
-            title: "Platinum every Soulsborne game",
-            description: "Yep, you read that right."
+            title: "Platinum every Soulsborne games",
+            description: "Yep, you read that right. I have earned every trophy from Demon Souls to Elden Ring (even Dark Souls 2)."
+        }
+    ],
+    profileLinks: [
+        {
+            text: "LinkedIn",
+            link: "https://www.linkedin.com/in/charlesdouc/"
+        },
+        {
+            text: "GitHub",
+            link: "https://github.com/cdoucet/",
         }
     ]
 }

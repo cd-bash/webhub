@@ -2,7 +2,7 @@
     createContentGallery,
     createThreeBackground,
     createVideoShowcase,
-    scrollTop,
+    scrollTop, writeLink,
     writeParagraph,
     writeTitle
 } from "./utils"
@@ -96,16 +96,10 @@ function gallery(imageRefs: ReadonlyArray<string>) {
 
 function credits(creditsRef: ReadonlyArray<ProjectCredits>) {
     const credits = document.createElement('section');
-    credits.className = "credits";
-
     credits.appendChild(writeTitle("h2", "With the help of"));
 
     creditsRef.forEach(credit => {
-        const creditLink = document.createElement('a');
-        creditLink.href = credit[1];
-        creditLink.textContent = credit[0];
-        creditLink.target = "_blank";
-        credits.appendChild(creditLink);
+        credits.appendChild(writeLink(credit[0], credit[1]));
     });
 
     return credits;

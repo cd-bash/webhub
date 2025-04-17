@@ -1,4 +1,4 @@
-﻿import {writeParagraph, writeTitle} from "./utils";
+﻿import {writeLink, writeParagraph, writeTitle} from "./utils";
 import {aboutContent} from "../content/about";
 import {endOfLine} from "../components/end-of-line";
 
@@ -9,8 +9,8 @@ export type AboutContentStructure = {
     readonly introText: string;
     readonly gridCategory: ReadonlyArray<GridCategoryContent>;
     readonly achievements: ReadonlyArray<AchievementContent>;
+    readonly profileLinks: ReadonlyArray<ProfileLinkContent>;
 }
-
 
 export type GridCategoryContent = {
     readonly title: string;
@@ -26,6 +26,11 @@ export type GridItemContent = {
 export type AchievementContent = {
     readonly title: string;
     readonly description: string;
+}
+
+export type ProfileLinkContent = {
+    readonly text: string;
+    readonly link: string;
 }
 
 // --------------------------------------------------------------------------------
@@ -50,6 +55,7 @@ export function aboutView() {
     });
 
     article.appendChild(achievements(aboutContent.achievements));
+    article.appendChild(profileLinks(aboutContent.profileLinks));
     article.appendChild(foo);
     return article;
 }
@@ -127,4 +133,17 @@ function achievements(achievement:  ReadonlyArray<AchievementContent>) {
     });
 
     return achievements;
+}
+
+function profileLinks(links: ReadonlyArray<ProfileLinkContent>) {
+    const profileLinks = document.createElement('div');
+    profileLinks.appendChild(writeTitle("h2", "Profile Links"));
+
+    profileLinks.className = 'profile-links';
+
+    links.forEach(link => {
+        profileLinks.appendChild(writeLink(link.text, link.link));
+    })
+
+    return profileLinks;
 }

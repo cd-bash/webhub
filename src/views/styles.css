@@ -125,7 +125,7 @@ p.description {
             border-radius: 10px;
         }
 
-        .credits a {
+        .link {
             font-family: "Handjet", serif;
             display: inline-block;
             color: #828282;;
@@ -179,7 +179,7 @@ p.description {
                 }
             }
 
-            .achievements {
+            .achievements, .profile-links {
                 border-top: 2px dashed #505050;
                 padding: 50px 0 0 0;
                 margin: 0 0 25px 0;
