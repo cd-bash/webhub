@@ -1,14 +1,14 @@
-﻿import {animatedBackground} from "../../components/three-background";
+﻿import {BackgroundChoice, threeBackground} from "../../components/three-background";
 
 
-export function createThreeBackground() {
+export function createThreeBackground(choice: BackgroundChoice) {
     const viewBox = document.getElementById('view-box')!;
-    const threeBackground = document.createElement('div');
+    const background = document.createElement('div');
 
     if (!document.querySelector('.three-background')) {
-        threeBackground.className = 'three-background';
-        threeBackground.appendChild(animatedBackground());
+        background.className = 'three-background';
+        background.appendChild(threeBackground(choice));
 
-        viewBox.appendChild(threeBackground);
+        viewBox.appendChild(background);
     }
 }

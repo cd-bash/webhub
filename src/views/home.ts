@@ -1,65 +1,19 @@
-﻿import cdIcon from "/img/common/cd_icon_green.png";
+﻿import {createThreeBackground, writeTitle} from "./utils";
+import {BackgroundChoice} from "../components/three-background";
 
 
 export function homeView() {
-  const view = document.createElement("main");
-  const mainVisuals = DrawVisuals();
-  const mainTitle = BuildMainTitle("bonjour, hi");
-  const infoBlurb = BuildInfoBlurb(cdIcon, "Creative Dev", "CD-BASH");
+  const article = document.createElement('article');
+  const pageTitle = writeTitle("h1", "welcome to my hub");
 
-  for (let i = 0; i < mainVisuals.length; i++) {
-    view.appendChild(mainVisuals[i]);
-  }
-
-  view.appendChild(mainTitle);
-  view.appendChild(infoBlurb);
+  createThreeBackground(BackgroundChoice.Home);
+  article.appendChild(pageTitle);
 
 
-  return view
+
+  return article;
 }
 
 // --------------------------------------------------------------------------------
 
 
-function DrawVisuals() {
-  const cornerTriangle = document.createElement("div");
-  cornerTriangle.className = "corner-triangle";
-  const heroVisual = document.createElement("div");
-  heroVisual.className = "hero-visual";
-
-  return [cornerTriangle, heroVisual];
-}
-
-
-function BuildMainTitle(titleText: string) {
-  const box = document.createElement("div");
-  box.className = "main-title";
-
-  const title = document.createElement("h3");
-  title.textContent = titleText;
-
-  box.appendChild(title);
-  return box;
-}
-
-
-function BuildInfoBlurb(imgPath: string, positionText: string, nameText: string) {
-  const box = document.createElement("div");
-  box.className = "business-card";
-  const icon = document.createElement("img");
-  icon.src = imgPath;
-
-  const blurb = document.createElement("article");
-  const positionTitle = document.createElement("h2");
-  positionTitle.textContent = positionText;
-  const name = document.createElement("h1");
-  name.textContent = nameText;
-
-  blurb.appendChild(positionTitle);
-  blurb.appendChild(name);
-
-  box.appendChild(icon);
-  box.appendChild(blurb);
-
-  return box;
-}

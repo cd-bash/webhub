@@ -17,3 +17,13 @@ export function writeParagraph(text: string) {
 
     return paragraph;
 }
+
+export function writeLink(text: string, href: string) {
+    const link = document.createElement('a');
+    link.className = "link";
+    link.href = href;
+    link.textContent = text;
+    link.target = "_blank";
+
+    return link;
+}
