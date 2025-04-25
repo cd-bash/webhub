@@ -48,7 +48,6 @@ export function aboutView() {
     article.appendChild(pageSubtitle);
     article.appendChild(pageIntro);
 
-
     aboutContent.gridCategory.forEach(category => {
         const gridCategoryElement = gridCategory(category);
         article.appendChild(gridCategoryElement);
