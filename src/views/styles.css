@@ -190,6 +190,19 @@ p.description {
             }
 
         }
+
+        #home-page {
+
+            h1 {
+                margin: 0 auto 50px auto;
+
+            }
+
+            .intro-block {
+                text-align: center;
+            }
+
+        }
     }
 
     .three-background {
