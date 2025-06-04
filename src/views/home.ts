@@ -1,6 +1,13 @@
 ﻿import {createThreeBackground, writeParagraph, writeTitle} from "./utils";
 import {BackgroundChoice} from "../components/three-background";
+import {cdCover} from "../components/cd-cover";
 
+export type HomePageContent = {
+    readonly title: string;
+    readonly introText: string;
+}
+
+// --------------------------------------------------------------------------------
 
 export function homeView() {
   const article = document.createElement('article');
@@ -15,12 +22,25 @@ export function homeView() {
   introBlock.appendChild(pageTitle);
   introBlock.appendChild(pageText);
   article.appendChild(introBlock);
-
-
+  article.appendChild(cdCoverSelection());
 
   return article;
 }
 
 // --------------------------------------------------------------------------------
 
+function cdCoverSelection() {
+  const cdCovers = document.createElement('div');
+  cdCovers.className = 'cd-covers-selection';
+
+  const projectCover = cdCover();
+  const aboutCover = cdCover();
+  const logsCover = cdCover();
+
+  cdCovers.appendChild(projectCover);
+  cdCovers.appendChild(aboutCover);
+  cdCovers.appendChild(logsCover);
+
+  return cdCovers;
+}
 

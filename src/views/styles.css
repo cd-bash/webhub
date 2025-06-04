@@ -136,6 +136,23 @@ p.description {
             text-decoration-color: #3BFFC5;
         }
 
+        #home-page {
+            .cd-covers-selection {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+                justify-items: center;
+                align-items: center;
+                width: 170%; /* wider than wrapper */
+                max-width: none;
+                margin-left: -35%; /* center and overflow */
+                position: relative;
+                z-index: 1;
+                padding: 40px 0;
+
+            }
+        }
+
         #about-page {
 
             .intro {
