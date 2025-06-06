@@ -22,12 +22,12 @@ const createDisc = () => {
 }
 
 const createWavyGridFloor = () => {
-    const size = 2000;
+    const size = 4000;
     const divisions = 40;
     const step = size / divisions;
     const halfSize = size / 2;
 
-    const sphereGeometry = new THREE.SphereGeometry(12, 8, 8);
+    const sphereGeometry = new THREE.SphereGeometry(4, 8, 8);
     const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0x3BFFC5 });
 
     gridSpheres = [];
@@ -40,6 +40,7 @@ const createWavyGridFloor = () => {
             sphere.position.set(x, 0, z);
             scene.add(sphere);
             gridSpheres.push(sphere);
+            sphereMaterial.wireframe = true;
         }
     }
 }
