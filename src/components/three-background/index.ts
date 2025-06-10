@@ -3,7 +3,7 @@ import {changeDepth, initCamera, initScene, initStage, renderer} from "./scene.t
 import {initBgMeshes} from "./particules.ts";
 import {initPostProcess} from "./post-process.ts";
 import {animate} from "./animation-loop.ts";
-import {initDiscs} from "./discs.ts";
+import {initHomePage} from "./homeGrid.ts";
 
 export enum BackgroundChoice {
     Home,
@@ -18,7 +18,7 @@ export function threeBackground(choice: BackgroundChoice) {
     initCamera();
 
     if (choice === BackgroundChoice.Home) {
-        initDiscs();
+        initHomePage();
     }
 
     if (choice === BackgroundChoice.Project) {
