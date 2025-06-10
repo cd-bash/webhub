@@ -14,7 +14,7 @@ export type thumbnailContent = {
 //-----------------------------------------------------------------------
 
 export function projectThumbnail(content: thumbnailContent, showcase: boolean) {
-    const itemBox = document.createElement('li');
+    const thumbnailBox = document.createElement('li');
     const itemThumbnail = document.createElement('img');
     const itemTitle = document.createElement('h5');
     const itemTag = document.createElement('p');
@@ -23,14 +23,14 @@ export function projectThumbnail(content: thumbnailContent, showcase: boolean) {
     const itemSummary = document.createElement('p');
     const clearFix = document.createElement('div');
 
-    itemBox.id = 'item-box';
-    itemBox.style.backgroundColor = content.thumbnailColor;
+    thumbnailBox.id = 'thumbnail-box';
+    thumbnailBox.style.backgroundColor = content.thumbnailColor;
     itemTag.className = 'tag';
     hoverBox.className = 'hover-box';
     clearFix.className = 'clearfix';
 
     if (showcase) {
-        itemBox.className += 'showcase';
+        thumbnailBox.className += 'showcase';
     }
 
     itemThumbnail.src = content.thumbnail;
@@ -39,17 +39,17 @@ export function projectThumbnail(content: thumbnailContent, showcase: boolean) {
     itemSummary.textContent = content.summary;
     projectLink.textContent = "View Project";
 
-    itemBox.appendChild(itemTitle);
-    itemBox.appendChild(itemTag);
+    thumbnailBox.appendChild(itemTitle);
+    thumbnailBox.appendChild(itemTag);
     hoverBox.appendChild(itemSummary);
     hoverBox.appendChild(projectLink);
-    itemBox.appendChild(hoverBox);
-    itemBox.appendChild(itemThumbnail);
-    itemBox.appendChild(clearFix);
+    thumbnailBox.appendChild(hoverBox);
+    thumbnailBox.appendChild(itemThumbnail);
+    thumbnailBox.appendChild(clearFix);
 
-    itemBox.addEventListener('click', () => {
-        EVENT_BUS.dispatch('page_navigation', { pageReference: 'interactive/' + content.path });
+    thumbnailBox.addEventListener('click', () => {
+        EVENT_BUS.dispatch('page_navigation', { pageReference: 'projects/' + content.path });
     });
 
-    return itemBox;
+    return thumbnailBox;
 }

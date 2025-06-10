@@ -1,65 +1,46 @@
-﻿import cdIcon from "/img/common/cd_icon_green.png";
+﻿import {createThreeBackground, writeParagraph, writeTitle} from "./utils";
+import {BackgroundChoice} from "../components/three-background";
+import {cdCover} from "../components/cd-cover";
 
-
-export function homeView() {
-  const view = document.createElement("main");
-  const mainVisuals = DrawVisuals();
-  const mainTitle = BuildMainTitle("bonjour, hi");
-  const infoBlurb = BuildInfoBlurb(cdIcon, "Creative Dev", "CD-BASH");
-
-  for (let i = 0; i < mainVisuals.length; i++) {
-    view.appendChild(mainVisuals[i]);
-  }
-
-  view.appendChild(mainTitle);
-  view.appendChild(infoBlurb);
-
-
-  return view
+export type HomePageContent = {
+    readonly title: string;
+    readonly introText: string;
 }
 
 // --------------------------------------------------------------------------------
 
+export function homeView() {
+  const article = document.createElement('article');
+  const introBlock = document.createElement('div');
+  const pageTitle = writeTitle("h1", "pick a track");
+  const pageText = writeParagraph("Welcome to my hub! I’m CD-BASH, a creative developer based in Montreal.");
 
-function DrawVisuals() {
-  const cornerTriangle = document.createElement("div");
-  cornerTriangle.className = "corner-triangle";
-  const heroVisual = document.createElement("div");
-  heroVisual.className = "hero-visual";
+  article.id = 'home-page';
+  introBlock.className = 'intro-block';
 
-  return [cornerTriangle, heroVisual];
+  createThreeBackground(BackgroundChoice.Home);
+  introBlock.appendChild(pageTitle);
+  introBlock.appendChild(pageText);
+  article.appendChild(introBlock);
+  article.appendChild(cdCoverSelection());
+
+  return article;
 }
 
+// --------------------------------------------------------------------------------
 
-function BuildMainTitle(titleText: string) {
-  const box = document.createElement("div");
-  box.className = "main-title";
+function cdCoverSelection() {
+  const cdCovers = document.createElement('div');
+  cdCovers.className = 'cd-covers-selection';
 
-  const title = document.createElement("h3");
-  title.textContent = titleText;
+  const projectCover = cdCover();
+  const aboutCover = cdCover();
+  const logsCover = cdCover();
 
-  box.appendChild(title);
-  return box;
+  cdCovers.appendChild(projectCover);
+  cdCovers.appendChild(aboutCover);
+  cdCovers.appendChild(logsCover);
+
+  return cdCovers;
 }
 
-
-function BuildInfoBlurb(imgPath: string, positionText: string, nameText: string) {
-  const box = document.createElement("div");
-  box.className = "business-card";
-  const icon = document.createElement("img");
-  icon.src = imgPath;
-
-  const blurb = document.createElement("article");
-  const positionTitle = document.createElement("h2");
-  positionTitle.textContent = positionText;
-  const name = document.createElement("h1");
-  name.textContent = nameText;
-
-  blurb.appendChild(positionTitle);
-  blurb.appendChild(name);
-
-  box.appendChild(icon);
-  box.appendChild(blurb);
-
-  return box;
-}

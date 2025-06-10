@@ -33,12 +33,25 @@ h5 {
     color: #828282;
 }
 
+h6 {
+    margin: 0 0 20px 0;
+    font-family: "Handjet", serif;
+    font-size: 2em;
+    font-weight: 600;
+    text-transform: lowercase;
+    color: #3BFFC5;
+}
+
 p {
     font-size: 2em;
     font-weight: normal;
     color: #828282;
     line-height: 150%;
     margin: 0;
+}
+
+p.intro-text {
+    margin-bottom: 50px;
 }
 
 p.description {
@@ -112,7 +125,7 @@ p.description {
             border-radius: 10px;
         }
 
-        .credits a {
+        .link {
             font-family: "Handjet", serif;
             display: inline-block;
             color: #828282;;
@@ -123,31 +136,100 @@ p.description {
             text-decoration-color: #3BFFC5;
         }
 
+        #home-page {
+            .cd-covers-selection {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+                justify-items: center;
+                align-items: center;
+                width: 170%; /* wider than wrapper */
+                max-width: none;
+                margin-left: -35%; /* center and overflow */
+                position: relative;
+                z-index: 1;
+                padding: 40px 0;
 
+            }
+        }
+
+        #about-page {
+
+            .intro {
+                text-align: center;
+                padding-bottom: 50px;
+                display: block;
+            }
+
+            .title {
+                font-family: "Handjet", serif;
+                font-size: 2.5em;
+                font-weight: 600;
+                color: #3BFFC5;
+                text-transform: lowercase;
+            }
+
+            .grid-category {
+                display: grid;
+                padding: 50px 0 0 0;
+                margin: 0 0 25px 0;
+                border-top: 2px dashed #505050;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 2%;
+
+                h2 {
+                    grid-column: span 6;
+                }
+
+                .grid-item {
+                    margin: 0 0 50px 0;
+                    grid-column: span 3;
+
+
+                    .subtitle {
+                        color: white;
+                    }
+
+                    .text {
+                        font-size: 1em;
+                    }
+                }
+            }
+
+            .achievements, .profile-links {
+                border-top: 2px dashed #505050;
+                padding: 50px 0 0 0;
+                margin: 0 0 25px 0;
+
+                .item {
+                    margin: 0 0 50px 0;
+                }
+            }
+
+        }
+
+        #home-page {
+
+            h1 {
+                margin: 0 auto 50px auto;
+
+            }
+
+            .intro-block {
+                text-align: center;
+            }
+
+        }
     }
 
-    .backgrounds {
+    .three-background {
         position: fixed;
-        background-color: #141518;
+        background-color: #000000;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: -15;
-
-        .layer-a {
-            position: fixed;
-            background-image: url("utils/assets/background-test.png");
-            width: 100%;
-            height: 100%;
-            z-index: -11;
-        }
-
-        .layer-b {
-            position: relative;
-            z-index: -10;
-        }
-
     }
 }
 

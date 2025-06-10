@@ -1,9 +1,13 @@
 ﻿import {
-    writeTitle,
+    createContentGallery,
+    createThreeBackground,
     createVideoShowcase,
+    scrollTop, writeLink,
     writeParagraph,
-    createContentGallery, createBackground
+    writeTitle
 } from "./utils"
+import {BackgroundChoice, updateBackground} from "../components/three-background";
+import {endOfLine} from "../components/end-of-line";
 
 
 export type ProjectContent = {
@@ -26,7 +30,9 @@ export type ProjectCredits = [
 
 export function projectView(content: ProjectContent) {
     const article = document.createElement('article');
-    createBackground();
+    const foo = endOfLine();
+    createThreeBackground(BackgroundChoice.Project);
+    updateBackground(800);
 
     article.appendChild(header(content.title, content.subtitle));
     article.appendChild(videoShowcase(content.heroVideo));
@@ -37,6 +43,8 @@ export function projectView(content: ProjectContent) {
         article.appendChild(credits(content.credits));
     }
 
+    article.appendChild(foo);
+    scrollTop();
     return article;
 }
 
@@ -88,16 +96,10 @@ function gallery(imageRefs: ReadonlyArray<string>) {
 
 function credits(creditsRef: ReadonlyArray<ProjectCredits>) {
     const credits = document.createElement('section');
-    credits.className = "credits";
-
     credits.appendChild(writeTitle("h2", "With the help of"));
 
     creditsRef.forEach(credit => {
-        const creditLink = document.createElement('a');
-        creditLink.href = credit[1];
-        creditLink.textContent = credit[0];
-        creditLink.target = "_blank";
-        credits.appendChild(creditLink);
+        credits.appendChild(writeLink(credit[0], credit[1]));
     });
 
     return credits;

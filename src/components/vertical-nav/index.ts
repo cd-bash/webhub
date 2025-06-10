@@ -4,6 +4,7 @@ import cdIcon from "/img/common/cd_icon_green.png";
 import githubIcon from "./assets/github-icon.svg";
 import linkedIcon from "./assets/linkedin-icon.svg";
 import instagramIcon from "./assets/instagram-icon.svg";
+import {navLinks} from "./nav-links.ts";
 
 const navTitle = "CD-BASH";
 const githubProfile: string = "https://github.com/CD-BASH"
@@ -27,26 +28,21 @@ const FOO_SOCIALS: SocialLink[] = [
 export function buildVerticalNav() {
     const navBox = document.createElement("div");
     const navHeader = header();
-    const navBreadcrumbs = document.createElement("div");
+    const navLinksSection = navLinks();
     const navInfo = document.createElement("div");
     const navFooter = footer();
 
     navBox.id = "vertical-nav";
-    navBreadcrumbs.id = "nav-breadcrumbs";
     navInfo.id = "nav-info";
 
     navBox.appendChild(navHeader);
-    navHeader.appendChild(navBreadcrumbs);
+    navHeader.appendChild(navLinksSection);
     navBox.appendChild(navInfo);
     navBox.appendChild(navFooter);
 
     return navBox;
 }
 
-export function renderBreadcrumbs(breadcrumbs: HTMLElement) {
-    const navBreadcrumbs = clearBreadcrumbs();
-    navBreadcrumbs?.appendChild(breadcrumbs);
-}
 
 export function renderNavInfo(info: HTMLElement) {
     const navInfo = clearInfo();
@@ -111,14 +107,6 @@ const footer = () => {
     return container;
 }
 
-function clearBreadcrumbs() {
-    const cleanBreadcrumbs = document.getElementById('nav-breadcrumbs');
-    cleanBreadcrumbs?.childNodes.forEach((childNode) => {
-        cleanBreadcrumbs.removeChild(childNode);
-    });
-
-    return cleanBreadcrumbs;
-}
 
 function clearInfo() {
     const cleanInfo = document.getElementById('nav-info');
