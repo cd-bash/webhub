@@ -1,6 +1,4 @@
-﻿import {createThreeBackground, writeParagraph, writeTitle} from "./utils";
-import {BackgroundChoice} from "../components/three-background";
-import {cdCover} from "../components/cd-cover";
+﻿import {createWrapper, writeParagraph, writeTitle} from "./utils";
 
 export type HomePageContent = {
     readonly title: string;
@@ -10,37 +8,38 @@ export type HomePageContent = {
 // --------------------------------------------------------------------------------
 
 export function homeView() {
-  const article = document.createElement('article');
-  const introBlock = document.createElement('div');
-  const pageTitle = writeTitle("h1", "pick a track");
-  const pageText = writeParagraph("Welcome to my hub! I’m CD-BASH, a creative developer based in Montreal.");
+  const page = document.createElement('div');
+  page.id = 'home-page';
 
-  article.id = 'home-page';
-  introBlock.className = 'intro-block';
+  page.appendChild(hookSection());
 
-  createThreeBackground(BackgroundChoice.Home);
-  introBlock.appendChild(pageTitle);
-  introBlock.appendChild(pageText);
-  article.appendChild(introBlock);
-  article.appendChild(cdCoverSelection());
 
-  return article;
+
+  return page;
 }
 
 // --------------------------------------------------------------------------------
 
-function cdCoverSelection() {
-  const cdCovers = document.createElement('div');
-  cdCovers.className = 'cd-covers-selection';
+function hookSection() {
+  const hook = document.createElement('section');
+  const wrapper = createWrapper();
+  const article = document.createElement('article');
+  const hookTitle = writeTitle("h1", "When was the last time you finished a game?");
+  const hookText = writeParagraph("CD-Labs’ initiative is to design complete gaming experiences for busy lives.");
+  const arrowDownBtn = document.createElement('button');
 
-  const projectCover = cdCover();
-  const aboutCover = cdCover();
-  const logsCover = cdCover();
+  hook.className = 'hook';
+  hookTitle.className = "hook-title";
+  hookText.className = "hook-text";
 
-  cdCovers.appendChild(projectCover);
-  cdCovers.appendChild(aboutCover);
-  cdCovers.appendChild(logsCover);
+  article.appendChild(hookTitle);
+  article.appendChild(hookText);
+  article.appendChild(arrowDownBtn);
+  wrapper.appendChild(article);
+  hook.appendChild(wrapper);
 
-  return cdCovers;
+  return hook;
 }
+
+
 

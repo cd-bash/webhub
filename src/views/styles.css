@@ -1,21 +1,14 @@
 ﻿body {
     background-color: black;
-}
-
-h1 {
     margin: 0;
-    max-width: 75%;
-    font-size: 6em;
-    line-height: 75%;
-    color: white;
-    text-transform: lowercase;
 }
 
-h2 {
-    margin: 0 0 20px 0;
-    font-size: 1.2em;
+h1, h2 {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 6em;
+    line-height: 100%;
     color: white;
-    text-transform: uppercase;
 }
 
 h3 {
@@ -43,10 +36,10 @@ h6 {
 }
 
 p {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: normal;
-    color: #828282;
-    line-height: 150%;
+    color: white;
+    line-height: 110%;
     margin: 0;
 }
 
@@ -60,14 +53,56 @@ p.description {
     font-size: 0.9em;
 }
 
+#view {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+
+    #wrapper {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    #home-page {
+        
+        section {
+            width: 100vw;
+            min-height: 100vh;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .hook {
+
+            article {
+                margin: 0 15%;
+                display: flex;
+                text-align: center;
+                flex-direction: column;      /* Stack children vertically */
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+
+                .hook-text {
+                    margin-top: 75px;
+                    margin-bottom: 20px;
+                    max-width: 630px;
+                }
+            }
+        }
+
+
+    }
+}
+
 #view-box {
-    padding-left: 280px;
     height: 100%;
     font-family: "Cabin", sans-serif;
 
 
     #view-wrapper {
-        width: 720px;
+        width: 95%;
         margin: 0 auto;
         padding-top: 60px;
 
