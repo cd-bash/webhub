@@ -1,58 +1,4 @@
-﻿body {
-    background-color: black;
-    margin: 0;
-}
-
-h1, h2 {
-    margin: 0;
-    font-family: "Inter", sans-serif;
-    font-size: 6em;
-    line-height: 100%;
-    color: white;
-}
-
-h3 {
-    font-family: "Handjet", serif;
-    font-size: 2.8em;
-    font-weight: 600;
-    color: #828282;
-}
-
-h5 {
-    font-family: "Handjet", serif;
-    font-size: 1.5em;
-    font-weight: 600;
-    text-transform: lowercase;
-    color: #828282;
-}
-
-h6 {
-    margin: 0 0 20px 0;
-    font-family: "Handjet", serif;
-    font-size: 2em;
-    font-weight: 600;
-    text-transform: lowercase;
-    color: #3BFFC5;
-}
-
-p {
-    font-size: 1.5em;
-    font-weight: normal;
-    color: white;
-    line-height: 110%;
-    margin: 0;
-}
-
-p.intro-text {
-    margin-bottom: 50px;
-}
-
-p.description {
-    font-family: "Cabin", sans-serif;
-    color: #A1A1A1;
-    font-size: 0.9em;
-}
-
+﻿
 #view {
     height: 100%;
     font-family: 'Inter', sans-serif;
@@ -65,7 +11,7 @@ p.description {
     #home-page {
         
         section {
-            width: 100vw;
+            width: 100%;
             min-height: 100vh;
             height: 100vh;
             margin: 0;
@@ -74,6 +20,9 @@ p.description {
         }
 
         .hook {
+            h1, p {
+                text-shadow: 0 4px 55px rgba(0, 0, 0, 0.65);
+            }
 
             article {
                 margin: 0 15%;
@@ -91,8 +40,6 @@ p.description {
                 }
             }
         }
-
-
     }
 }
 
