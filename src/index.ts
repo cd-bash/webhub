@@ -1,4 +1,4 @@
-import { buildMainLogo } from "./components/logo";
+import {buildMainLogo, changeLogoOnScroll} from "./components/logo";
 import { router } from "./core/router";
 import {homeView, buildViewBase, renderView} from "./views";
 import {buildTopNav} from "./components/top-nav";
@@ -20,6 +20,8 @@ function init() {
 
     body.appendChild(mainLogo);
     body.appendChild(nav);
+    window.addEventListener('scroll', changeLogoOnScroll);
+
     body.appendChild(contentPage);
     
 
