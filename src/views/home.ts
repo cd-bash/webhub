@@ -14,8 +14,6 @@ export function homeView() {
   page.appendChild(hookSection());
   page.appendChild(philosophySection());
 
-
-
   return page;
 }
 
@@ -26,8 +24,8 @@ function hookSection() {
   const videoBg = createVideoBackground();
   const wrapper = createWrapper();
   const article = document.createElement('article');
-  const hookTitle = writeTitle("h1", "When was the last time you finished a game?");
-  const hookText = writeParagraph("CD-Labs’ initiative is to design complete gaming experiences for busy lives.");
+  const hookTitle = writeTitle("h1", "When was the last time you <span class='highlight'>finished</span> a game?");
+  const hookText = writeParagraph("CD-Labs’ initiative is to design <b>complete</b> gaming experiences for <b>busy lives</b>.");
   const arrowDownBtn = arrowButton();
 
   hook.className = 'hook';
