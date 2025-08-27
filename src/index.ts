@@ -1,6 +1,7 @@
 import { buildMainLogo } from "./components/logo";
 import { router } from "./core/router";
 import {homeView, buildViewBase, renderView} from "./views";
+import {buildTopNav} from "./components/top-nav";
 
 
 const routes = [
@@ -15,8 +16,10 @@ function init() {
     const body = document.getElementsByTagName("body")[0];
     const contentPage = buildViewBase();
     const mainLogo = buildMainLogo();
+    const nav = buildTopNav();
 
     body.appendChild(mainLogo);
+    body.appendChild(nav);
     body.appendChild(contentPage);
     
 
