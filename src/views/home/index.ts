@@ -1,6 +1,7 @@
 ﻿import './styles.css';
 import {arrowButton, createVideoBackground, createWrapper, writeParagraph, writeTitle} from "../utils";
 import {homePageContent} from "../../content/home";
+import { createPixelGrid } from '../../components/pixel-grid';
 
 export type HomePageContentStructure = {
     readonly hookHeading: string;
@@ -62,18 +63,28 @@ function philosophySection() {
 
   section.className = 'philosophy';
   section.style.backgroundImage = `url('${homePageContent.philosophy.sectionBG}')`;
-  article.appendChild(title);
 
+  // Create pixel grid using the component
+  const pixelGrid = createPixelGrid({
+    rows: 18,
+    cols: 36,
+    pixelSize: 24,
+    colors: ['#3BFFC5', '#222', '#fff'],
+    emptyBias: 'left',
+    emptyRatio: 0.7
+  });
+
+
+
+  section.appendChild(pixelGrid);
+
+  article.appendChild(title);
   homePageContent.philosophy.paragraphs.forEach(paragraph => {
     const p = writeParagraph(paragraph);
     article.appendChild(p);
   })
-
   wrapper.appendChild(article);
   section.appendChild(wrapper);
 
   return section;
 }
-
-
-

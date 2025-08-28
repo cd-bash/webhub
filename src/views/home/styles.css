@@ -1,5 +1,13 @@
 ﻿#home-page {
 
+    #wrapper {
+        z-index: 2;
+    }
+
+    h2 {
+        margin-bottom: 50px;
+    }
+
     section {
         width: 100%;
         min-height: 100vh;
@@ -9,16 +17,16 @@
         box-sizing: border-box;
     }
 
+    .highlight {
+        text-decoration: underline;
+        text-decoration-color: #3BFFC5;
+        text-underline-offset: 20px;
+    }
+
     .hook {
         h1, p {
             text-shadow: 0 4px 55px rgba(0, 0, 0, 0.65);
             max-width: 1160px;
-
-            .highlight {
-                text-decoration: underline;
-                text-decoration-color: #3BFFC5;
-                text-underline-offset: 20px;
-            }
         }
 
         article {
@@ -31,6 +39,7 @@
             height: 100vh;
 
             .hook-text {
+                font-size: 1.5em;
                 margin-top: 75px;
                 margin-bottom: 20px;
                 max-width: 630px;
@@ -40,8 +49,19 @@
 
     .philosophy {
         article {
-
+            position: relative;
+            display: flex;
+            width: 45%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* <-- left-align children */
+            height: 100vh;
         }
 
+        p {
+            max-width: 60%;
+            margin-bottom: 30px;
+            text-align: left;
+        }
     }
 }
