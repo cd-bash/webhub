@@ -66,12 +66,8 @@ function philosophySection() {
 
   // Create pixel grid using the component
   const pixelGrid = createPixelGrid({
-    rows: 18,
-    cols: 36,
-    pixelSize: 24,
-    colors: ['#3BFFC5', '#222', '#fff'],
-    emptyBias: 'left',
-    emptyRatio: 0.7
+    emptyBias: 'right',
+    emptyRatio: 0.5
   });
 
 

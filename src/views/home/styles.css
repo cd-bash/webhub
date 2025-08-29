@@ -15,6 +15,8 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        background-size: cover;
+        background-position: center;
     }
 
     .highlight {
@@ -48,14 +50,28 @@
     }
 
     .philosophy {
+        position: relative; /* Ensure the section is the positioning context */
+        overflow: hidden; /* Hide the overflowing pixels */
+
+        .pixel-grid {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1; /* Below the article */
+            pointer-events: none;
+        }
+
         article {
             position: relative;
+            z-index: 2; /* Above the pixel grid */
             display: flex;
             width: 45%;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start; /* <-- left-align children */
+            align-items: flex-start;
             height: 100vh;
+            margin-left: 5%; /* Add some margin to position the content */
         }
 
         p {
