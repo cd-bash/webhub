@@ -3,14 +3,18 @@ import {arrowButton, createVideoBackground, createWrapper, writeParagraph, write
 import {SectionContent, createContentSection} from "./contentSection";
 import {homePageContent} from "../../content/home";
 
-
 export type HomePageContentStructure = {
-    readonly hookHeading: string;
-    readonly hookBody: string;
-    readonly hookVideoWebm: string;
-    readonly hookVideoMp4: string;
+    readonly hook: HookContent;
     readonly philosophy: SectionContent;
     readonly teaser: SectionContent;
+    readonly founder: SectionContent;
+}
+
+type HookContent = {
+    readonly header: string;
+    readonly body: string;
+    readonly videoWebem: string;
+    readonly videoMp4: string;
 }
 
 // --------------------------------------------------------------------------------
@@ -19,31 +23,27 @@ export function homeView() {
   const page = document.createElement('div');
   page.id = 'home-page';
 
-  page.appendChild(hookSection());
+  page.appendChild(hookSection(homePageContent.hook));
   page.appendChild(createContentSection(homePageContent.philosophy));
   page.appendChild(createContentSection(homePageContent.teaser));
+  page.appendChild(createContentSection(homePageContent.founder));
 
   return page;
 }
 
 // --------------------------------------------------------------------------------
 
-function hookSection() {
+function hookSection(content: HookContent) {
   const hook = document.createElement('section');
-  const videoBg = createVideoBackground(homePageContent.hookVideoWebm, homePageContent.hookVideoMp4);
+  const videoBg = createVideoBackground(content.videoWebem, content.videoMp4);
   const wrapper = createWrapper();
   const article = document.createElement('article');
-  const hookTitle = writeTitle("h1", homePageContent.hookHeading);
-  const hookText = writeParagraph(homePageContent.hookBody);
-  const arrowDownBtn = arrowButton();
 
   hook.className = 'hook';
-  hookTitle.className = "hook-title";
-  hookText.className = "hook-text";
 
-  article.appendChild(hookTitle);
-  article.appendChild(hookText);
-  article.appendChild(arrowDownBtn);
+  article.appendChild(writeTitle("h1", content.header));
+  article.appendChild(writeParagraph(content.body));
+  article.appendChild(arrowButton());
   wrapper.appendChild(article);
   hook.appendChild(videoBg);
   hook.appendChild(wrapper);
