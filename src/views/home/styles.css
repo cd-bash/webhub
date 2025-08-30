@@ -49,7 +49,7 @@
         }
     }
 
-    .philosophy {
+    .content-section {
         position: relative; /* Ensure the section is the positioning context */
         overflow: hidden; /* Hide the overflowing pixels */
 
@@ -78,6 +78,14 @@
             max-width: 60%;
             margin-bottom: 30px;
             text-align: left;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
     }
 }

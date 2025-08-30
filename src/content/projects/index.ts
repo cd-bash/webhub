@@ -1,6 +1,4 @@
 ﻿import {projectView, renderView} from "../../views";
-import {projectInfo} from "../../components/vertical-nav/info-project.ts";
-import {renderNavInfo} from "../../components/vertical-nav";
 import {projectThumbnail} from "../../components/thumbnail-project";
 
 import {archivePageReferences} from "./archives";
@@ -26,9 +24,7 @@ export function buildProjectPage(pageReference: string) {
     }
     const { content, techs, buttons } = page;
     const viewContent = projectView(content);
-    const navInfo = projectInfo(buttons, techs);
-
-    renderNavInfo(navInfo);
+    
     renderView(viewContent);
 }
 

@@ -1,21 +1,15 @@
 ﻿import './styles.css';
 import {arrowButton, createVideoBackground, createWrapper, writeParagraph, writeTitle} from "../utils";
+import {SectionContent, createContentSection} from "./contentSection";
 import {homePageContent} from "../../content/home";
-import { createPixelGrid } from '../../components/pixel-grid';
+
 
 export type HomePageContentStructure = {
     readonly hookHeading: string;
     readonly hookBody: string;
     readonly hookVideoWebm: string;
     readonly hookVideoMp4: string;
-
     readonly philosophy: SectionContent;
-}
-
-export type SectionContent = {
-    readonly sectionBG: string;
-    readonly header: string;
-    readonly paragraphs: string[];
 }
 
 // --------------------------------------------------------------------------------
@@ -25,7 +19,7 @@ export function homeView() {
   page.id = 'home-page';
 
   page.appendChild(hookSection());
-  page.appendChild(philosophySection());
+  page.appendChild(createContentSection(homePageContent.philosophy));
 
   return page;
 }
@@ -53,34 +47,4 @@ function hookSection() {
   hook.appendChild(wrapper);
 
   return hook;
-}
-
-function philosophySection() {
-  const section = document.createElement('section');
-  const wrapper = createWrapper();
-  const article = document.createElement('article');
-  const title = writeTitle("h2", homePageContent.philosophy.header);
-
-  section.className = 'philosophy';
-  section.style.backgroundImage = `url('${homePageContent.philosophy.sectionBG}')`;
-
-  // Create pixel grid using the component
-  const pixelGrid = createPixelGrid({
-    emptyBias: 'right',
-    emptyRatio: 0.5
-  });
-
-
-
-  section.appendChild(pixelGrid);
-
-  article.appendChild(title);
-  homePageContent.philosophy.paragraphs.forEach(paragraph => {
-    const p = writeParagraph(paragraph);
-    article.appendChild(p);
-  })
-  wrapper.appendChild(article);
-  section.appendChild(wrapper);
-
-  return section;
 }

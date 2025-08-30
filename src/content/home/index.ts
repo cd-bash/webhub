@@ -14,9 +14,16 @@ export const homePageContent: HomePageContentStructure = {
     philosophy: {
         sectionBG: PHILOSOPHY_BG,
         header: "Games that respect <span class='highlight'>your time.</span>",
+        
         paragraphs: [
             "I believe gaming should be an escape, not a second job. But as games have gotten bigger and more demanding, it's become harder to find the time to even finish one.",
             "That's why I started cd-labs. My goal is to deliver compact, complete gaming experiences that honor your schedule. Each game is a focused, handcrafted quest meant to be enjoyed in a single sitting or over a few evenings.",
-        ]
+        ],
+        buttons: [
+            { text: "Read More", path: "#", styleType: "secondary" },
+            { text: "First Production", path: "#", styleType: "primary" }
+        ],
+
+        alignment: 'left'
     }
 }
