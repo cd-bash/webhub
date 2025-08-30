@@ -13,10 +13,10 @@ h1, h2 {
 }
 
 h3 {
-    font-family: "Handjet", serif;
-    font-size: 2.8em;
-    font-weight: 600;
-    color: #828282;
+    font-family: "Inter", sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 h5 {

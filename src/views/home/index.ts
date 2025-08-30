@@ -10,6 +10,7 @@ export type HomePageContentStructure = {
     readonly hookVideoWebm: string;
     readonly hookVideoMp4: string;
     readonly philosophy: SectionContent;
+    readonly teaser: SectionContent;
 }
 
 // --------------------------------------------------------------------------------
@@ -20,6 +21,7 @@ export function homeView() {
 
   page.appendChild(hookSection());
   page.appendChild(createContentSection(homePageContent.philosophy));
+  page.appendChild(createContentSection(homePageContent.teaser));
 
   return page;
 }

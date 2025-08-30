@@ -25,5 +25,27 @@ export const homePageContent: HomePageContentStructure = {
         ],
 
         alignment: 'left'
+    },
+
+    teaser: {
+        sectionBG: PHILOSOPHY_BG,
+
+        introTitle: "The First Experience is Taking Shape",
+        header: "Project <span class='highlight'>Aqua</span>",
+
+        paragraphs: [
+            "Inspired by the frustrations of everyday bad design, Aqua places you in a sleek testing facility. Your mission: master a series of deceptively simple shower prototypes.",
+            "In this fast-paced puzzler, can you solve one of design's most infuriating problems—the shower interface—and calibrate each prototype?",
+            "<b>A sharp puzzle and a fresh perspective distilled into a single, focused game.</b"
+        ],
+
+        buttons: [
+            { text: "Whishlist on Steam", path: "#", styleType: "primary" },
+            { text: "Follow Development", path: "#", styleType: "secondary" }
+        ],
+
+        alignment: 'right'
     }
+
+
 }

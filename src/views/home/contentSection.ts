@@ -4,6 +4,7 @@ import {createWrapper, writeParagraph, writeTitle} from "../utils";
 
 export type SectionContent = {
     readonly sectionBG: string;
+    readonly introTitle?: string;  
     readonly header: string;
     readonly paragraphs: string[];
     readonly buttons: MainButtonOptions[];
@@ -18,10 +19,14 @@ export function createContentSection(content: SectionContent) {
     const wrapper = createWrapper();
     const article = document.createElement('article');
     
-    section.className = 'content-section';
+    section.className = `content-section ${content.alignment}`;
     section.style.backgroundImage = `url('${content.sectionBG}')`;
     section.appendChild(pixelGrid(content.alignment));
     
+    if (content.introTitle) {
+        article.appendChild(introTitle(content.introTitle));
+    }
+
     article.appendChild(writeTitle("h2", content.header));
     article.appendChild(sectionParagraphs(content.paragraphs));
     article.appendChild(sectionButtons(content.buttons));
@@ -62,4 +67,11 @@ function sectionButtons(contentButtons: MainButtonOptions[]) {
         buttonsContainer.appendChild(button);
     });
     return buttonsContainer;
+}
+
+function introTitle(text: string) {
+    const intro = document.createElement('h3');
+    intro.className = 'intro-title';
+    intro.innerHTML = text;
+    return intro;
 }
