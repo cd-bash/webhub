@@ -1,6 +1,12 @@
-import { createPixelGrid } from '../../components/pixel-grid';
-import { createMainButton, MainButtonOptions } from '../../components/main-button';
+import { GRID_CONFIG } from '../../components/pixel-grid';
+import { createMainButton, MainButtonOptions } from '../utils/';
 import {createWrapper, writeParagraph, writeTitle} from "../utils";
+import { createPixelGridBackground } from '../utils/backgrounds-utils';
+
+const pixelGridConfigs: GRID_CONFIG = {
+    rows: 6,
+    colors: ['#0f0f0f', '#2a2a2a', '#181818']
+}
 
 export type SectionContent = {
     readonly sectionBG: string;
@@ -21,7 +27,7 @@ export function createContentSection(content: SectionContent) {
     
     section.className = `content-section ${content.alignment}`;
     section.style.backgroundImage = `url('${content.sectionBG}')`;
-    section.appendChild(pixelGrid(content.alignment));
+    section.appendChild(createPixelGridBackground(content.alignment, pixelGridConfigs));
     
     if (content.introTitle) {
         article.appendChild(introTitle(content.introTitle));
@@ -38,14 +44,6 @@ export function createContentSection(content: SectionContent) {
 }
 
 // --------------------------------------------------------------------------------
-
-function pixelGrid(contentAlignment: 'left' | 'right') {
-    const determineEmptyBias = contentAlignment === 'right' ? 'left' : 'right';
-    return createPixelGrid({
-        emptyBias: determineEmptyBias,
-        emptyRatio: 0.5
-    });
-}
 
 function sectionParagraphs(paragraphs: string[]) {
     const paragraphsContainer = document.createElement('div');

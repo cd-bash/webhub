@@ -1,4 +1,5 @@
 ﻿import {BackgroundChoice, threeBackground} from "../../components/three-background";
+import { createPixelGrid, GRID_CONFIG } from "../../components/pixel-grid";
 
 export function createThreeBackground(choice: BackgroundChoice) {
     const viewBox = document.getElementById('view-box')!;
@@ -31,4 +32,9 @@ export function createVideoBackground(videoWebm: string, videoMp4: string) {
     background.appendChild(sourceMp4);
 
     return background;
+}
+
+export function createPixelGridBackground(contentAlignment: 'left' | 'right', configs: GRID_CONFIG) {
+    const alignment = contentAlignment === 'right' ? 'left' : 'right';
+    return createPixelGrid(configs, alignment);
 }

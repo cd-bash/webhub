@@ -1,91 +1,70 @@
 
-type PixelPosition = {
+type PixelInput = {
     row: number;
     col: number;
-    normalizedX: number; // 0 to 1 from left to right
-    normalizedY: number; // 0 to 1 from top to bottom
+    totalRows: number;
+    totalCols: number;
+    screenX: number;
+    screenWidth: number;
+    alignment: 'left' | 'right';
+    emptyRatio: number;
+    colors: readonly string[];
 };
 
 // --------------------------------------------------------------------------------
 
-export function createPixel(position: PixelPosition, emptyBias: string, emptyRatio: number, colors: readonly string[]): HTMLElement {
-    const pixel = document.createElement('div');
-    pixel.className = 'pixel';
-    
-    const isEmpty = shouldPixelBeEmpty(position, emptyBias, emptyRatio);
-    
-    if (isEmpty) {
-        pixel.classList.add('pixel-empty');
-    } else {
-        applyPixelStyling(pixel, colors);
-    }
-    
-    return pixel;
-}
+export function createPixelPattern(input: PixelInput): string | null {
+    const normalizedX = input.col / (input.totalCols - 1);
+    const normalizedY = input.row / (input.totalRows - 1);
+    const normalizedScreenX = input.screenX / input.screenWidth;
 
-export function createPosition(row: number, col: number, gridCols: number, gridRows: number): PixelPosition {
-    return {
-        row,
-        col,
-        normalizedX: col / (gridCols - 1),
-        normalizedY: row / (gridRows - 1)
-    };
+    const isEmpty = shouldPixelBeEmpty(
+        normalizedX,
+        normalizedScreenX,
+        normalizedY,
+        input.alignment,
+        input.emptyRatio
+    );
+
+    return isEmpty ? null : getRandomColor(input.colors);
 }
 
 // --------------------------------------------------------------------------------
 
-function shouldPixelBeEmpty(position: PixelPosition, emptyBias: string, emptyRatio: number): boolean {
-    if (emptyBias === 'right') {
-        return calculateRightBiasEmpty(position, emptyRatio);
-    } else if (emptyBias === 'left') {
-        return calculateLeftBiasEmpty(position, emptyRatio);
+function shouldPixelBeEmpty(
+    _normalizedX: number, // Container position (unused, kept for future use)
+    normalizedScreenX: number,
+    normalizedY: number,
+    alignment: 'left' | 'right',
+    emptyRatio: number
+): boolean {
+    const boundary = calculateBoundary(normalizedY, emptyRatio);
+
+    if (alignment === 'right') {
+        return normalizedScreenX > boundary ? hasGhostPixel() : hasScatterEffect(normalizedScreenX, boundary, normalizedY);
+    } else {
+        return normalizedScreenX < boundary ? hasGhostPixel() : hasScatterEffect(normalizedScreenX, boundary, normalizedY);
     }
-    return false;
 }
 
-function calculateRightBiasEmpty(position: PixelPosition, emptyRatio: number): boolean {
-    const organicBoundary = calculateOrganicBoundary(position, emptyRatio);
-    
-    if (position.normalizedX > organicBoundary) {
-        return addGhostPixelChance();
-    }
-    
-    return calculateScatterChance(position, organicBoundary);
-}
-
-function calculateLeftBiasEmpty(position: PixelPosition, emptyRatio: number): boolean {
-    const organicBoundary = calculateOrganicBoundary(position, 1 - emptyRatio);
-    
-    if (position.normalizedX < organicBoundary) {
-        return addGhostPixelChance();
-    }
-    
-    const distanceFromEdge = Math.abs(position.normalizedX - organicBoundary);
-    const scatterChance = Math.pow(1 - distanceFromEdge / (1 - organicBoundary), 2) * 0.25;
-    const rowVariation = Math.sin(position.normalizedY * Math.PI * 2) * 0.1;
-    
-    return Math.random() < (scatterChance + rowVariation);
-}
-
-function calculateOrganicBoundary(position: PixelPosition, baseRatio: number): number {
-    const waveOffset = Math.sin(position.normalizedY * Math.PI * 3) * 0.1;
+function calculateBoundary(normalizedY: number, emptyRatio: number): number {
+    const waveOffset = Math.sin(normalizedY * Math.PI * 3) * 0.1;
     const randomOffset = (Math.random() - 0.5) * 0.15;
-    return baseRatio + waveOffset + randomOffset;
+    return emptyRatio + waveOffset + randomOffset;
 }
 
-function calculateScatterChance(position: PixelPosition, boundary: number): boolean {
-    const distanceFromEdge = Math.abs(position.normalizedX - boundary);
-    const scatterChance = Math.pow(1 - distanceFromEdge / boundary, 2) * 0.25;
-    const rowVariation = Math.sin(position.normalizedY * Math.PI * 2) * 0.1;
+function hasScatterEffect(screenX: number, boundary: number, normalizedY: number): boolean {
+    const distance = Math.abs(screenX - boundary);
+    const scatterChance = Math.pow(1 - distance / boundary, 2) * 0.25;
+    const rowVariation = Math.sin(normalizedY * Math.PI * 2) * 0.1;
     
     return Math.random() < (scatterChance + rowVariation);
 }
 
-function addGhostPixelChance(): boolean {
+function hasGhostPixel(): boolean {
     return Math.random() >= 0.3;
 }
 
-function applyPixelStyling(pixel: HTMLElement, colors: readonly string[]): void {
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    pixel.style.background = randomColor;
+function getRandomColor(colors: readonly string[]): string {
+    return colors[Math.floor(Math.random() * colors.length)];
 }

@@ -1,57 +1,96 @@
 ﻿import './styles.css';
-import {createPixel, createPosition} from'./pixel.ts'
+import { createPixelPattern } from './pixel.ts';
 
-const GRID_CONFIG = {
-    rows: 6,
-    cols: 15,
-    colors: ['#0f0f0f', '#2a2a2a', '#181818']
-} as const;
-
-type PixelGridOptions = {
-    emptyBias?: 'left' | 'right' | 'none';
-    emptyRatio?: number; 
+export type GRID_CONFIG = {
+    rows: number;
+    colors: string[];
 };
 
+const EMPTY_RATIO = 0.5; // Fixed constant for empty bias
+
 // --------------------------------------------------------------------------------
 
-export function createPixelGrid(options: PixelGridOptions = {}) {
-    const { emptyBias = 'none', emptyRatio = 0.5 } = options;
-
-    const grid = createGridElement();
+export function createPixelGrid(config: GRID_CONFIG, alignment: 'left' | 'right'): HTMLCanvasElement {
+    const canvas = createCanvasElement();
+    const ctx = canvas.getContext('2d');
     
-    for (let row = 0; row < GRID_CONFIG.rows; row++) {
-        for (let col = 0; col < GRID_CONFIG.cols; col++) {
-            const position = createPosition(row, col, GRID_CONFIG.cols, GRID_CONFIG.rows);
-            const pixel = createPixel(position, emptyBias, emptyRatio, GRID_CONFIG.colors);
-            grid.appendChild(pixel);
+    if (!ctx) return canvas;
+
+    // Use ResizeObserver for responsive updates
+    const resizeObserver = new ResizeObserver(() => {
+        const parent = canvas.parentElement;
+        if (parent) {
+            renderPixelGrid(canvas, ctx, config, alignment, parent.clientWidth, parent.clientHeight);
+        }
+    });
+
+    // Initial render
+    setTimeout(() => {
+        const parent = canvas.parentElement;
+        if (parent) {
+            resizeObserver.observe(parent);
+            renderPixelGrid(canvas, ctx, config, alignment, parent.clientWidth, parent.clientHeight);
+        }
+    }, 0);
+
+    return canvas;
+}
+
+// --------------------------------------------------------------------------------
+
+function createCanvasElement(): HTMLCanvasElement {
+    const canvas = document.createElement('canvas');
+    canvas.className = 'pixel-grid';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.display = 'block';
+    return canvas;
+}
+
+function renderPixelGrid(
+    canvas: HTMLCanvasElement,
+    ctx: CanvasRenderingContext2D,
+    config: GRID_CONFIG,
+    alignment: 'left' | 'right',
+    width: number,
+    height: number
+) {
+    // Setup canvas
+    canvas.width = width;
+    canvas.height = height;
+    ctx.clearRect(0, 0, width, height);
+
+    // Calculate pixel size based on rows (perfect squares)
+    const pixelSize = height / config.rows;
+    
+    // Calculate number of columns dynamically based on width and pixel size
+    const cols = Math.ceil(width / pixelSize);
+    
+    const canvasRect = canvas.getBoundingClientRect();
+
+    // Render each pixel
+    for (let row = 0; row < config.rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            const screenX = canvasRect.left + (col * pixelSize);
+            const color = createPixelPattern({
+                row,
+                col,
+                totalRows: config.rows,
+                totalCols: cols,
+                screenX,
+                screenWidth: window.innerWidth,
+                alignment,
+                emptyRatio: EMPTY_RATIO,
+                colors: config.colors
+            });
+
+            if (color) {
+                ctx.fillStyle = color;
+                const x = Math.floor(col * pixelSize);
+                const y = Math.floor(row * pixelSize);
+                const size = Math.ceil(pixelSize) + 1;
+                ctx.fillRect(x, y, size, size);
+            }
         }
     }
-
-    return grid;
-}
-
-// --------------------------------------------------------------------------------
-
-function calculateResponsivePixelSize(): number {
-    const viewportHeight = window.innerHeight;
-    
-    const heightBasedPixelSize = viewportHeight / GRID_CONFIG.rows;
-    
-    const minSize = 120; 
-    const maxSize = 300; 
-    
-    return Math.max(minSize, Math.min(maxSize, heightBasedPixelSize));
-}
-
-function createGridElement(): HTMLElement {
-    const grid = document.createElement('div');
-    grid.className = 'pixel-grid';
-    
-    const pixelSize = calculateResponsivePixelSize();
-    
-    grid.style.display = 'grid';
-    grid.style.gridTemplateColumns = `repeat(${GRID_CONFIG.cols}, ${pixelSize}px)`;
-    grid.style.gridTemplateRows = `repeat(${GRID_CONFIG.rows}, ${pixelSize}px)`;
-    
-    return grid;
 }

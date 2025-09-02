@@ -1,5 +1,5 @@
 ﻿import './styles.css';
-import {arrowButton, createVideoBackground, createWrapper, writeParagraph, writeTitle} from "../utils";
+import {arrowButton, createVideoBackground, createWrapper, writeParagraph, writeTitle, CallToActionOptions, createPixelBannerCTA} from "../utils";
 import {SectionContent, createContentSection} from "./contentSection";
 import {homePageContent} from "../../content/home";
 
@@ -7,7 +7,10 @@ export type HomePageContentStructure = {
     readonly hook: HookContent;
     readonly philosophy: SectionContent;
     readonly teaser: SectionContent;
+    readonly ctaBannerA: CallToActionOptions; 
     readonly founder: SectionContent;
+    readonly sideQuests: SectionContent
+    readonly ctaBannerB: CallToActionOptions;
 }
 
 type HookContent = {
@@ -26,7 +29,10 @@ export function homeView() {
   page.appendChild(hookSection(homePageContent.hook));
   page.appendChild(createContentSection(homePageContent.philosophy));
   page.appendChild(createContentSection(homePageContent.teaser));
+  page.appendChild(createPixelBannerCTA(homePageContent.ctaBannerA));
   page.appendChild(createContentSection(homePageContent.founder));
+  page.appendChild(createContentSection(homePageContent.sideQuests));
+  page.appendChild(createPixelBannerCTA(homePageContent.ctaBannerB));
 
   return page;
 }

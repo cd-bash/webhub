@@ -23,8 +23,8 @@ export const homePageContent: HomePageContentStructure = {
             "That's why I started cd-labs. My goal is to deliver compact, complete gaming experiences that honor your schedule. Each game is a focused, handcrafted quest meant to be enjoyed in a single sitting or over a few evenings.",
         ],
         buttons: [
-            { text: "Read More", path: "#", styleType: "secondary" },
-            { text: "First Production", path: "#", styleType: "primary" }
+            { text: "Read More", path: "#", styleType: "secondary", contrastMode: 'dark' },
+            { text: "First Production", path: "#", styleType: "primary", contrastMode: 'dark' }
         ],
 
         alignment: 'left'
@@ -44,10 +44,21 @@ export const homePageContent: HomePageContentStructure = {
         ],
 
         buttons: [
-            { text: "Whishlist on Steam", path: "#", styleType: "primary" },
-            { text: "Follow Development", path: "#", styleType: "secondary" }
+            { text: "Whishlist on Steam", path: "#", styleType: "primary", contrastMode: 'dark' },
+            { text: "Follow Development", path: "#", styleType: "secondary", contrastMode: 'dark' }
         ],
 
+        alignment: 'right'
+    },
+
+    // ------------------------------------------------------------------------
+    ctaBannerA: {
+        header: "Save your progress",
+        body: "Don't lose your place in our story. Follow along for development checkpoints, sneak peeks, and insights into our design process.",
+        buttons: [
+            { text: "Follow on Instagram", path: "#", styleType: "primary", contrastMode: 'light' },
+            { text: "See logs", path: "#", styleType: "secondary", contrastMode: 'light' }
+        ],
         alignment: 'right'
     },
 
@@ -62,10 +73,40 @@ export const homePageContent: HomePageContentStructure = {
         ],
 
         buttons: [
-            { text: "Let's connect", path: "#", styleType: "primary" },
-            { text: "Read my story", path: "#", styleType: "secondary" },
+            { text: "Let's connect", path: "#", styleType: "primary", contrastMode: 'dark' },
+            { text: "Read my story", path: "#", styleType: "secondary", contrastMode: 'dark' },
         ],
 
         alignment: 'left'
-    }
+    },
+
+    // ------------------------------------------------------------------------
+    sideQuests: {
+        sectionBG: PHILOSOPHY_BG,
+
+        introTitle: "Collaborating on New Interactive Adventures",
+        header: "Side Quests",
+        
+        paragraphs: [
+            "While my main quest is crafting original games for cd-labs, I also take on special contract work. These 'side quests' allow me to collaborate with innovative clients on their own interactive adventures.",
+            "I apply the same philosophy of focused, user-centric design to these projects, helping build everything from polished prototypes to unique web applications. It's a chance to tackle new challenges and help bring other exciting visions to life.",
+        ],
+        buttons: [
+            { text: "Start a side quest", path: "#", styleType: "primary", contrastMode: 'dark' },
+            { text: "See our main quest", path: "#", styleType: "secondary", contrastMode: 'dark' }
+        ],
+        
+        alignment: 'right'
+    },
+
+    // ------------------------------------------------------------------------
+    ctaBannerB: {
+        header: "Ready to press start?",
+        body: "Follow the development of Aqua, chat with other players, and get behind-the-scenes updates in the official cd-labs Discord server.",
+        buttons: [
+            { text: "Join the Discord", path: "#", styleType: "primary", contrastMode: 'light' },
+            { text: "Learn More", path: "#", styleType: "secondary", contrastMode: 'light' }
+        ],
+        alignment: 'left'
+    },
 }
