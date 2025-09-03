@@ -6,7 +6,7 @@ body {
 h1, h2 {
     margin: 0;
     font-family: "Inter", sans-serif;
-    font-size: 6em;
+    font-size: clamp(2.5rem, 8vw, 6rem);
     font-weight: 900;
     line-height: 100%;
     color: white;
@@ -14,7 +14,7 @@ h1, h2 {
 
 h3 {
     font-family: "Inter", sans-serif;
-    font-size: 2em;
+    font-size: clamp(1.25rem, 4vw, 2rem);
     font-weight: 700;
     color: #ffffff;
 }
@@ -22,30 +22,30 @@ h3 {
 h4 {
     margin: 0;
     font-family: "Inter", sans-serif;
-    font-size: 3em;
+    font-size: clamp(1.5rem, 5vw, 3rem);
     font-weight: 900;
     color: #000000;
 }
 
 h5 {
     font-family: "Handjet", serif;
-    font-size: 1.5em;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     font-weight: 600;
     text-transform: lowercase;
     color: #828282;
 }
 
 h6 {
-    margin: 0 0 20px 0;
+    margin: 0 0 clamp(15px, 3vw, 20px) 0;
     font-family: "Handjet", serif;
-    font-size: 2em;
+    font-size: clamp(1.2rem, 4vw, 2rem);
     font-weight: 600;
     text-transform: lowercase;
     color: #3BFFC5;
 }
 
 p {
-    font-size: 1em;
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
     font-weight: normal;
     color: white;
     line-height: 130%;
@@ -57,13 +57,13 @@ p {
     background: none;
     border: none;
     cursor: pointer;
-    width: 75px;
-    height: 75px;
-    padding: 20px;
+    width: clamp(60px, 15vw, 75px);
+    height: clamp(60px, 15vw, 75px);
+    padding: clamp(15px, 4vw, 20px);
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.1);
-    margin: 20px auto 0 auto;
+    margin: clamp(15px, 4vw, 20px) auto 0 auto;
     display: block;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px); 
@@ -73,17 +73,17 @@ p {
 /* -------------------------------------------------------------------------------- */
 .main-button {
     display: inline-block;
-    min-width: 220px;
-    height: 40px;
+    min-width: clamp(180px, 45vw, 220px);
+    height: clamp(36px, 10vw, 40px);
     
     text-align: center;
-    line-height: 36px;
+    line-height: clamp(32px, 8vw, 36px);
     font-family: 'Handjet', sans-serif;
-    font-size: 1.4em;
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
     text-transform: uppercase;
     text-decoration: none;
 
-    border-radius: 20px;
+    border-radius: clamp(18px, 5vw, 20px);
     border: 2px solid;
 
     backdrop-filter: blur(30px);
@@ -143,7 +143,6 @@ p {
 
 
 
-
 /* -------------------------------------------------------------------------------- */
 .video-background {
     position: absolute;
@@ -158,88 +157,48 @@ p {
     min-height: 100%;
 }
 
-
-/* -------------------------------------------------------------------------------- */
-.cta-banner.pixel-banner {
-    position: relative;
-    width: 100%;
-    text-align: left;
-    overflow: hidden;
-}
-
-.cta-banner.pixel-banner .cta-background {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -5;
-    width: 100%;
-    height: 100%;
-    opacity: 0.6;
-}
-
-.cta-banner.pixel-banner article {
-    z-index: 2;
-    padding: 50px;
-    background-color: white;
-    width: fit-content;
-
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 150px;
-    align-items: center;
-
+/* Media Queries for enhanced mobile typography */
+@media (max-width: 768px) {
+    h1, h2 {
+        line-height: 110%;
+    }
+    
+    h3, h4, h5, h6 {
+        line-height: 120%;
+    }
+    
     p {
-        color: black;
+        line-height: 140%;
     }
-
-    .text-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        max-width: 600px;
+    
+    .main-button {
+        min-width: 160px;
+        padding: 0 1rem;
+        width: 100%;
+        max-width: 280px;
     }
-
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
+    
+    .arrow-button {
+        margin: 15px auto 0 auto;
     }
 }
 
-.cta-banner.pixel-banner article.right {
-    margin-left: auto;
-    justify-content: end;
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 20vw;
-        height: 100%;
-        background-color: white;
-        z-index: -1;
+@media (max-width: 480px) {
+    h1, h2 {
+        font-size: clamp(2rem, 12vw, 3.5rem);
+        line-height: 105%;
+    }
+    
+    .main-button {
+        width: 100%;
+        max-width: 240px;
+        font-size: 1rem;
+        line-height: 32px;
+        height: 36px;
     }
 }
 
-.cta-banner.pixel-banner article.left {
-    margin-right: auto;
-    justify-content: start;
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 20vw;
-        height: 100%;
-        background-color: white;
-        z-index: -1;
-    }
-}
+
 
 
