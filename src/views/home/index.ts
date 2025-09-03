@@ -1,0 +1,59 @@
+﻿import './styles.css';
+import { arrowButton, createVideoBackground, createWrapper, writeParagraph, writeTitle } from "../utils";
+import { CallToActionOptions, createPixelBannerCTA } from '../common/call-to-action';
+import {SectionContent, createContentSection} from "./contentSection";
+import {homePageContent} from "../../content/home";
+
+export type HomePageContentStructure = {
+    readonly hook: HookContent;
+    readonly philosophy: SectionContent;
+    readonly teaser: SectionContent;
+    readonly ctaBannerA: CallToActionOptions; 
+    readonly founder: SectionContent;
+    readonly sideQuests: SectionContent
+    readonly ctaBannerB: CallToActionOptions;
+}
+
+type HookContent = {
+    readonly header: string;
+    readonly body: string;
+    readonly videoWebem: string;
+    readonly videoMp4: string;
+}
+
+// --------------------------------------------------------------------------------
+
+export function homeView() {
+  const page = document.createElement('div');
+  page.id = 'home-page';
+
+  page.appendChild(hookSection(homePageContent.hook));
+  page.appendChild(createContentSection(homePageContent.philosophy));
+  page.appendChild(createContentSection(homePageContent.teaser));
+  page.appendChild(createPixelBannerCTA(homePageContent.ctaBannerA));
+  page.appendChild(createContentSection(homePageContent.founder));
+  page.appendChild(createContentSection(homePageContent.sideQuests));
+  page.appendChild(createPixelBannerCTA(homePageContent.ctaBannerB));
+
+  return page;
+}
+
+// --------------------------------------------------------------------------------
+
+function hookSection(content: HookContent) {
+  const hook = document.createElement('section');
+  const videoBg = createVideoBackground(content.videoWebem, content.videoMp4);
+  const wrapper = createWrapper();
+  const article = document.createElement('article');
+
+  hook.className = 'hook';
+
+  article.appendChild(writeTitle("h1", content.header));
+  article.appendChild(writeParagraph(content.body));
+  article.appendChild(arrowButton());
+  wrapper.appendChild(article);
+  hook.appendChild(videoBg);
+  hook.appendChild(wrapper);
+
+  return hook;
+}

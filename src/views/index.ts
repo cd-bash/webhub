@@ -1,6 +1,6 @@
 ﻿import "./styles.css";
 
-export * from "./home";
+export * from "./home/";
 export * from "./projectCollection.ts";
 export * from "./project.ts";
 export * from "./about.ts";
@@ -10,27 +10,23 @@ export * from "./contact.ts";
 // --------------------------------------------------------------------------------
 
 export function buildViewBase() {
-    const viewBox = document.createElement('div');
-    const viewWrapper = document.createElement('div');
-    viewBox.id = 'view-box';
-    viewWrapper.id = 'view-wrapper';
-
-    viewBox.appendChild(viewWrapper);
-    return viewBox;
+    const view = document.createElement('div');
+    view.id = 'view';
+    return view;
 }
 
-export function renderView(view: HTMLElement) {
-    const viewWrapper = clearView();
-    viewWrapper.appendChild(view);
+export function renderView(newView: HTMLElement) {
+    const cleanView = clearView();
+    cleanView.appendChild(newView);
 }
 
 // --------------------------------------------------------------------------------
 
 function clearView() {
-    const cleanViewWrapper = document.getElementById('view-wrapper')!;
-    cleanViewWrapper?.childNodes.forEach((childNode) => {
-        cleanViewWrapper.removeChild(childNode);
-    });
+    const view = document.getElementById('view')!;
+    while (view.firstChild) {
+        view.removeChild(view.firstChild);
+    }
 
-    return cleanViewWrapper;
+    return view;
 }
