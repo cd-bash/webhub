@@ -41,8 +41,6 @@ export function createPixelGrid(config: GRID_CONFIG, alignment: 'left' | 'right'
 function createCanvasElement(): HTMLCanvasElement {
     const canvas = document.createElement('canvas');
     canvas.className = 'pixel-grid';
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
     canvas.style.display = 'block';
     return canvas;
 }

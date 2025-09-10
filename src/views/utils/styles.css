@@ -7,6 +7,7 @@ h1, h2 {
     margin: 0;
     font-family: "Inter", sans-serif;
     font-size: clamp(2.5rem, 8vw, 6rem);
+    margin-bottom: clamp(30px, 5vw, 50px);
     font-weight: 900;
     line-height: 100%;
     color: white;
@@ -45,11 +46,13 @@ h6 {
 }
 
 p {
-    font-size: clamp(0.875rem, 2.5vw, 1rem);
     font-weight: normal;
     color: white;
     line-height: 130%;
     margin: 0;
+    margin-bottom: clamp(20px, 4vw, 30px);
+    text-align: left;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
 }
 
 /* -------------------------------------------------------------------------------- */

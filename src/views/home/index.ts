@@ -41,7 +41,7 @@ export function homeView() {
 // --------------------------------------------------------------------------------
 
 function hookSection(content: HookContent) {
-  const hook = document.createElement('section');
+  const hook = document.createElement('div');
   const videoBg = createVideoBackground(content.videoWebem, content.videoMp4);
   const wrapper = createWrapper();
   const article = document.createElement('article');

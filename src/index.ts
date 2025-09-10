@@ -1,11 +1,12 @@
 import {buildMainLogo, changeLogoOnScroll} from "./components/logo";
 import { router } from "./core/router";
-import {homeView, buildViewBase, renderView} from "./views";
+import {homeView, aboutView, buildViewBase, renderView} from "./views";
 import {buildTopNav} from "./components/top-nav";
 
 
 const routes = [
     { path: '', handler: () => renderView(homeView()) },
+    { path: '/about', handler: () => renderView(aboutView()) },
 ];
 
 routes.forEach(route => router.registerRoute(route.path, route.handler));

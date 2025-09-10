@@ -3,7 +3,7 @@
 export * from "./home/";
 export * from "./projectCollection.ts";
 export * from "./project.ts";
-export * from "./about.ts";
+export * from "./about/";
 export * from "./contact.ts";
 
 

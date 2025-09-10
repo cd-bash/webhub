@@ -1,45 +1,29 @@
 ﻿#home-page {
 
-    #wrapper {
-        z-index: 2;
-    }
-
     h2 {
         margin-bottom: clamp(30px, 5vw, 50px);
     }
 
     section {
-        width: 100%;
         min-height: 100vh;
         height: 100vh;
-        margin: 0;
-        padding: 0 clamp(1rem, 5vw, 2rem);
-        box-sizing: border-box;
-        background-size: cover;
-        background-position: center;
-    }
-
-    .highlight {
-        text-decoration: underline;
-        text-decoration-color: #3BFFC5;
-        text-underline-offset: clamp(5px, 3vw, 20px);
     }
 
     .hook {
         h1, p {
             text-shadow: 0 4px 55px rgba(0, 0, 0, 0.65);
             max-width: min(1160px, 90vw);
+            text-align: center;
         }
 
         article {
             margin: 0 clamp(5%, 15vw, 15%);
             display: flex;
-            text-align: center;
             flex-direction: column; /* Stack children vertically */
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding: clamp(1rem, 5vw, 2rem);
+            padding: 0;
 
             p {
                 font-size: clamp(1.1em, 3vw, 1.5em);
@@ -63,28 +47,9 @@
             z-index: 1; /* Below the article */
             pointer-events: none;
         }
-
+        
         article {
-            position: relative;
-            z-index: 2; /* Above the pixel grid */
-            display: flex;
-            width: clamp(600px, 50%, 900px);
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
             height: 100vh;
-            padding: clamp(1rem, 5vw, 2rem);
-        }
-
-        &.right article {
-            margin-left: auto;
-        }
-
-        p {
-            max-width: clamp(500px, 90%, 750px);
-            margin-bottom: clamp(20px, 4vw, 30px);
-            text-align: left;
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
         }
 
         .buttons-container {
