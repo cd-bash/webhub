@@ -3,6 +3,7 @@ import { writeParagraph, writeTitle, createWrapper } from "../utils";
 export type AboutSectionContent = {
     readonly introTitle?: string;
     readonly header: string;
+    readonly visualPath?: string;
     readonly paragraphs: string[];
     readonly alignment: 'left' | 'right';
 }
@@ -12,6 +13,7 @@ export type AboutSectionContent = {
 export function createAboutSection(content: AboutSectionContent) {
     const section = document.createElement('section');
     const wrapper = createWrapper();
+    const visual = document.createElement('img');
     const article = document.createElement('article');
 
     section.className = `about-section ${content.alignment}`;
@@ -20,9 +22,15 @@ export function createAboutSection(content: AboutSectionContent) {
         article.appendChild(introTitle(content.introTitle));
     }
 
+    if (content.visualPath) {
+        visual.src = content.visualPath;
+        visual.alt = content.header;
+    }
+
     article.appendChild(writeTitle("h2", content.header));
     article.appendChild(sectionParagraphs(content.paragraphs));
 
+    wrapper.appendChild(visual);
     wrapper.appendChild(article);
     section.appendChild(wrapper);
     

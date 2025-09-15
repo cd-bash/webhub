@@ -5,17 +5,20 @@ import LOGO from './assets/cd-labs-logo.png';
 
 export function buildMainLogo() {
     const logoContainer = document.createElement('div');
+    const logoLink = document.createElement('a');
     const logoImg = document.createElement('img');
     const logoText = document.createElement('p');
 
     logoContainer.className = 'main-logo';
 
+    logoLink.href = '/';
     logoImg.src = LOGO;
     logoImg.alt = "CD-Labs Logo";
 
     logoText.textContent = "CD-Labs";
 
-    logoContainer.appendChild(logoImg);
+    logoLink.appendChild(logoImg);
+    logoContainer.appendChild(logoLink);
     logoContainer.appendChild(logoText);
     
     return logoContainer;

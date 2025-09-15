@@ -1,9 +1,12 @@
 ﻿import { AboutPageContentStructure } from '../../views/about/';
 
+import MANIFESTO_IMG from './assets/manifesto-test.png';
+
 export const aboutContent: AboutPageContentStructure = {
     manifesto: {
         introTitle: "About cd-labs",
         header: "The manifesto for <span class='highlight'>shorter games</span>",
+        visualPath: MANIFESTO_IMG,
         paragraphs: [
             "Look at the achievements for any major blockbuster game. The trophy for completing the final chapter is often one of the rarest. The data tells a clear story: a huge percentage of players never see the credits roll.",
             "It isn't a lack of passion; it's a lack of time. As our lives get busier, 100-hour epics filled with repetitive tasks begin to feel like a second job. The industry is selling promises of vast worlds that, for most people, will remain largely unexplored.",
