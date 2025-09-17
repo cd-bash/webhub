@@ -24,10 +24,10 @@
     }
 
     img {
-        width: 75%;
+        width: 45%;
         position: absolute;
         bottom: 0;
-        left: 0;
+        left: 5%;
         z-index: 2;
     }
 }

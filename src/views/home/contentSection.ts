@@ -1,7 +1,7 @@
 import { GRID_CONFIG } from '../../components/pixel-grid';
 import { createMainButton, MainButtonOptions } from '../utils/';
 import {createWrapper, writeParagraph, writeTitle} from "../utils";
-import { createPixelGridBackground } from '../utils/backgrounds-utils';
+import { createPixelGridBackground, createVideoBackground } from '../utils/backgrounds-utils';
 
 const pixelGridConfigs: GRID_CONFIG = {
     rows: 6,
@@ -10,6 +10,8 @@ const pixelGridConfigs: GRID_CONFIG = {
 
 export type SectionContent = {
     readonly sectionBG: string;
+    readonly sectionBgWebem: string;
+    readonly sectionBgMp4: string;
     readonly introTitle?: string;  
     readonly header: string;
     readonly paragraphs: string[];
@@ -22,6 +24,8 @@ export type SectionContent = {
 
 export function createContentSection(content: SectionContent) {
     const section = document.createElement('section');
+    
+    const videoBg = createVideoBackground(content.sectionBgWebem, content.sectionBgMp4);
     const wrapper = createWrapper();
     const article = document.createElement('article');
     
@@ -38,6 +42,7 @@ export function createContentSection(content: SectionContent) {
     article.appendChild(sectionButtons(content.buttons));
 
     wrapper.appendChild(article);
+    section.appendChild(videoBg);
     section.appendChild(wrapper);
     
     return section;

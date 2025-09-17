@@ -1,6 +1,6 @@
 ﻿import { AboutPageContentStructure } from '../../views/about/';
 
-import MANIFESTO_IMG from './assets/manifesto-test.png';
+import MANIFESTO_IMG from './assets/about-manifesto-visual.png';
 
 export const aboutContent: AboutPageContentStructure = {
     manifesto: {
