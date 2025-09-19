@@ -13,11 +13,11 @@ export function createThreeBackground(choice: BackgroundChoice) {
     }
 }
 
-export function createVideoBackground(videoWebm: string, videoMp4: string) {
+export function createVideoBackground(videoWebm: string, videoMp4: string, oneShot: boolean = false) {
     const background = document.createElement('video');
     background.className = 'video-background';
-    background.autoplay = true;
-    background.loop = true;
+    background.autoplay = oneShot ? false : true;
+    background.loop = oneShot ? false : true;
     background.muted = true;
 
     const sourceWebm = document.createElement('source');

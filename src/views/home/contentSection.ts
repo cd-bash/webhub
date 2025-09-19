@@ -25,12 +25,11 @@ export type SectionContent = {
 export function createContentSection(content: SectionContent) {
     const section = document.createElement('section');
     
-    const videoBg = createVideoBackground(content.sectionBgWebem, content.sectionBgMp4);
     const wrapper = createWrapper();
     const article = document.createElement('article');
     
     section.className = `content-section ${content.alignment}`;
-    section.style.backgroundImage = `url('${content.sectionBG}')`;
+    //section.style.backgroundImage = `url('${content.sectionBG}')`;
     section.appendChild(createPixelGridBackground(content.alignment, pixelGridConfigs));
     
     if (content.introTitle) {
@@ -42,8 +41,13 @@ export function createContentSection(content: SectionContent) {
     article.appendChild(sectionButtons(content.buttons));
 
     wrapper.appendChild(article);
+    
+    const videoBg = movingBackground(content.sectionBgWebem, content.sectionBgMp4);
     section.appendChild(videoBg);
     section.appendChild(wrapper);
+    
+    // Set up scroll-driven video scrubbing
+    setupVideoOnScroll(section, videoBg);
     
     return section;
 }
@@ -77,4 +81,30 @@ function introTitle(text: string) {
     intro.className = 'intro-title';
     intro.innerHTML = text;
     return intro;
+}
+
+function movingBackground(webm: string, mp4: string) {
+    const videoBg = createVideoBackground(webm, mp4, true);
+
+    return videoBg;
+}
+
+function setupVideoOnScroll(section: HTMLElement, videoBg: HTMLVideoElement) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Section is visible, play the video
+                videoBg.play().catch(error => {
+                    console.log('Video autoplay failed:', error);
+                });
+            } else {
+                // Section is not visible, pause the video
+                videoBg.pause();
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the section is visible
+    });
+
+    observer.observe(section);
 }
