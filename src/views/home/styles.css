@@ -9,10 +9,6 @@
         height: 100vh;
     }
 
-    .video-background {
-        z-index: -1;
-    };
-
     .hook {
         h1, p {
             text-shadow: 0 4px 55px rgba(0, 0, 0, 0.65);

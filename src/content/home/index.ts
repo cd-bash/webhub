@@ -4,8 +4,10 @@ import HOOK_VIDEO_WEBM from './assets/cd-labs-hook-animation.webm';
 import HOOK_VIDEO_MP4 from './assets/cd-labs-hook-animation.mp4';
 import PHILOSOPHY_BG_WEBM from './assets/cd-labs-philosophy-animation.webm';
 import PHILOSOPHY_BG_MP4 from './assets/cd-labs-philosophy-animation.mp4';
-import WHO_BG_WEBM from './assets/cd-labs-who-animation.webm';
-import WHO_BG_MP4 from './assets/cd-labs-who-animation.mp4';
+import TEASER_BG_WEBM from './assets/cd-labs-teaser-animation.webm';
+import TEASER_BG_MP4 from './assets/cd-labs-teaser-animation.mp4';
+import FOUNDER_BG_WEBM from './assets/cd-labs-founder-animation.webm';
+import FOUNDER_BG_MP4 from './assets/cd-labs-founder-animation.mp4';
 import SIDEQUESTS_BG_WEBM from './assets/cd-labs-sidequests-animation.webm';
 import SIDEQUESTS_BG_MP4 from './assets/cd-labs-sidequests-animation.mp4';
 
@@ -43,8 +45,8 @@ export const homePageContent: HomePageContentStructure = {
     // ------------------------------------------------------------------------
     teaser: {
         sectionBG: PHILOSOPHY_BG,
-        sectionBgWebem: PHILOSOPHY_BG_WEBM,
-        sectionBgMp4: PHILOSOPHY_BG_MP4,
+        sectionBgWebem: TEASER_BG_WEBM,
+        sectionBgMp4: TEASER_BG_MP4,
 
         introTitle: "The First Experience is Taking Shape",
         header: "Project <span class='highlight'>Aqua</span>",
@@ -77,8 +79,8 @@ export const homePageContent: HomePageContentStructure = {
     // ------------------------------------------------------------------------
     founder: {
         sectionBG: PHILOSOPHY_BG,
-        sectionBgWebem: WHO_BG_WEBM,
-        sectionBgMp4: WHO_BG_MP4,
+        sectionBgWebem: FOUNDER_BG_WEBM,
+        sectionBgMp4: FOUNDER_BG_MP4,
 
         header: "Who is <span class='highlight'>CD</span>?",
 
