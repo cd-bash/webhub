@@ -1,7 +1,16 @@
 ﻿import {HomePageContentStructure} from "../../views";
 
-import HOOK_VIDEO_WEBM from './assets/cd-labs-home-page-hook-animation.webm';
-import HOOK_VIDEO_MP4 from './assets/cd-labs-home-page-hook-animation.mp4';
+import HOOK_VIDEO_WEBM from './assets/cd-labs-hook-animation.webm';
+import HOOK_VIDEO_MP4 from './assets/cd-labs-hook-animation.mp4';
+import PHILOSOPHY_BG_WEBM from './assets/cd-labs-philosophy-animation.webm';
+import PHILOSOPHY_BG_MP4 from './assets/cd-labs-philosophy-animation.mp4';
+import TEASER_BG_WEBM from './assets/cd-labs-teaser-animation.webm';
+import TEASER_BG_MP4 from './assets/cd-labs-teaser-animation.mp4';
+import FOUNDER_BG_WEBM from './assets/cd-labs-founder-animation.webm';
+import FOUNDER_BG_MP4 from './assets/cd-labs-founder-animation.mp4';
+import SIDEQUESTS_BG_WEBM from './assets/cd-labs-sidequests-animation.webm';
+import SIDEQUESTS_BG_MP4 from './assets/cd-labs-sidequests-animation.mp4';
+
 
 import PHILOSOPHY_BG from './assets/philosophy-background-temp.png';
 
@@ -16,6 +25,9 @@ export const homePageContent: HomePageContentStructure = {
     // ------------------------------------------------------------------------
     philosophy: {
         sectionBG: PHILOSOPHY_BG,
+        sectionBgWebem: PHILOSOPHY_BG_WEBM,
+        sectionBgMp4: PHILOSOPHY_BG_MP4,
+        
         header: "Games that respect <span class='highlight'>your time.</span>",
         
         paragraphs: [
@@ -33,6 +45,8 @@ export const homePageContent: HomePageContentStructure = {
     // ------------------------------------------------------------------------
     teaser: {
         sectionBG: PHILOSOPHY_BG,
+        sectionBgWebem: TEASER_BG_WEBM,
+        sectionBgMp4: TEASER_BG_MP4,
 
         introTitle: "The First Experience is Taking Shape",
         header: "Project <span class='highlight'>Aqua</span>",
@@ -65,6 +79,9 @@ export const homePageContent: HomePageContentStructure = {
     // ------------------------------------------------------------------------
     founder: {
         sectionBG: PHILOSOPHY_BG,
+        sectionBgWebem: FOUNDER_BG_WEBM,
+        sectionBgMp4: FOUNDER_BG_MP4,
+
         header: "Who is <span class='highlight'>CD</span>?",
 
         paragraphs: [
@@ -83,6 +100,8 @@ export const homePageContent: HomePageContentStructure = {
     // ------------------------------------------------------------------------
     sideQuests: {
         sectionBG: PHILOSOPHY_BG,
+        sectionBgWebem: SIDEQUESTS_BG_WEBM,
+        sectionBgMp4: SIDEQUESTS_BG_MP4,
 
         introTitle: "Collaborating on New Interactive Adventures",
         header: "Side Quests",
