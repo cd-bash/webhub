@@ -6,7 +6,7 @@ export type GRID_CONFIG = {
     colors: string[];
 };
 
-const EMPTY_RATIO = 0.5; // Fixed constant for empty bias
+const EMPTY_RATIO = 0.3; // Controls the "empty zone" bias (0.0 = all empty, 1.0 = no empty zone)
 
 // --------------------------------------------------------------------------------
 
@@ -16,12 +16,17 @@ export function createPixelGrid(config: GRID_CONFIG, alignment: 'left' | 'right'
     
     if (!ctx) return canvas;
 
-    // Use ResizeObserver for responsive updates
+    let resizeTimeout: number;
+    
+    // Use ResizeObserver with debouncing for responsive updates
     const resizeObserver = new ResizeObserver(() => {
-        const parent = canvas.parentElement;
-        if (parent) {
-            renderPixelGrid(canvas, ctx, config, alignment, parent.clientWidth, parent.clientHeight);
-        }
+        clearTimeout(resizeTimeout);
+        resizeTimeout = window.setTimeout(() => {
+            const parent = canvas.parentElement;
+            if (parent) {
+                renderPixelGrid(canvas, ctx, config, alignment, parent.clientWidth, parent.clientHeight);
+            }
+        }, 100); // 100ms debounce
     });
 
     // Initial render
@@ -63,23 +68,27 @@ function renderPixelGrid(
     
     // Calculate number of columns dynamically based on width and pixel size
     const cols = Math.ceil(width / pixelSize);
-    
-    const canvasRect = canvas.getBoundingClientRect();
+
+    // Pre-calculate common values
+    const totalRows = config.rows;
+    const totalCols = cols;
+    const colors = config.colors;
 
     // Render each pixel
     for (let row = 0; row < config.rows; row++) {
         for (let col = 0; col < cols; col++) {
-            const screenX = canvasRect.left + (col * pixelSize);
+            // Use canvas-relative position for consistent 50/50 split
+            const canvasX = col * pixelSize;
             const color = createPixelPattern({
                 row,
                 col,
-                totalRows: config.rows,
-                totalCols: cols,
-                screenX,
-                screenWidth: window.innerWidth,
+                totalRows,
+                totalCols,
+                screenX: canvasX,
+                screenWidth: width, // Use canvas width instead of viewport width
                 alignment,
                 emptyRatio: EMPTY_RATIO,
-                colors: config.colors
+                colors
             });
 
             if (color) {
