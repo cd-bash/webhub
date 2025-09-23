@@ -34,7 +34,10 @@ export function createVideoBackground(videoWebm: string, videoMp4: string, oneSh
     return background;
 }
 
-export function createPixelGridBackground(contentAlignment: 'left' | 'right', configs: GRID_CONFIG) {
-    const alignment = contentAlignment === 'right' ? 'left' : 'right';
+export function createPixelGridBackground(contentAlignment: 'left' | 'right' | 'full', configs: GRID_CONFIG) {
+    // For 'full' alignment, pass it directly. For 'left'/'right', invert the alignment
+    const alignment = contentAlignment === 'full' 
+        ? 'full' 
+        : (contentAlignment === 'right' ? 'left' : 'right');
     return createPixelGrid(configs, alignment);
 }

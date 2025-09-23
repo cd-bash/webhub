@@ -26,7 +26,8 @@ export function aboutView() {
 
     const firstSection = createAboutSection(aboutContent.manifesto);
     firstSection.classList.add('first-section');
-    firstSection.appendChild(createPixelGridBackground('left', pixelGridConfigs));
+    firstSection.appendChild(createPixelGridBackground('full', pixelGridConfigs));
+    
 
     page.appendChild(firstSection);
     page.appendChild(createPixelBannerCTA(aboutContent.ctaBannerA));
