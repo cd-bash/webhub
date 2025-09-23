@@ -10,7 +10,7 @@ const EMPTY_RATIO = 0.3; // Controls the "empty zone" bias (0.0 = all empty, 1.0
 
 // --------------------------------------------------------------------------------
 
-export function createPixelGrid(config: GRID_CONFIG, alignment: 'left' | 'right'): HTMLCanvasElement {
+export function createPixelGrid(config: GRID_CONFIG, alignment: 'left' | 'right' | 'full'): HTMLCanvasElement {
     const canvas = createCanvasElement();
     const ctx = canvas.getContext('2d');
     
@@ -54,7 +54,7 @@ function renderPixelGrid(
     canvas: HTMLCanvasElement,
     ctx: CanvasRenderingContext2D,
     config: GRID_CONFIG,
-    alignment: 'left' | 'right',
+    alignment: 'left' | 'right' | 'full',
     width: number,
     height: number
 ) {
