@@ -1,5 +1,4 @@
-﻿import './styles.css';
-import { arrowButton, createVideoBackground, createWrapper, writeParagraph, writeTitle } from "../utils";
+﻿import { arrowButton, createVideoBackground, createWrapper, writeParagraph, writeTitle } from "../utils";
 import { CallToActionOptions, createPixelBannerCTA } from '../common/call-to-action';
 import {SectionContent, createContentSection} from "./contentSection";
 import {homePageContent} from "../../content/home";

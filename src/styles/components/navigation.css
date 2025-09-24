@@ -2,4 +2,79 @@
    Navigation Component
    ========================================================================== */
 
-/* Add navigation styles here when needed */
+#top-nav {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  text-align: center;
+  padding: 0 50px;
+  z-index: var(--z-overlay);
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    height: 60px;
+    margin: 0;
+    padding: 0 35px;
+    list-style: none;
+
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.05);
+
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    overflow: hidden;
+  }
+
+  li a {
+    font-family: var(--font-secondary);
+    font-size: 1.5em;
+    font-weight: 500;
+    text-transform: lowercase;
+    text-decoration: none;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: color var(--transition-base);
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    padding: 0 var(--space-md);
+
+    ul {
+      gap: var(--space-md);
+      padding: 0 var(--space-md);
+    }
+
+    li a {
+      font-size: 1.2em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    padding: var(--space-sm) 0;
+
+    ul {
+      gap: var(--space-sm);
+      padding: 0 var(--space-sm);
+      height: 50px;
+    }
+
+    li a {
+      font-size: 1em;
+    }
+  }
+}

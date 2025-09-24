@@ -1,4 +1,3 @@
-import './styles.css';
 import { GRID_CONFIG } from '../../components/pixel-grid';
 import { createPixelGridBackground } from '../utils/backgrounds-utils';
 import { AboutSectionContent, createAboutSection } from "./aboutSection";
