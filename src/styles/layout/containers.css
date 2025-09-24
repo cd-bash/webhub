@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Layout - Containers & Wrappers
+   ========================================================================== */
+
+#view {
+  height: 100%;
+  font-family: var(--font-primary);
+}
+
+#wrapper {
+  width: 85%;
+  margin: 0 auto;
+  z-index: var(--z-content);
+}
+
+/* Content containers */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.container--narrow {
+  max-width: 800px;
+}
+
+.container--wide {
+  max-width: 1400px;
+}
+
+/* Flex utilities */
+.flex {
+  display: flex;
+}
+
+.flex--column {
+  flex-direction: column;
+}
+
+.flex--center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex--between {
+  justify-content: space-between;
+}
+
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
+/* Grid utilities */
+.grid {
+  display: grid;
+}
+
+.grid--auto {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+/* Responsive container adjustments */
+@media (max-width: 768px) {
+  #wrapper {
+    width: 90%;
+  }
+  
+  .container {
+    padding: 0 var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  #wrapper {
+    width: 95%;
+  }
+}

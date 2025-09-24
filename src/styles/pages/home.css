@@ -1,0 +1,116 @@
+/* ==========================================================================
+   Home Page Styles
+   ========================================================================== */
+
+#home-page {
+  h2 {
+    margin-bottom: var(--space-lg);
+  }
+
+  section {
+    min-height: 100vh;
+    height: 100vh;
+  }
+
+  .hook {
+    position: relative;
+
+    h1, p {
+      text-shadow: 0 4px 55px rgba(0, 0, 0, 0.65);
+      max-width: min(1160px, 90vw);
+      text-align: center;
+    }
+
+    article {
+      margin: 0 clamp(5%, 15vw, 15%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 0;
+      z-index: var(--z-content);
+
+      p {
+        font-size: var(--text-base);
+        margin-top: var(--space-xl);
+        margin-bottom: var(--space-sm);
+        max-width: min(630px, 80vw);
+      }
+    }
+  }
+
+  .content-section {
+    position: relative;
+    overflow: hidden;
+    
+    article {
+      height: 100vh;
+      z-index: var(--z-content);
+    }
+
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    section {
+      height: auto;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    .hook article {
+      margin: 0 5%;
+      padding: 0;
+    }
+
+    .content-section {
+      article {
+        width: 90%;
+        padding: 0;
+        text-align: center;
+        align-items: center;
+      }
+
+      &.right article {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      p {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .buttons-container {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hook article {
+      margin: 0;
+      padding: 0;
+    }
+
+    .content-section article {
+      width: 100%;
+      padding: 0;
+    }
+
+    .buttons-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

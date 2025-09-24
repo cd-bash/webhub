@@ -1,0 +1,62 @@
+/* ==========================================================================
+   About Page Styles
+   ========================================================================== */
+
+#about-page {
+  .first-section {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+
+    article {
+      height: 100vh;
+    }
+  }
+
+  section {
+    padding: var(--space-3xl) 0;
+    position: relative;
+
+    .scroll-video-background {
+      height: 100%;
+    }
+  }
+
+  img {
+    width: 45%;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    z-index: var(--z-content);
+  }
+
+  section.left img {
+    left: auto;
+    right: 5%;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    section {
+      padding: var(--space-2xl) 0;
+    }
+
+    img {
+      position: relative;
+      width: 80%;
+      margin: var(--space-lg) auto 0;
+    }
+
+    section.left img {
+      left: auto;
+      right: auto;
+      margin: var(--space-lg) auto 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    img {
+      width: 90%;
+    }
+  }
+}
