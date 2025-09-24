@@ -9,9 +9,9 @@ export type MainButtonOptions = {
 
 // ------------------------------------------------------------------------
 
-export function arrowButton() {
+export function createArrowButton() {
     const button = document.createElement('button');
-    button.className = 'arrow-button';
+    button.className = 'btn--arrow';
     button.innerHTML = `<img src="${ARROW_ICON}" alt="Scroll Down">`;
     
     return button;
@@ -21,7 +21,7 @@ export function createMainButton(options: MainButtonOptions) {
     const { text, path, styleType, contrastMode } = options;
     
     const button = document.createElement('a');
-    button.className = `main-button ${styleType} ${contrastMode}`;
+    button.className = `btn-main ${styleType}-${contrastMode}`;
     button.innerHTML = text;
     button.href = path;
     button.role = 'button';

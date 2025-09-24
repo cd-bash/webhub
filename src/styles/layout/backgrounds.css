@@ -17,29 +17,16 @@
 }
 
 /* Canvas backgrounds */
-canvas {
-  background-color: var(--color-surface);
-}
-
 canvas.pixel-grid {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: var(--z-base);
+  z-index: var(--z-content);
   pointer-events: none;
 }
 
-/* Three.js canvas specific */
-canvas.three-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: var(--z-background);
-}
 
 /* Background utilities */
 .bg-overlay {

@@ -1,5 +1,6 @@
-import { createPixelGridBackground } from "../../utils/backgrounds-utils";
-import { writeTitle, writeParagraph, createMainButton, MainButtonOptions, createWrapper } from "../../utils";
+import { createPixelGridBackground } from "../../views/utils/backgrounds-utils";
+import { writeTitle, writeParagraph, createWrapper } from "../../views/utils";
+import { MainButtonOptions, createMainButton } from "../buttons";
 
 export type CallToActionOptions = {
     header: string;

@@ -1,7 +1,7 @@
 import { GRID_CONFIG } from '../../components/pixel-grid';
 import { createPixelGridBackground } from '../utils/backgrounds-utils';
 import { AboutSectionContent, createAboutSection } from "./aboutSection";
-import { createPixelBannerCTA, CallToActionOptions } from "../common/call-to-action";
+import { createPixelBannerCTA, CallToActionOptions } from "../../components/call-to-action";
 import { aboutContent } from "../../content/about";
 
 const pixelGridConfigs: GRID_CONFIG = {

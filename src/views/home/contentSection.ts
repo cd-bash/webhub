@@ -1,5 +1,5 @@
 import { GRID_CONFIG } from '../../components/pixel-grid';
-import { createMainButton, MainButtonOptions } from '../utils/';
+import { createMainButton, MainButtonOptions } from '../../components/buttons';
 import {createWrapper, writeParagraph, writeTitle} from "../utils";
 import { createPixelGridBackground, createVideoBackground } from '../utils/backgrounds-utils';
 
