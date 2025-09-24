@@ -1,5 +1,4 @@
-﻿import './styles.css';
-import { createPixelPattern } from './pixel.ts';
+﻿import { createPixelPattern } from './pixel.ts';
 
 export type GRID_CONFIG = {
     rows: number;

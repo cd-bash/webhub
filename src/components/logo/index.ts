@@ -1,4 +1,3 @@
-import './styles.css';
 import LOGO from './assets/cd-labs-logo.png';
 
 // --------------------------------------------------------------------------------

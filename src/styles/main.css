@@ -17,7 +17,6 @@
 @import './components/logo.css';
 @import './components/navigation.css';
 @import './components/call-to-action.css';
-@import './components/thumbnails.css';
 
 /* Pages - Page-specific styles */
 @import './pages/home.css';
