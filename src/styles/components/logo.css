@@ -1,0 +1,48 @@
+/* ==========================================================================
+   Logo Component
+   ========================================================================== */
+
+.main-logo {
+  position: fixed;
+  top: 40px;
+  left: 55px;
+  transition: all var(--transition-smooth);
+  z-index: var(--z-overlay);
+
+  img {
+    width: 95px;
+    height: 95px;
+    image-rendering: pixelated;
+    transition: width var(--transition-base), height var(--transition-base);
+  }
+
+  img:hover {
+    animation: rotate var(--transition-slow) steps(4) infinite;
+  }
+
+  p {
+    margin-top: 9px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--font-secondary);
+    font-size: 2em;
+    font-weight: 900;
+    transition: opacity var(--transition-base);
+  }
+}
+
+.main-logo.scrolled img {
+  width: 60px;
+  height: 60px;
+}
+
+.main-logo.scrolled p {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,6 +1,4 @@
-﻿import './styles.css';
-
-type LinkItem = [
+﻿type LinkItem = [
     name: string,
     path: string,
 ]

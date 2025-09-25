@@ -6,7 +6,7 @@ type PixelInput = {
     totalCols: number;
     screenX: number;
     screenWidth: number;
-    alignment: 'left' | 'right' | 'full';
+    alignment: 'left' | 'right' | 'top';
     emptyRatio: number;
     colors: readonly string[];
 };
@@ -25,7 +25,9 @@ export function createPixelPattern(input: PixelInput): string | null {
         input.alignment,
         input.emptyRatio,
         input.col,
-        input.totalCols
+        input.totalCols,
+        input.row,
+        input.totalRows
     );
 
     return isEmpty ? null : getRandomColor(input.colors);
@@ -36,15 +38,33 @@ export function createPixelPattern(input: PixelInput): string | null {
 function shouldPixelBeEmpty(
     _normalizedX: number, // Container position (unused, kept for future use)
     normalizedScreenX: number,
-    _normalizedY: number, // Not used in this implementation
-    alignment: 'left' | 'right' | 'full',
+    normalizedY: number, // Used for top alignment
+    alignment: 'left' | 'right' | 'top',
     _emptyRatio: number, // Not used in simple split
     col: number,
-    totalCols: number
+    totalCols: number,
+    row: number,
+    totalRows: number
 ): boolean {
-    // For 'full' alignment, stretch the grid to 100% with no empty zones
-    if (alignment === 'full') {
-        return false; // Show all pixels across the entire grid
+    // For 'top' alignment, show pixels from top with 60/40 split vertically
+    if (alignment === 'top') {
+        const splitPoint = 0.45; // 40% threshold means 60% coverage from the top
+        // Hide pixels in the bottom 40% of the screen
+        const shouldHideBasedOnAlignment = normalizedY > splitPoint;
+        
+        if (shouldHideBasedOnAlignment) {
+            return true;
+        }
+        
+        // Apply random hiding to only the last row of the visible area
+        const splitRow = Math.floor(totalRows * splitPoint);
+        const isLastVisibleRow = row === splitRow;
+        
+        if (isLastVisibleRow) {
+            return Math.random() < 0.50; // 50% chance for random gaps in the target row
+        }
+        
+        return false;
     }
     
     // 60/40 split - pixels appear on opposite side of alignment with more coverage

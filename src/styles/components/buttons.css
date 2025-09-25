@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Buttons - Simplified to match TypeScript function
+   ========================================================================== */
+
+.btn-main {
+  display: inline-block;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  backdrop-filter: blur(30px);
+  min-width: clamp(180px, 45vw, 220px);
+  height: clamp(36px, 10vw, 40px);
+  line-height: clamp(32px, 8vw, 36px);
+  font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+}
+
+.btn-main.primary-dark {
+  background-color: rgba(59, 255, 197, 0.05);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+.btn-main.primary-dark:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-text-inverse);
+}
+
+.btn-main.primary-light {
+  background-color: rgba(59, 255, 197, 0.15);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+.btn-main.primary-light:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-text);
+}
+
+.btn-main.secondary-dark {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text);
+}
+.btn-main.secondary-dark:hover {
+  background-color: var(--color-text);
+  border-color: var(--color-text);
+  color: var(--color-text-inverse);
+}
+
+.btn-main.secondary-light {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: var(--color-text-inverse);
+}
+.btn-main.secondary-light:hover {
+  background-color: #555555;
+  border-color: #555555;
+  color: var(--color-text);
+}
+
+/* -------------------------------------------------------------------------- */
+.btn-arrow {
+  width: clamp(60px, 15vw, 75px);
+  height: clamp(60px, 15vw, 75px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+  margin: var(--space-sm) auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  backdrop-filter: blur(8px);
+}
+.btn-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+.btn-arrow img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* -------------------------------------------------------------------------- */
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .btn-main {
+    min-width: 160px;
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .btn-arrow {
+    margin: var(--space-xs) auto 0 auto;
+  }
+  
+  .buttons-container {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-main {
+    width: 100%;
+    line-height: 32px;
+    height: 36px;
+  }
+  
+  .buttons-container {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+}

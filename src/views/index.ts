@@ -1,8 +1,6 @@
-﻿import "./styles.css";
+﻿import "../styles/main.css";
 
 export * from "./home/";
-export * from "./projectCollection.ts";
-export * from "./project.ts";
 export * from "./about/";
 export * from "./contact.ts";
 

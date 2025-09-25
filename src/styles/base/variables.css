@@ -1,0 +1,61 @@
+/* ==========================================================================
+   CSS Custom Properties (Variables)
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --color-primary: #3BFFC5;
+  --color-primary-hover: #34e6c0;
+  --color-background: #000000;
+  --color-surface: #1D1D1D;
+  --color-text: #ffffff;
+  --color-text-secondary: #828282;
+  --color-text-inverse: #000000;
+  
+  /* Typography */
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Handjet', serif;
+  
+  /* Font Sizes */
+  --text-xs: clamp(0.8rem, 2vw, 0.9rem);
+  --text-sm: clamp(0.9rem, 2.5vw, 1.1rem);
+  --text-base: clamp(1.1rem, 3vw, 1.5rem);
+  --text-lg: clamp(1.2rem, 4vw, 2rem);
+  --text-xl: clamp(1.25rem, 4vw, 2rem);
+  --text-2xl: clamp(1.5rem, 5vw, 3rem);
+  --text-3xl: clamp(2rem, 12vw, 3.5rem);
+  --text-4xl: clamp(2.5rem, 8vw, 6rem);
+  
+  /* Spacing */
+  --space-xs: clamp(10px, 2.5vw, 15px);
+  --space-sm: clamp(15px, 3vw, 20px);
+  --space-md: clamp(20px, 4vw, 30px);
+  --space-lg: clamp(30px, 5vw, 50px);
+  --space-xl: clamp(50px, 8vw, 75px);
+  --space-2xl: clamp(75px, 10vw, 100px);
+  --space-3xl: clamp(100px, 15vw, 160px);
+  
+  /* Borders & Radius */
+  --radius-sm: clamp(15px, 4vw, 18px);
+  --radius-md: clamp(18px, 5vw, 20px);
+  
+  /* Breakpoints (for reference in media queries) */
+  --bp-mobile: 480px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1024px;
+  --bp-wide: 1500px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Z-Index Scale */
+  --z-background: -1;
+  --z-base: 0;
+  --z-content: 1;
+  --z-elevated: 2;
+  --z-overlay: 10;
+  --z-modal: 100;
+}

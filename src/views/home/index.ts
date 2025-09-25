@@ -1,8 +1,8 @@
-﻿import './styles.css';
-import { arrowButton, createVideoBackground, createWrapper, writeParagraph, writeTitle } from "../utils";
-import { CallToActionOptions, createPixelBannerCTA } from '../common/call-to-action';
+﻿import { createVideoBackground, createWrapper, writeParagraph, writeTitle } from "../utils";
+import { CallToActionOptions, createPixelBannerCTA } from '../../components/call-to-action';
 import {SectionContent, createContentSection} from "./contentSection";
 import {homePageContent} from "../../content/home";
+import { createArrowButton } from "../../components/buttons";
 
 export type HomePageContentStructure = {
     readonly hook: HookContent;
@@ -50,7 +50,7 @@ function hookSection(content: HookContent) {
 
   article.appendChild(writeTitle("h1", content.header));
   article.appendChild(writeParagraph(content.body));
-  article.appendChild(arrowButton());
+  article.appendChild(createArrowButton());
   wrapper.appendChild(article);
   hook.appendChild(videoBg);
   hook.appendChild(wrapper);
