@@ -123,8 +123,6 @@
 @media (max-width: 480px) {
   .btn-main {
     width: 100%;
-    max-width: 240px;
-    font-size: 1rem;
     line-height: 32px;
     height: 36px;
   }

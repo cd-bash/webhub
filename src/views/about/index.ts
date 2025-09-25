@@ -5,7 +5,7 @@ import { createPixelBannerCTA, CallToActionOptions } from "../../components/call
 import { aboutContent } from "../../content/about";
 
 const pixelGridConfigs: GRID_CONFIG = {
-    rows: 2,
+    columns: 7,  // Used for top alignment (was rows: 2, now more columns for better coverage)
     colors: ['#0f0f0f', '#2a2a2a', '#181818']
 }
 
@@ -25,13 +25,17 @@ export function aboutView() {
 
     const firstSection = createAboutSection(aboutContent.manifesto);
     firstSection.classList.add('first-section');
-    firstSection.appendChild(createPixelGridBackground('full', pixelGridConfigs));
+    firstSection.appendChild(createPixelGridBackground('top', pixelGridConfigs));
     
+    const secondSection = document.createElement('div');
+    secondSection.className = 'second-section';
+    secondSection.appendChild(createAboutSection(aboutContent.path));
+    secondSection.appendChild(createAboutSection(aboutContent.initiative));
+
 
     page.appendChild(firstSection);
     page.appendChild(createPixelBannerCTA(aboutContent.ctaBannerA));
-    page.appendChild(createAboutSection(aboutContent.path));
-    page.appendChild(createAboutSection(aboutContent.initiative));
+    page.appendChild(secondSection);
     page.appendChild(createPixelBannerCTA(aboutContent.ctaBannerB));
 
     return page;

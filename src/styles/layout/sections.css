@@ -67,8 +67,6 @@ section article p {
   
   section article {
     width: 90%;
-    text-align: center;
-    align-items: center;
     margin: 0 auto;
   }
   
@@ -78,7 +76,7 @@ section article p {
   
   section article p {
     max-width: 100%;
-    text-align: center;
+    text-align: left;
   }
   
   .section--full-height {

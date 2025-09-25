@@ -1,7 +1,8 @@
 ﻿import { createPixelPattern } from './pixel.ts';
 
 export type GRID_CONFIG = {
-    rows: number;
+    rows?: number;     // Used for left/right alignments
+    columns?: number;  // Used for top alignment
     colors: string[];
 };
 
@@ -9,7 +10,7 @@ const EMPTY_RATIO = 0.3; // Controls the "empty zone" bias (0.0 = all empty, 1.0
 
 // --------------------------------------------------------------------------------
 
-export function createPixelGrid(config: GRID_CONFIG, alignment: 'left' | 'right' | 'full'): HTMLCanvasElement {
+export function createPixelGrid(config: GRID_CONFIG, alignment: 'left' | 'right' | 'top'): HTMLCanvasElement {
     const canvas = createCanvasElement();
     const ctx = canvas.getContext('2d');
     
@@ -45,7 +46,6 @@ export function createPixelGrid(config: GRID_CONFIG, alignment: 'left' | 'right'
 function createCanvasElement(): HTMLCanvasElement {
     const canvas = document.createElement('canvas');
     canvas.className = 'pixel-grid';
-    canvas.style.display = 'block';
     return canvas;
 }
 
@@ -53,7 +53,7 @@ function renderPixelGrid(
     canvas: HTMLCanvasElement,
     ctx: CanvasRenderingContext2D,
     config: GRID_CONFIG,
-    alignment: 'left' | 'right' | 'full',
+    alignment: 'left' | 'right' | 'top',
     width: number,
     height: number
 ) {
@@ -62,20 +62,29 @@ function renderPixelGrid(
     canvas.height = height;
     ctx.clearRect(0, 0, width, height);
 
-    // Calculate pixel size based on rows (perfect squares)
-    const pixelSize = height / config.rows;
-    
-    // Calculate number of columns dynamically based on width and pixel size
-    const cols = Math.ceil(width / pixelSize);
+    let pixelSize: number;
+    let totalRows: number;
+    let totalCols: number;
 
-    // Pre-calculate common values
-    const totalRows = config.rows;
-    const totalCols = cols;
+    if (alignment === 'top') {
+        // For top alignment, use columns configuration and calculate pixel size based on width
+        const configuredCols = config.columns || 6; // Default fallback
+        pixelSize = width / configuredCols;
+        totalCols = configuredCols;
+        totalRows = Math.ceil(height / pixelSize);
+    } else {
+        // For left/right alignment, use rows configuration and calculate pixel size based on height
+        const configuredRows = config.rows || 6; // Default fallback
+        pixelSize = height / configuredRows;
+        totalRows = configuredRows;
+        totalCols = Math.ceil(width / pixelSize);
+    }
+
     const colors = config.colors;
 
     // Render each pixel
-    for (let row = 0; row < config.rows; row++) {
-        for (let col = 0; col < cols; col++) {
+    for (let row = 0; row < totalRows; row++) {
+        for (let col = 0; col < totalCols; col++) {
             // Use canvas-relative position for consistent 50/50 split
             const canvasX = col * pixelSize;
             const color = createPixelPattern({

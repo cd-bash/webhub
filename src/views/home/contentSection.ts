@@ -4,26 +4,30 @@ import {createWrapper, writeParagraph, writeTitle} from "../utils";
 import { createPixelGridBackground, createVideoBackground } from '../utils/backgrounds-utils';
 
 const pixelGridConfigs: GRID_CONFIG = {
-    rows: 6,
+    rows: 6,  // Used for left/right alignments
     colors: ['#0f0f0f', '#2a2a2a', '#181818']
 }
 
 const pixelGridConfigsMobile: GRID_CONFIG = {
-    rows: 4,
+    columns: 6,  // Used for top alignment (was rows: 4, now more columns for finer detail)
     colors: ['#0f0f0f', '#2a2a2a', '#181818']
 }
 
 export type SectionContent = {
-    readonly sectionBG: string;
-    readonly sectionBgWebem: string;
-    readonly sectionBgMp4: string;
-    readonly sectionMobileBgWebem?: string;
-    readonly sectionMobileBgMp4?: string;
+    readonly backgrounds: sectionBackgrounds;
     readonly introTitle?: string;  
     readonly header: string;
     readonly paragraphs: string[];
     readonly buttons: MainButtonOptions[];
     readonly alignment: 'left' | 'right';
+}
+
+type sectionBackgrounds = {
+    readonly image: string;
+    readonly webem: string;
+    readonly mp4: string;
+    readonly mobileWebem: string;
+    readonly mobileMp4: string;
 }
 
 
@@ -34,15 +38,22 @@ export function createContentSection(content: SectionContent) {
     
     const wrapper = createWrapper();
     const article = document.createElement('article');
-    const desktopVideoBg = createVideoBackground(content.sectionBgWebem, content.sectionBgMp4, true);
-    const mobileVideoBg = createVideoBackground(content.sectionBgWebem, content.sectionBgMp4, true);
+
+    const desktopPixelGrid = createPixelGridBackground(content.alignment, pixelGridConfigs);
+    const mobilePixelGrid = createPixelGridBackground('top', pixelGridConfigsMobile);
+    desktopPixelGrid.classList.add('desktop-pixel-grid');
+    mobilePixelGrid.classList.add('mobile-pixel-grid');
+
+    const desktopVideoBg = createVideoBackground(content.backgrounds.webem, content.backgrounds.mp4, true);
+    const mobileVideoBg = createVideoBackground(content.backgrounds.mobileWebem, content.backgrounds.mobileMp4, true);
     desktopVideoBg.classList.add('desktop-bg');
     mobileVideoBg.classList.add('mobile-bg');
     
     
     section.className = `content-section ${content.alignment}`;
     //section.style.backgroundImage = `url('${content.sectionBG}')`;
-    section.appendChild(createPixelGridBackground(content.alignment, pixelGridConfigs));
+    section.appendChild(desktopPixelGrid);
+    section.appendChild(mobilePixelGrid);
     
     if (content.introTitle) {
         article.appendChild(introTitle(content.introTitle));

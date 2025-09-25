@@ -68,6 +68,13 @@
     .mobile-bg {
       display: none;
     }
+
+    .desktop-pixel-grid {
+      display: block;
+    }
+    .mobile-pixel-grid {
+      display: none;
+    }
   }
 }
 
@@ -112,6 +119,13 @@
       .mobile-bg {
         display: block;
       }
+
+      .desktop-pixel-grid {
+        display: none;
+      }
+      .mobile-pixel-grid {
+        display: block;
+      }
     }
   }
 }
@@ -132,6 +146,13 @@
       .buttons-container {
         flex-direction: column;
         align-items: center;
+      }
+
+      .mobile-bg {
+        top: auto;
+        bottom: 0;
+        transform: translate(-50%, 0);
+        object-position: center bottom;
       }
     }
   }
