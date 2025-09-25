@@ -11,7 +11,7 @@ export type MainButtonOptions = {
 
 export function createArrowButton() {
     const button = document.createElement('button');
-    button.className = 'btn--arrow';
+    button.className = 'btn-arrow';
     button.innerHTML = `<img src="${ARROW_ICON}" alt="Scroll Down">`;
     
     return button;

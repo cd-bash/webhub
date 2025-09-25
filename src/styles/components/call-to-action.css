@@ -18,7 +18,7 @@
 .cta-banner article {
   position: relative;
   z-index: var(--z-content);
-  padding: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
   background-color: white;
   width: fit-content;
   display: grid;
@@ -56,12 +56,11 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* White background extension - positioned relative to the banner */
 .cta-banner article.right::before {
   content: '';
   position: absolute;
   top: 0;
-  right: -25vw; /* Extend outside the article to the right */
+  right: -25vw;
   width: 25vw;
   height: 100%;
   background-color: white;
@@ -72,7 +71,7 @@
   content: '';
   position: absolute;
   top: 0;
-  left: -25vw; /* Extend outside the article to the left */
+  left: -25vw; 
   width: 25vw;
   height: 100%;
   background-color: white;
@@ -83,6 +82,22 @@
 @media (max-width: 1500px) {
   .cta-banner {
     background-color: white;
+  }
+
+  .cta-banner article {
+    width: 100%;
+    padding: var(--space-md) 0;
+    gap: var(--space-xs);
+  }
+
+  .cta-banner article.right, .cta-banner article.left {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .cta-banner ul {
+    max-width: 220px;
+    justify-self: end;
   }
   
   .cta-background {
@@ -99,10 +114,9 @@
 @media (max-width: 768px) {
   .cta-banner article {
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: 0;
     width: 90%;
     margin: 0 auto !important;
-    text-align: center;
   }
 
   .text-container {
@@ -110,6 +124,8 @@
   }
 
   .cta-banner ul {
+    width: 100%;
+    max-width: 100%;
     justify-content: center;
     flex-direction: column;
     align-items: center;

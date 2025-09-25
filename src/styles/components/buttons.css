@@ -107,7 +107,7 @@
     min-width: 160px;
     padding: 0 1rem;
     width: 100%;
-    max-width: 280px;
+    max-width: 100%;
   }
   
   .btn-arrow {

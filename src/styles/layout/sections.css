@@ -5,7 +5,7 @@
 section {
   width: 100%;
   margin: 0;
-  padding: 0 clamp(1rem, 5vw, 2rem);
+  padding: 0;
   box-sizing: border-box;
   background-size: cover;
   background-position: center;
