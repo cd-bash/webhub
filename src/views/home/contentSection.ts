@@ -8,10 +8,17 @@ const pixelGridConfigs: GRID_CONFIG = {
     colors: ['#0f0f0f', '#2a2a2a', '#181818']
 }
 
+const pixelGridConfigsMobile: GRID_CONFIG = {
+    rows: 4,
+    colors: ['#0f0f0f', '#2a2a2a', '#181818']
+}
+
 export type SectionContent = {
     readonly sectionBG: string;
     readonly sectionBgWebem: string;
     readonly sectionBgMp4: string;
+    readonly sectionMobileBgWebem?: string;
+    readonly sectionMobileBgMp4?: string;
     readonly introTitle?: string;  
     readonly header: string;
     readonly paragraphs: string[];
@@ -27,6 +34,11 @@ export function createContentSection(content: SectionContent) {
     
     const wrapper = createWrapper();
     const article = document.createElement('article');
+    const desktopVideoBg = createVideoBackground(content.sectionBgWebem, content.sectionBgMp4, true);
+    const mobileVideoBg = createVideoBackground(content.sectionBgWebem, content.sectionBgMp4, true);
+    desktopVideoBg.classList.add('desktop-bg');
+    mobileVideoBg.classList.add('mobile-bg');
+    
     
     section.className = `content-section ${content.alignment}`;
     //section.style.backgroundImage = `url('${content.sectionBG}')`;
@@ -42,12 +54,13 @@ export function createContentSection(content: SectionContent) {
 
     wrapper.appendChild(article);
     
-    const videoBg = movingBackground(content.sectionBgWebem, content.sectionBgMp4);
-    section.appendChild(videoBg);
+    section.appendChild(desktopVideoBg);
+    section.appendChild(mobileVideoBg);
     section.appendChild(wrapper);
     
     // Set up scroll-driven video scrubbing
-    setupVideoOnScroll(section, videoBg);
+    setupVideoOnScroll(section, desktopVideoBg);
+    setupVideoOnScroll(section, mobileVideoBg);
     
     return section;
 }

@@ -15,7 +15,8 @@
   .hook {
     position: relative;
 
-    h1, p {
+    h1, 
+    p {
       text-shadow: 0 4px 55px rgba(0, 0, 0, 0.65);
       max-width: min(1160px, 90vw);
       text-align: center;
@@ -23,19 +24,20 @@
 
     article {
       margin: 0 clamp(5%, 15vw, 15%);
+      padding: 0;
+      height: 100vh;
+      z-index: var(--z-content);
+      
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      padding: 0;
-      z-index: var(--z-content);
 
       p {
         font-size: var(--text-base);
+        max-width: min(630px, 80vw);
         margin-top: var(--space-xl);
         margin-bottom: var(--space-sm);
-        max-width: min(630px, 80vw);
       }
     }
   }
@@ -53,14 +55,28 @@
       display: flex;
       flex-wrap: wrap;
       gap: var(--space-sm);
+      
       list-style: none;
       padding: 0;
       margin: 0;
     }
-  }
 
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
+    .desktop-bg {
+      display: block;
+    }
+
+    .mobile-bg {
+      display: none;
+    }
+  }
+}
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+
+@media (max-width: 1500px) {
+  #home-page {
     section {
       height: auto;
       min-height: 100vh;
@@ -74,43 +90,49 @@
 
     .content-section {
       article {
-        width: 90%;
+        width: 70%;
         padding: 0;
-        text-align: center;
-        align-items: center;
+        justify-content: start;
+        margin-top: var(--space-xl);
       }
 
       &.right article {
-        margin-left: auto;
-        margin-right: auto;
+        margin: var(--space-xl) 0;
+        
       }
 
       p {
         max-width: 100%;
-        text-align: center;
+        text-align: left;
       }
 
-      .buttons-container {
-        justify-content: center;
-        width: 100%;
+      .desktop-bg {
+        display: none;
+      }
+      .mobile-bg {
+        display: block;
       }
     }
   }
+}
 
-  @media (max-width: 480px) {
+@media (max-width: 768px) {
+  #home-page {
     .hook article {
       margin: 0;
       padding: 0;
     }
 
-    .content-section article {
-      width: 100%;
-      padding: 0;
-    }
+    .content-section {
+      article {
+        width: 100%;
+        padding: 0;
+      }
 
-    .buttons-container {
-      flex-direction: column;
-      align-items: center;
+      .buttons-container {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   }
 }
