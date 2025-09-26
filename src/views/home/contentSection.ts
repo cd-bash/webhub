@@ -107,12 +107,6 @@ function introTitle(text: string) {
     return intro;
 }
 
-function movingBackground(webm: string, mp4: string) {
-    const videoBg = createVideoBackground(webm, mp4, true);
-
-    return videoBg;
-}
-
 function setupVideoOnScroll(section: HTMLElement, videoBg: HTMLVideoElement) {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

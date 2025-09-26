@@ -2,7 +2,7 @@ import LOGO from './assets/cd-labs-logo.png';
 
 // --------------------------------------------------------------------------------
 
-export function buildMainLogo() {
+export function renderMainLogo() {
     const logoContainer = document.createElement('div');
     const logoLink = document.createElement('a');
     const logoImg = document.createElement('img');
@@ -23,15 +23,15 @@ export function buildMainLogo() {
     return logoContainer;
 }
 
-// --------------------------------------------------------------------------------
-
 export function changeLogoOnScroll() {
-    const logoContainer = document.querySelector('.main-logo') as HTMLElement;
-    if (!logoContainer) return;
+    const logoContainers = document.querySelectorAll('.main-logo') as NodeListOf<HTMLElement>;
+    if (!logoContainers.length) return;
 
-    if (window.scrollY > 50) {
-        logoContainer.classList.add('scrolled');
-    } else {
-        logoContainer.classList.remove('scrolled');
-    }
+    logoContainers.forEach(logoContainer => {
+        if (window.scrollY > 50) {
+            logoContainer.classList.add('scrolled');
+        } else {
+            logoContainer.classList.remove('scrolled');
+        }
+    });
 }
