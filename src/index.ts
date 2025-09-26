@@ -1,11 +1,12 @@
-import {buildMainLogo, changeLogoOnScroll} from "./components/logo";
 import { router } from "./core/router";
-import {homeView, buildViewBase, renderView} from "./views";
-import {buildTopNav} from "./components/top-nav";
+import {homeView, aboutView, buildViewBase, renderView} from "./views";
+import {buildNavigation} from "./components/navigation";
+import {changeLogoOnScroll} from "./components/navigation/logo";
 
 
 const routes = [
     { path: '', handler: () => renderView(homeView()) },
+    { path: '/about', handler: () => renderView(aboutView()) },
 ];
 
 routes.forEach(route => router.registerRoute(route.path, route.handler));
@@ -15,10 +16,8 @@ routes.forEach(route => router.registerRoute(route.path, route.handler));
 function init() {
     const body = document.getElementsByTagName("body")[0];
     const contentPage = buildViewBase();
-    const mainLogo = buildMainLogo();
-    const nav = buildTopNav();
+    const nav = buildNavigation();
 
-    body.appendChild(mainLogo);
     body.appendChild(nav);
     window.addEventListener('scroll', changeLogoOnScroll);
 

@@ -6,7 +6,7 @@ type PixelInput = {
     totalCols: number;
     screenX: number;
     screenWidth: number;
-    alignment: 'left' | 'right';
+    alignment: 'left' | 'right' | 'top';
     emptyRatio: number;
     colors: readonly string[];
 };
@@ -23,7 +23,11 @@ export function createPixelPattern(input: PixelInput): string | null {
         normalizedScreenX,
         normalizedY,
         input.alignment,
-        input.emptyRatio
+        input.emptyRatio,
+        input.col,
+        input.totalCols,
+        input.row,
+        input.totalRows
     );
 
     return isEmpty ? null : getRandomColor(input.colors);
@@ -34,35 +38,74 @@ export function createPixelPattern(input: PixelInput): string | null {
 function shouldPixelBeEmpty(
     _normalizedX: number, // Container position (unused, kept for future use)
     normalizedScreenX: number,
-    normalizedY: number,
-    alignment: 'left' | 'right',
-    emptyRatio: number
+    normalizedY: number, // Used for top alignment
+    alignment: 'left' | 'right' | 'top',
+    _emptyRatio: number, // Not used in simple split
+    col: number,
+    totalCols: number,
+    row: number,
+    totalRows: number
 ): boolean {
-    const boundary = calculateBoundary(normalizedY, emptyRatio);
-
-    if (alignment === 'right') {
-        return normalizedScreenX > boundary ? hasGhostPixel() : hasScatterEffect(normalizedScreenX, boundary, normalizedY);
-    } else {
-        return normalizedScreenX < boundary ? hasGhostPixel() : hasScatterEffect(normalizedScreenX, boundary, normalizedY);
+    // For 'top' alignment, show pixels from top with 60/40 split vertically
+    if (alignment === 'top') {
+        const splitPoint = 0.45; // 40% threshold means 60% coverage from the top
+        // Hide pixels in the bottom 40% of the screen
+        const shouldHideBasedOnAlignment = normalizedY > splitPoint;
+        
+        if (shouldHideBasedOnAlignment) {
+            return true;
+        }
+        
+        // Apply random hiding to only the last row of the visible area
+        const splitRow = Math.floor(totalRows * splitPoint);
+        const isLastVisibleRow = row === splitRow;
+        
+        if (isLastVisibleRow) {
+            return Math.random() < 0.50; // 50% chance for random gaps in the target row
+        }
+        
+        return false;
     }
-}
-
-function calculateBoundary(normalizedY: number, emptyRatio: number): number {
-    const waveOffset = Math.sin(normalizedY * Math.PI * 3) * 0.1;
-    const randomOffset = (Math.random() - 0.5) * 0.15;
-    return emptyRatio + waveOffset + randomOffset;
-}
-
-function hasScatterEffect(screenX: number, boundary: number, normalizedY: number): boolean {
-    const distance = Math.abs(screenX - boundary);
-    const scatterChance = Math.pow(1 - distance / boundary, 2) * 0.25;
-    const rowVariation = Math.sin(normalizedY * Math.PI * 2) * 0.1;
     
-    return Math.random() < (scatterChance + rowVariation);
-}
-
-function hasGhostPixel(): boolean {
-    return Math.random() >= 0.3;
+    // 60/40 split - pixels appear on opposite side of alignment with more coverage
+    const splitPoint = 0.45; // 40% threshold means 60% coverage on the opposite side
+    
+    let shouldHideBasedOnAlignment = false;
+    
+    if (alignment === 'right') {
+        // For right alignment: show pixels on the LEFT 60% (inverted)
+        shouldHideBasedOnAlignment = normalizedScreenX > splitPoint;
+    } else {
+        // For left alignment: show pixels on the RIGHT 60% (inverted)
+        shouldHideBasedOnAlignment = normalizedScreenX < splitPoint;
+    }
+    
+    // If already hidden by alignment, return true
+    if (shouldHideBasedOnAlignment) {
+        return true;
+    }
+    
+    // Apply random hiding to only the last column of the visible area
+    const splitCol = Math.floor(totalCols * splitPoint); // Column where the split happens
+    let shouldApplyRandomHiding = false;
+    
+    if (alignment === 'right') {
+        // For right alignment: pixels show on LEFT side (cols 0 to splitCol)
+        // Target only the last visible column (rightmost edge of visible area)
+        const isLastVisibleColumn = col === splitCol;
+        shouldApplyRandomHiding = isLastVisibleColumn;
+    } else {
+        // For left alignment: pixels show on RIGHT side (cols splitCol to totalCols)
+        // Target only the first visible column (leftmost edge of visible area)
+        const isFirstVisibleColumn = col === splitCol + 1;
+        shouldApplyRandomHiding = isFirstVisibleColumn;
+    }
+    
+    if (shouldApplyRandomHiding) {
+        return Math.random() < 0.50; // 40% chance for random gaps in the target column
+    }
+    
+    return false; // All other visible pixels are shown
 }
 
 function getRandomColor(colors: readonly string[]): string {
