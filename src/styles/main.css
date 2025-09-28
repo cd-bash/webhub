@@ -21,6 +21,7 @@
 @import './views/home.css';
 @import './views/about.css';
 @import './views/contact.css';
+@import './views/log-article.css';
 
 /* Utilities - Helper classes and overrides */
 @import './utilities/spacing.css';

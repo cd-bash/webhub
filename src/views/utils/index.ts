@@ -1,5 +1,6 @@
 ﻿export * from "./text-utils.ts";
 export * from "./backgrounds-utils.ts";
+export * from "./markdown-parser.ts";
 
 // ------------------------------------------------------------------------
 
