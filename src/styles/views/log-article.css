@@ -80,7 +80,7 @@
 
     #wrapper {
       max-width: 900px;
-      padding: var(--space-xl) var(--space-xl);
+      padding: var(--space-xl) 0;
     }
 
     .intro p {
@@ -111,6 +111,31 @@
       li {
         font-size: var(--text-sm);
         margin-bottom: var(--space-xxs);
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+
+@media (max-width: 1500px) {
+  #log-article {
+    header {
+      padding: var(--space-xl) 0;
+
+      #wrapper {
+        justify-content: left;
+      }
+      
+      .title-container {
+        width: 100%;
+        text-align: left;
+        
+        h1, h2, p {
+          text-align: left;
+        }
       }
     }
   }
