@@ -7,7 +7,6 @@ export type LinkItem = [
 ]
 
 const navLinks: LinkItem[] = [
-    ['Side Quests', '/projects'],
     ['About', '/about'],
     ['Logs', '/logs'],
     ['Contact', '/contact'],

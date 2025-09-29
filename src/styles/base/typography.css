@@ -5,7 +5,7 @@
 /* Headings */
 h1, h2 {
   font-family: var(--font-primary);
-  font-size: var(--text-4xl);
+  font-size: var(--text-5xl);
   font-weight: 900;
   line-height: 1;
   color: var(--color-text);
@@ -15,7 +15,7 @@ h1, h2 {
 h3 {
   font-family: var(--font-primary);
   font-size: var(--text-lg);
-  font-weight: 700;
+  font-weight: 900;
   color: var(--color-text);
   margin-bottom: var(--space-md);
 }
@@ -44,6 +44,18 @@ h6 {
   text-transform: lowercase;
   color: var(--color-primary);
   margin-bottom: var(--space-sm);
+}
+
+h1 strong, h2 strong {
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-underline-offset: var(--space-sm);
+}
+
+h3 strong, h4 strong {
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-underline-offset: var(--space-xxs);
 }
 
 /* Body text */

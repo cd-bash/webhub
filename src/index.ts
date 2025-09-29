@@ -1,5 +1,5 @@
 import { router } from "./core/router";
-import {homeView, aboutView, buildViewBase, renderView} from "./views";
+import {homeView, aboutView, buildViewBase, renderView, logArticleView } from "./views";
 import {buildNavigation} from "./components/navigation";
 import {changeLogoOnScroll} from "./components/navigation/logo";
 
@@ -7,6 +7,7 @@ import {changeLogoOnScroll} from "./components/navigation/logo";
 const routes = [
     { path: '', handler: () => renderView(homeView()) },
     { path: '/about', handler: () => renderView(aboutView()) },
+    { path: '/logs', handler: () => renderView(logArticleView()) }
 ];
 
 routes.forEach(route => router.registerRoute(route.path, route.handler));
