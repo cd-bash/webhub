@@ -21,8 +21,11 @@ class Router {
     }
 
     public handleRoute(path: string) {
+        // Normalize path - treat empty string and "/" as the same
+        const normalizedPath = path === '' || path === '/' ? '' : path;
+        
         for (const [route, handler] of this.routes.entries()) {
-            const match = this.matchRoute(route, path);
+            const match = this.matchRoute(route, normalizedPath);
             if (match) {
                 handler(match.params);
                 return;
@@ -33,6 +36,12 @@ class Router {
     }
 
     private matchRoute(route: string, path: string) {
+        // Handle root route specially
+        if (route === '' && (path === '' || path === '/')) {
+            return { params: {} };
+        }
+        
+        // Handle other routes
         const routeParts = route.split('/').filter(Boolean);
         const pathParts = path.split('/').filter(Boolean);
 

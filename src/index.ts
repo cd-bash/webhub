@@ -6,7 +6,7 @@ import { buildFooter } from "./components/footer";
 
 
 const routes = [
-    { path: '', handler: () => renderView(homeView()) },
+    { path: '', handler: () => renderView(homeView()) },        // Handles both / and empty
     { path: '/about', handler: () => renderView(aboutView()) },
     { path: '/logs', handler: () => renderView(logArticleView()) },
     { path: '/contact', handler: () => renderView(contactView()) } 
