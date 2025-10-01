@@ -18,6 +18,8 @@
   --font-secondary: 'Handjet', serif;
   
   /* Font Sizes */
+  --text-3xs: clamp(0.6rem, 1vw, 0.7rem);
+  --text-2xs: clamp(0.7rem, 1.5vw, 0.8rem);
   --text-xs: clamp(0.8rem, 2vw, 0.9rem);
   --text-sm: clamp(0.9rem, 2.5vw, 1.1rem);
   --text-base: clamp(1.1rem, 3vw, 1.5rem);
