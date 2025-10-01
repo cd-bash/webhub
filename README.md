@@ -1,16 +1,14 @@
 # WebHub
 
+CD-Labs main website published online at [www.charlesdoucet.com](www.charlesdoucet.com).
+
 A modern, minimalist web application built with pure TypeScript and Vite. This project showcases a clean architecture approach without heavy frameworks, focusing on performance and maintainability.
 
 ## 🚀 Features
 
 - **Pure TypeScript Architecture** - No React, Vue, or Angular dependencies
-- **Modern CSS** - Custom CSS with CSS Grid, Flexbox, and CSS Custom Properties
-- **Responsive Design** - Mobile-first approach with fluid layouts
 - **Component-Based** - Modular TypeScript components for reusability
 - **Dynamic Routing** - Client-side routing system
-- **Content Management** - Flexible content structure for blog articles
-- **Markdown Support** - Rich text content with markdown-like syntax
 - **Performance Optimized** - Minimal bundle size and fast loading
 
 ## 🛠️ Tech Stack
@@ -72,56 +70,12 @@ This project demonstrates how to build a modern web application using:
 
 ### Installation
 
-1. Clone the repository
 ```bash
-git clone https://github.com/cd-bash/webhub.git
-cd webhub
+git clone https://github.com/cd-bash/webhub.git    // 1. Clone the repository
+npm install                                        // 2. Install dependencies
+npm run dev                                        // 3. Start development server
+npm run build                                      // 4. Build for production
 ```
-
-2. Install dependencies
-```bash
-npm install
-```
-
-3. Start development server
-```bash
-npm run dev
-```
-
-4. Build for production
-```bash
-npm run build
-```
-
-## 📝 Content Management
-
-The project features a flexible content management system:
-
-- **Type-safe content** - All content is TypeScript-typed
-- **Markdown support** - Rich text with markdown-like syntax
-- **Flexible layouts** - Mix different content types in any order
-- **Asset management** - Optimized image and video handling
-
-### Adding Content
-
-Content is managed through TypeScript files in the `src/content/` directory. Each content type is fully typed for safety and autocomplete support.
-
-## 🎨 Styling Architecture
-
-CSS is organized using a scalable architecture:
-
-- **Base styles** - Reset, variables, and typography
-- **Layout systems** - Reusable layout patterns
-- **Components** - Encapsulated component styles
-- **Utilities** - Helper classes and responsive utilities
-- **Views** - Page-specific styling
-
-## 🌐 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
 
 ## 📄 License
 
@@ -137,11 +91,10 @@ All visual content, including but not limited to:
 - Video content and animations
 - Logo designs and branding elements
 - UI/UX design layouts and visual compositions
-- Color schemes and design systems
 
 **© 2025 CD-Labs. All rights reserved.**
 
-The visual content and design elements of this website are proprietary and protected by copyright law. They may not be reproduced, distributed, or used in any form without explicit written permission from CD-Labs.
+The visual content and design elements of this website are proprietary and protected by copyrights. They may not be reproduced, distributed, or used in any form without explicit written permission from CD-Labs.
 
 ### Code License
 
@@ -153,15 +106,11 @@ Any third-party assets used in this project retain their original licenses and c
 
 ---
 
-For licensing inquiries regarding visual content, please contact: [your-email@cd-labs.com]
+For licensing inquiries regarding visual content, please contact: [charles.douc@gmail.com]
 
 ## 🤝 Contributing
 
 This is a personal portfolio project. While the code is open source under the MIT License, the visual content and design are proprietary to CD-Labs.
-
-## 👨‍💻 Author
-
-**Charles Doucet** - [CD-Labs](https://github.com/cd-bash)
 
 ---
 
