@@ -9,7 +9,7 @@ const copyrightText = `© All rights reserved ${new Date().getFullYear()} / cd-l
 
 //-----------------------------------------------------------------------
 
-export function buildFooter(links: FooterLinkItem[] = []) {
+export function buildFooter() {
     const footer = document.createElement("footer");
     footer.id = "main-footer";
 
