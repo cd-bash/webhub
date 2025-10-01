@@ -28,6 +28,12 @@ function init() {
     body.appendChild(contentPage);
     body.appendChild(footer);
 
+    // Debug logging
+    console.log('=== DEBUGGING ROUTER ===');
+    console.log('Current URL:', window.location.href);
+    console.log('Current pathname:', window.location.pathname);
+    console.log('Registered routes:', routes.map(r => r.path));
+    
     // Handle initial route
     router.handleRoute(window.location.pathname);
     
