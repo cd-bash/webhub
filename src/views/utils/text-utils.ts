@@ -4,16 +4,18 @@
  They guarantee the same text styles across all existing views.
  */
 
+import { parseMarkdown } from "./markdown-parser";
+
 export function writeTitle(importance: string,text: string) {
     const title = document.createElement(importance);
-    title.innerHTML = text;
+    title.innerHTML = parseMarkdown(text);
 
     return title;
 }
 
 export function writeParagraph(text: string) {
     const paragraph = document.createElement("p");
-    paragraph.innerHTML = text;
+    paragraph.innerHTML = parseMarkdown(text);
 
     return paragraph;
 }

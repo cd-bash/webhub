@@ -2,7 +2,8 @@
 
 export * from "./home/";
 export * from "./about/";
-export * from "./contact.ts";
+export * from "./contact/";
+export * from "./logs/";
 
 
 // --------------------------------------------------------------------------------

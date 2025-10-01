@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Call to Action Component
-   ========================================================================== */
-
 .cta-banner {
   position: relative;
   width: 100%;
@@ -18,7 +14,7 @@
 .cta-banner article {
   position: relative;
   z-index: var(--z-content);
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-md) 0;
   background-color: white;
   width: fit-content;
   display: grid;
@@ -46,16 +42,16 @@
   flex-wrap: wrap;
 }
 
-/* -------------------------------------------------------------------------- */
 .cta-banner article.right {
   margin-left: auto;
+  padding-left: var(--space-lg);
 }
 
 .cta-banner article.left {
   margin-right: auto;
+  padding-right: var(--space-lg);
 }
 
-/* -------------------------------------------------------------------------- */
 .cta-banner article.right::before {
   content: '';
   position: absolute;
@@ -79,9 +75,6 @@
 }
 
 
-/* ==========================================================================
-   Responsive Styles
-   ========================================================================== */
 
 @media (max-width: 1500px) {
   .cta-banner {
@@ -97,6 +90,8 @@
   .cta-banner article.right, .cta-banner article.left {
     margin-left: 0;
     margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .cta-banner ul {
@@ -115,7 +110,6 @@
   }
 }
 
-/* -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .cta-banner article {
     grid-template-columns: 1fr;

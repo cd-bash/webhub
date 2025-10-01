@@ -1,7 +1,3 @@
-/* ==========================================================================
-   About Page Styles
-   ========================================================================== */
-
 #about-page {
   overflow-x: hidden; /* Hide horizontal overflow for the page */
   
@@ -35,42 +31,39 @@
   }
 
   img {
-    height: 100%; /* Larger height for bigger screens */
+    height: 100%; 
     width: auto;
     position: absolute;
     bottom: 0;
-    right: calc(85% / 2 + 7vw); /* Further outside the text wrapper */
+    right: calc(85% / 2 + 7vw);
     z-index: var(--z-content);
     object-fit: contain;
   }
 
   section.left img {
     right: auto;
-    left: calc(85% / 2 + 5vw); /* Further outside the text wrapper on the left */
+    left: calc(85% / 2 + 5vw); 
   }
 }
 
-/* Allow body to show the overflow on larger screens */
 body {
   overflow-x: visible;
 }
 
 
-/* ==========================================================================
-  Responsive Styles
-  ========================================================================== */
+
 @media (max-width: 1500px) {
   #about-page {
     .first-section {
       img {
         bottom: -15%;
-        left: calc(100% / 2 + 10vw); /* Further outside the text wrapper on the left */
+        left: calc(100% / 2 + 10vw); 
       }
 
     }
 
     section {
-      overflow-x: visible; /* Allow images to extend outside */
+      overflow-x: visible; 
     }
     
     section {
@@ -90,16 +83,18 @@ body {
       height: 100%;
       right: auto;
       bottom: -35%;
-      left: calc(100% / 2 + 10vw); /* Further outside the text wrapper on the left */
+      left: calc(100% / 2 + 10vw); 
     }
 
     section.left img {
       right: auto;
       top: -35%;
-      left: calc(100% / 2 + 10vw); /* Further outside the text wrapper on the left */
+      left: calc(100% / 2 + 10vw); 
     }
   }
 }
+
+
 
 @media (max-width: 768px) {
   #about-page {
@@ -114,7 +109,7 @@ body {
       article {
         padding: var(--space-lg) 0;
         min-height: auto;
-        order: 1; /* Article appears first */
+        order: 1; 
       }
 
       img {
@@ -124,8 +119,8 @@ body {
         left: 0;
         margin: auto 0;
         display: block;
-        order: 2; /* Image appears after article */
-        align-self: center; /* Center horizontally within the flex container */
+        order: 2; 
+        align-self: center;
       }
     }
 

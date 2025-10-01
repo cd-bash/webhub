@@ -1,0 +1,16 @@
+.social-icons {
+    list-style: none;
+    display: flex;
+    gap: var(--space-sm);
+
+    img {
+        width: 30px;
+        height: 30px;
+        filter: var(--filter-icon);
+        transition: filter var(--transition-base);
+
+        &:hover {
+            filter: var(--filter-icon-hover);
+        }
+    }
+}

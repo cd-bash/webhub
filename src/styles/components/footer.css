@@ -1,0 +1,29 @@
+#main-footer {
+    min-height: 75px;
+    width: 85%;
+    margin: 0 auto;
+    
+    .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--space-md) 0;
+        border-top: 1px solid var(--color-border);
+        gap: var(--space-md);
+    }
+    
+    .footer-socials {
+        order: 1;
+        flex-shrink: 0;
+    }
+    
+    .copyrights {
+        order: 2;
+        margin: 0;
+        font-size: var(--text-3xs);
+        text-transform: uppercase;
+        color: var(--color-text-secondary);
+        text-align: left;
+        flex-grow: 1;
+    }
+}
