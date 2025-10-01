@@ -31,6 +31,8 @@
   --text-5xl: clamp(2.5rem, 8vw, 6rem);
   
   /* Spacing */
+  --space-mobile-top-safe: 200px;
+  --space-desktop-top-safe: 150px;
   --space-xxs: clamp(5px, 1.5vw, 10px);
   --space-xs: clamp(10px, 2.5vw, 15px);
   --space-sm: clamp(15px, 3vw, 20px);
