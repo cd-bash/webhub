@@ -1,4 +1,4 @@
-﻿import {writeLink, writeParagraph, writeTitle} from "./utils";
+﻿import {writeLink, writeParagraph, writeTitle} from "../utils";
 
 export function contactView() {
     const article = document.createElement('article');

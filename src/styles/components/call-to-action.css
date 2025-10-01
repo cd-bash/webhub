@@ -18,7 +18,7 @@
 .cta-banner article {
   position: relative;
   z-index: var(--z-content);
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-md) 0;
   background-color: white;
   width: fit-content;
   display: grid;
@@ -49,10 +49,12 @@
 /* -------------------------------------------------------------------------- */
 .cta-banner article.right {
   margin-left: auto;
+  padding-left: var(--space-lg);
 }
 
 .cta-banner article.left {
   margin-right: auto;
+  padding-right: var(--space-lg);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -97,6 +99,8 @@
   .cta-banner article.right, .cta-banner article.left {
     margin-left: 0;
     margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .cta-banner ul {

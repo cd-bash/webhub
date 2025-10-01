@@ -123,7 +123,7 @@
 @media (max-width: 1500px) {
   #log-article {
     header {
-      padding: var(--space-xl) 0;
+      padding-top: var(--space-xl);
 
       #wrapper {
         justify-content: left;
