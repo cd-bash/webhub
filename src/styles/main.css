@@ -1,31 +1,27 @@
-/* ==========================================================================
-   Main Stylesheet - Import Order Matters!
-   ========================================================================== */
-
-/* Base Styles - Reset, variables, typography */
+/* Base */
 @import './base/variables.css';
 @import './base/reset.css';
 @import './base/typography.css';
 
-/* Layout - Grid systems, containers, etc. */
+/* Layout */
 @import './layout/containers.css';
 @import './layout/sections.css';
 @import './layout/backgrounds.css';
 
-/* Components - Reusable UI components */
+/* Components */
 @import './components/buttons.css';
 @import './components/socials.css';
 @import './components/navigation.css';
 @import './components/call-to-action.css';
 @import './components/footer.css';
 
-/* Pages - Page-specific styles */
+/* Views */
 @import './views/home.css';
 @import './views/about.css';
 @import './views/contact.css';
 @import './views/log-article.css';
 
-/* Utilities - Helper classes and overrides */
+/* Utilities */
 @import './utilities/spacing.css';
 @import './utilities/text.css';
 @import './utilities/responsive.css';

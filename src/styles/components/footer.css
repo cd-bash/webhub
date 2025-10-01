@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Footer Component
-   ========================================================================== */
-
 #main-footer {
     min-height: 75px;
     width: 85%;
@@ -17,17 +13,17 @@
     }
     
     .footer-socials {
-        order: 1; /* Ensures socials come first */
-        flex-shrink: 0; /* Prevents shrinking */
+        order: 1;
+        flex-shrink: 0;
     }
     
     .copyrights {
-        order: 2; /* Ensures copyrights come second */
+        order: 2;
         margin: 0;
         font-size: var(--text-3xs);
         text-transform: uppercase;
         color: var(--color-text-secondary);
         text-align: left;
-        flex-grow: 1; /* Takes remaining space */
+        flex-grow: 1;
     }
 }

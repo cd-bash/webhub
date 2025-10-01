@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Buttons - Simplified to match TypeScript function
-   ========================================================================== */
-
 .btn-main {
   display: inline-block;
   font-family: var(--font-secondary);

@@ -1,7 +1,3 @@
-/* ==========================================================================
-   CSS Custom Properties (Variables)
-   ========================================================================== */
-
 :root {
   /* Colors */
   --color-primary: #3BFFC5;
@@ -46,7 +42,7 @@
   --radius-sm: clamp(15px, 4vw, 18px);
   --radius-md: clamp(18px, 5vw, 20px);
   
-  /* Breakpoints (for reference in media queries) */
+  /* Breakpoints */
   --bp-mobile: 480px;
   --bp-tablet: 768px;
   --bp-desktop: 1024px;
@@ -58,7 +54,7 @@
   --transition-slow: 0.5s ease;
   --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   
-  /* Z-Index Scale */
+  /* Z-Index */
   --z-background: -1;
   --z-base: 0;
   --z-content: 1;

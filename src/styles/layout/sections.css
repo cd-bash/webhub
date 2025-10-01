@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Layout - Sections
-   ========================================================================== */
-
 section {
   width: 100%;
   margin: 0;
@@ -30,7 +26,6 @@ section article p {
   max-width: clamp(500px, 90%, 750px);
 }
 
-/* Full height sections */
 .section--full-height {
   min-height: 100vh;
   height: 100vh;
@@ -38,7 +33,6 @@ section article p {
   align-items: center;
 }
 
-/* Section with background */
 .section--with-background {
   position: relative;
   overflow: hidden;
@@ -54,12 +48,12 @@ section article p {
   z-index: var(--z-background);
 }
 
-/* Padded sections */
 .section--padded {
   padding: var(--space-3xl) 0;
 }
 
-/* Responsive section adjustments */
+
+
 @media (max-width: 768px) {
   section {
     padding: 0 var(--space-sm);
