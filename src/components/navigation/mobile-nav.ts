@@ -17,6 +17,7 @@ export function buildMobileNav(links : LinkItem[]) {
     
     menuButtonElement.addEventListener('click', () => {
         mobileNav.classList.toggle('menu-open');
+        document.body.classList.toggle('mobile-menu-open');
     });
 
     return mobileNav;

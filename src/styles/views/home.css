@@ -29,6 +29,9 @@
       align-items: center;
 
       p {
+        text-shadow: 
+          0 2px 4px rgba(0, 0, 0, 0.7),
+          0 4px 8px rgba(0, 0, 0, 0.5);
         font-size: var(--text-base);
         max-width: min(630px, 80vw);
         margin-top: var(--space-xl);

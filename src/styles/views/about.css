@@ -99,7 +99,7 @@ body {
 @media (max-width: 768px) {
   #about-page {
     .first-section {
-      padding: var(--space-3xl) 0 0 0;
+      padding: var(--space-mobile-top-safe) 0 0 0;
       
       #wrapper {
         display: flex;

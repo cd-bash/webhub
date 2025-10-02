@@ -134,3 +134,24 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  #log-article {
+    header {
+      padding-top: var(--space-mobile-top-safe);
+      min-height: 50vh;
+
+      #wrapper {
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0;
+        min-height: 50vh;
+      }
+
+      .title-container {
+        justify-content: start;
+        width: 100%;
+      }
+    }
+  }
+}
