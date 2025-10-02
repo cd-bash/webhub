@@ -18,6 +18,11 @@ class Router {
     public navigate(path: string) {
         window.history.pushState({}, '', path);
         this.handleRoute(path);
+        
+        // Scroll to top unless it's an anchor link
+        if (!path.includes('#')) {
+            window.scrollTo(0, 0);
+        }
     }
 
     public handleRoute(path: string) {

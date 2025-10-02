@@ -50,12 +50,23 @@ function setupNavigationHandling() {
             
             // Handle the route with your router
             router.handleRoute(path);
+            
+            // Scroll to top unless it's an anchor link
+            if (!path.includes('#')) {
+                window.scrollTo(0, 0);
+            }
         }
     });
     
     // Handle browser back/forward buttons
     window.addEventListener('popstate', () => {
-        router.handleRoute(window.location.pathname);
+        const path = window.location.pathname;
+        router.handleRoute(path);
+        
+        // Scroll to top on back/forward navigation (unless anchor)
+        if (!window.location.hash) {
+            window.scrollTo(0, 0);
+        }
     });
 }
 
