@@ -6,7 +6,7 @@ import { buildFooter } from "./components/footer";
 
 
 const routes = [
-    { path: '', handler: () => renderView(homeView()) },        // Handles both / and empty
+    { path: '', handler: () => renderView(homeView()) },
     { path: '/about', handler: () => renderView(aboutView()) },
     { path: '/logs', handler: () => renderView(logArticleView()) },
     { path: '/contact', handler: () => renderView(contactView()) } 
@@ -28,12 +28,6 @@ function init() {
     body.appendChild(contentPage);
     body.appendChild(footer);
 
-    // Debug logging
-    console.log('=== DEBUGGING ROUTER ===');
-    console.log('Current URL:', window.location.href);
-    console.log('Current pathname:', window.location.pathname);
-    console.log('Registered routes:', routes.map(r => r.path));
-    
     // Handle initial route
     router.handleRoute(window.location.pathname);
     

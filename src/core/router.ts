@@ -21,25 +21,17 @@ class Router {
     }
 
     public handleRoute(path: string) {
-        console.log('=== HANDLE ROUTE ===');
-        console.log('Raw path:', path);
-        
         // Normalize path - treat empty string and "/" as the same
         const normalizedPath = path === '' || path === '/' ? '' : path;
-        console.log('Normalized path:', normalizedPath);
         
         for (const [route, handler] of this.routes.entries()) {
-            console.log(`Checking route: "${route}" against path: "${normalizedPath}"`);
             const match = this.matchRoute(route, normalizedPath);
             if (match) {
-                console.log(`✅ MATCH FOUND for route: "${route}"`);
                 handler(match.params);
                 return;
             }
         }
-        console.log('❌ NO MATCH FOUND');
         buildErrorPage();
-        console.error(`No handler found for path: ${path}`);
     }
 
     private matchRoute(route: string, path: string) {
