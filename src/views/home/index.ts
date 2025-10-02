@@ -50,7 +50,7 @@ function hookSection(content: HookContent) {
 
   article.appendChild(writeTitle("h1", content.header));
   article.appendChild(writeParagraph(content.body));
-  article.appendChild(createArrowButton());
+  article.appendChild(createArrowButton('.content-section'));
   wrapper.appendChild(article);
   hook.appendChild(videoBg);
   hook.appendChild(wrapper);

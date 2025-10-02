@@ -9,12 +9,28 @@ export type MainButtonOptions = {
 
 // ------------------------------------------------------------------------
 
-export function createArrowButton() {
+export function createArrowButton(nextElement: string) {
     const button = document.createElement('button');
     button.className = 'btn-arrow';
     button.innerHTML = `<img src="${ARROW_ICON}" alt="Scroll Down">`;
     
+    // Add click event to scroll to next section
+    button.addEventListener('click', () => {
+        scrollToNextSection(nextElement);
+    });
+    
     return button;
+}
+
+function scrollToNextSection(scrollTo: string) {
+    // Find the target element to scroll to
+    const targetElement = document.querySelector(scrollTo);
+    if (targetElement) {
+        targetElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
 }
 
 export function createMainButton(options: MainButtonOptions) {
