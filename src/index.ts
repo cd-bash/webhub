@@ -41,19 +41,36 @@ function setupNavigationHandling() {
         const target = e.target as HTMLElement;
         const link = target.closest('a');
         
-        if (link && link.getAttribute('href')?.startsWith('/')) {
-            e.preventDefault(); // Stop the browser from navigating
-            const path = link.getAttribute('href')!;
+        if (link) {
+            const href = link.getAttribute('href');
             
-            // Update the URL without refreshing the page
-            window.history.pushState({}, '', path);
+            // Handle anchor links (same page)
+            if (href?.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+                return;
+            }
             
-            // Handle the route with your router
-            router.handleRoute(path);
-            
-            // Scroll to top unless it's an anchor link
-            if (!path.includes('#')) {
-                window.scrollTo(0, 0);
+            // Handle page navigation
+            if (href?.startsWith('/')) {
+                e.preventDefault(); // Stop the browser from navigating
+                const path = href;
+                
+                // Update the URL without refreshing the page
+                window.history.pushState({}, '', path);
+                
+                // Handle the route with your router
+                router.handleRoute(path);
+                
+                // Scroll to top unless it's an anchor link
+                if (!path.includes('#')) {
+                    window.scrollTo(0, 0);
+                }
             }
         }
     });

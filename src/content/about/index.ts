@@ -3,6 +3,7 @@
 import MANIFESTO_IMG from './assets/about-manifesto-visual.png';
 import PATH_IMG from './assets/about-path-visual.png';
 import INITIATIVE_IMG from './assets/about-initiative-visual.png';
+import { socials } from '../../components/socials';
 
 export const aboutContent: AboutPageContentStructure = {
     manifesto: {
@@ -22,8 +23,8 @@ export const aboutContent: AboutPageContentStructure = {
         header: "Save your progress",
         body: "Don't lose your place in our story. Follow along for development checkpoints, sneak peeks, and insights into our design process.",
         buttons: [
-            { text: "Follow on Instagram", path: "#", styleType: "primary", contrastMode: 'light' },
-            { text: "See logs", path: "#", styleType: "secondary", contrastMode: 'light' }
+            { text: "Follow on Instagram", path: socials.instagram.url, styleType: "primary", contrastMode: 'light', target: '_blank' },
+            { text: "See logs", path: "/logs", styleType: "secondary", contrastMode: 'light' }
         ],
         alignment: 'right'
     },
@@ -49,11 +50,11 @@ export const aboutContent: AboutPageContentStructure = {
     },
 
     ctaBannerB: {
-        header: "Join our journey",
-        body: "Be part of something exciting! Follow us on social media and stay updated with our latest news and developments.",
+        header: "Ready to press start?",
+        body: "Follow the development of Aqua, chat with other players, and get behind-the-scenes updates in the official cd-labs Discord server.",
         buttons: [
-            { text: "Follow on Twitter", path: "#", styleType: "primary", contrastMode: 'light' },
-            { text: "Like on Facebook", path: "#", styleType: "secondary", contrastMode: 'light' }
+            { text: "Join the Discord", path: "#", styleType: "primary", contrastMode: 'light' },
+            { text: "Follow Development", path: socials.github.url, styleType: "secondary", contrastMode: 'light', target: '_blank' }
         ],
         alignment: 'left'
     },  

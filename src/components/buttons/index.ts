@@ -5,6 +5,7 @@ export type MainButtonOptions = {
     path: string;
     styleType: 'primary' | 'secondary';
     contrastMode: 'light' | 'dark';
+    target?: '_self' | '_blank';
 };
 
 // ------------------------------------------------------------------------
@@ -41,6 +42,7 @@ export function createMainButton(options: MainButtonOptions) {
     button.innerHTML = text;
     button.href = path;
     button.role = 'button';
+    button.target = options.target || '_self';
     
     return button;
 }

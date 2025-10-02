@@ -1,4 +1,5 @@
 ﻿import {HomePageContentStructure} from "../../views";
+import { socials } from "../../components/socials";
 
 import HOOK_VIDEO_WEBM from './assets/cd-labs-hook-animation.webm';
 import HOOK_VIDEO_MP4 from './assets/cd-labs-hook-animation.mp4';
@@ -43,7 +44,7 @@ export const homePageContent: HomePageContentStructure = {
             mobileMp4: PHILOSOPHY_VIDEO_MOBILE_MP4,
         },
 
-        introTitle: "Our Game Design Philosophy",
+        introTitle: "Game Design Philosophy",
         header: "Games that respect <span class='highlight'>your time.</span>",
         
         paragraphs: [
@@ -51,8 +52,8 @@ export const homePageContent: HomePageContentStructure = {
             "That's why I started cd-labs. My goal is to deliver compact, complete gaming experiences that honor your schedule. Each game is a focused, handcrafted quest meant to be enjoyed in a single sitting or over a few evenings.",
         ],
         buttons: [
-            { text: "Read More", path: "#", styleType: "secondary", contrastMode: 'dark' },
-            { text: "First Production", path: "#", styleType: "primary", contrastMode: 'dark' }
+            { text: "Read More", path: "/about", styleType: "secondary", contrastMode: 'dark' },
+            { text: "First Production", path: "#teaser", styleType: "primary", contrastMode: 'dark' }
         ],
 
         alignment: 'left'
@@ -78,8 +79,7 @@ export const homePageContent: HomePageContentStructure = {
         ],
 
         buttons: [
-            { text: "Whishlist on Steam", path: "#", styleType: "primary", contrastMode: 'dark' },
-            { text: "Follow Development", path: "#", styleType: "secondary", contrastMode: 'dark' }
+            { text: "Follow Development", path: socials.instagram.url, styleType: "primary", contrastMode: 'dark', target: '_blank' }
         ],
 
         alignment: 'right'
@@ -90,8 +90,8 @@ export const homePageContent: HomePageContentStructure = {
         header: "Save your progress",
         body: "Don't lose your place in our story. Follow along for development checkpoints, sneak peeks, and insights into our design process.",
         buttons: [
-            { text: "Follow on Instagram", path: "#", styleType: "primary", contrastMode: 'light' },
-            { text: "See logs", path: "#", styleType: "secondary", contrastMode: 'light' }
+            { text: "Follow on Instagram", path: socials.instagram.url, styleType: "primary", contrastMode: 'light', target: '_blank' },
+            { text: "See logs", path: "/logs", styleType: "secondary", contrastMode: 'light' }
         ],
         alignment: 'right'
     },
@@ -114,8 +114,8 @@ export const homePageContent: HomePageContentStructure = {
         ],
 
         buttons: [
-            { text: "Let's connect", path: "#", styleType: "primary", contrastMode: 'dark' },
-            { text: "Read my story", path: "#", styleType: "secondary", contrastMode: 'dark' },
+            { text: "Let's connect", path: socials.linkedin.url, styleType: "primary", contrastMode: 'dark', target: '_blank' },
+            { text: "Read my story", path: "/about", styleType: "secondary", contrastMode: 'dark' },
         ],
 
         alignment: 'left'
@@ -139,8 +139,8 @@ export const homePageContent: HomePageContentStructure = {
             "I apply the same philosophy of focused, user-centric design to these projects, helping build everything from polished prototypes to unique web applications. It's a chance to tackle new challenges and help bring other exciting visions to life.",
         ],
         buttons: [
-            { text: "Start a side quest", path: "#", styleType: "primary", contrastMode: 'dark' },
-            { text: "See our main quest", path: "#", styleType: "secondary", contrastMode: 'dark' }
+            { text: "Start a side quest", path: "/contact", styleType: "primary", contrastMode: 'dark' },
+            { text: "See our main quest", path: "#teaser", styleType: "secondary", contrastMode: 'dark' }
         ],
         
         alignment: 'right'
@@ -152,7 +152,7 @@ export const homePageContent: HomePageContentStructure = {
         body: "Follow the development of Aqua, chat with other players, and get behind-the-scenes updates in the official cd-labs Discord server.",
         buttons: [
             { text: "Join the Discord", path: "#", styleType: "primary", contrastMode: 'light' },
-            { text: "Learn More", path: "#", styleType: "secondary", contrastMode: 'light' }
+            { text: "Follow Development", path: socials.github.url, styleType: "secondary", contrastMode: 'light', target: '_blank' }
         ],
         alignment: 'left'
     },

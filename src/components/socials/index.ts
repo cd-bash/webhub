@@ -2,29 +2,23 @@ import GITHUB_ICON from './assets/github-icon.svg';
 import LINKEDIN_ICON from './assets/linkedin-icon.svg';
 import INSTAGRAM_ICON from './assets/instagram-icon.svg';
 
-type social = {
-    name: string;
-    url: string;
-    iconSrc: string;
-}
-
-export const socials: social[] = [
-    {
+export const socials = {
+    github: {
         name: 'GitHub',
         url: 'https://github.com/cd-bash',
         iconSrc: GITHUB_ICON,
     },
-    {
+    linkedin: {
         name: 'LinkedIn',
         url: 'https://www.linkedin.com/in/charlesdouc/',
         iconSrc: LINKEDIN_ICON,
     },
-    {
+    instagram: {
         name: 'Instagram',
         url: 'https://www.instagram.com/cd.oucet/',
         iconSrc: INSTAGRAM_ICON,
     },
-]
+}
 
 //-----------------------------------------------------------------------
 
@@ -32,7 +26,7 @@ export function insertAllSocials() {
     const container = document.createElement('ul');
     container.className = 'social-icons';
 
-    socials.forEach(social => {
+    Object.values(socials).forEach(social => {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.href = social.url;
