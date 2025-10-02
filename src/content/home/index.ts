@@ -28,8 +28,8 @@ import SIDEQUESTS_VIDEO_MOBILE_MP4 from './assets/cd-labs-sidequests-mobile-anim
 
 export const homePageContent: HomePageContentStructure = {
     hook: {
-        header: "When was the last time you <span class='highlight'>finished</span> a game?",
-        body: "CD-Labs’ initiative is to design <b>complete</b> gaming experiences for <b>busy lives</b>.",
+        header: "When was the last time you **finished** a game?",
+        body: "CD-Labs’ initiative is to design **complete** gaming experiences for **busy lives**.",
         videoWebem: HOOK_VIDEO_WEBM,
         videoMp4: HOOK_VIDEO_MP4,
     },
@@ -48,8 +48,8 @@ export const homePageContent: HomePageContentStructure = {
         header: "Games that respect <span class='highlight'>your time.</span>",
         
         paragraphs: [
-            "I believe gaming should be an escape, not a second job. But as games have gotten bigger and more demanding, it's become harder to find the time to even finish one.",
-            "That's why I started cd-labs. My goal is to deliver compact, complete gaming experiences that honor your schedule. Each game is a focused, handcrafted quest meant to be enjoyed in a single sitting or over a few evenings.",
+            "I believe gaming should be an escape, not a **second job**. But as games have gotten bigger and more demanding, it's become harder to find the time to even **finish one**.",
+            "That's why I started cd-labs. My goal is to deliver compact, **complete gaming experiences** that honor **your schedule**. Each game is a focused, handcrafted quest meant to be enjoyed in a **single sitting** or over a **few evenings**.",
         ],
         buttons: [
             { text: "Read More", path: "/about", styleType: "secondary", contrastMode: 'dark' },
@@ -70,11 +70,11 @@ export const homePageContent: HomePageContentStructure = {
         },
 
         introTitle: "The First Experience is Taking Shape",
-        header: "Project <span class='highlight'>Aqua</span>",
+        header: "Project **Aqua**",
 
         paragraphs: [
-            "Inspired by the frustrations of everyday bad design, Aqua places you in a sleek testing facility. Your mission: master a series of deceptively simple shower prototypes.",
-            "In this fast-paced puzzler, can you solve one of design's most infuriating problems—the shower interface—and calibrate each prototype?",
+            "Inspired by the frustrations of **everyday bad design**, Aqua places you in a sleek testing facility. Your mission: master a series of deceptively **simple shower prototypes**.",
+            "In this fast-paced puzzler, can you solve one of design's most infuriating problems -> **the shower interface**, and calibrate each prototype?",
             "<b>A sharp puzzle and a fresh perspective distilled into a single, focused game.</b"
         ],
 
@@ -88,7 +88,7 @@ export const homePageContent: HomePageContentStructure = {
     // ------------------------------------------------------------------------
     ctaBannerA: {
         header: "Save your progress",
-        body: "Don't lose your place in our story. Follow along for development checkpoints, sneak peeks, and insights into our design process.",
+        body: "Don't lose your place in the story. Follow along for **development checkpoints**, **sneak peeks**, and insights into CD's **design process**.",
         buttons: [
             { text: "Follow on Instagram", path: socials.instagram.url, styleType: "primary", contrastMode: 'light', target: '_blank' },
             { text: "See logs", path: "/logs", styleType: "secondary", contrastMode: 'light' }
@@ -106,11 +106,11 @@ export const homePageContent: HomePageContentStructure = {
             mobileMp4: FOUNDER_VIDEO_MOBILE_MP4,
         },
 
-        header: "Who is <span class='highlight'>CD</span>?",
+        header: "Who is **CD**",
 
         paragraphs: [
-            "Hi, I'm CD. After more than a decade as a professional designer and developer in marketing, web, and the AAA games industry, I decided to take a different path. I left the world of blockbuster recipes behind to focus on what I love most: crafting truly unique gameplay ideas.",
-            "My goal with cd-labs is simple: to bring back that classic feeling of seeing a story through to its conclusion. I design my games to leave you feeling satisfied and inspired, not drained by an endless time commitment.",
+            "Hi, I'm CD. After more than a decade as a **professional designer and developer** in marketing, web, and the AAA games industry, I decided to take a **different path**. I left the world of blockbuster recipes behind to focus on what I love most: **crafting truly unique gameplay ideas**.",
+            "My goal with cd-labs is simple: to **bring back that classic feeling of seeing a story through to its conclusion**. I design my games to leave you feeling satisfied and inspired, not drained by an endless time commitment.",
         ],
 
         buttons: [
@@ -132,11 +132,11 @@ export const homePageContent: HomePageContentStructure = {
         },
 
         introTitle: "Collaborating on New Interactive Adventures",
-        header: "Side Quests",
+        header: "**Side Quests**",
         
         paragraphs: [
-            "While my main quest is crafting original games for cd-labs, I also take on special contract work. These 'side quests' allow me to collaborate with innovative clients on their own interactive adventures.",
-            "I apply the same philosophy of focused, user-centric design to these projects, helping build everything from polished prototypes to unique web applications. It's a chance to tackle new challenges and help bring other exciting visions to life.",
+            "While my main quest is crafting original games for cd-labs, I also take on special **contract work**. These 'side quests' allow me to collaborate with innovative clients on their own **interactive adventures**.",
+            "I apply the same philosophy of **focused**, **user-centric design** to these projects, helping build everything from polished **prototypes** to unique **web applications**. It's a chance to tackle new challenges and help bring other **exciting visions** to life.",
         ],
         buttons: [
             { text: "Start a side quest", path: "/contact", styleType: "primary", contrastMode: 'dark' },
