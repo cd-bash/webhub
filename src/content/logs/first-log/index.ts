@@ -24,7 +24,7 @@ export const firstLogContent: LogArticleContentStructure = {
         {
             type: 'intro',
             data: [
-                "In an era of complex frameworks and numerous dependencies, I chose a different path for my personal website. Instead of using *React*, *Vue*, or *Angular*, I built a fully-featured web application primarily with **TypeScript** and **Vite** for compiling.",
+                "In an era of **complex frameworks** and **numerous dependencies**, I chose a different path for this website. Instead of using *React*, *Vue*, or *Angular*, I built a fully-featured web application primarily with **TypeScript** and **Vite** for compiling.",
             ]
         },
         {
@@ -234,7 +234,7 @@ export const firstLogContent: LogArticleContentStructure = {
             data: [
                 "My primary focus was on the four core architectural layers, but I also took on the development of the back-end. While back-end development isn't my primary area of expertise, as I find it can be overly abstract and rigid. I normally prefer to concentrate on an application's aesthetics and functionalities rather than the behind the scene *magic*. Nonetheless, I developed two simplified systems for event bus and routing for the website.",
                 "These systems were developed using only the capabilities of TypeScript, without any external libraries, to manage event subscriptions and website navigation. I used Vite for compiling and building the project into a web app.",
-                "Huge thanks to @papshed for the help in understanding the underlying principles and for providing support and peer reviews throughout the process.",
+                "Huge thanks to [@papshed](https://github.com/papshed) for the help in understanding the underlying principles and for providing support and peer reviews throughout the process.",
             ]
         },
 

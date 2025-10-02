@@ -6,14 +6,14 @@
   text-align: center;
   text-decoration: none;
   border: 2px solid;
-  border-radius: var(--radius-md);
+  border-radius: clamp(24px, 6vw, 28px);
   cursor: pointer;
   transition: all var(--transition-base);
   backdrop-filter: blur(30px);
-  min-width: clamp(180px, 45vw, 220px);
-  height: clamp(36px, 10vw, 40px);
-  line-height: clamp(32px, 8vw, 36px);
-  font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+  min-width: clamp(180px, 45vw, 250px);
+  height: clamp(48px, 12vw, 55px);
+  line-height: clamp(44px, 10vw, 51px);
+  font-size: var(--text-base);
 }
 
 .btn-main.primary-dark {
@@ -64,26 +64,35 @@
 .btn-arrow {
   width: clamp(60px, 15vw, 75px);
   height: clamp(60px, 15vw, 75px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.15);
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.08);
   margin: var(--space-sm) auto 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition-base);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .btn-arrow:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
+  box-shadow: 
+    0 3px 6px rgba(0, 0, 0, 0.5),
+    0 6px 12px rgba(0, 0, 0, 0.3);
 }
+
 .btn-arrow img {
   width: 20px;
   height: 20px;
   object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 /* -------------------------------------------------------------------------- */

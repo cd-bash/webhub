@@ -18,11 +18,16 @@
       margin: 0;
       list-style: none;
       
-      border: 2px solid rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.15);
       border-radius: 30px;
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
+      
+      /* Soft shadow for better visibility */
+      box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     li a {
@@ -46,6 +51,10 @@
     left: 55px;
     z-index: var(--z-overlay);
     transition: all var(--transition-smooth);
+    
+    /* Soft shadow for better visibility */
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)) 
+            drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 
     img {
       width: 95px;
@@ -66,6 +75,11 @@
       font-size: 2em;
       font-weight: 900;
       transition: opacity var(--transition-base);
+      
+      /* Soft text shadow for better visibility */
+      text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     &.scrolled {
@@ -79,7 +93,19 @@
         pointer-events: none;
       }
     }
+
+    /* Hide logo text when mobile menu is open */
+    &.menu-open p {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
+}
+
+/* Hide desktop main logo text when mobile menu is open */
+body.mobile-menu-open .main-logo p {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Mobile Navigation */
@@ -93,11 +119,16 @@
   min-height: 60px;
   z-index: var(--z-overlay);
   
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.15);
   border-top: 0;
   border-radius: 0 0 15px 15px;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(30px);
+  
+  /* Soft shadow for better visibility */
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.2);
   -webkit-backdrop-filter: blur(30px);
 
   .main-logo {
@@ -199,6 +230,11 @@
     max-height: 300px;
     opacity: 1;
     padding: 20px 0 70px 0;
+
+    .main-logo p {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 }
 

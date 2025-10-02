@@ -84,7 +84,7 @@
       .bio-container {
          flex-direction: column;
          justify-content: center;
-         text-align: center;
+         text-align: left;
          gap: var(--space-xl);
 
          .profile-picture {

@@ -33,9 +33,13 @@ type sectionBackgrounds = {
 
 // --------------------------------------------------------------------------------
 
-export function createContentSection(content: SectionContent) {
+export function createContentSection(content: SectionContent, sectionName?: string) {
     const section = document.createElement('section');
     
+    if (sectionName) {
+        section.id = sectionName;
+    }
+
     const wrapper = createWrapper();
     const article = document.createElement('article');
 
@@ -50,7 +54,7 @@ export function createContentSection(content: SectionContent) {
     mobileVideoBg.classList.add('mobile-bg');
     
     
-    section.className = `content-section ${content.alignment}`;
+    section.className = `content-section ${content.alignment} &`;
     //section.style.backgroundImage = `url('${content.sectionBG}')`;
     section.appendChild(desktopPixelGrid);
     section.appendChild(mobilePixelGrid);

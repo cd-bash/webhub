@@ -28,11 +28,11 @@ export function homeView() {
   page.id = 'home-page';
 
   page.appendChild(hookSection(homePageContent.hook));
-  page.appendChild(createContentSection(homePageContent.philosophy));
-  page.appendChild(createContentSection(homePageContent.teaser));
+  page.appendChild(createContentSection(homePageContent.philosophy, 'philosophy'));
+  page.appendChild(createContentSection(homePageContent.teaser, 'teaser'));
   page.appendChild(createPixelBannerCTA(homePageContent.ctaBannerA));
-  page.appendChild(createContentSection(homePageContent.founder));
-  page.appendChild(createContentSection(homePageContent.sideQuests));
+  page.appendChild(createContentSection(homePageContent.founder, 'founder'));
+  page.appendChild(createContentSection(homePageContent.sideQuests, 'side-quests'));
   page.appendChild(createPixelBannerCTA(homePageContent.ctaBannerB));
 
   return page;
