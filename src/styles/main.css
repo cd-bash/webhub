@@ -20,8 +20,3 @@
 @import './views/about.css';
 @import './views/contact.css';
 @import './views/log-article.css';
-
-/* Utilities */
-@import './utilities/spacing.css';
-@import './utilities/text.css';
-@import './utilities/responsive.css';

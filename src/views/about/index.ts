@@ -5,7 +5,7 @@ import { createPixelBannerCTA, CallToActionOptions } from "../../components/call
 import { aboutContent } from "../../content/about";
 
 const pixelGridConfigs: GRID_CONFIG = {
-    columns: 7,  // Used for top alignment (was rows: 2, now more columns for better coverage)
+    columns: 7,  
     colors: ['#0f0f0f', '#2a2a2a', '#181818']
 }
 

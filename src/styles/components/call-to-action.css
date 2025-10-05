@@ -103,13 +103,14 @@
     display: none;
   }
   
-  /* Hide the white extensions since we have full white background */
   .cta-banner article.right::before,
   .cta-banner article.left::before {
     display: none;
   }
 }
 
+
+/* -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .cta-banner article {
     grid-template-columns: 1fr;

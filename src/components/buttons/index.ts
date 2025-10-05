@@ -24,7 +24,6 @@ export function createArrowButton(nextElement: string) {
 }
 
 function scrollToNextSection(scrollTo: string) {
-    // Find the target element to scroll to
     const targetElement = document.querySelector(scrollTo);
     if (targetElement) {
         targetElement.scrollIntoView({ 

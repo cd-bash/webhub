@@ -4,12 +4,12 @@ import {createWrapper, writeParagraph, writeTitle} from "../utils";
 import { createPixelGridBackground, createVideoBackground } from '../utils/backgrounds-utils';
 
 const pixelGridConfigs: GRID_CONFIG = {
-    rows: 6,  // Used for left/right alignments
+    rows: 6,  
     colors: ['#0f0f0f', '#2a2a2a', '#181818']
 }
 
 const pixelGridConfigsMobile: GRID_CONFIG = {
-    columns: 6,  // Used for top alignment (was rows: 4, now more columns for finer detail)
+    columns: 6,  
     colors: ['#0f0f0f', '#2a2a2a', '#181818']
 }
 
@@ -73,7 +73,6 @@ export function createContentSection(content: SectionContent, sectionName?: stri
     section.appendChild(mobileVideoBg);
     section.appendChild(wrapper);
     
-    // Set up scroll-driven video scrubbing
     setupVideoOnScroll(section, desktopVideoBg);
     setupVideoOnScroll(section, mobileVideoBg);
     
@@ -115,17 +114,15 @@ function setupVideoOnScroll(section: HTMLElement, videoBg: HTMLVideoElement) {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Section is visible, play the video
                 videoBg.play().catch(error => {
                     console.log('Video autoplay failed:', error);
                 });
             } else {
-                // Section is not visible, pause the video
                 videoBg.pause();
             }
         });
     }, {
-        threshold: 0.5 // Trigger when 50% of the section is visible
+        threshold: 0.5 
     });
 
     observer.observe(section);

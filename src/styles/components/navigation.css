@@ -24,7 +24,6 @@
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
       
-      /* Soft shadow for better visibility */
       box-shadow: 
         0 2px 4px rgba(0, 0, 0, 0.4),
         0 4px 8px rgba(0, 0, 0, 0.2);
@@ -52,7 +51,6 @@
     z-index: var(--z-overlay);
     transition: all var(--transition-smooth);
     
-    /* Soft shadow for better visibility */
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)) 
             drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 
@@ -76,7 +74,6 @@
       font-weight: 900;
       transition: opacity var(--transition-base);
       
-      /* Soft text shadow for better visibility */
       text-shadow: 
         0 2px 4px rgba(0, 0, 0, 0.4),
         0 4px 8px rgba(0, 0, 0, 0.2);
@@ -94,7 +91,6 @@
       }
     }
 
-    /* Hide logo text when mobile menu is open */
     &.menu-open p {
       opacity: 0;
       pointer-events: none;
@@ -102,13 +98,13 @@
   }
 }
 
-/* Hide desktop main logo text when mobile menu is open */
 body.mobile-menu-open .main-logo p {
   opacity: 0;
   pointer-events: none;
 }
 
-/* Mobile Navigation */
+
+/* -------------------------------------------------------------------------- */
 #mobile-nav {
   display: none;
   position: fixed;
