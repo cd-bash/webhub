@@ -19,14 +19,12 @@ class Router {
         window.history.pushState({}, '', path);
         this.handleRoute(path);
         
-        // Scroll to top unless it's an anchor link
         if (!path.includes('#')) {
             window.scrollTo(0, 0);
         }
     }
 
     public handleRoute(path: string) {
-        // Normalize path - treat empty string and "/" as the same
         const normalizedPath = path === '' || path === '/' ? '' : path;
         
         for (const [route, handler] of this.routes.entries()) {
@@ -40,12 +38,10 @@ class Router {
     }
 
     private matchRoute(route: string, path: string) {
-        // Handle root route specially
         if (route === '' && (path === '' || path === '/')) {
             return { params: {} };
         }
         
-        // Handle other routes
         const routeParts = route.split('/').filter(Boolean);
         const pathParts = path.split('/').filter(Boolean);
 

@@ -9,7 +9,6 @@
   z-index: var(--z-content);
 }
 
-/* Content containers */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -25,7 +24,6 @@
   max-width: 1400px;
 }
 
-/* Flex utilities */
 .flex {
   display: flex;
 }
@@ -47,7 +45,6 @@
   flex-wrap: wrap;
 }
 
-/* Grid utilities */
 .grid {
   display: grid;
 }
@@ -57,7 +54,9 @@
   gap: var(--space-md);
 }
 
-/* Responsive container adjustments */
+
+
+/* -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   #wrapper {
     width: 90%;

@@ -1,10 +1,4 @@
-﻿/*
- TEXT-UTILITIES
- Are functions used to create text elements like paragraphs and headlines.
- They guarantee the same text styles across all existing views.
- */
-
-import { parseMarkdown } from "./markdown-parser";
+﻿import { parseMarkdown } from "./markdown-parser";
 
 export function writeTitle(importance: string,text: string) {
     const title = document.createElement(importance);

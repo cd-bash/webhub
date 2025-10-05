@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Markdown Parser Utility
-   ========================================================================== */
-
 /**
  * Parses markdown-like syntax and converts it to HTML
  * Supported syntax:

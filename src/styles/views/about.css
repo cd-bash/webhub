@@ -1,5 +1,5 @@
 #about-page {
-  overflow-x: hidden; /* Hide horizontal overflow for the page */
+  overflow-x: hidden; 
   
   .first-section {
     padding: 0;
@@ -14,7 +14,7 @@
 
   section {
     position: relative;
-    overflow-x: visible; /* Allow images to extend outside */
+    overflow-x: visible; 
     padding: var(--space-3xl) 0;
 
     .scroll-video-background {
@@ -51,7 +51,7 @@ body {
 }
 
 
-
+/* -------------------------------------------------------------------------- */
 @media (max-width: 1500px) {
   #about-page {
     .first-section {
@@ -93,7 +93,6 @@ body {
     }
   }
 }
-
 
 
 @media (max-width: 768px) {

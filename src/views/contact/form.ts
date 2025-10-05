@@ -3,7 +3,7 @@ import { writeParagraph, writeTitle } from '../utils/';
 export type ContactFormOptions = {
     readonly formTitle: string;
     readonly formInstructions: string;
-    readonly embedCode: string; // Google form embed HTML code
+    readonly embedCode: string; 
 }
 
 // --------------------------------------------------------------------------------
@@ -28,19 +28,16 @@ export function createContactForm(options: ContactFormOptions) {
 // --------------------------------------------------------------------------------
 
 function form(embedCode: string) {
-    // Create a wrapper div and insert the Google Forms embed code directly
     const iframeWrapper = document.createElement('div');
     iframeWrapper.className = 'iframe-wrapper';
     iframeWrapper.innerHTML = embedCode;
     
-    // Add custom styling to the embedded iframe
     const iframe = iframeWrapper.querySelector('iframe');
     if (iframe) {
         iframe.className = 'contact-form';
         iframe.setAttribute('loading', 'lazy');
-        iframe.setAttribute('scrolling', 'no'); // Try to disable scrolling
+        iframe.setAttribute('scrolling', 'no');
         
-        // Try to modify the URL to hide scrollbars
         const currentSrc = iframe.src;
         if (currentSrc && !currentSrc.includes('scrolling=no')) {
             const separator = currentSrc.includes('?') ? '&' : '?';
