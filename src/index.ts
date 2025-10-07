@@ -1,5 +1,5 @@
 import { router } from "./core/router";
-import {homeView, aboutView, buildViewBase, renderView, logArticleView, contactView} from "./views";
+import {homeView, aboutView, buildViewBase, renderView, logsView, logArticleView, contactView} from "./views";
 import {buildNavigation} from "./components/navigation";
 import {changeLogoOnScroll} from "./components/navigation/logo";
 import { buildFooter } from "./components/footer";
@@ -8,7 +8,15 @@ import { buildFooter } from "./components/footer";
 const routes = [
     { path: '', handler: () => renderView(homeView()) },
     { path: '/about', handler: () => renderView(aboutView()) },
-    { path: '/logs', handler: () => renderView(logArticleView()) },
+    { path: '/logs', handler: () => renderView(logsView()) },
+    { path: '/logs/:id', handler: (params?: Record<string, string>) => {
+        const articleId = params?.id;
+        if (articleId) {
+            renderView(logArticleView(articleId));
+        } else {
+            renderView(logsView());
+        }
+    } },
     { path: '/contact', handler: () => renderView(contactView()) } 
 ];
 

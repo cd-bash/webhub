@@ -1,28 +1,41 @@
 import { createPixelGridBackground, createWrapper, writeParagraph, writeTitle } from "../utils";
-import { firstLogContent } from "../../content/logs/first-log";
+import { LogArticleMetadata } from "../../content/logs";
+import { getLogArticleById } from "../../content/logs/registry";
 import { ContentBlock, renderContentBlock } from "./log-block";
 
 export type LogArticleContentStructure = {
-    readonly header: headerContent;
+    readonly metadata: LogArticleMetadata;
+    readonly header: LogArticleHeader;
     readonly articleBlocks: ContentBlock[];
 }
 
-type headerContent = {
+export type LogArticleHeader = {
     title: string;
     subtitle: string;
     date: string;
-    heroVisual: string;
+    heroVisual?: string;
 }
 
 // ------------------------------------------------------------------------
 
-export function logArticleView() {
+export function logArticleView(articleId: string) {
     const page = document.createElement('div');
     const article = document.createElement('article');
     page.id = 'log-article';
 
-    article.appendChild(articleBody(firstLogContent.articleBlocks));
-    page.appendChild(header(firstLogContent.header));
+    // Get the article content by ID
+    const articleContent = getLogArticleById(articleId);
+    
+    if (!articleContent) {
+        // Handle article not found
+        const errorMessage = document.createElement('div');
+        errorMessage.innerHTML = '<h1>Article not found</h1><p>The requested article could not be found.</p>';
+        page.appendChild(errorMessage);
+        return page;
+    }
+
+    article.appendChild(articleBody(articleContent.articleBlocks));
+    page.appendChild(header(articleContent.header));
     page.appendChild(article);
     
     return page;
@@ -30,7 +43,7 @@ export function logArticleView() {
 
 // ------------------------------------------------------------------------
 
-function header(content: headerContent) {
+function header(content: LogArticleHeader) {
     const header = document.createElement('header');
     header.className = 'log-header';
 
@@ -44,7 +57,9 @@ function header(content: headerContent) {
     date.className = 'date';
 
     const heroVisual = document.createElement('img');
-    heroVisual.src = content.heroVisual;
+    if (content.heroVisual) {
+        heroVisual.src = content.heroVisual;
+    }
 
     const pixelGrid = createPixelGridBackground('top', {
         columns: 10,
