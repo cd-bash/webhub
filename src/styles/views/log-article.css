@@ -2,18 +2,9 @@
   header {
     position: relative;
     width: 100%;
-    min-height: 60vh;
     overflow: hidden;
-
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: var(--z-background);
-    }
+    padding-top: var(--space-desktop-top-safe);
+    background-color: var(--color-background-alt);
 
     .pixel-grid {
       position: absolute;
@@ -27,17 +18,16 @@
     #wrapper {
       position: relative;
       height: 100%;
-      min-height: 60vh;
       z-index: var(--z-content);
       
       display: flex;
-      justify-content: flex-end;
       align-items: center;
-      padding: 0 var(--space-lg);
+      padding: 0;
     }
 
     .title-container {
-      width: 50%;
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -70,7 +60,17 @@
     }
   }
 
-  article {
+  img.hero-visual {
+    position: relative;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    z-index: var(--z-background);
+    margin: 0;
+    display: block;
+  }
+
+  article.log {
     width: 100%;
     background-color: var(--color-background-alt);
 
@@ -99,6 +99,12 @@
       padding: var(--space-sm);
     }
 
+    a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     ul {
       list-style: disc;
       padding-left: var(--space-lg);
@@ -117,7 +123,7 @@
 @media (max-width: 1500px) {
   #log-article {
     header {
-      padding-top: var(--space-xl);
+      padding-top: var(--space-mobile-top-safe);
 
       #wrapper {
         justify-content: left;
@@ -139,13 +145,11 @@
   #log-article {
     header {
       padding-top: var(--space-mobile-top-safe);
-      min-height: 50vh;
 
       #wrapper {
         justify-content: flex-start;
         align-items: flex-start;
         padding: 0;
-        min-height: 50vh;
       }
 
       .title-container {

@@ -1,6 +1,9 @@
-import { LogArticleContentStructure } from '../../../views/logs/log-article';
+import { LogArticleContentStructure } from '../../../../views/logs';
+import { LogArticleMetadata } from '../../../logs';
+import { socials } from '../../../../components/socials';
 
-import HEADER_IMAGE from './assets/first-log-test-header.png';
+import THUMBNAIL from './assets/building-typescript-webapp_thumbnail.png';
+import HEADER_IMAGE from './assets/building-typescript-webapp_logHeader.png';
 
 import CORE_CODE_IMAGE from './assets/log-code-buildingWebsite-core.png';
 import VIEWS_CODE_IMAGE_A from './assets/log-code-buildingWebsite-view-layer-a.png';
@@ -11,12 +14,26 @@ import CONTENT_CODE_IMAGE from './assets/log-code-buildingWebsite-content.png';
 import COMPONENTS_CODE_IMAGE from './assets/log-code-buildingWebsite-components.png';
 import STYLES_CODE_IMAGE from './assets/log-code-buildingWebsite-styles.png';
 
+export const logMetadata: LogArticleMetadata = {
+    id: 'building-typescript-web-app',
+    title: 'Building a Modern Web Application with Pure TypeScript',
+    subtitle: 'A Minimalist Architecture Approach',
+    date: '2025-10-09',
+    excerpt: 'In an era of complex frameworks and numerous dependencies, I chose a different path for this website. Instead of using React, Vue, or Angular, I built a fully-featured web application primarily with TypeScript and Vite.',
+    tags: ['TypeScript', 'Web Development', 'Architecture', 'Minimalism'],
+    published: true,
+    heroVisual: THUMBNAIL,
+    readTime: '8 min read'
+};
 
-export const firstLogContent: LogArticleContentStructure = {
+// ------------------------------------------------------------------------
+
+export const logContent: LogArticleContentStructure = {
+    metadata: logMetadata,
     header: {
-        title: "Building a Modern Web Application with Pure TypeScript",
-        subtitle: "A Minimalist Architecture Approach",
-        date: "September 26 / 2025",
+        title: logMetadata.title,
+        subtitle: logMetadata.subtitle,
+        date: "October 9 / 2025",
         heroVisual: HEADER_IMAGE
     },
 
@@ -31,6 +48,7 @@ export const firstLogContent: LogArticleContentStructure = {
             type: 'paragraphs',
             data: [
                 "CD-Labs's new initiative prompted a complete overhaul of my website. My previous site, last updated in 2019, was built on WordPress using a theme builder.To maintain stability, extensive modifications were avoided. This decision was driven by the numerous plugins essential for WordPress functionality, which had already made the site slow and reliant on code I didn’t write.",
+                "Access the project's [GitHub repository](https://github.com/cd-bash/webhub) to explore the code in more detail and participate in discussions.",
             ]
         },
 
@@ -237,6 +255,16 @@ export const firstLogContent: LogArticleContentStructure = {
                 "Huge thanks to [@papshed](https://github.com/papshed) for the help in understanding the underlying principles and for providing support and peer reviews throughout the process.",
             ]
         },
+        {
+            type: 'title',
+            data: { level: 'h5', text: "CI/CD Setup" }
+        },
+        {
+            type: 'paragraphs',
+            data: [
+                "I'm really happy with how the CI/CD (Continuous Integration/Continuous Deployment) is set up for the website. Basically, whenever I update my main GitHub branch, it automatically kicks off a deployment. The system runs a bunch of tests to make sure the new changes don't mess anything up. If all the tests pass, GitHub builds the application and then pushes the latest updates straight to my domain server.",
+            ],
+        },
 
         //-----------------------------------------------------------------------
         {
@@ -251,5 +279,15 @@ export const firstLogContent: LogArticleContentStructure = {
                 "**CD**",
             ],
         }
-    ]
+    ],
+
+    callToAction: {
+        header: "Available on GitHub",
+        body: "This website's source code can be found on my GitHub. Feel free to explore and the repository!",
+        buttons: [
+            { text: "Follow Development", path: socials.github.url, styleType: "primary", contrastMode: 'light', target: '_blank' },
+            { text: "Contact me", path: "/contact", styleType: "secondary", contrastMode: 'light' },
+        ],
+        alignment: 'left',
+    }
 }

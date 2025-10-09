@@ -1,36 +1,67 @@
 import { createPixelGridBackground, createWrapper, writeParagraph, writeTitle } from "../utils";
-import { firstLogContent } from "../../content/logs/first-log";
+import { LogArticleMetadata } from "../../content/logs";
+import { getLogArticleById } from "../../content/logs/registry";
 import { ContentBlock, renderContentBlock } from "./log-block";
+import { CallToActionOptions, createPixelBannerCTA } from "../../components/call-to-action";
 
 export type LogArticleContentStructure = {
-    readonly header: headerContent;
+    readonly metadata: LogArticleMetadata;
+    readonly header: LogArticleHeader;
     readonly articleBlocks: ContentBlock[];
+    readonly callToAction?: CallToActionOptions;
 }
 
-type headerContent = {
+export type LogArticleHeader = {
     title: string;
     subtitle: string;
     date: string;
-    heroVisual: string;
+    heroVisual?: string;
 }
 
 // ------------------------------------------------------------------------
 
-export function logArticleView() {
+export function logArticleView(articleId: string) {
     const page = document.createElement('div');
     const article = document.createElement('article');
+    article.className = 'log';
     page.id = 'log-article';
 
-    article.appendChild(articleBody(firstLogContent.articleBlocks));
-    page.appendChild(header(firstLogContent.header));
+    const articleContent = getLogArticleById(articleId);
+    
+    if (!articleContent) {
+        // Handle article not found
+        const errorMessage = document.createElement('div');
+        errorMessage.innerHTML = '<h1>Article not found</h1><p>The requested article could not be found.</p>';
+        page.appendChild(errorMessage);
+        return page;
+    }
+
+    const heroVisual = document.createElement('img');
+    heroVisual.className = 'hero-visual';
+    if (articleContent.header.heroVisual) {
+        heroVisual.src = articleContent.header.heroVisual;
+    }
+
+    let cta: HTMLElement | undefined;
+    if (articleContent.callToAction) {
+        cta = createPixelBannerCTA(articleContent.callToAction);
+    }
+
+    article.appendChild(articleBody(articleContent.articleBlocks));
+    page.appendChild(header(articleContent.header));
+    page.appendChild(heroVisual);
     page.appendChild(article);
+
+    if (cta) {
+        page.appendChild(cta);
+    }
     
     return page;
 }
 
 // ------------------------------------------------------------------------
 
-function header(content: headerContent) {
+function header(content: LogArticleHeader) {
     const header = document.createElement('header');
     header.className = 'log-header';
 
@@ -43,8 +74,7 @@ function header(content: headerContent) {
     const date = writeParagraph(content.date);
     date.className = 'date';
 
-    const heroVisual = document.createElement('img');
-    heroVisual.src = content.heroVisual;
+    
 
     const pixelGrid = createPixelGridBackground('top', {
         columns: 10,
@@ -56,7 +86,6 @@ function header(content: headerContent) {
     titleContainer.appendChild(date);
     wrapper.appendChild(titleContainer);
 
-    header.appendChild(heroVisual);
     header.appendChild(pixelGrid);
     header.appendChild(wrapper);
 

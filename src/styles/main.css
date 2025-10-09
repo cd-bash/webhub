@@ -14,9 +14,11 @@
 @import './components/navigation.css';
 @import './components/call-to-action.css';
 @import './components/footer.css';
+@import './components/log-cards.css';
 
 /* Views */
 @import './views/home.css';
 @import './views/about.css';
 @import './views/contact.css';
+@import './views/logs.css';
 @import './views/log-article.css';
