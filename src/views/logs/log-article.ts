@@ -2,11 +2,13 @@ import { createPixelGridBackground, createWrapper, writeParagraph, writeTitle } 
 import { LogArticleMetadata } from "../../content/logs";
 import { getLogArticleById } from "../../content/logs/registry";
 import { ContentBlock, renderContentBlock } from "./log-block";
+import { CallToActionOptions, createPixelBannerCTA } from "../../components/call-to-action";
 
 export type LogArticleContentStructure = {
     readonly metadata: LogArticleMetadata;
     readonly header: LogArticleHeader;
     readonly articleBlocks: ContentBlock[];
+    readonly callToAction?: CallToActionOptions;
 }
 
 export type LogArticleHeader = {
@@ -21,9 +23,9 @@ export type LogArticleHeader = {
 export function logArticleView(articleId: string) {
     const page = document.createElement('div');
     const article = document.createElement('article');
+    article.className = 'log';
     page.id = 'log-article';
 
-    // Get the article content by ID
     const articleContent = getLogArticleById(articleId);
     
     if (!articleContent) {
@@ -34,9 +36,25 @@ export function logArticleView(articleId: string) {
         return page;
     }
 
+    const heroVisual = document.createElement('img');
+    heroVisual.className = 'hero-visual';
+    if (articleContent.header.heroVisual) {
+        heroVisual.src = articleContent.header.heroVisual;
+    }
+
+    let cta: HTMLElement | undefined;
+    if (articleContent.callToAction) {
+        cta = createPixelBannerCTA(articleContent.callToAction);
+    }
+
     article.appendChild(articleBody(articleContent.articleBlocks));
     page.appendChild(header(articleContent.header));
+    page.appendChild(heroVisual);
     page.appendChild(article);
+
+    if (cta) {
+        page.appendChild(cta);
+    }
     
     return page;
 }
@@ -56,10 +74,7 @@ function header(content: LogArticleHeader) {
     const date = writeParagraph(content.date);
     date.className = 'date';
 
-    const heroVisual = document.createElement('img');
-    if (content.heroVisual) {
-        heroVisual.src = content.heroVisual;
-    }
+    
 
     const pixelGrid = createPixelGridBackground('top', {
         columns: 10,
@@ -71,7 +86,6 @@ function header(content: LogArticleHeader) {
     titleContainer.appendChild(date);
     wrapper.appendChild(titleContainer);
 
-    header.appendChild(heroVisual);
     header.appendChild(pixelGrid);
     header.appendChild(wrapper);
 

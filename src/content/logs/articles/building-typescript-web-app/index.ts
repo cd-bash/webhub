@@ -1,7 +1,9 @@
 import { LogArticleContentStructure } from '../../../../views/logs';
 import { LogArticleMetadata } from '../../../logs';
+import { socials } from '../../../../components/socials';
 
-import HEADER_IMAGE from './assets/first-log-test-header.png';
+import THUMBNAIL from './assets/building-typescript-webapp_thumbnail.png';
+import HEADER_IMAGE from './assets/building-typescript-webapp_logHeader.png';
 
 import CORE_CODE_IMAGE from './assets/log-code-buildingWebsite-core.png';
 import VIEWS_CODE_IMAGE_A from './assets/log-code-buildingWebsite-view-layer-a.png';
@@ -16,11 +18,11 @@ export const logMetadata: LogArticleMetadata = {
     id: 'building-typescript-web-app',
     title: 'Building a Modern Web Application with Pure TypeScript',
     subtitle: 'A Minimalist Architecture Approach',
-    date: '2025-09-26',
+    date: '2025-10-09',
     excerpt: 'In an era of complex frameworks and numerous dependencies, I chose a different path for this website. Instead of using React, Vue, or Angular, I built a fully-featured web application primarily with TypeScript and Vite.',
     tags: ['TypeScript', 'Web Development', 'Architecture', 'Minimalism'],
     published: true,
-    heroVisual: HEADER_IMAGE, // Use imported image URL instead of string path
+    heroVisual: THUMBNAIL,
     readTime: '8 min read'
 };
 
@@ -31,7 +33,7 @@ export const logContent: LogArticleContentStructure = {
     header: {
         title: logMetadata.title,
         subtitle: logMetadata.subtitle,
-        date: "September 26 / 2025",
+        date: "October 9 / 2025",
         heroVisual: HEADER_IMAGE
     },
 
@@ -45,7 +47,8 @@ export const logContent: LogArticleContentStructure = {
         {
             type: 'paragraphs',
             data: [
-                "CD-Labs's new initiative prompted a complete overhaul of my website. My previous site, last updated in 2019, was built on WordPress using a theme builder.To maintain stability, extensive modifications were avoided. This decision was driven by the numerous plugins essential for WordPress functionality, which had already made the site slow and reliant on code I didn't write.",
+                "CD-Labs's new initiative prompted a complete overhaul of my website. My previous site, last updated in 2019, was built on WordPress using a theme builder.To maintain stability, extensive modifications were avoided. This decision was driven by the numerous plugins essential for WordPress functionality, which had already made the site slow and reliant on code I didn’t write.",
+                "Access the project's [GitHub repository](https://github.com/cd-bash/webhub) to explore the code in more detail and participate in discussions.",
             ]
         },
 
@@ -66,37 +69,12 @@ export const logContent: LogArticleContentStructure = {
         //-----------------------------------------------------------------------
         {
             type: 'title',
-            data: { level: 'h3', text: "**My four-layer** architectural approach" }
+            data: { level: 'h3', text: "Core **Architectural** Philosophy" }
         },
         {
             type: 'paragraphs',
             data: [
-                "I structured my website using four core layers:",
-            ]
-        },
-        {
-            type: 'bulletPoints', data: [
-                "**Components**: Reusable UI components that I create",
-                "**Content**: Text, images and all the data for the website",
-                "**Core** (Backend) : System functionality and tools",
-                "**Views** (Frontend): Manages routing and handles all visual components",
-            ]
-        },
-        {
-            type: 'paragraphs',
-            data: [
-                "This organization separates functionality from content and creates a system where each layer has a single responsibility.",
-            ]
-        },
-        {
-            type: 'title',
-            data: { level: 'h4', text: "**Core**" }
-        },
-        {
-            type: 'paragraphs',
-            data: [
-                "The core includes the event bus, router, and event handlers.",
-                "This setup enables modularity by using events to communicate between different parts of the application. Components can subscribe to events and respond accordingly, maintaining loose coupling while enabling complex interactions between different systems.",
+                "My website is structured with a clear separation of concerns, divided into four distinct layers.",
             ]
         },
         {
@@ -104,41 +82,86 @@ export const logContent: LogArticleContentStructure = {
             data: { src: CORE_CODE_IMAGE, alt: "Core code structure" }
         },
         {
-            type: 'title',
-            data: { level: 'h4', text: "**Views**" }
-        },
-        {
             type: 'paragraphs',
             data: [
-                "The views layer manages all visual aspects including pages, layout components, and utilities for the UI. Each page is built as a TypeScript function that returns HTML elements.",
+                "This layered approach assigns a distinct responsibility to each layer, promoting a maintainable and scalable codebase without relying on external frameworks."
             ]
-        },
-        {
-            type: 'codeImage',
-            data: { src: VIEWS_CODE_IMAGE_A, alt: "Views code structure A" }
-        },
-        {
-            type: 'codeImage',
-            data: { src: VIEWS_CODE_IMAGE_B, alt: "Views code structure B" }
-        },
-        {
-            type: 'codeImage',
-            data: { src: VIEWS_CODE_IMAGE_C, alt: "Views code structure C" }
-        },
-        {
-            type: 'codeImage',
-            data: { src: VIEWS_CODE_IMAGE_D, alt: "Views code structure D" }
         },
 
         //-----------------------------------------------------------------------
         {
             type: 'title',
-            data: { level: 'h4', text: "**Content**" }
+            data: { level: 'h3', text: "1. **Views Layer:** Page Organization and builder" }
         },
         {
             type: 'paragraphs',
             data: [
-                "All text, images, and data are stored separately from the views. This separation allows for easy content updates without touching the application logic.",
+                "The views layer manages page-level logic and composition. Each view includes a parent function that returns a complete HTML page, populated by smaller functions focused on individual page sections.",
+            ]
+        },
+        {
+            type: 'title',
+            data: { level: 'h5', text: "Key Benefits" }
+        },
+        {
+            type: 'bulletPoints',
+            data: [
+                "Each view is self-contained and testable",
+                "No JSX compilation needed - pure DOM manipulation",
+                "Type-safe component composition",
+            ]
+        },
+        {
+            type: 'codeImage',
+            data: { src: VIEWS_CODE_IMAGE_A, alt: "Views code structure - part A" }
+        },
+        {
+            type: 'paragraphs',
+            data: [
+                "A key principle was the separation of content from views. Each view function was designed to be entirely abstract and flexible, providing a content structure while fetching the appropriate data from the content layer.",
+                "Here’s for instance how the views dictate the content structure on the home page.",
+            ]
+        },
+        {
+            type: 'codeImage',
+            data: { src: VIEWS_CODE_IMAGE_B, alt: "Views code structure - part B" }
+        },
+        {
+            type: 'paragraphs',
+            data: [
+                "All views utilize shared utility functions to simplify and streamline page creation, ensuring easy management and consistent integration of diverse HTML elements across pages during modifications.",
+                "Examples of these functions and their application in page construction are provided below."
+            ]
+        },
+        {
+            type: 'codeImage',
+            data: { src: VIEWS_CODE_IMAGE_C, alt: "Views code structure - part C" }
+        },
+        {
+            type: 'codeImage',
+            data: { src: VIEWS_CODE_IMAGE_D, alt: "Views code structure - part D" }
+        },
+
+        //-----------------------------------------------------------------------
+        {
+            type: 'title',
+            data: { level: 'h3', text: "2. **Content Layer:** Data-Driven Architecture" }
+        },
+        {
+            type: 'paragraphs',
+            data: [
+                "Rather than hardcoding content directly into views and components, I adopted a content-first strategy, utilizing strongly-typed data structures."
+            ]
+        },
+        {
+            type: 'title',
+            data: { level: 'h5', text: "Key Benefits" }
+        },
+        { 
+            type: 'bulletPoints', data: [
+                "**Content/Presentation Separation**: Content changes don't require code changes",
+                "**Type Safety**: Content structure is validated at compile time",
+                "**Reusability**: Content can be consumed by multiple views or components",
             ]
         },
         {
@@ -146,18 +169,22 @@ export const logContent: LogArticleContentStructure = {
             data: { src: CONTENT_CODE_IMAGE, alt: "Content code structure" }
         },
         {
+            type: 'paragraphs',
+            data: [
+                "This approach allows me to modify page content without directly manipulating views. I use TypeScript files to compose content types. The content layer also stores assets like videos, images, and logos for composition."
+            ]
+        },
+
+        //-----------------------------------------------------------------------
+        {
             type: 'title',
-            data: { level: 'h4', text: "**Components**" }
+            data: { level: 'h3', text: "3. **Component System**: Custom Reusable Elements" }
         },
         {
             type: 'paragraphs',
             data: [
-                "I wrote my own reusable components with my own API. Navigation, buttons, cards and grids are all built as modular TypeScript functions.",
+                "Instead of relying on an existing component framework, I developed my own component utilities using TypeScript. My approach involves creating only the necessary components and maintaining their simplicity to facilitate future iterations and feature development.",
             ]
-        },
-        {
-            type: 'codeImage',
-            data: { src: COMPONENTS_CODE_IMAGE, alt: "Components code structure" }
         },
         {
             type: 'title',
@@ -165,17 +192,27 @@ export const logContent: LogArticleContentStructure = {
         },
         {
             type: 'bulletPoints', data: [
-                "**Modularity**: Each layer can be developed and tested independently.",
-                "**Maintainability**: Clear separation of concerns makes debugging and updates straightforward.",
-                "**Performance**: No framework overhead, faster load times.",
-                "**Customization**: Complete control over every aspect of the application.",
+                "**Modularity**: Components are self-contained and reusable across different views.",
+                "**Simplicity**: Designed to be minimal.",
+                "**Customizability**: Components come with options for diverse situations, allowing for tailored functionality.",
             ]
+        },
+        {
+            type: 'paragraphs',
+            data: [
+                "Components reside on their own architectural layer due to their inherent complexity and independence. They can be invoked and utilized by views, and populated with data sourced from the content layer.",
+                "I developed components for backgrounds, pixel-grids (generated on a canvas!), buttons, and navigation. They all come with options, making them customizable for different situations. For example, the call to action component utilizes factory functions with various options:",
+            ]
+        },
+        {
+            type: 'codeImage',
+            data: { src: COMPONENTS_CODE_IMAGE, alt: "Components code structure" }
         },
 
         //-----------------------------------------------------------------------
         {
             type: 'title',
-            data: { level: 'h3', text: "The **style** layer" }
+            data: { level: 'h3', text: "4. **CSS Architecture**: Component-Based Styling" }
         },
         {
             type: 'paragraphs',
@@ -218,6 +255,16 @@ export const logContent: LogArticleContentStructure = {
                 "Huge thanks to [@papshed](https://github.com/papshed) for the help in understanding the underlying principles and for providing support and peer reviews throughout the process.",
             ]
         },
+        {
+            type: 'title',
+            data: { level: 'h5', text: "CI/CD Setup" }
+        },
+        {
+            type: 'paragraphs',
+            data: [
+                "I'm really happy with how the CI/CD (Continuous Integration/Continuous Deployment) is set up for the website. Basically, whenever I update my main GitHub branch, it automatically kicks off a deployment. The system runs a bunch of tests to make sure the new changes don't mess anything up. If all the tests pass, GitHub builds the application and then pushes the latest updates straight to my domain server.",
+            ],
+        },
 
         //-----------------------------------------------------------------------
         {
@@ -228,9 +275,19 @@ export const logContent: LogArticleContentStructure = {
             type: 'paragraphs',
             data: [
                 "This post got a bit more technical than I planned! But honestly, I'm amazed at how powerful and easy to use TypeScript is on its own. I've worked professionally with frameworks like React, Angular, and Blazor, but for me and my needs, nothing beats the simplicity and vast capabilities of pure TypeScript. ",
-                "Of course, this is true on my static website that doesn't  rely on heavy features like a shop or accounts management. Nonetheless, it demonstrates that modern web development doesn't always require complex toolchains. Sometimes, the best tool is a deep understanding of the platform itself.",
+                "Of course, this is true on my static website that doesn’t  rely on heavy features like a shop or accounts management. Nonetheless, it demonstrates that modern web development doesn't always require complex toolchains. Sometimes, the best tool is a deep understanding of the platform itself.",
                 "**CD**",
             ],
         }
-    ]
+    ],
+
+    callToAction: {
+        header: "Available on GitHub",
+        body: "This website's source code can be found on my GitHub. Feel free to explore and the repository!",
+        buttons: [
+            { text: "Follow Development", path: socials.github.url, styleType: "primary", contrastMode: 'light', target: '_blank' },
+            { text: "Contact me", path: "/contact", styleType: "secondary", contrastMode: 'light' },
+        ],
+        alignment: 'left',
+    }
 }
