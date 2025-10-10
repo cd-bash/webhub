@@ -29,7 +29,6 @@ export function logArticleView(articleId: string) {
     const articleContent = getLogArticleById(articleId);
     
     if (!articleContent) {
-        // Handle article not found
         const errorMessage = document.createElement('div');
         errorMessage.innerHTML = '<h1>Article not found</h1><p>The requested article could not be found.</p>';
         page.appendChild(errorMessage);

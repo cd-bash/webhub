@@ -1,26 +1,64 @@
-import { router } from "./core/router";
-import {homeView, aboutView, buildViewBase, renderView, logsView, logArticleView, contactView} from "./views";
-import {buildNavigation} from "./components/navigation";
-import {changeLogoOnScroll} from "./components/navigation/logo";
+
+import { pageMeta } from "./content/meta/page-meta";
+import { generateLogArticleMeta } from "./content/meta/log-meta";
+import { homeView, aboutView, contactView, logsView, logArticleView, buildViewBase, renderView } from "./views";
+import { buildNavigation } from "./components/navigation";
+import { changeLogoOnScroll } from "./components/navigation/logo";
 import { buildFooter } from "./components/footer";
 
 
+
 const routes = [
-    { path: '', handler: () => renderView(homeView()) },
-    { path: '/about', handler: () => renderView(aboutView()) },
-    { path: '/logs', handler: () => renderView(logsView()) },
-    { path: '/logs/:id', handler: (params?: Record<string, string>) => {
-        const articleId = params?.id;
-        if (articleId) {
-            renderView(logArticleView(articleId));
-        } else {
-            renderView(logsView());
+    {
+        path: '',
+        handler: () => renderView(homeView()),
+        meta: pageMeta.home
+    },
+    {
+        path: '/about',
+        handler: () => renderView(aboutView()),
+        meta: pageMeta.about
+    },
+    {
+        path: '/logs',
+        handler: () => renderView(logsView()),
+        meta: pageMeta.logs
+    },
+    {
+        path: '/logs/:id',
+        handler: (params?: Record<string, string>) => {
+            const articleId = params?.id;
+            if (articleId) {
+                renderView(logArticleView(articleId));
+            } else {
+                renderView(logsView());
+            }
+        },
+        // meta is a function that takes params and returns PageMeta
+        meta: (params: Record<string, string>) => {
+            // We need to get the article metadata by id
+            // But we can't import getLogArticleById here without circular deps, so we pass params to the meta function
+            // The router will call this with params, and log-article.ts will handle meta update if needed
+            // We'll update this if needed after refactor
+            try {
+                const { getLogArticleById } = require('./content/logs/registry');
+                const article = getLogArticleById(params.id);
+                if (article) {
+                    return generateLogArticleMeta(article.metadata);
+                }
+            } catch (e) {}
+            return null;
         }
-    } },
-    { path: '/contact', handler: () => renderView(contactView()) } 
+    },
+    {
+        path: '/contact',
+        handler: () => renderView(contactView()),
+        meta: pageMeta.contact
+    }
 ];
 
-routes.forEach(route => router.registerRoute(route.path, route.handler));
+import { router } from "./core/router";
+routes.forEach(route => router.registerRoute(route.path, route.handler, route.meta));
 
 //-----------------------------------------------------------------------
 

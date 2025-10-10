@@ -15,10 +15,10 @@ export function metadataToLogCard(metadata: LogArticleMetadata): logCardContent 
 }
 
 function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
-  });
+  const [year, month, day] = dateString.split('-');
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  return `${monthNames[Number(month) - 1]} ${Number(day)}, ${year}`;
 }
