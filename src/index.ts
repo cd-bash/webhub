@@ -1,64 +1,67 @@
 
-import { pageMeta } from "./content/meta/page-meta";
-import { generateLogArticleMeta } from "./content/meta/log-meta";
 import { homeView, aboutView, contactView, logsView, logArticleView, buildViewBase, renderView } from "./views";
 import { buildNavigation } from "./components/navigation";
 import { changeLogoOnScroll } from "./components/navigation/logo";
 import { buildFooter } from "./components/footer";
-
-
+import { titleManager } from "./core/title-manager";
 
 const routes = [
     {
         path: '',
-        handler: () => renderView(homeView()),
-        meta: pageMeta.home
+        handler: () => {
+            titleManager.updateTitle('cd-labs');
+            renderView(homeView());
+        }
     },
     {
         path: '/about',
-        handler: () => renderView(aboutView()),
-        meta: pageMeta.about
+        handler: () => {
+            titleManager.updateTitle('About | cd-labs');
+            renderView(aboutView());
+        }
     },
     {
         path: '/logs',
-        handler: () => renderView(logsView()),
-        meta: pageMeta.logs
+        handler: () => {
+            titleManager.updateTitle('Logs | cd-labs');
+            renderView(logsView());
+        }
     },
     {
         path: '/logs/:id',
         handler: (params?: Record<string, string>) => {
             const articleId = params?.id;
             if (articleId) {
+                // Try to get article title for dynamic title
+                try {
+                    const { getLogArticleById } = require('./content/logs/registry');
+                    const article = getLogArticleById(articleId);
+                    if (article) {
+                        titleManager.updateTitle(`${article.metadata.title} | cd-labs`);
+                    } else {
+                        titleManager.updateTitle('Article | cd-labs');
+                    }
+                } catch (e) {
+                    titleManager.updateTitle('Article | cd-labs');
+                }
                 renderView(logArticleView(articleId));
             } else {
+                titleManager.updateTitle('Logs | cd-labs');
                 renderView(logsView());
             }
-        },
-        // meta is a function that takes params and returns PageMeta
-        meta: (params: Record<string, string>) => {
-            // We need to get the article metadata by id
-            // But we can't import getLogArticleById here without circular deps, so we pass params to the meta function
-            // The router will call this with params, and log-article.ts will handle meta update if needed
-            // We'll update this if needed after refactor
-            try {
-                const { getLogArticleById } = require('./content/logs/registry');
-                const article = getLogArticleById(params.id);
-                if (article) {
-                    return generateLogArticleMeta(article.metadata);
-                }
-            } catch (e) {}
-            return null;
         }
     },
     {
         path: '/contact',
-        handler: () => renderView(contactView()),
-        meta: pageMeta.contact
+        handler: () => {
+            titleManager.updateTitle('Contact | cd-labs');
+            renderView(contactView());
+        }
     }
 ];
 
 import { router } from "./core/router";
-routes.forEach(route => router.registerRoute(route.path, route.handler, route.meta));
+routes.forEach(route => router.registerRoute(route.path, route.handler));
 
 //-----------------------------------------------------------------------
 

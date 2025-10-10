@@ -28,7 +28,6 @@ src/            # Source code
 components/     # Reusable UI components
 content/        # Content management
 core/           # Core application logic
-heads/          # Heads HTML tags
 styles/         # CSS organization
 views/          # Page components
 ```

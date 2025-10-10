@@ -1,23 +1,18 @@
 ﻿import { EVENT_BUS } from "./";
 import { buildErrorPage } from "../views/error404.ts";
-import { seoManager } from "../heads/seo-manager";
 
-
-export type RouteMeta = any; 
-type RouteHandler = (params?: Record<string, string>, meta?: RouteMeta) => void;
-
-
+type RouteHandler = (params?: Record<string, string>) => void;
 
 class Router {
-    private routes: Map<string, { handler: RouteHandler; meta?: RouteMeta }> = new Map();
+    private routes: Map<string, RouteHandler> = new Map();
 
     constructor() {
         window.addEventListener('popstate', () => this.handleRoute(window.location.pathname));
         EVENT_BUS.subscribe('page_navigation', (data: { pageReference: string }) => this.navigate(data.pageReference));
     }
 
-    public registerRoute(path: string, handler: RouteHandler, meta?: RouteMeta) {
-        this.routes.set(path, { handler, meta });
+    public registerRoute(path: string, handler: RouteHandler) {
+        this.routes.set(path, handler);
     }
 
     public navigate(path: string) {
@@ -31,18 +26,10 @@ class Router {
 
     public handleRoute(path: string) {
         const normalizedPath = path === '' || path === '/' ? '' : path;
-        for (const [route, { handler, meta }] of this.routes.entries()) {
+        for (const [route, handler] of this.routes.entries()) {
             const match = this.matchRoute(route, normalizedPath);
             if (match) {
-                let metaToApply = meta;
-
-                if (typeof meta === 'function') {
-                    metaToApply = meta(match.params);
-                }
-                if (metaToApply) {
-                    seoManager.updatePageMeta(metaToApply);
-                }
-                handler(match.params, metaToApply);
+                handler(match.params);
                 return;
             }
         }
