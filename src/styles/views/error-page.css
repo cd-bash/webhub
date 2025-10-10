@@ -1,0 +1,25 @@
+#error-404-page, #article-not-found {
+    min-height: 90vh;
+    background-color: var(--color-background-alt);
+
+    #wrapper {
+        padding-top: var(--space-mobile-top-safe);
+    }
+
+    article {
+        text-align: center;
+        padding: 4rem 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.125rem;
+        text-align: center;
+        color: var(--color-text-secondary);
+    }
+}

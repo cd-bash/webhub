@@ -29,9 +29,7 @@ export function logArticleView(articleId: string) {
     const articleContent = getLogArticleById(articleId);
     
     if (!articleContent) {
-        const errorMessage = document.createElement('div');
-        errorMessage.innerHTML = '<h1>Article not found</h1><p>The requested article could not be found.</p>';
-        page.appendChild(errorMessage);
+        page.appendChild(articleNotFound());
         return page;
     }
 
@@ -106,4 +104,20 @@ function articleBody(blocks: ContentBlock[]) {
 
     article.appendChild(wrapper);
     return article;
+}
+
+function articleNotFound() {
+    const errorMessage = document.createElement('div');
+    errorMessage.id = 'article-not-found';
+
+    const wrapper = createWrapper();
+
+    const title = writeTitle('h1', 'Article Not Found');
+    const message = writeParagraph('The requested article could not be found.');
+
+    wrapper.appendChild(title);
+    wrapper.appendChild(message);
+    errorMessage.appendChild(wrapper);
+
+    return errorMessage;
 }
