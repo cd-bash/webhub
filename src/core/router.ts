@@ -1,6 +1,11 @@
 ﻿import { EVENT_BUS } from "./";
 import { buildErrorPage } from "../views/error404.ts";
 
+// Declare gtag global function
+declare global {
+    function gtag(...args: any[]): void;
+}
+
 type RouteHandler = (params?: Record<string, string>) => void;
 
 class Router {
@@ -30,10 +35,34 @@ class Router {
             const match = this.matchRoute(route, normalizedPath);
             if (match) {
                 handler(match.params);
+                
+                // Track page view in Google Analytics
+                this.trackPageView(path);
                 return;
             }
         }
         buildErrorPage();
+        this.trackPageView(path, '404 - Page Not Found');
+    }
+
+    private trackPageView(path: string, title?: string) {
+        // Make sure gtag is available
+        if (typeof gtag !== 'undefined') {
+            const pageTitle = title || document.title;
+            
+            gtag('config', 'G-D1LL1BJ7ZR', {
+                page_title: pageTitle,
+                page_location: window.location.href,
+                page_path: path
+            });
+            
+            // Also send a page_view event
+            gtag('event', 'page_view', {
+                page_title: pageTitle,
+                page_location: window.location.href,
+                page_path: path
+            });
+        }
     }
 
     private matchRoute(route: string, path: string) {
