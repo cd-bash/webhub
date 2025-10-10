@@ -2,6 +2,7 @@ import { LogArticleContentStructure } from '../../../../views/logs';
 import { LogArticleMetadata } from '../../../logs';
 import { socials } from '../../../../components/socials';
 
+import OG_IMAGE from './assets/building-typescript-webapp_og-img.png';
 import THUMBNAIL from './assets/building-typescript-webapp_thumbnail.png';
 import HEADER_IMAGE from './assets/building-typescript-webapp_logHeader.png';
 
@@ -23,6 +24,7 @@ export const logMetadata: LogArticleMetadata = {
     tags: ['TypeScript', 'Web Development', 'Architecture', 'Minimalism'],
     published: true,
     heroVisual: THUMBNAIL,
+    ogImage: OG_IMAGE,
     readTime: '8 min read'
 };
 

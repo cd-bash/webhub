@@ -5,7 +5,6 @@
 
   section {
     min-height: 100vh;
-    height: 100vh;
   }
 
   .hook {
@@ -19,8 +18,8 @@
 
     article {
       margin: 0 clamp(5%, 15vw, 15%);
-      padding: 0;
-      height: 100vh;
+      padding: var(--space-desktop-top-safe) 0;
+      min-height: 100dvh; /* Use dynamic viewport height for better mobile support */
       z-index: var(--z-content);
       
       display: flex;
@@ -45,7 +44,7 @@
     overflow: hidden;
     
     article {
-      height: 100vh;
+      min-height: 100vh;
       z-index: var(--z-content);
     }
 
@@ -77,6 +76,16 @@
 }
 
 
+/* Mobile responsiveness - Add height constraints for very short screens */
+@media (max-height: 800px) {
+  #home-page {
+    .hook article {
+      min-height: auto;
+      padding: var(--space-mobile-top-safe) 0 !important;
+    }
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 @media (max-width: 1500px) {
   #home-page {
@@ -94,7 +103,6 @@
     .content-section {
       article {
         width: 70%;
-        padding: 0;
         justify-content: start;
         margin-top: var(--space-xl);
       }
@@ -136,7 +144,6 @@
     .content-section {
       article {
         width: 100%;
-        padding: 0;
       }
 
       .buttons-container {

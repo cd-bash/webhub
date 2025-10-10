@@ -13,6 +13,7 @@ export type LogArticleMetadata = {
     tags?: string[];
     published: boolean;
     heroVisual?: string;
+    ogImage?: string;
     readTime?: string;
 }
 

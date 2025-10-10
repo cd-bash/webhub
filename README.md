@@ -10,6 +10,7 @@ My goal was to build a modern, minimalist web application built with pure TypeSc
 - **Component-Based** - Modular TypeScript components for reusability
 - **Dynamic Routing** - Client-side routing system
 - **Performance Optimized** - Minimal bundle size and fast loading
+- **SEO Ready** - Automatic sitemap and robots.txt generation
 - **CI/CD** - The *main* branch is automatically deployed on changes
 
 ### Tech Stack
