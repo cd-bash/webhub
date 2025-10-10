@@ -55,6 +55,13 @@ body {
 @media (max-width: 1500px) {
   #about-page {
     .first-section {
+      padding: var(--space-mobile-top-safe) 0 0 0;
+
+      article {
+        padding: var(--space-lg) 0;
+        min-height: auto;
+      }
+
       img {
         bottom: -15%;
         left: calc(100% / 2 + 10vw); 
