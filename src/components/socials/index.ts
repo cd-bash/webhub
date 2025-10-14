@@ -1,6 +1,7 @@
 import GITHUB_ICON from './assets/github-icon.svg';
 import LINKEDIN_ICON from './assets/linkedin-icon.svg';
 import INSTAGRAM_ICON from './assets/instagram-icon.svg';
+import X_ICON from './assets/x-icon.svg';
 
 export const socials = {
     github: {
@@ -18,6 +19,11 @@ export const socials = {
         url: 'https://www.instagram.com/cd.oucet/',
         iconSrc: INSTAGRAM_ICON,
     },
+    x: {
+        name: 'X',
+        url: 'https://x.com/cdlabsdev',
+        iconSrc: X_ICON,
+    }
 }
 
 //-----------------------------------------------------------------------
