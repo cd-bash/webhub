@@ -15,6 +15,7 @@
 @import './components/call-to-action.css';
 @import './components/footer.css';
 @import './components/log-cards.css';
+@import './components/clickable-image.css';
 
 /* Views */
 @import './views/home.css';

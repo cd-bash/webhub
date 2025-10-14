@@ -1,0 +1,58 @@
+.clickable-image {
+  margin-bottom: var(--space-md);
+}
+
+.clickable-image .image-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.clickable-image .image-wrapper img {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  display: block;
+}
+
+.clickable-image .image-wrapper img.clickable {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clickable-image .image-wrapper img.clickable:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.clickable-image .image-wrapper .hover-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-background);
+  color: white;
+  text-decoration: underline var(--color-primary) 2px;
+  text-underline-offset: 5px;
+  padding: 8px 16px 13px 16px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.clickable-image .image-wrapper.clickable-wrapper:hover .hover-caption {
+  opacity: 1;
+}
+
+.clickable-image .caption {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: var(--space-xs);
+  font-style: italic;
+}

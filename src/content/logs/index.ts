@@ -9,12 +9,9 @@ export type LogArticleMetadata = {
     title: string;
     subtitle: string;
     date: string;
-    excerpt: string;
-    tags?: string[];
     published: boolean;
     heroVisual?: string;
-    ogImage?: string;
-    readTime?: string;
+    tags?: string[];
 }
 
 export const logsContent: logsContentStructure = {
