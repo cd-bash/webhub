@@ -31,12 +31,10 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 0;
       
       h1, h2, p {
         text-align: left;
         text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-        
       }
 
       h1 {
@@ -60,6 +58,10 @@
     }
   }
 
+  #log-article {
+    position: relative;
+  }
+
   img.hero-visual {
     position: relative;
     width: 100%;
@@ -71,12 +73,21 @@
   }
 
   article.log {
-    width: 100%;
     background-color: var(--color-background-alt);
 
-    #wrapper {
-      max-width: 900px;
+    .log-article-body {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-xl);
+      max-width: 1200px;
+      margin: 0 auto;
       padding: var(--space-xl) 0;
+    }
+
+    #wrapper {
+      flex: 1;
+      max-width: 800px;
+      padding: 0;
     }
 
     .intro p {
@@ -141,6 +152,54 @@
       }
     }
   }
+
+  #article-summary {
+    flex: 0 0 300px;
+    position: sticky;
+    top: var(--space-desktop-top-safe);
+    height: fit-content;
+    max-height: calc(100vh - var(--space-desktop-top-safe) - var(--space-xl));
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc-item {
+      margin: 0;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 5px 0 5px 15px;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: var(--text-xs);
+      border-left: 1px solid var(--color-text-secondary);
+      transition: border-color 0.2s cubic-bezier(.4,0,.2,1);
+      transition: color 0.2s cubic-bezier(.4,0,.2,1), font-weight 0.2s cubic-bezier(.4,0,.2,1);
+    }
+
+    .toc-link:hover {
+      color: var(--color-text);
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .toc-link.active {
+      color: var(--color-primary);
+      font-weight: 500;
+      border-left-color: var(--color-primary);
+    }
+    
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 
 
@@ -162,6 +221,15 @@
           text-align: left;
         }
       }
+    }
+
+    article.log .log-article-body {
+      flex-direction: column;
+      max-width: 900px;
+    }
+
+    #article-summary {
+      display: none;
     }
   }
 }

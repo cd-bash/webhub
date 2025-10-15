@@ -50,7 +50,7 @@ To further enrich the scene with depth and meaning, beyond the grid and the CD l
 
 ![View of the 3D laser reader with its laser effect](LASER_IMAGE){noclick}
 
-The model, a hybrid of a CD and vinyl reader, moves along its own rail and features a laser effect. This effect was achieved using intricate geometry nodes. I admit I was unsure how to approach this particular problem and heavily relied on two tutorials by BLANK and BLANK to get the desired result.
+The model, a hybrid of a CD and vinyl reader, moves along its own rail and features a laser effect. This effect was achieved using intricate geometry nodes. I admit I was unsure how to approach this particular problem and tweaked over this [tutorial](https://www.youtube.com/watch?v=Pw5EgBZULJU) to get the desired result. 
 
 To further enhance the scene's complexity, I incorporated falling cables, also generated through geometry nodes (again, I know). These cables interact with and attach to several simple cubes positioned out of the cameras' view.
 

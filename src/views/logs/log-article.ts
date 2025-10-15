@@ -2,6 +2,7 @@ import { createPixelGridBackground, createWrapper, writeParagraph, writeTitle } 
 import { LogArticleMetadata } from "../../content/logs";
 import { getLogArticleById } from "../../content/logs/registry";
 import { ContentBlock, renderContentBlock } from "./log-block";
+import { articleSummary } from "./article-summary";
 import { CallToActionOptions, createPixelBannerCTA } from "../../components/call-to-action";
 
 export type LogArticleContentStructure = {
@@ -45,9 +46,11 @@ export function logArticleView(articleId: string) {
     }
 
     article.appendChild(articleBody(articleContent.articleBlocks));
+    
     page.appendChild(header(articleContent.header));
     page.appendChild(heroVisual);
     page.appendChild(article);
+    
 
     if (cta) {
         page.appendChild(cta);
@@ -94,6 +97,7 @@ function articleBody(blocks: ContentBlock[]) {
     article.className = 'log-article-body';
 
     const wrapper = createWrapper();
+    const summary = articleSummary();
 
     blocks.forEach(block => {
         const element = renderContentBlock(block);
@@ -103,6 +107,8 @@ function articleBody(blocks: ContentBlock[]) {
     });
 
     article.appendChild(wrapper);
+    article.appendChild(summary);
+    
     return article;
 }
 
