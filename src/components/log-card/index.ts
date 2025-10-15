@@ -4,8 +4,6 @@ export type logCardContent = {
   title: string;
   date: string;
   picture: string;
-  excerpt?: string;
-  readTime?: string;
   id?: string;
 };
 

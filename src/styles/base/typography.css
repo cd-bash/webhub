@@ -36,7 +36,6 @@ h6 {
   font-family: var(--font-secondary);
   font-size: var(--text-lg);
   font-weight: 600;
-  text-transform: lowercase;
   color: var(--color-primary);
   margin-bottom: var(--space-sm);
 }
