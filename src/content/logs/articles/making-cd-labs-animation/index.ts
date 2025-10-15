@@ -1,6 +1,7 @@
 import { LogArticleContentStructure } from '../../../../views/logs';
 import { LogArticleMetadata } from '../../../logs';
 import { parseMarkdownArticle } from '../../../../views/utils/markdown-parser';
+import { socials } from '../../../../components/socials';
 
 import articleMarkdown from './article.md?raw';
 
@@ -28,17 +29,28 @@ export const logMetadata: LogArticleMetadata = {
 
 // ------------------------------------------------------------------------
 
-export const logContent: LogArticleContentStructure = parseMarkdownArticle(articleMarkdown, {
-    metadata: logMetadata,
-    headerImage: HEADER_IMAGE,
-    assets: {
-        STORYBOARD_IMAGE,
-        THE_GRID_IMAGE,
-        THE_GRID_NODES_IMAGE,
-        CD_LOGO_IMAGE,
-        CD_LOGO_NODES_IMAGE,
-        LASER_IMAGE,
-        CABLES_IMAGE,
-        FINAL_IMAGE,
-    }
-});
+export const logContent: LogArticleContentStructure = {
+    ...parseMarkdownArticle(articleMarkdown, {
+        metadata: logMetadata,
+        headerImage: HEADER_IMAGE,
+        assets: {
+            STORYBOARD_IMAGE,
+            THE_GRID_IMAGE,
+            THE_GRID_NODES_IMAGE,
+            CD_LOGO_IMAGE,
+            CD_LOGO_NODES_IMAGE,
+            LASER_IMAGE,
+            CABLES_IMAGE,
+            FINAL_IMAGE,
+        }
+    }),
+    callToAction: {
+            header: "Save your progress",
+            body: "Don't lose your place in the story. Follow along for **development checkpoints**, **sneak peeks**, and insights into CD's **design process**.",
+            buttons: [
+                { text: "Follow on Instagram", path: socials.instagram.url, styleType: "primary", contrastMode: 'light', target: '_blank' },
+                { text: "See logs", path: "/logs", styleType: "secondary", contrastMode: 'light' }
+            ],
+            alignment: 'right'
+    },
+};
