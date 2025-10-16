@@ -96,6 +96,19 @@
       pointer-events: none;
     }
   }
+
+  .language-switcher {
+    position: fixed;
+    top: 55px;
+    right: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    z-index: var(--z-overlay);
+    
+  }
 }
 
 body.mobile-menu-open .main-logo p {

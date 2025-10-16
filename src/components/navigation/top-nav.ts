@@ -1,4 +1,5 @@
 import { LinkItem } from "./";
+import { buildLanguageSwitcher } from "./language-switcher";
 import { renderMainLogo } from "./logo";
 
 //-----------------------------------------------------------------------
@@ -26,6 +27,7 @@ export function buildTopNav(links: LinkItem[]) {
     barBox.appendChild(ul);
     topNav.appendChild(renderMainLogo());
     topNav.appendChild(barBox);
+    topNav.appendChild(buildLanguageSwitcher());
     return topNav
 }
 
