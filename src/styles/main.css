@@ -16,6 +16,7 @@
 @import './components/footer.css';
 @import './components/log-cards.css';
 @import './components/clickable-image.css';
+@import './components/language-switcher.css';
 
 /* Views */
 @import './views/home.css';
