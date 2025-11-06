@@ -33,7 +33,6 @@
           0 4px 8px rgba(0, 0, 0, 0.5);
         font-size: var(--text-base);
         max-width: min(630px, 80vw);
-        margin-top: var(--space-xl);
         margin-bottom: var(--space-sm);
       }
     }
