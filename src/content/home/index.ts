@@ -10,10 +10,10 @@ import PHILOSOPHY_VIDEO_MP4 from './assets/cd-labs-philosophy-animation.mp4';
 import PHILOSOPHY_VIDEO_MOBILE_WEBM from './assets/cd-labs-philosophy-mobile-animation.webm';
 import PHILOSOPHY_VIDEO_MOBILE_MP4 from './assets/cd-labs-philosophy-mobile-animation.mp4';
 
-import TEASER_VIDEO_WEBM from './assets/cd-labs-teaser-animation.webm';
-import TEASER_VIDEO_MP4 from './assets/cd-labs-teaser-animation.mp4';
-import TEASER_VIDEO_MOBILE_WEBM from './assets/cd-labs-teaser-mobile-animation.webm';
-import TEASER_VIDEO_MOBILE_MP4 from './assets/cd-labs-teaser-mobile-animation.mp4';
+import TEASER_VIDEO_WEBM from './assets/cd-labs-shower-ui-animation.webm';
+import TEASER_VIDEO_MP4 from './assets/cd-labs-shower-ui-animation.mp4';
+import TEASER_VIDEO_MOBILE_WEBM from './assets/cd-labs-shower-ui-mobile-animation.webm';
+import TEASER_VIDEO_MOBILE_MP4 from './assets/cd-labs-shower-ui-mobile-animation.mp4';
 
 import FOUNDER_VIDEO_WEBM from './assets/cd-labs-founder-animation.webm';
 import FOUNDER_VIDEO_MP4 from './assets/cd-labs-founder-animation.mp4';
@@ -45,7 +45,7 @@ export const homePageContent: HomePageContentStructure = {
         },
 
         introTitle: "Game Design Philosophy",
-        header: "Games that respect <span class='highlight'>your time.</span>",
+        header: "Games that respect **your time**.",
         
         paragraphs: [
             "I believe gaming should be an escape, not a **second job**. But as games have gotten bigger and more demanding, it's become harder to find the time to even **finish one**.",
@@ -70,16 +70,17 @@ export const homePageContent: HomePageContentStructure = {
         },
 
         introTitle: "The First Experience is Taking Shape",
-        header: "Project **Aqua**",
+        header: "Shower **UI**",
 
         paragraphs: [
-            "Inspired by the frustrations of **everyday bad design**, Aqua places you in a sleek testing facility. Your mission: master a series of deceptively **simple shower prototypes**.",
+            "Inspired by the frustrations of **everyday bad design**, Shower UI places you in a sleek testing facility. Your mission: master a series of deceptively **simple shower prototypes**.",
             "In this fast-paced puzzler, can you solve one of design's most infuriating problems -> **the shower interface**, and calibrate each prototype?",
             "<b>A sharp puzzle and a fresh perspective distilled into a single, focused game.</b"
         ],
 
         buttons: [
-            { text: "Follow Development", path: socials.instagram.url, styleType: "primary", contrastMode: 'dark', target: '_blank' }
+            { text: "Read More", path: "/logs/introducing-shower-ui", styleType: "primary", contrastMode: 'dark' },
+            { text: "Follow Development", path: socials.instagram.url, styleType: "secondary", contrastMode: 'dark', target: '_blank' }
         ],
 
         alignment: 'right'
